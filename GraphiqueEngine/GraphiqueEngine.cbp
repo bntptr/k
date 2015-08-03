@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GraphiqueEngine" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/GraphiqueEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="./include" />
+					<Add directory="../../../Sources/irrlicht-1.6.1/include" />
+				</Compiler>
+				<Linker>
+					<Add library="lib/liblibkutility.so" />
+					<Add library="lib/libkadriciel.a" />
+					<Add library="Irrlicht" />
+					<Add library="GL" />
+					<Add library="GLU" />
+					<Add library="Xxf86vm" />
+					<Add library="Xext" />
+					<Add library="X11" />
+					<Add directory="lib" />
+					<Add directory="../../../Sources/irrlicht-1.6.1/lib/linux" />
+					<Add directory="/usr/X11R6/lib$(LIBSELECT)" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/GraphiqueEngine" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="./include" />
+		</Compiler>
+		<Linker>
+			<Add library="lib/libkadriciel.a" />
+			<Add library="lib/liblibkutility.so" />
+			<Add directory="./lib" />
+		</Linker>
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Business/BusinessEntity.h" />
+		<Unit filename="src/Business/BusinessInterface.h" />
+		<Unit filename="src/Business/BusinessService.h" />
+		<Unit filename="src/Business/GroundEntity.cpp" />
+		<Unit filename="src/Business/GroundFactory.h" />
+		<Unit filename="src/Business/IGroundEntity.h" />
+		<Unit filename="src/Business/IPlayerEntity.h" />
+		<Unit filename="src/Business/IPopulationEntity.h" />
+		<Unit filename="src/Business/ISkyEntity.h" />
+		<Unit filename="src/Business/SkyEntity.cpp" />
+		<Unit filename="src/GraphiqueEngine.h" />
+		<Unit filename="src/GraphiqueEngineFactory.h" />
+		<Unit filename="src/IGraphiqueEngine.h" />
+		<Unit filename="src/View/Camera/Camera.h" />
+		<Unit filename="src/View/Camera/ICamera.h" />
+		<Unit filename="src/View/Environnement/Environnement.h" />
+		<Unit filename="src/View/Environnement/IEnvironnement.h" />
+		<Unit filename="src/View/EventReceiver/IEventReceiverView.h" />
+		<Unit filename="src/View/IView.h" />
+		<Unit filename="src/View/Player/IPlayerView.h" />
+		<Unit filename="src/View/Player/PlayerView.h" />
+		<Unit filename="src/View/Population/IPopulationView.h" />
+		<Unit filename="src/View/Population/PopulationView.h" />
+		<Unit filename="src/View/Sky/ISkyView.h" />
+		<Unit filename="src/View/Sky/SkyView.h" />
+		<Unit filename="src/View/Terrain/ITerrainView.h" />
+		<Unit filename="src/View/Terrain/TerrainView.h" />
+		<Unit filename="src/View/View.cpp" />
+		<Unit filename="src/View/View.h" />
+		<Unit filename="src/View/ViewConfig.h" />
+		<Unit filename="src/View/ViewEventReceiver.h" />
+		<Unit filename="src/View/ViewInterface.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

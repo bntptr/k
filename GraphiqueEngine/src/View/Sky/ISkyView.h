@@ -1,0 +1,22 @@
+#ifndef ISKYVIEW_H
+#define ISKYVIEW_H
+
+#include <irrlicht.h>
+
+#include "../../Business/ISkyEntity.h"
+
+namespace graphique
+{
+    class ISkyView
+    {
+    public:
+        ISkyView(){};
+        virtual ~ISkyView(){};
+
+        virtual scene::ISceneNode* getSkyBox()=0;
+        virtual scene::ISceneNode* getSkyDome()=0;
+        virtual bool draw()=0;
+    };
+} // graphique
+
+#endif
