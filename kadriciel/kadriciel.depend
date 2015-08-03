@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1438116741 source:/home/ubuntu/Workspaces/Essais/EssaiSoft/kadriciel/main.cpp
+
+1438117365 source:/home/ubuntu/Workspaces/Essais/EssaiSoft/kadriciel/lib.c
+	"dll.h"
+
+1438117383 /home/ubuntu/Workspaces/Essais/EssaiSoft/kadriciel/dll.h
+
