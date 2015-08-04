@@ -19,7 +19,7 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            //ViewEventReceiver *receiver;
+            ViewEventReceiver *receiver;
             IEnvironnement *environnement;
             ICamera *camera;
             ITerrainView *terrain;
@@ -100,7 +100,7 @@ namespace graphique
             /**
              *  Exemple Terrain Rendering
              */
-            int runExemple() {
+            int run() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -112,12 +112,12 @@ namespace graphique
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
                 // create event receiver
-                ViewEventReceiver receiver(
+                this->receiver = new ViewEventReceiver(
                     terrain->getTerrain(),
                     sky->getSkyBox(),
                     sky->getSkyDome()
                 );
-                device->setEventReceiver(&receiver);
+                device->setEventReceiver(this->receiver);
 
                 /*
                 That's it, draw everything.
@@ -158,7 +158,7 @@ namespace graphique
 ////////////////////////////////////////////////////////////////////////////////
             }
 
-            int run() {
+            int runExemple() {
                 /*using namespace irr;
 
                 using namespace core;

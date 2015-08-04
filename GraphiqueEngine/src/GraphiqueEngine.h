@@ -3,7 +3,7 @@
 
 #include "IGraphiqueEngine.h"
 #include "GraphiqueEngineFactory.h"
-#include "View/ViewEventReceiver.h"
+//#include "View/ViewEventReceiver.h"
 
 class IController;
 
@@ -37,7 +37,7 @@ namespace graphique
             BusinessInterface *business;
             IView *view;
             IController *controller;
-            ViewEventReceiver *eventReceiver;
+            //ViewEventReceiver *eventReceiver;
         private:
     };
 
@@ -58,7 +58,7 @@ namespace graphique
     bool GraphiqueEngine::run()
     {
         if (this->view) {
-            this->view->runExemple();
+            this->view->run();
         }
         return true;
     }
