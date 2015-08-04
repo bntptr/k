@@ -2,6 +2,12 @@
 #define BUSINESSSERVICE_H
 
 #include "BusinessInterface.h"
+#include "BusinessFactory.h"
+
+#include "GroundFactory.h"
+#include "SkyFactory.h"
+#include "PopulationFactory.h"
+#include "PlayerFactory.h"
 
 namespace graphique
 {
@@ -11,8 +17,18 @@ namespace graphique
             BusinessService(){};
             ~BusinessService(){};
 
-            BusinessEntity* loadBusinessEntity(){
-                BusinessEntity *entity = new BusinessEntity();
+            IBusinessEntity* loadBusinessEntity(){
+                IGroundEntity *ground = GroundFactory::createEntity();
+                ISkyEntity *sky = SkyFactory::createEntity();
+                IPopulationEntity *population = PopulationFactory::createEntity();
+                IPlayerEntity *player = PlayerFactory::createEntity();
+
+                IBusinessEntity *entity = BusinessFactory::createEntity(
+                    player,
+                    ground,
+                    sky,
+                    population
+                );
                 return entity;
             }
             bool loadSceneScreen();

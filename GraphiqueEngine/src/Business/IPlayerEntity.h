@@ -5,7 +5,7 @@ namespace graphique
 {
     class IPlayerEntity
     {
-    public:
+        public:
     };
 } // business
 

@@ -1,31 +1,34 @@
 #ifndef BUSINESSENTITY_H
 #define BUSINESSENTITY_H
 
-#include "IGroundEntity.h"
-#include "ISkyEntity.h"
-#include "IPopulationEntity.h"
-#include "IPlayerEntity.h"
+#include "IBusinessEntity.h"
 
 namespace graphique
 {
-    class BusinessEntity
+    class BusinessEntity : public IBusinessEntity
     {
         public:
+            BusinessEntity(){
+                this->thisInterface = this;
+            };
+            ~BusinessEntity(){};
             IGroundEntity* getGround();
             ISkyEntity* getSky();
             IPopulationEntity* getPopulation();
             IPlayerEntity* getPlayer();
 
-            BusinessEntity* setGround(IGroundEntity *ground);
-            BusinessEntity* setSky(ISkyEntity *sky);
-            BusinessEntity* setPopulation(IPopulationEntity *population);
-            BusinessEntity* setPlayer(IPlayerEntity *player);
+            IBusinessEntity* setGround(IGroundEntity *ground);
+            IBusinessEntity* setSky(ISkyEntity *sky);
+            IBusinessEntity* setPopulation(IPopulationEntity *population);
+            IBusinessEntity* setPlayer(IPlayerEntity *player);
 
         protected:
             IGroundEntity *ground;
             ISkyEntity *sky;
             IPopulationEntity *population;
             IPlayerEntity *player;
+
+            IBusinessEntity *thisInterface;
     };
 
     IGroundEntity* BusinessEntity::getGround()
@@ -48,28 +51,28 @@ namespace graphique
         return this->player;
     }
 
-    BusinessEntity* BusinessEntity::setGround(IGroundEntity *ground)
+    IBusinessEntity* BusinessEntity::setGround(IGroundEntity *ground)
     {
         this->ground = ground;
-        return this;
+        return thisInterface;
     }
 
-    BusinessEntity* BusinessEntity::setSky(ISkyEntity *sky)
+    IBusinessEntity* BusinessEntity::setSky(ISkyEntity *sky)
     {
         this->sky = sky;
-        return this;
+        return thisInterface;
     }
 
-    BusinessEntity* BusinessEntity::setPopulation(IPopulationEntity *population)
+    IBusinessEntity* BusinessEntity::setPopulation(IPopulationEntity *population)
     {
         this->population = population;
-        return this;
+        return thisInterface;
     }
 
-    BusinessEntity* BusinessEntity::setPlayer(IPlayerEntity *player)
+    IBusinessEntity* BusinessEntity::setPlayer(IPlayerEntity *player)
     {
         this->player = player;
-        return this;
+        return thisInterface;
     }
 } // graphique
 

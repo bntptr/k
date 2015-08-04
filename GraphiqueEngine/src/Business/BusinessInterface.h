@@ -12,7 +12,7 @@ namespace graphique
             BusinessInterface(){};
             virtual ~BusinessInterface(){};
 
-            virtual BusinessEntity* loadBusinessEntity()=0;
+            virtual IBusinessEntity* loadBusinessEntity()=0;
     };
 }
 

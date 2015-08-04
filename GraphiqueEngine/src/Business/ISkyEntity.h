@@ -1,13 +1,15 @@
-#ifndef SKYENTITY_H
-#define SKYENTITY_H
+#ifndef ISKYENTITY_H
+#define ISKYENTITY_H
 
 namespace graphique
 {
     class ISkyEntity
     {
-    public:
-        virtual char* getMeshName();
-        virtual ISkyEntity* setMesh(char* meshName);
+        public:
+            ISkyEntity(){};
+            virtual ~ISkyEntity(){};
+            virtual char* getMeshName()=0;
+            virtual ISkyEntity* setMesh(char* meshName)=0;
     };
 } // business
 

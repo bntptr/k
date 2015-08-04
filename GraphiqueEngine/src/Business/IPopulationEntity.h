@@ -5,7 +5,7 @@ namespace graphique
 {
     class IPopulationEntity
     {
-    public:
+        public:
     };
 } // business
 

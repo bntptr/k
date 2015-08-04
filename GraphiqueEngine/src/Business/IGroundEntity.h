@@ -5,9 +5,11 @@ namespace graphique
 {
     class IGroundEntity
     {
-    public:
-        virtual char* getMeshName();
-        virtual IGroundEntity* setMesh(char* meshName);
+        public:
+            IGroundEntity(){};
+            virtual ~IGroundEntity(){};
+            virtual char* getMeshName()=0;
+            virtual IGroundEntity* setMesh(char* meshName)=0;
     };
 } // business
 

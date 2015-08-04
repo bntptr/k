@@ -76,7 +76,7 @@ namespace graphique
             }
 
             int build(BusinessInterface *business) {
-                BusinessEntity *entity = business->loadBusinessEntity();
+                IBusinessEntity *entity = business->loadBusinessEntity();
 
                 this->environnement = new Environnement(this->device);
                 this->environnement->draw();
@@ -86,6 +86,7 @@ namespace graphique
                 IGroundEntity *ground = entity->getGround();
                 this->terrain = new TerrainView(this->device, ground);
                 this->terrain->draw(this->camera);
+
                 ISkyEntity *skyEntity = entity->getSky();
                 this->sky = new SkyView(this->device, skyEntity);
                 this->sky->draw();
@@ -93,6 +94,7 @@ namespace graphique
                 IPopulationEntity *populationEntity = entity->getPopulation();
                 this->population = new PopulationView(this->device, populationEntity);
                 this->population->draw();
+
                 //IPlayerEntity *player = entity->getPlayer();
                 return 0;
             }
