@@ -8,8 +8,8 @@ namespace graphique
     class PlayerViewFactory
     {
     public:
-        static IPlayerView* createEntity() {
-            return new PlayerView();
+        static IPlayerView* createEntity(irr::IrrlichtDevice *device) {
+            return new PlayerView(device);
         }
     };
 } // graphique

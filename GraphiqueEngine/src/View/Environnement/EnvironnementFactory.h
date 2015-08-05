@@ -8,8 +8,8 @@ namespace graphique
     class EnvironnementFactory
     {
     public:
-        static IEnvironnement* createEntity() {
-            return new Environnement();
+        static IEnvironnement* createEntity(irr::IrrlichtDevice *device) {
+            return new Environnement(device);
         }
     };
 } // graphique

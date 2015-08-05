@@ -4,9 +4,9 @@
 #include <irrlicht.h>
 
 #include "IView.h"
-#include "ViewEventReceiver.h"
+#include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
-#include "Environnement/Environnement.h"
+#include "Environnement/EnvironnementFactory.h"
 #include "Camera/Camera.h"
 #include "Terrain/TerrainView.h"
 #include "Sky/SkyView.h"
@@ -32,6 +32,9 @@ namespace graphique
             }
             ~View();
 
+            /**
+             * Initialisation des drivers et de la fenêtre principale
+             */
             int init() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
@@ -75,11 +78,15 @@ namespace graphique
                 return 0;
             }
 
+            /**
+             * Construction de tous les éléments de la scène graphique
+             */
             int build(BusinessInterface *business) {
                 IBusinessEntity *entity = business->loadBusinessEntity();
 
-                this->environnement = new Environnement(this->device);
+                this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();
+
                 this->camera = new Camera(this->device);
                 this->camera->draw();
 
@@ -115,9 +122,9 @@ namespace graphique
 
                 // create event receiver
                 this->receiver = new ViewEventReceiver(
-                    terrain->getTerrain(),
-                    sky->getSkyBox(),
-                    sky->getSkyDome()
+                    this->terrain->getTerrain(),
+                    this->sky->getSkyBox(),
+                    this->sky->getSkyDome()
                 );
                 device->setEventReceiver(this->receiver);
 

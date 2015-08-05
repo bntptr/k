@@ -55,12 +55,12 @@
 1438550161 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/IView.h
 	"../Business/BusinessInterface.h"
 
-1438722776 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/View.h
+1438811209 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/View.h
 	<irrlicht.h>
 	"IView.h"
-	"ViewEventReceiver.h"
+	"EventReceiver/ViewEventReceiver.h"
 	"ViewConfig.h"
-	"Environnement/Environnement.h"
+	"Environnement/EnvironnementFactory.h"
 	"Camera/Camera.h"
 	"Terrain/TerrainView.h"
 	"Sky/SkyView.h"
@@ -1086,4 +1086,11 @@
 
 1438723588 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/PlayerEntity.h
 	"IPlayerEntity.h"
+
+1438809910 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Environnement/EnvironnementFactory.h
+	"Environnement.h"
+
+1438811191 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/ViewEventReceiver.h
+	<irrlicht.h>
+	<iostream>
 

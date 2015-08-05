@@ -8,8 +8,8 @@ namespace graphique
     class CameraFactory
     {
     public:
-        static ICamera* createEntity() {
-            return new Camera();
+        static ICamera* createEntity(irr::IrrlichtDevice *device) {
+            return new Camera(device);
         }
     };
 } // graphique

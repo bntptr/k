@@ -1,134 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="src/View/Sky/SkyView.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/View.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="985" topLine="21" />
+			<Cursor1 position="53" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/EventReceiver/IEventReceiverView.h" open="1" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/Action/IActionKey.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="85" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/EventReceiver/IEventReceiverView.h" open="0" top="0" tabpos="21" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/IView.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/EventReceiver/ViewEventReceiver.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="212" topLine="0" />
+			<Cursor1 position="2413" topLine="28" />
 		</Cursor>
 	</File>
-	<File name="src/Business/IPopulationEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="76" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/Business/GroundFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="62" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/GraphiqueEngine.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1106" topLine="24" />
-		</Cursor>
-	</File>
-	<File name="src/Business/BusinessInterface.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="324" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/View/Sky/ISkyView.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/Population/IPopulationView.h" open="0" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/ViewEventReceiver.h" open="1" top="0" tabpos="20" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/Camera/ICamera.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="704" topLine="13" />
+			<Cursor1 position="37" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/ViewConfig.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/Action/IActionKeyW.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="401" topLine="33" />
+			<Cursor1 position="259" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/Player/PlayerView.h" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Business/BusinessService.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="0" topLine="0" />
+			<Cursor1 position="912" topLine="4" />
 		</Cursor>
 	</File>
-	<File name="src/View/Environnement/Environnement.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Business/BusinessInterface.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="255" topLine="0" />
+			<Cursor1 position="162" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/Camera/Camera.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/IObjectView.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="178" topLine="12" />
+			<Cursor1 position="188" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/Population/PopulationView.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/Population/PopulationViewFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4588" topLine="71" />
+			<Cursor1 position="282" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/Business/BusinessService.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/Business/IBusinessEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="296" topLine="0" />
+			<Cursor1 position="501" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/Environnement/IEnvironnement.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/IView.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="50" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/Business/BusinessEntity.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="818" topLine="22" />
-		</Cursor>
-	</File>
-	<File name="src/View/Terrain/TerrainView.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="5" />
-		</Cursor>
-	</File>
-	<File name="src/Business/ISkyEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="60" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/View/Population/IPopulationView.h" open="1" top="0" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="256" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/View/Player/IPlayerView.h" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/View/Camera/ICamera.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="170" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1061" topLine="17" />
-		</Cursor>
-	</File>
-	<File name="src/View/Terrain/ITerrainView.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/GraphiqueEngineFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="172" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src/Business/IPlayerEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="68" topLine="0" />
+			<Cursor1 position="472" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src/IGraphiqueEngine.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -136,9 +71,184 @@
 			<Cursor1 position="165" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src/View/View.h" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src/View/Player/PlayerView.h" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4144" topLine="96" />
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/PopulationFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="291" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/IPopulationEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="121" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1061" topLine="19" />
+		</Cursor>
+	</File>
+	<File name="src/Business/IPlayerEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="109" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Terrain/TerrainViewFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="270" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Building/IBuildingEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Terrain/ITerrainView.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Camera/Camera.h" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="178" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="src/Business/ISkyEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="167" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/GroundFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="268" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/PlayerFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="116" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/BusinessFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="421" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/PlayerEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="189" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Vegetal/IVegetalEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="176" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/GroundEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="370" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Sky/SkyViewFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="290" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/IGroundEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="116" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Texture/ETexture.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="186" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/SkyFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="64" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Population/PopulationView.h" open="0" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3277" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="src/View/Player/PlayerViewFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="264" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/SkyEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="281" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Environnement/Environnement.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="256" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Selector/SelectorService.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="267" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="src/View/Sky/SkyView.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="985" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/GraphiqueEngine.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1520" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="src/View/Environnement/IEnvironnement.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="50" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Sky/ISkyView.h" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/BusinessEntity.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="715" topLine="43" />
+		</Cursor>
+	</File>
+	<File name="src/View/ViewConfig.h" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="401" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="src/View/Environnement/EnvironnementFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="208" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/Business/PopulationEntity.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="184" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Terrain/TerrainView.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="src/View/Player/IPlayerView.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src/View/Camera/CameraFactory.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="240" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
