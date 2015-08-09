@@ -1,13 +1,13 @@
 /**
  * http://stackoverflow.com/questions/2754650/getting-value-of-stdlistiterator-to-pointer
  */
-#ifndef H__TLISTE__
-#define H__TLISTE__
+#ifndef H__TLIST__
+#define H__TLIST__
 
 #include "../IReferenceStructure.h"
 #include "TNoeudListe.h"
 
-template <class ELEMENT> class TListe : public IReferenceStructure{
+template <class ELEMENT> class TList : public IReferenceStructure{
 
       private:
 
@@ -17,8 +17,8 @@ template <class ELEMENT> class TListe : public IReferenceStructure{
       TNoeudListe<ELEMENT> *top    ;  //pointeur pouvant permetre de parcourir la liste depuis l'extérieur (voir methode top)
 
       public:
-      TListe();
-      ~TListe();
+      TList();
+      ~TList();
 
       /// TLISTE
 

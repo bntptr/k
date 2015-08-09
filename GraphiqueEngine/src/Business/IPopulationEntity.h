@@ -16,7 +16,7 @@ namespace graphique
             virtual ~IPopulationEntity(){};
             //virtual std::list<ICharacterEntity*>* getCharacterList()=0;
 
-            virtual TListe<ICharacterEntity>* getCharacterList()=0;
+            virtual TList<ICharacterEntity>* getCharacterList()=0;
             virtual IPopulationEntity* addCharacter(
                 const Vector3d & position,
                 Vector3d rotation,

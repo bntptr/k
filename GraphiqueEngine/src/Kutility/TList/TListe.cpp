@@ -4,19 +4,19 @@
 #include <iostream>
 #include <string>
 //#include "TString.h"
-#include "TListe.h"
+#include "TList.h"
 #include "TNoeudListe.h"
 
 
 template <class ELEMENT>
-TListe<ELEMENT>::TListe(){
+TList<ELEMENT>::TList(){
                first=NULL;
                resetSize();
                std::cout<<"\nensd> TListe> Constructeur ";
                }
 
 template <class ELEMENT>
-TListe<ELEMENT>::~TListe(){
+TList<ELEMENT>::~TList(){
 
                }
 
@@ -28,50 +28,50 @@ TListe<ELEMENT>::~TListe(){
 
 
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::getFirst(){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::getFirst(){
                       return first ;
 }
 
 
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::getDernier(){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::getDernier(){
                       return dernier ;
 }
 
 
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::setFirst(TNoeudListe<ELEMENT>* n){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::setFirst(TNoeudListe<ELEMENT>* n){
                       return first = n ;
 }
 
 
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::setDernier(TNoeudListe<ELEMENT>* n){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::setDernier(TNoeudListe<ELEMENT>* n){
                       return dernier = n ;
 }
 
 
 //top [bonus]
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::getTop(){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::getTop(){
 
          return NULL;
 }
 
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::setTop(int num){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::setTop(int num){
 
          return NULL;
 }
 
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::resetTop(){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::resetTop(){
 
          return NULL;
 }
 
 template <class ELEMENT>
-TNoeudListe<ELEMENT>* TListe<ELEMENT>::getTopAndNext(){
+TNoeudListe<ELEMENT>* TList<ELEMENT>::getTopAndNext(){
 
          return NULL;
 }
@@ -82,7 +82,7 @@ TNoeudListe<ELEMENT>* TListe<ELEMENT>::getTopAndNext(){
 ////////////////////////////////////////////////////////////////////////////////
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::begin(){
+ELEMENT* TList<ELEMENT>::begin(){
          if(first == NULL)
                   return NULL;
          else
@@ -90,7 +90,7 @@ ELEMENT* TListe<ELEMENT>::begin(){
              }
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::end(){
+ELEMENT* TList<ELEMENT>::end(){
          if(dernier == NULL)
                   return NULL;
          else
@@ -99,7 +99,7 @@ ELEMENT* TListe<ELEMENT>::end(){
 
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::getElement(int i){
+ELEMENT* TList<ELEMENT>::getElement(int i){
        if(( i >= getSize() )||(first == NULL)){
            return NULL;
            }
@@ -113,14 +113,14 @@ ELEMENT* TListe<ELEMENT>::getElement(int i){
 }
 
 template <class ELEMENT>
-bool TListe<ELEMENT>::isIn(ELEMENT *element){
+bool TList<ELEMENT>::isIn(ELEMENT *element){
          return first->isIn(element);
          }
 
 
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::addElement(ELEMENT *newu){
+ELEMENT* TList<ELEMENT>::addElement(ELEMENT *newu){
 
          if( newu == NULL ){
            return NULL;
@@ -144,7 +144,7 @@ ELEMENT* TListe<ELEMENT>::addElement(ELEMENT *newu){
 
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::subElement(ELEMENT *ancu){
+ELEMENT* TList<ELEMENT>::subElement(ELEMENT *ancu){
 
           if( ancu == NULL ){
               return NULL;
@@ -164,7 +164,7 @@ ELEMENT* TListe<ELEMENT>::subElement(ELEMENT *ancu){
                   dernier = NULL;
                   }
               return e;
-              }
+            }
 
           if( ancu->isEgal(dernier->getElement())){
               TNoeudListe<ELEMENT> *nl = dernier->getPrecedent();
@@ -201,7 +201,7 @@ ELEMENT* TListe<ELEMENT>::subElement(ELEMENT *ancu){
 }
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::subElement(int place){
+ELEMENT* TList<ELEMENT>::subElement(int place){
 
           if( (getSize() >= place)||( 0 > place ) ){
               return NULL;
@@ -237,7 +237,7 @@ ELEMENT* TListe<ELEMENT>::subElement(int place){
 }
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::subElementFromId(int id){
+ELEMENT* TList<ELEMENT>::subElementFromId(int id){
 
 
           if( first == NULL ){
@@ -270,7 +270,7 @@ ELEMENT* TListe<ELEMENT>::subElementFromId(int id){
 }
 
 template <class ELEMENT>
-ELEMENT* TListe<ELEMENT>::subElementFromName(std::string nom){
+ELEMENT* TList<ELEMENT>::subElementFromName(std::string nom){
 
           /*if( nom == NULL ){
               return NULL;
@@ -337,7 +337,7 @@ void TListe<ELEMENT>::print(){
 
 */
 template <class ELEMENT>
-void TListe<ELEMENT>::vider(){
+void TList<ELEMENT>::vider(){
     while(first!=NULL){
                        subElement(1); //1 parce que 0<=> vide
                        std::cout<<"\nBoucleWhile in TListe::vider()";
@@ -348,7 +348,7 @@ void TListe<ELEMENT>::vider(){
 
 
 template <class ELEMENT>
-void TListe<ELEMENT>::reset(){
+void TList<ELEMENT>::reset(){
      //delete this->suivant;              //inutil si je ne veux pas le détruire
      this->first=NULL;
      this->resetSize();

@@ -15,19 +15,19 @@ namespace graphique
             IPopulationView *thisInstance;
             irr::IrrlichtDevice *device;
             IPopulationEntity *populationEntity;
-            TListe<ICharacter>* characterList;
+            TList<ICharacter>* characterList;
 
         public:
             PopulationView(irr::IrrlichtDevice *device, IPopulationEntity *populationEntity){
                 this->thisInstance = this;
                 this->device = device;
                 this->populationEntity = populationEntity;
-                this->characterList = new TListe<ICharacter>();
+                this->characterList = new TList<ICharacter>();
             };
             ~PopulationView(){};
 
             bool build() {
-                TListe<ICharacterEntity>* L = this->populationEntity->getCharacterList();
+                TList<ICharacterEntity>* L = this->populationEntity->getCharacterList();
                 for(int i = 0; i < L->size(); i++) {
                     this->addCharacter(this->device, L->getElement(i));
                 }
@@ -129,7 +129,7 @@ namespace graphique
             }
 
             bool drawAll() {
-                TListe<ICharacter>* L = this->characterList;
+                TList<ICharacter>* L = this->characterList;
                 for(int i = 0; i < L->size(); i++) {
                     L->getElement(i)->draw();
                 }

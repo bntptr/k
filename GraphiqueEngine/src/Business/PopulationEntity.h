@@ -11,18 +11,18 @@ namespace graphique
         protected:
             IPopulationEntity *thisInstance;
             //std::list<ICharacterEntity*>* characterList;
-            TListe<ICharacterEntity>* characterList;
+            TList<ICharacterEntity>* characterList;
 
         public:
             PopulationEntity(){
                 this->thisInstance = this;
                 //this->characterList = new std::list<ICharacterEntity*>();
-                this->characterList = new TListe<ICharacterEntity>();
+                this->characterList = new TList<ICharacterEntity>();
             };
             ~PopulationEntity(){};
 
             //std::list<ICharacterEntity*>* getCharacterList() {
-            TListe<ICharacterEntity>* getCharacterList() {
+            TList<ICharacterEntity>* getCharacterList() {
                 return this->characterList;
             }
             /*L.push_back(0);              // Insert a new element at the end
