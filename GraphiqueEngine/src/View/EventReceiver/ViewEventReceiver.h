@@ -3,6 +3,7 @@
 
 #include <irrlicht.h>
 #include <iostream>
+#include "../Action/IActionKeyW.h"
 
 using namespace irr;
 
@@ -20,8 +21,9 @@ namespace graphique
 
             bool OnEvent(const SEvent& event)
             {
-                if (event.EventType == irr::EET_KEY_INPUT_EVENT && !event.KeyInput.PressedDown)
+                if (event.EventType == irr::EET_KEY_INPUT_EVENT && event.KeyInput.PressedDown)
                 {
+                    IActionKey *key;
                     switch (event.KeyInput.Key)
                     {
                     case irr::KEY_KEY_Q: // switch wire frame mode
@@ -47,7 +49,8 @@ namespace graphique
 
                     case irr::KEY_KEY_W:
                         //IActionKey *key = ActionKeyFactory::createEntity(EACTIONKEY_W);
-                        //key->execute();
+                        key = new IActionKeyW();
+                        key->execute(this->view);
                         return true;
                     case irr::KEY_KEY_X:
                         //this->actionKeyService->execute(EACTIONKEY_X);
@@ -64,11 +67,18 @@ namespace graphique
                 return false;
             }
 
+            ViewEventReceiver* setView(IView *view) {
+                this->view = view;
+                return this;
+            }
+
         private:
             scene::ISceneNode* Terrain;
             scene::ISceneNode* Skybox;
             scene::ISceneNode* Skydome;
             bool showBox;
+
+            IView* view;
     };
 }
 

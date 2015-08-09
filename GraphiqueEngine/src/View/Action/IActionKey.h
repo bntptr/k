@@ -2,6 +2,7 @@
 #define IACTIONKEY_H
 
 #include "../IView.h"
+#include "EActionEvent.h"
 
 namespace graphique
 {

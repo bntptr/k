@@ -135,6 +135,11 @@ namespace graphique
                 }
                 return true;
             }
+
+            IObjectView* getCharacterFromPlayer(){
+                IObjectView *objectView = this->characterList->begin();
+                return objectView;
+            }
     };
 } // graphique
 

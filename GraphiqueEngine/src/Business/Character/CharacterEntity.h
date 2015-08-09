@@ -64,6 +64,12 @@ namespace graphique
                 this->scale = scale;
                 return this->thisInstance;
             }
+
+            // Actions Character
+            void deplaceX() {
+                float newPosition = this->position.getX() + 1;
+                this->position.setX(newPosition);
+            }
     };
 } // business
 

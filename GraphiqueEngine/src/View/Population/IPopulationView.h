@@ -24,6 +24,8 @@ namespace graphique
             ICharacterEntity *characterEntity
         )=0;
 
+        virtual IObjectView* getCharacterFromPlayer()=0;
+
     };
 } // graphique
 

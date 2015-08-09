@@ -12,7 +12,7 @@ namespace graphique
             IPopulationEntity* entity = new PopulationEntity();
             entity->addCharacter(
                 Vector3d(0, 0, 0),
-                Vector3d(0, 0, 0),
+                Vector3d(0, 90, 0),
                 Vector3d(2, 2, 2),
                 ETEXTURE_NINJA,
                 EMESH_NINJA

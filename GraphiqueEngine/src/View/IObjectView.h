@@ -1,7 +1,7 @@
 #ifndef IOBJECTVIEW_H
 #define IOBJECTVIEW_H
 
-#include <irrlicht.h>
+#include "Action/EActionEvent.h"
 
 namespace graphique
 {
@@ -10,6 +10,8 @@ namespace graphique
     public:
         IObjectView(){};
         virtual ~IObjectView(){};
+
+        virtual bool oneEvent(EACTIONEVENT event)=0;
     };
 } // graphique
 

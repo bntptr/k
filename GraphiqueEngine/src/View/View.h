@@ -5,6 +5,7 @@
 
 #include "IView.h"
 #include "EventReceiver/ViewEventReceiver.h"
+#include "Selector/SelectorService.h"
 #include "ViewConfig.h"
 #include "Environnement/EnvironnementFactory.h"
 #include "Camera/CameraFactory.h"
@@ -22,6 +23,7 @@ namespace graphique
             irr::IrrlichtDevice *device;
             //SoundService *sound;
             ViewEventReceiver *receiver;
+            SelectorService *selector;
             IEnvironnement *environnement;
             ICamera *camera;
             ITerrainView *terrain;
@@ -31,6 +33,7 @@ namespace graphique
 
         public:
             View() {
+                this->selector = new SelectorService();
             }
             ~View();
 
@@ -104,6 +107,9 @@ namespace graphique
                 this->population = PopulationViewFactory::createEntity(this->device, populationEntity);
                 this->population->draw();
 
+                // selection par default pour les tests
+                IObjectView *obj = this->population->getCharacterFromPlayer();
+                this->selector->addToCursorLeft(obj);
                 //IPlayerEntity *player = entity->getPlayer();
                 return 0;
             }
@@ -129,6 +135,7 @@ namespace graphique
                     this->sky->getSkyBox(),
                     this->sky->getSkyDome()
                 );
+                this->receiver->setView(this); // segmentation fault si oublié
                 device->setEventReceiver(this->receiver);
 
                 /*
@@ -253,6 +260,10 @@ namespace graphique
 
         irr::IrrlichtDevice* setDevice(irr::IrrlichtDevice *dvc) {
             return this->device = dvc;
+        }
+
+        SelectorService* getSelector() {
+            return this->selector;
         }
     };
 } // graphique

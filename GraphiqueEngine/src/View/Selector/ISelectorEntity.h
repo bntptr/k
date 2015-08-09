@@ -15,6 +15,7 @@ namespace graphique
 
         virtual ISelectorEntity* add(IObjectView *object)=0;
         virtual ISelectorEntity* reset()=0;
+        virtual ISelectorEntity* oneEvent(EACTIONEVENT event)=0;
     };
 } // graphique
 

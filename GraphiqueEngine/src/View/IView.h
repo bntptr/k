@@ -2,6 +2,7 @@
 #define IVIEW_H
 //#include "ViewInterface.h"
 #include "../Business/BusinessInterface.h"
+#include "Selector/SelectorService.h"
 
 namespace graphique
 {
@@ -16,6 +17,8 @@ namespace graphique
             virtual int build(BusinessInterface *business)=0;
             virtual int run()=0;
             virtual int runExemple()=0;
+
+            virtual SelectorService* getSelector()=0;
     };
 
 } // graphique

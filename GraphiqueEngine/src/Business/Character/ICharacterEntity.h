@@ -22,6 +22,9 @@ namespace graphique
             virtual ICharacterEntity* setRotation(Vector3d rotation)=0;
             virtual Vector3d getScale()=0;
             virtual ICharacterEntity* setScale(Vector3d scale)=0;
+
+            // Action from CharacterEntity | de meilleurs solutions?
+            virtual void deplaceX()=0;
     };
 } // business
 

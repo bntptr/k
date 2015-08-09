@@ -10,6 +10,7 @@ namespace graphique
         protected:
             irr::IrrlichtDevice *device;
             ICharacterEntity *entity;
+            scene::IAnimatedMeshSceneNode* node;
 
         public:
             Character(irr::IrrlichtDevice *device, ICharacterEntity *entity){
@@ -71,7 +72,37 @@ namespace graphique
                         position.getY(),
                         position.getZ()
                     ));
+                    this->node = anms;
                 }
+            }
+
+            void deplaceX() {
+                this->entity->deplaceX();
+                Vector3d position = this->entity->getPosition();
+                this->node->setPosition(core::vector3df(
+                    position.getX(),
+                    position.getY(),
+                    position.getZ()
+                ));
+            }
+
+            bool oneEvent(EACTIONEVENT event) {
+                std::cout << ACTIONEVENTInfoNames[event] << std::endl;
+                switch(event)
+                {
+                    case EACTIONEVENT_DEFAULT:
+                        break;
+                    case EACTIONEVENT_DEPLACE_X:
+                        this->deplaceX();
+                        break;
+                    case EACTIONEVENT_DEPLACE_Y:
+                        break;
+                    case EACTIONEVENT_DEPLACE_Z:
+                        break;
+                    default:
+                    break;
+                }
+                return true;
             }
     };
 } // graphique

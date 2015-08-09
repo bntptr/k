@@ -3,7 +3,7 @@
 
 #include "../IObjectView.h"
 
-#include "ISelectorEntity.h"
+#include "SelectorEntity.h"
 
 namespace graphique
 {
@@ -13,7 +13,10 @@ namespace graphique
             ISelectorEntity* cursorLeft;
             ISelectorEntity* cursorRight;
         public:
-            SelectorService(){};
+            SelectorService(){
+                this->cursorLeft = new SelectorEntity();
+                this->cursorRight = new SelectorEntity();
+            };
             ~SelectorService(){};
 
             ISelectorEntity* getCursorLeft() {
@@ -41,6 +44,16 @@ namespace graphique
 
             SelectorService* addToCursorRight(IObjectView *obj) {
                 this->cursorRight->add(obj);
+                return this;
+            }
+
+            SelectorService* oneEventSelectorRight(EACTIONEVENT event) {
+                this->cursorRight->oneEvent(event);
+                return this;
+            }
+
+            SelectorService* oneEventSelectorLeft(EACTIONEVENT event) {
+                this->cursorLeft->oneEvent(event);
                 return this;
             }
     };
