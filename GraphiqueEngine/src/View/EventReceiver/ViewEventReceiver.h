@@ -20,17 +20,16 @@ namespace graphique
 
             bool OnEvent(const SEvent& event)
             {
-                // check if user presses the key 'W' or 'D'
                 if (event.EventType == irr::EET_KEY_INPUT_EVENT && !event.KeyInput.PressedDown)
                 {
                     switch (event.KeyInput.Key)
                     {
-                    case irr::KEY_KEY_W: // switch wire frame mode
+                    case irr::KEY_KEY_Q: // switch wire frame mode
                         Terrain->setMaterialFlag(video::EMF_WIREFRAME,
                                 !Terrain->getMaterial(0).Wireframe);
                         Terrain->setMaterialFlag(video::EMF_POINTCLOUD, false);
                         return true;
-                    case irr::KEY_KEY_P: // switch wire frame mode
+                    case irr::KEY_KEY_F: // switch wire frame mode
                         Terrain->setMaterialFlag(video::EMF_POINTCLOUD,
                                 !Terrain->getMaterial(0).PointCloud);
                         Terrain->setMaterialFlag(video::EMF_WIREFRAME, false);
@@ -44,6 +43,18 @@ namespace graphique
                         showBox=!showBox;
                         Skybox->setVisible(showBox);
                         Skydome->setVisible(!showBox);
+                        return true;
+
+                    case irr::KEY_KEY_W:
+                        //IActionKey *key = ActionKeyFactory::createEntity(EACTIONKEY_W);
+                        //key->execute();
+                        return true;
+                    case irr::KEY_KEY_X:
+                        //this->actionKeyService->execute(EACTIONKEY_X);
+                        return true;
+                    case irr::KEY_KEY_C:
+                        return true;
+                    case irr::KEY_KEY_V:
                         return true;
                     default:
                         break;

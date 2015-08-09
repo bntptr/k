@@ -19,71 +19,58 @@ namespace graphique
             ~Character(){};
 
             bool draw() {
-                ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
-
+                std::cout <<"hello ninja !" << std::endl;
+                ViewConfig *config = ViewConfig::getInstance();
                 config->load();
                 const io::path MEDIA = config->getMediaPath();
 
-                video::IVideoDriver* driver = device->getVideoDriver();
-                scene::ISceneManager* smgr = device->getSceneManager();
-                gui::IGUIEnvironment* env = device->getGUIEnvironment();
-                // create POPULATION
-                /*scene::IAnimatedMesh* mesh = smgr->getMesh(MEDIA + "sydney.md2");
-                if (!mesh)
-                {
-                    device->drop();
-                    return 1;
-                }
-                scene::IAnimatedMeshSceneNode* node2 = smgr->addAnimatedMeshSceneNode( mesh );
-                node2->setPosition(core::vector3df(2700*2,255*2,2600*2));
-
-                if (node2)
-                {
-                    node2->setMaterialFlag(video::EMF_LIGHTING, false);
-                    node2->setMD2Animation(scene::EMAT_STAND);
-                    node2->setMaterialTexture( 0, driver->getTexture(MEDIA + "sydney.bmp") );
-                }*/
+                video::IVideoDriver* driver = this->device->getVideoDriver();
+                scene::ISceneManager* smgr = this->device->getSceneManager();
+                gui::IGUIEnvironment* env = this->device->getGUIEnvironment();
 
                 // NINJA
+                EMESH code_mesh = this->entity->getMesh();
+                scene::IAnimatedMesh *mesh= smgr->getMesh(
+                    MEDIA + MESHInfoNames[code_mesh]
+                );
                 scene::IAnimatedMeshSceneNode* anms =
-                    smgr->addAnimatedMeshSceneNode(smgr->getMesh(MEDIA + "ninja.b3d"));
-                //anms->setMaterialTexture( 0, driver->getTexture(MEDIA + "sydney.bmp") );
-                anms->setMaterialTexture( 0, driver->getTexture(MEDIA + "nskinrd2.jpg") );
+                    smgr->addAnimatedMeshSceneNode(mesh);
+
+                ETEXTURE code_texture = this->entity->getTexture();
+                anms->setMaterialTexture(
+                    0,
+                    driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture])
+                );
 
                 if (anms)
                 {
-                    scene::ISceneNodeAnimator* anim =
-                        smgr->createFlyStraightAnimator(core::vector3df(100,0,60),
-                        core::vector3df(-100,0,60), 3500, true);
-                    if (anim)
-                    {
-                        anms->addAnimator(anim);
-                        anim->drop();
-                    }
-
-                    /*
-                    To make the model look right we disable lighting, set the
-                    frames between which the animation should loop, rotate the
-                    model around 180 degrees, and adjust the animation speed and
-                    the texture. To set the right animation (frames and speed), we
-                    would also be able to just call
-                    "anms->setMD2Animation(scene::EMAT_RUN)" for the 'run'
-                    animation instead of "setFrameLoop" and "setAnimationSpeed",
-                    but this only works with MD2 animations, and so you know how to
-                    start other animations. But a good advice is to not use
-                    hardcoded frame-numbers...
-                    */
                     anms->setMaterialFlag(video::EMF_LIGHTING, false);
 
                     anms->setFrameLoop(0, 13);
                     anms->setAnimationSpeed(15);
             		//anms->setMD2Animation(scene::EMAT_RUN);
 
-                    anms->setScale(core::vector3df(2.f,2.f,2.f));
-                    anms->setRotation(core::vector3df(0,-90,0));
-                    anms->setPosition(core::vector3df(2700*2,255*2,2600*2));
-            //		anms->setMaterialTexture(0, driver->getTexture(MEDIA + "sydney.bmp"));
+                    Vector3d scale = this->entity->getScale();
+                    anms->setScale(core::vector3df(
+                        scale.getX(),
+                        scale.getY(),
+                        scale.getZ()
+                    ));
+
+                    Vector3d rotation = this->entity->getRotation();
+                    anms->setRotation(core::vector3df(
+                        rotation.getX(),
+                        rotation.getY(),
+                        rotation.getZ()
+                    ));
+
+                    Vector3d position = this->entity->getPosition();
+                    anms->setPosition(core::vector3df(
+                        position.getX(),
+                        position.getY(),
+                        position.getZ()
+                    ));
                 }
             }
     };

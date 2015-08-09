@@ -1,5 +1,5 @@
-#ifndef ETEXTURE_H_
-#define ETEXTURE_H_
+#ifndef ETEXTURE_VIEW_H_
+#define ETEXTURE_VIEW_H_
 
 //! Enumeration de tous les types de Texture
 enum ETEXTURE

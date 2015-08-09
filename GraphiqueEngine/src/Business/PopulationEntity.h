@@ -2,21 +2,27 @@
 #define POPULATIONENTITY_H
 
 #include "IPopulationEntity.h"
+#include "Character/CharacterFactory.h"
 
 namespace graphique
 {
     class PopulationEntity : public IPopulationEntity
     {
         protected:
-            std::list<ICharacterEntity*>* characterList;
+            IPopulationEntity *thisInstance;
+            //std::list<ICharacterEntity*>* characterList;
+            TListe<ICharacterEntity>* characterList;
 
         public:
             PopulationEntity(){
-                this->characterList = new std::list<ICharacterEntity*>();
+                this->thisInstance = this;
+                //this->characterList = new std::list<ICharacterEntity*>();
+                this->characterList = new TListe<ICharacterEntity>();
             };
             ~PopulationEntity(){};
 
-            std::list<ICharacterEntity*>* getCharacterList() {
+            //std::list<ICharacterEntity*>* getCharacterList() {
+            TListe<ICharacterEntity>* getCharacterList() {
                 return this->characterList;
             }
             /*L.push_back(0);              // Insert a new element at the end
@@ -30,7 +36,26 @@ namespace graphique
 
             for(i=L.begin(); i != L.end(); ++i) cout << *i << " ";
                 cout << endl;*/
-            };
+
+            IPopulationEntity* addCharacter(
+                const Vector3d & position,
+                Vector3d rotation,
+                Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) {
+                ICharacterEntity *entity = business::CharacterFactory::createEntity(
+                    position,
+                    rotation,
+                    scale,
+                    texture,
+                    mesh
+                );
+                //this->characterList->push_back(entity);
+                this->characterList->addElement(entity);
+                return this->thisInstance;
+            }
+    };
 } // business
 
 #endif

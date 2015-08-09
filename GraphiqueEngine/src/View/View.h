@@ -47,8 +47,6 @@ namespace graphique
                 driverType = config->getDriverType();
                 const io::path MEDIA = config->getMediaPath();
 
-                // create device with full flexibility over creation parameters
-                // you can add more parameters if desired, check irr::SIrrlichtCreationParameters
                 irr::SIrrlichtCreationParameters params;
                 params.DriverType=driverType;
                 std::cout << config->getWindowSizeX() << std::endl;
@@ -84,6 +82,7 @@ namespace graphique
              * Construction de tous les éléments de la scène graphique
              */
             int build(BusinessInterface *business) {
+                std::cout <<"build view !" << std::endl;
                 IBusinessEntity *entity = business->loadBusinessEntity();
 
                 this->environnement = EnvironnementFactory::createEntity(this->device);
@@ -113,6 +112,7 @@ namespace graphique
              *  Exemple Terrain Rendering
              */
             int run() {
+                std::cout <<"run View !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 

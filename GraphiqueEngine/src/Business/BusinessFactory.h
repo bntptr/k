@@ -14,7 +14,12 @@ namespace graphique
             ISkyEntity *sky,
             IPopulationEntity *population
         ) {
-            return new BusinessEntity();
+            IBusinessEntity* entity = new BusinessEntity();
+            entity->setGround(ground)
+                ->setSky(sky)
+                ->setPopulation(population)
+                ->setPlayer(player);
+            return entity;
         }
     };
 } // graphique

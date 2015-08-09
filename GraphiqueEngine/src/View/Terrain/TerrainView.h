@@ -25,6 +25,7 @@ namespace graphique
             }
 
             bool draw(ICamera* camera) {
+                std::cout <<"Draw Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -46,7 +47,7 @@ namespace graphique
                     5,					// maxLOD
                     scene::ETPS_17,				// patchSize
                     4					// smoothFactor
-                    );
+                );
 
                 this->terrain = terrain;
                 terrain->setMaterialFlag(video::EMF_LIGHTING, false);

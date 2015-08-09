@@ -8,7 +8,10 @@ namespace graphique
     class PopulationViewFactory
     {
     public:
-        static IPopulationView* createEntity(irr::IrrlichtDevice *device, IPopulationEntity *populationEntity) {
+        static IPopulationView* createEntity(
+            irr::IrrlichtDevice *device,
+            IPopulationEntity *populationEntity
+        ) {
             return new PopulationView(device, populationEntity);
         }
     };

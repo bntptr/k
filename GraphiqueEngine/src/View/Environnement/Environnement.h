@@ -37,7 +37,7 @@ namespace graphique
 
                 // add some help text
                 env->addStaticText(
-                    L"Press 'W' to change wireframe mode\nPress 'D' to toggle detail map\nPress 'S' to toggle skybox/skydome",
+                    L"Press 'Q' or 'P' to change wireframe mode\nPress 'D' to toggle detail map\nPress 'S' to toggle skybox/skydome\n 'W', 'X', 'C' and 'V' jostick",
                     core::rect<s32>(10,421,250,475), true, true, 0, -1, true);
             }
     };

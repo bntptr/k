@@ -3,23 +3,39 @@
 #define POPULATIONVIEW_H
 
 #include "IPopulationView.h"
+#include "Characters/CharacterFactory.h"
+
+#include "../../Kutility/kutility.h"
 
 namespace graphique
 {
     class PopulationView : public IPopulationView
     {
         protected:
+            IPopulationView *thisInstance;
             irr::IrrlichtDevice *device;
             IPopulationEntity *populationEntity;
+            TListe<ICharacter>* characterList;
 
         public:
             PopulationView(irr::IrrlichtDevice *device, IPopulationEntity *populationEntity){
+                this->thisInstance = this;
                 this->device = device;
                 this->populationEntity = populationEntity;
+                this->characterList = new TListe<ICharacter>();
             };
             ~PopulationView(){};
 
+            bool build() {
+                TListe<ICharacterEntity>* L = this->populationEntity->getCharacterList();
+                for(int i = 0; i < L->size(); i++) {
+                    this->addCharacter(this->device, L->getElement(i));
+                }
+                return true;
+            }
+
             bool draw() {
+                this->build();
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -30,6 +46,9 @@ namespace graphique
                 scene::ISceneManager* smgr = device->getSceneManager();
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
                 // create POPULATION
+                this->drawAll();
+
+                // create ESSAI
                 scene::IAnimatedMesh* mesh = smgr->getMesh(MEDIA + "sydney.md2");
                 if (!mesh)
                 {
@@ -75,7 +94,7 @@ namespace graphique
                 scene::IAnimatedMeshSceneNode* anms =
                     smgr->addAnimatedMeshSceneNode(smgr->getMesh(MEDIA + "ninja.b3d"));
                 //anms->setMaterialTexture( 0, driver->getTexture(MEDIA + "sydney.bmp") );
-                anms->setMaterialTexture( 0, driver->getTexture(MEDIA + "nskinrd2.jpg") );
+                anms->setMaterialTexture( 0, driver->getTexture(MEDIA + "nskinrd.jpg") );
 
                 if (anms)
                 {
@@ -88,18 +107,6 @@ namespace graphique
                         anim->drop();
                     }
 
-                    /*
-                    To make the model look right we disable lighting, set the
-                    frames between which the animation should loop, rotate the
-                    model around 180 degrees, and adjust the animation speed and
-                    the texture. To set the right animation (frames and speed), we
-                    would also be able to just call
-                    "anms->setMD2Animation(scene::EMAT_RUN)" for the 'run'
-                    animation instead of "setFrameLoop" and "setAnimationSpeed",
-                    but this only works with MD2 animations, and so you know how to
-                    start other animations. But a good advice is to not use
-                    hardcoded frame-numbers...
-                    */
                     anms->setMaterialFlag(video::EMF_LIGHTING, false);
 
                     anms->setFrameLoop(0, 13);
@@ -111,6 +118,22 @@ namespace graphique
                     anms->setPosition(core::vector3df(2700*2,255*2,2600*2));
             //		anms->setMaterialTexture(0, driver->getTexture(MEDIA + "sydney.bmp"));
                 }
+            }
+
+            bool addCharacter(
+                irr::IrrlichtDevice *device,
+                ICharacterEntity *characterEntity
+            ){
+                ICharacter *entity = graphique::CharacterFactory::createEntity(device, characterEntity);
+                this->characterList->addElement(entity);
+            }
+
+            bool drawAll() {
+                TListe<ICharacter>* L = this->characterList;
+                for(int i = 0; i < L->size(); i++) {
+                    L->getElement(i)->draw();
+                }
+                return true;
             }
     };
 } // graphique

@@ -4,7 +4,7 @@
 #include <irrlicht.h>
 
 #include "../../IObjectView.h"
-#include "../../Business/ICharacterEntity.h"
+#include "../../../Business/Character/ICharacterEntity.h"
 
 namespace graphique
 {
