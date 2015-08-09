@@ -33,7 +33,7 @@ namespace graphique
 
                 // add camera
                 this->camera =
-                    smgr->addCameraSceneNodeFPS(0,100.0f,1.2f);
+                    smgr->addCameraSceneNodeFPS(0,100.0f,/*1.2*/0.1f);
 
                 camera->setPosition(core::vector3df(0,0,30)/*core::vector3df(2700*2,255*2,2600*2)*/);
                 camera->setTarget(core::vector3df(2397*2,343*2,2700*2));

@@ -18,9 +18,8 @@
 
 1438431229 source:/home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/View.cpp
 
-1438719691 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/GraphiqueEngine.h
+1439052039 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/GraphiqueEngine.h
 	"IGraphiqueEngine.h"
-	"GraphiqueEngineFactory.h"
 
 1438454697 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/IGraphiqueEngine.h
 	"Business/BusinessInterface.h"
@@ -48,23 +47,26 @@
 
 1438723926 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/ISkyEntity.h
 
-1438722743 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/IPopulationEntity.h
+1439107210 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/IPopulationEntity.h
+	<list>
+	"ICharacterEntity.h"
 
 1438722740 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/IPlayerEntity.h
 
 1438550161 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/IView.h
 	"../Business/BusinessInterface.h"
 
-1438811209 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/View.h
+1439053125 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/View.h
 	<irrlicht.h>
 	"IView.h"
 	"EventReceiver/ViewEventReceiver.h"
 	"ViewConfig.h"
 	"Environnement/EnvironnementFactory.h"
-	"Camera/Camera.h"
-	"Terrain/TerrainView.h"
-	"Sky/SkyView.h"
-	"Population/PopulationView.h"
+	"Camera/CameraFactory.h"
+	"Camera/FPS/FPSFactory.h"
+	"Terrain/TerrainViewFactory.h"
+	"Sky/SkyViewFactory.h"
+	"Population/PopulationViewFactory.h"
 
 1263572739 /home/ubuntu/Workspaces/Sources/irrlicht-1.6.1/include/irrlicht.h
 	"IrrCompileConfig.h"
@@ -1016,7 +1018,7 @@
 1438543811 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/ViewConfig.h
 	<irrlicht.h>
 
-1438552684 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/TerrainView.h
+1439054498 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/TerrainView.h
 	"ITerrainView.h"
 
 1438552561 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/ITerrainView.h
@@ -1030,20 +1032,20 @@
 1438551825 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Environnement/IEnvironnement.h
 	<irrlicht.h>
 
-1438551814 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/Camera.h
+1439054560 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/Camera.h
 	"ICamera.h"
 
-1438551819 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/ICamera.h
+1439053971 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/ICamera.h
 	<irrlicht.h>
 
-1438553628 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/SkyView.h
+1439104696 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/SkyView.h
 	"ISkyView.h"
 
 1438553419 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/ISkyView.h
 	<irrlicht.h>
 	"../../Business/ISkyEntity.h"
 
-1438554244 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/PopulationView.h
+1439055513 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/PopulationView.h
 	"IPopulationView.h"
 
 1438553871 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/IPopulationView.h
@@ -1078,7 +1080,7 @@
 1438722459 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/PopulationFactory.h
 	"PopulationEntity.h"
 
-1438723575 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/PopulationEntity.h
+1439106403 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/PopulationEntity.h
 	"IPopulationEntity.h"
 
 1438722503 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/PlayerFactory.h
@@ -1093,4 +1095,24 @@
 1438811191 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/ViewEventReceiver.h
 	<irrlicht.h>
 	<iostream>
+
+1439046866 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/TerrainViewFactory.h
+	"TerrainView.h"
+
+1439047115 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/SkyViewFactory.h
+	"SkyView.h"
+
+1439047211 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/PopulationViewFactory.h
+	"PopulationView.h"
+
+1438809937 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/CameraFactory.h
+	"Camera.h"
+
+1439052257 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/FPS/FPSFactory.h
+	"FPS.h"
+
+1439052339 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/FPS/FPS.h
+	"../Camera.h"
+
+1439106387 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/ICharacterEntity.h
 

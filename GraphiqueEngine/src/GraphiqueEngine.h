@@ -2,10 +2,8 @@
 #define GRAPHIQUEENGINE_H
 
 #include "IGraphiqueEngine.h"
-#include "GraphiqueEngineFactory.h"
-//#include "View/ViewEventReceiver.h"
 
-class IController;
+//class IController;
 
 namespace graphique
 {
@@ -36,8 +34,7 @@ namespace graphique
         protected:
             BusinessInterface *business;
             IView *view;
-            IController *controller;
-            //ViewEventReceiver *eventReceiver;
+            //IController *controller;
         private:
     };
 

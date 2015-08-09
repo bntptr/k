@@ -7,11 +7,12 @@
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
 #include "Environnement/EnvironnementFactory.h"
-#include "Camera/Camera.h"
-#include "Terrain/TerrainView.h"
-#include "Sky/SkyView.h"
-#include "Population/PopulationView.h"
-//#include "Player/PlayerView.h"
+#include "Camera/CameraFactory.h"
+#include "Camera/FPS/FPSFactory.h"
+#include "Terrain/TerrainViewFactory.h"
+#include "Sky/SkyViewFactory.h"
+#include "Population/PopulationViewFactory.h"
+//#include "Player/PlayerViewFactory.h"
 
 namespace graphique
 {
@@ -19,6 +20,7 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
+            //SoundService *sound;
             ViewEventReceiver *receiver;
             IEnvironnement *environnement;
             ICamera *camera;
@@ -87,19 +89,20 @@ namespace graphique
                 this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();
 
-                this->camera = new Camera(this->device);
+                this->camera = CameraFactory::createEntity(this->device);
+                //this->camera = FPSFactory::createEntity(this->device);
                 this->camera->draw();
 
                 IGroundEntity *ground = entity->getGround();
-                this->terrain = new TerrainView(this->device, ground);
+                this->terrain = TerrainViewFactory::createEntity(this->device, ground);
                 this->terrain->draw(this->camera);
 
                 ISkyEntity *skyEntity = entity->getSky();
-                this->sky = new SkyView(this->device, skyEntity);
+                this->sky = SkyViewFactory::createEntity(this->device, skyEntity);
                 this->sky->draw();
 
                 IPopulationEntity *populationEntity = entity->getPopulation();
-                this->population = new PopulationView(this->device, populationEntity);
+                this->population = PopulationViewFactory::createEntity(this->device, populationEntity);
                 this->population->draw();
 
                 //IPlayerEntity *player = entity->getPlayer();

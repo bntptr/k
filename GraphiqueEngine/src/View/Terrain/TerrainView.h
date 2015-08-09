@@ -36,7 +36,7 @@ namespace graphique
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
                 // add terrain scene node
                 scene::ITerrainSceneNode* terrain = smgr->addTerrainSceneNode(
-                    MEDIA + "terrain-heightmap.bmp",
+                    MEDIA + "terrain-heightmap-plat-bas.bmp",
                     0,					// parent node
                     -1,					// node id
                     core::vector3df(0.f, 0.f, 0.f),		// position
@@ -52,7 +52,7 @@ namespace graphique
                 terrain->setMaterialFlag(video::EMF_LIGHTING, false);
 
                 terrain->setMaterialTexture(0,
-                        driver->getTexture(MEDIA + "terrain-texture.jpg"));
+                        driver->getTexture(MEDIA + "terrain-texture-plat-riviere.jpg"));
                 terrain->setMaterialTexture(1,
                         driver->getTexture(MEDIA + "detailmap3.jpg"));
 

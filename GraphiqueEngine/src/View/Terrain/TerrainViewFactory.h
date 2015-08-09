@@ -8,8 +8,8 @@ namespace graphique
     class TerrainViewFactory
     {
     public:
-        static ITerrainView* createEntity(irr::IrrlichtDevice *device) {
-            return new TerrainView(device);
+        static ITerrainView* createEntity(irr::IrrlichtDevice *device, IGroundEntity *ground) {
+            return new TerrainView(device, ground);
         }
     };
 } // graphique

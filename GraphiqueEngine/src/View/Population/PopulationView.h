@@ -74,6 +74,8 @@ namespace graphique
                 // NINJA
                 scene::IAnimatedMeshSceneNode* anms =
                     smgr->addAnimatedMeshSceneNode(smgr->getMesh(MEDIA + "ninja.b3d"));
+                //anms->setMaterialTexture( 0, driver->getTexture(MEDIA + "sydney.bmp") );
+                anms->setMaterialTexture( 0, driver->getTexture(MEDIA + "nskinrd2.jpg") );
 
                 if (anms)
                 {
