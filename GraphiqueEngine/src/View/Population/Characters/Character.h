@@ -2,6 +2,7 @@
 #define CHARACTERVIEW_H
 
 #include "ICharacter.h"
+#include "Action/DeplaceX.h"
 
 namespace graphique
 {
@@ -76,24 +77,24 @@ namespace graphique
                 }
             }
 
-            void deplaceX() {
-                this->entity->deplaceX();
-                Vector3d position = this->entity->getPosition();
-                this->node->setPosition(core::vector3df(
-                    position.getX(),
-                    position.getY(),
-                    position.getZ()
-                ));
+            ICharacterEntity* getCharacterEntity() {
+                return this->entity;
+            }
+
+            scene::IAnimatedMeshSceneNode* getNode() {
+                return this->node;
             }
 
             bool oneEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
+                character::IAction *action;
                 switch(event)
                 {
                     case EACTIONEVENT_DEFAULT:
                         break;
                     case EACTIONEVENT_DEPLACE_X:
-                        this->deplaceX();
+                        action = new character::DeplaceX();
+                        action->execute(this);
                         break;
                     case EACTIONEVENT_DEPLACE_Y:
                         break;

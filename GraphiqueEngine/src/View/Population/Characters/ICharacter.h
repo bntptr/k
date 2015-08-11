@@ -15,6 +15,8 @@ namespace graphique
         virtual ~ICharacter(){};
 
         virtual bool draw()=0;
+        virtual ICharacterEntity* getCharacterEntity()=0;
+        virtual scene::IAnimatedMeshSceneNode* getNode()=0; // cacher les classes irrlicht
     };
 } // graphique
 
