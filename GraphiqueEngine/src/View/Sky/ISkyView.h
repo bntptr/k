@@ -3,7 +3,7 @@
 
 #include <irrlicht.h>
 
-#include "../../Business/ISkyEntity.h"
+#include "../../Business/Sky/ISkyEntity.h"
 
 namespace graphique
 {

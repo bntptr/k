@@ -4,7 +4,7 @@
 #include <list>
 #include <irrlicht.h>
 
-#include "../../Business/IPopulationEntity.h"
+#include "../../Business/Population/IPopulationEntity.h"
 #include "Characters/ICharacter.h"
 
 namespace graphique

@@ -53,13 +53,23 @@
 			<Add directory="./lib" />
 		</Linker>
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Business/AccessoryEntity.h" />
+		<Unit filename="src/Business/AccessoryFactory.h" />
 		<Unit filename="src/Business/BusinessEntity.h" />
 		<Unit filename="src/Business/BusinessFactory.h" />
 		<Unit filename="src/Business/BusinessInterface.h" />
 		<Unit filename="src/Business/BusinessService.h" />
+		<Unit filename="src/Business/Character/CharacterEntity.h" />
+		<Unit filename="src/Business/Character/CharacterFactory.h" />
+		<Unit filename="src/Business/Character/ICharacterEntity.h" />
+		<Unit filename="src/Business/Character/Mesh/EMesh.h" />
+		<Unit filename="src/Business/Character/Texture/ETexture.h" />
+		<Unit filename="src/Business/Character/Vector3d/IVector3d.h" />
+		<Unit filename="src/Business/Character/Vector3d/Vector3d.h" />
 		<Unit filename="src/Business/GroundEntity.cpp" />
 		<Unit filename="src/Business/GroundEntity.h" />
 		<Unit filename="src/Business/GroundFactory.h" />
+		<Unit filename="src/Business/IAccessoryEntity.h" />
 		<Unit filename="src/Business/IBusinessEntity.h" />
 		<Unit filename="src/Business/IGroundEntity.h" />
 		<Unit filename="src/Business/IPlayerEntity.h" />
@@ -75,6 +85,13 @@
 		<Unit filename="src/GraphiqueEngine.h" />
 		<Unit filename="src/GraphiqueEngineFactory.h" />
 		<Unit filename="src/IGraphiqueEngine.h" />
+		<Unit filename="src/Kutility/IReferenceStructure.h" />
+		<Unit filename="src/Kutility/TList/TList.h" />
+		<Unit filename="src/Kutility/TList/TListe.cpp" />
+		<Unit filename="src/Kutility/TList/TNoeudListe.cpp" />
+		<Unit filename="src/Kutility/TList/TNoeudListe.h" />
+		<Unit filename="src/Kutility/kutility.h" />
+		<Unit filename="src/View/Action/EActionEvent.h" />
 		<Unit filename="src/View/Action/IActionKey.h" />
 		<Unit filename="src/View/Action/IActionKeyW.h" />
 		<Unit filename="src/View/Building/IBuildingEntity.h" />
@@ -104,6 +121,7 @@
 		<Unit filename="src/View/Population/PopulationView.h" />
 		<Unit filename="src/View/Population/PopulationViewFactory.h" />
 		<Unit filename="src/View/Selector/ISelectorEntity.h" />
+		<Unit filename="src/View/Selector/SelectorEntity.h" />
 		<Unit filename="src/View/Selector/SelectorService.h" />
 		<Unit filename="src/View/Sky/ISkyView.h" />
 		<Unit filename="src/View/Sky/SkyView.h" />

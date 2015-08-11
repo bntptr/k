@@ -2,7 +2,7 @@
 #define IPOPULATIONENTITY_H
 
 //#include <list>
-#include "../Kutility/kutility.h"
+#include "../../Kutility/kutility.h"
 
 #include "Character/Vector3d/Vector3d.h"
 #include "Character/ICharacterEntity.h"

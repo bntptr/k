@@ -28,17 +28,17 @@
 1438509511 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/GraphiqueEngineFactory.h
 	"IGraphiqueEngine.h"
 
-1438722584 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/BusinessService.h
+1439327943 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/BusinessService.h
 	"BusinessInterface.h"
 	"BusinessFactory.h"
-	"GroundFactory.h"
-	"SkyFactory.h"
-	"PopulationFactory.h"
-	"PlayerFactory.h"
+	"Ground/GroundFactory.h"
+	"Sky/SkyFactory.h"
+	"Population/PopulationFactory.h"
+	"Player/PlayerFactory.h"
 
-1438720833 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/BusinessInterface.h
+1439327912 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/BusinessInterface.h
 	"BusinessEntity.h"
-	"IGroundEntity.h"
+	"Ground/IGroundEntity.h"
 
 1438721400 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/BusinessEntity.h
 	"IBusinessEntity.h"
@@ -1024,9 +1024,9 @@
 1439147318 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/TerrainView.h
 	"ITerrainView.h"
 
-1438552561 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/ITerrainView.h
+1439328347 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/ITerrainView.h
 	<irrlicht.h>
-	"../../Business/IGroundEntity.h"
+	"../../Business/Ground/IGroundEntity.h"
 	"../Camera/ICamera.h"
 
 1439143666 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Environnement/Environnement.h
@@ -1044,27 +1044,27 @@
 1439104696 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/SkyView.h
 	"ISkyView.h"
 
-1438553419 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/ISkyView.h
+1439328356 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/ISkyView.h
 	<irrlicht.h>
-	"../../Business/ISkyEntity.h"
+	"../../Business/Sky/ISkyEntity.h"
 
 1439149931 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/PopulationView.h
 	"IPopulationView.h"
 	"Characters/CharacterFactory.h"
 	"../../Kutility/kutility.h"
 
-1439149810 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/IPopulationView.h
+1439328370 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/IPopulationView.h
 	<list>
 	<irrlicht.h>
-	"../../Business/IPopulationEntity.h"
+	"../../Business/Population/IPopulationEntity.h"
 	"Characters/ICharacter.h"
 
-1438720647 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/IBusinessEntity.h
+1439328118 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/IBusinessEntity.h
 	"IBusinessEntity.h"
-	"IGroundEntity.h"
-	"ISkyEntity.h"
-	"IPopulationEntity.h"
-	"IPlayerEntity.h"
+	"Ground/IGroundEntity.h"
+	"Sky/ISkyEntity.h"
+	"Population/IPopulationEntity.h"
+	"Player/IPlayerEntity.h"
 
 1438721425 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/BusinessEntityFactory.h
 	"BusinessEntity.h"
@@ -1167,10 +1167,10 @@
 	"TList.h"
 	"TNoeudListe.h"
 
-1439121589 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/Characters/ICharacter.h
+1439328388 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Population/Characters/ICharacter.h
 	<irrlicht.h>
 	"../../IObjectView.h"
-	"../../../Business/Character/ICharacterEntity.h"
+	"../../../Business/Population/Character/ICharacterEntity.h"
 
 1439151935 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/IObjectView.h
 	"Action/EActionEvent.h"
@@ -1216,4 +1216,63 @@
 1439151984 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Selector/SelectorEntity.h
 	"../../Kutility/kutility.h"
 	"ISelectorEntity.h"
+
+1438723624 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Ground/IGroundEntity.h
+
+1438723926 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Sky/ISkyEntity.h
+
+1439328154 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/IPopulationEntity.h
+	"../../Kutility/kutility.h"
+	"Character/Vector3d/Vector3d.h"
+	"Character/ICharacterEntity.h"
+
+1439120237 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/Character/Vector3d/Vector3d.h
+	"IVector3d.h"
+
+1439120189 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/Character/Vector3d/IVector3d.h
+
+1439152698 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/Character/ICharacterEntity.h
+	"Texture/ETexture.h"
+	"Mesh/EMesh.h"
+
+1439142457 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/Character/Texture/ETexture.h
+
+1439142077 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/Character/Mesh/EMesh.h
+
+1438722740 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Player/IPlayerEntity.h
+
+1438724222 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Ground/GroundFactory.h
+	"GroundEntity.h"
+
+1438724212 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Ground/GroundEntity.h
+	"IGroundEntity.h"
+
+1438722423 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Sky/SkyFactory.h
+	"SkyEntity.h"
+
+1438724156 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Sky/SkyEntity.h
+	"ISkyEntity.h"
+
+1439153213 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/PopulationFactory.h
+	"PopulationEntity.h"
+
+1439147782 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/PopulationEntity.h
+	"IPopulationEntity.h"
+	"Character/CharacterFactory.h"
+
+1439125892 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/Character/CharacterFactory.h
+	"CharacterEntity.h"
+
+1439153129 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Population/Character/CharacterEntity.h
+	"ICharacterEntity.h"
+
+1438722503 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Player/PlayerFactory.h
+	"PlayerEntity.h"
+
+1438723588 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Player/PlayerEntity.h
+	"IPlayerEntity.h"
+
+1438429880 source:/home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Ground/GroundEntity.cpp
+
+1438429906 source:/home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Business/Sky/SkyEntity.cpp
 

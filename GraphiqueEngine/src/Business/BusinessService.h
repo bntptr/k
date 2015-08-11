@@ -4,10 +4,10 @@
 #include "BusinessInterface.h"
 #include "BusinessFactory.h"
 
-#include "GroundFactory.h"
-#include "SkyFactory.h"
-#include "PopulationFactory.h"
-#include "PlayerFactory.h"
+#include "Ground/GroundFactory.h"
+#include "Sky/SkyFactory.h"
+#include "Population/PopulationFactory.h"
+#include "Player/PlayerFactory.h"
 
 namespace graphique
 {

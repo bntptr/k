@@ -2,7 +2,7 @@
 #define BUSINESSINTERFACE_H
 
 #include "BusinessEntity.h"
-#include "IGroundEntity.h"
+#include "Ground/IGroundEntity.h"
 
 namespace graphique
 {

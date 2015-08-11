@@ -3,10 +3,10 @@
 
 #include "IBusinessEntity.h"
 
-#include "IGroundEntity.h"
-#include "ISkyEntity.h"
-#include "IPopulationEntity.h"
-#include "IPlayerEntity.h"
+#include "Ground/IGroundEntity.h"
+#include "Sky/ISkyEntity.h"
+#include "Population/IPopulationEntity.h"
+#include "Player/IPlayerEntity.h"
 
 namespace graphique
 {

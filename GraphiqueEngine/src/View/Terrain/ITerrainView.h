@@ -3,7 +3,7 @@
 
 #include <irrlicht.h>
 
-#include "../../Business/IGroundEntity.h"
+#include "../../Business/Ground/IGroundEntity.h"
 #include "../Camera/ICamera.h"
 
 namespace graphique
