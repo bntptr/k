@@ -1,7 +1,7 @@
 #ifndef IACTIONKEY_H
 #define IACTIONKEY_H
 
-#include "../IView.h"
+#include "../../IView.h"
 #include "EActionEvent.h"
 
 namespace graphique

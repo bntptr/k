@@ -3,7 +3,7 @@
 
 #include <irrlicht.h>
 #include <iostream>
-#include "../Action/KeyW.h"
+#include "Action/KeyW.h"
 
 using namespace irr;
 
