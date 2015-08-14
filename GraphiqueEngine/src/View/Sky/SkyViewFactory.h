@@ -8,7 +8,7 @@ namespace graphique
     class SkyViewFactory
     {
     public:
-        static ISkyView* createEntity(irr::IrrlichtDevice *device, ISkyEntity *skyEntity) {
+        static ISkyView* createEntity(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity) {
             return new SkyView(device, skyEntity);
         }
     };

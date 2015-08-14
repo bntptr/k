@@ -84,9 +84,9 @@ namespace graphique
             /**
              * Construction de tous les éléments de la scène graphique
              */
-            int build(BusinessInterface *business) {
+            int build(business::BusinessInterface *business) {
                 std::cout <<"build view !" << std::endl;
-                IBusinessEntity *entity = business->loadBusinessEntity();
+                business::IBusinessEntity *entity = business->loadBusinessEntity();
 
                 this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();
@@ -95,22 +95,22 @@ namespace graphique
                 //this->camera = FPSFactory::createEntity(this->device);
                 this->camera->draw();
 
-                IGroundEntity *ground = entity->getGround();
+                business::IGroundEntity *ground = entity->getGround();
                 this->terrain = TerrainViewFactory::createEntity(this->device, ground);
                 this->terrain->draw(this->camera);
 
-                ISkyEntity *skyEntity = entity->getSky();
+                business::ISkyEntity *skyEntity = entity->getSky();
                 this->sky = SkyViewFactory::createEntity(this->device, skyEntity);
                 this->sky->draw();
 
-                IPopulationEntity *populationEntity = entity->getPopulation();
+                business::IPopulationEntity *populationEntity = entity->getPopulation();
                 this->population = PopulationViewFactory::createEntity(this->device, populationEntity);
                 this->population->draw();
 
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();
                 this->selector->addToCursorLeft(obj);
-                //IPlayerEntity *player = entity->getPlayer();
+                //business::IPlayerEntity *player = entity->getPlayer();
                 return 0;
             }
 

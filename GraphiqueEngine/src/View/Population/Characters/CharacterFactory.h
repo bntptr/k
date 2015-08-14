@@ -8,7 +8,7 @@ namespace graphique
     class CharacterFactory
     {
     public:
-        static ICharacter* createEntity(irr::IrrlichtDevice *device, ICharacterEntity *entity) {
+        static ICharacter* createEntity(irr::IrrlichtDevice *device, business::ICharacterEntity *entity) {
             return new Character(device, entity);
         }
     };

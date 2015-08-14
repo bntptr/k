@@ -3,7 +3,7 @@
 
 #include "AccessoryEntity.h"
 
-namespace graphique
+namespace business
 {
     class AccessoryFactory
     {
@@ -12,7 +12,7 @@ namespace graphique
             return new AccessoryEntity();
         }
     };
-} // graphique
+} // business
 
 #endif
 

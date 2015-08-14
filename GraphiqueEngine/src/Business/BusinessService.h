@@ -9,7 +9,7 @@
 #include "Population/PopulationFactory.h"
 #include "Player/PlayerFactory.h"
 
-namespace graphique
+namespace business
 {
     class BusinessService : public BusinessInterface
     {

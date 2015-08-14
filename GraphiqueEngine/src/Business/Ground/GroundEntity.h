@@ -3,7 +3,7 @@
 
 #include "IGroundEntity.h"
 
-namespace graphique
+namespace business
 {
     class GroundEntity : public IGroundEntity
     {

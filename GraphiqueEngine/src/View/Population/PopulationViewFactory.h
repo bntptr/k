@@ -10,7 +10,7 @@ namespace graphique
     public:
         static IPopulationView* createEntity(
             irr::IrrlichtDevice *device,
-            IPopulationEntity *populationEntity
+            business::IPopulationEntity *populationEntity
         ) {
             return new PopulationView(device, populationEntity);
         }

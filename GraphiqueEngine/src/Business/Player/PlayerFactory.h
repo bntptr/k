@@ -3,7 +3,7 @@
 
 #include "PlayerEntity.h"
 
-namespace graphique
+namespace business
 {
     class PlayerFactory
     {
@@ -12,6 +12,6 @@ namespace graphique
             return new PlayerEntity();
         }
     };
-} // graphique
+} // business
 
 #endif

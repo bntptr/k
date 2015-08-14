@@ -3,7 +3,7 @@
 
 #include "SkyEntity.h"
 
-namespace graphique
+namespace business
 {
     class SkyFactory
     {
@@ -12,6 +12,6 @@ namespace graphique
             return new SkyEntity();
         }
     };
-} // graphique
+} // business
 
 #endif

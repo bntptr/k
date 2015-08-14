@@ -3,7 +3,7 @@
 
 #include "IVector3d.h"
 
-namespace graphique
+namespace business
 {
     class Vector3d : public IVector3d
     {
@@ -30,7 +30,9 @@ namespace graphique
 
             IVector3d* setX(float x) {
                 this->x = x;
+                std::cout << "Vector " << this->x << std::endl;
                 IVector3d *thisInstance = this;
+                std::cout << "Vector " << this->x << std::endl;
                 return thisInstance;
             }
 

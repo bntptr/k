@@ -21,7 +21,7 @@ namespace graphique
 
         virtual bool addCharacter(
             irr::IrrlichtDevice *device,
-            ICharacterEntity *characterEntity
+            business::ICharacterEntity *characterEntity
         )=0;
 
         virtual IObjectView* getCharacterFromPlayer()=0;

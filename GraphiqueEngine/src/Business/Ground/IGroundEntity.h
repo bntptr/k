@@ -1,7 +1,7 @@
 #ifndef IGROUNDENTITY_H
 #define IGROUNDENTITY_H
 
-namespace graphique
+namespace business
 {
     class IGroundEntity
     {

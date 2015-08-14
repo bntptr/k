@@ -3,7 +3,7 @@
 
 #include "IBusinessEntity.h"
 
-namespace graphique
+namespace business
 {
     class BusinessEntity : public IBusinessEntity
     {
@@ -74,6 +74,6 @@ namespace graphique
         this->player = player;
         return thisInterface;
     }
-} // graphique
+} // business
 
 #endif

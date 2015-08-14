@@ -1,7 +1,7 @@
 #ifndef IVECTOR3D_H
 #define IVECTOR3D_H
 
-namespace graphique
+namespace business
 {
     class IVector3d
     {

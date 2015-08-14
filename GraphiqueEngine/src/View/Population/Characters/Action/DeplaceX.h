@@ -14,16 +14,17 @@ namespace graphique
                 virtual ~DeplaceX(){};
 
                 int execute(ICharacter *character) {
-                    ICharacterEntity* entity = character->getCharacterEntity();
-                    entity->deplaceX();
+                    business::ICharacterEntity* entity = character->getCharacterEntity();
+                    entity->oneEvent(EACTIONEVENT_DEPLACE_X);
 
-                    Vector3d position = entity->getPosition();
+                    business::Vector3d position = entity->getPosition();
                     scene::IAnimatedMeshSceneNode* node = character->getNode();
                     node->setPosition(core::vector3df(
                         position.getX(),
                         position.getY(),
                         position.getZ()
                     ));
+                    std::cout << position.getX() << std::endl;;
                 }
         };
     }

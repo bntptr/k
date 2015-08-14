@@ -3,7 +3,7 @@
 
 #include "ISkyEntity.h"
 
-namespace graphique
+namespace business
 {
     class SkyEntity : public ISkyEntity
     {

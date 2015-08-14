@@ -14,11 +14,11 @@ namespace graphique
         protected:
             IPopulationView *thisInstance;
             irr::IrrlichtDevice *device;
-            IPopulationEntity *populationEntity;
+            business::IPopulationEntity *populationEntity;
             TList<ICharacter>* characterList;
 
         public:
-            PopulationView(irr::IrrlichtDevice *device, IPopulationEntity *populationEntity){
+            PopulationView(irr::IrrlichtDevice *device, business::IPopulationEntity *populationEntity){
                 this->thisInstance = this;
                 this->device = device;
                 this->populationEntity = populationEntity;
@@ -27,7 +27,7 @@ namespace graphique
             ~PopulationView(){};
 
             bool build() {
-                TList<ICharacterEntity>* L = this->populationEntity->getCharacterList();
+                TList<business::ICharacterEntity>* L = this->populationEntity->getCharacterList();
                 for(int i = 0; i < L->size(); i++) {
                     this->addCharacter(this->device, L->getElement(i));
                 }
@@ -122,7 +122,7 @@ namespace graphique
 
             bool addCharacter(
                 irr::IrrlichtDevice *device,
-                ICharacterEntity *characterEntity
+                business::ICharacterEntity *characterEntity
             ){
                 ICharacter *entity = graphique::CharacterFactory::createEntity(device, characterEntity);
                 this->characterList->addElement(entity);

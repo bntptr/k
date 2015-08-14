@@ -3,7 +3,7 @@
 
 #include "BusinessEntity.h"
 
-namespace graphique
+namespace business
 {
     class BusinessFactory
     {
@@ -22,6 +22,6 @@ namespace graphique
             return entity;
         }
     };
-} // graphique
+} // business
 
 #endif

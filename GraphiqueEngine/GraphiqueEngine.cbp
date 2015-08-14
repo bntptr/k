@@ -64,11 +64,12 @@
 		<Unit filename="src/Business/Ground/GroundEntity.h" />
 		<Unit filename="src/Business/Ground/GroundFactory.h" />
 		<Unit filename="src/Business/Ground/IGroundEntity.h" />
-		<Unit filename="src/Business/GroundEntity.cpp" />
 		<Unit filename="src/Business/IBusinessEntity.h" />
 		<Unit filename="src/Business/Player/IPlayerEntity.h" />
 		<Unit filename="src/Business/Player/PlayerEntity.h" />
 		<Unit filename="src/Business/Player/PlayerFactory.h" />
+		<Unit filename="src/Business/Population/Character/Action/DeplaceX.h" />
+		<Unit filename="src/Business/Population/Character/Action/IAction.h" />
 		<Unit filename="src/Business/Population/Character/CharacterEntity.h" />
 		<Unit filename="src/Business/Population/Character/CharacterFactory.h" />
 		<Unit filename="src/Business/Population/Character/ICharacterEntity.h" />
@@ -83,7 +84,6 @@
 		<Unit filename="src/Business/Sky/SkyEntity.cpp" />
 		<Unit filename="src/Business/Sky/SkyEntity.h" />
 		<Unit filename="src/Business/Sky/SkyFactory.h" />
-		<Unit filename="src/Business/SkyEntity.cpp" />
 		<Unit filename="src/GraphiqueEngine.h" />
 		<Unit filename="src/GraphiqueEngineFactory.h" />
 		<Unit filename="src/IGraphiqueEngine.h" />
@@ -115,6 +115,9 @@
 		<Unit filename="src/View/Player/PlayerView.h" />
 		<Unit filename="src/View/Player/PlayerViewFactory.h" />
 		<Unit filename="src/View/Population/Accessories/Accessory.h" />
+		<Unit filename="src/View/Population/Characters/Action/Action.h" />
+		<Unit filename="src/View/Population/Characters/Action/DeplaceX.h" />
+		<Unit filename="src/View/Population/Characters/Action/IAction.h" />
 		<Unit filename="src/View/Population/Characters/Character.h" />
 		<Unit filename="src/View/Population/Characters/CharacterFactory.h" />
 		<Unit filename="src/View/Population/Characters/CharacterService.h" />

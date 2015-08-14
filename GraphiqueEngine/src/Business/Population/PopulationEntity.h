@@ -4,7 +4,7 @@
 #include "IPopulationEntity.h"
 #include "Character/CharacterFactory.h"
 
-namespace graphique
+namespace business
 {
     class PopulationEntity : public IPopulationEntity
     {

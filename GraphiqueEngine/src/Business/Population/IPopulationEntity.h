@@ -7,7 +7,7 @@
 #include "Character/Vector3d/Vector3d.h"
 #include "Character/ICharacterEntity.h"
 
-namespace graphique
+namespace business
 {
     class IPopulationEntity
     {

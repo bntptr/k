@@ -4,7 +4,7 @@
 #include "BusinessEntity.h"
 #include "Ground/IGroundEntity.h"
 
-namespace graphique
+namespace business
 {
     class BusinessInterface
     {

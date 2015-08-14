@@ -3,7 +3,7 @@
 
 #include "IAccessoryEntity.h"
 
-namespace graphique
+namespace business
 {
     class AccessoryEntity : public IAccessoryEntity
     {

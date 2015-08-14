@@ -9,11 +9,11 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            IGroundEntity *ground;
+            business::IGroundEntity *ground;
             scene::ITerrainSceneNode* terrain;
 
         public:
-            TerrainView(irr::IrrlichtDevice *device, IGroundEntity *ground){
+            TerrainView(irr::IrrlichtDevice *device, business::IGroundEntity *ground){
                 this->device = device;
                 this->ground = ground;
             };

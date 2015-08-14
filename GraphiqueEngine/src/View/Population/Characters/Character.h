@@ -10,11 +10,11 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            ICharacterEntity *entity;
+            business::ICharacterEntity *entity;
             scene::IAnimatedMeshSceneNode* node;
 
         public:
-            Character(irr::IrrlichtDevice *device, ICharacterEntity *entity){
+            Character(irr::IrrlichtDevice *device, business::ICharacterEntity *entity){
                 this->device = device;
                 this->entity = entity;
             };
@@ -53,21 +53,21 @@ namespace graphique
                     anms->setAnimationSpeed(15);
             		//anms->setMD2Animation(scene::EMAT_RUN);
 
-                    Vector3d scale = this->entity->getScale();
+                    business::Vector3d scale = this->entity->getScale();
                     anms->setScale(core::vector3df(
                         scale.getX(),
                         scale.getY(),
                         scale.getZ()
                     ));
 
-                    Vector3d rotation = this->entity->getRotation();
+                    business::Vector3d rotation = this->entity->getRotation();
                     anms->setRotation(core::vector3df(
                         rotation.getX(),
                         rotation.getY(),
                         rotation.getZ()
                     ));
 
-                    Vector3d position = this->entity->getPosition();
+                    business::Vector3d position = this->entity->getPosition();
                     anms->setPosition(core::vector3df(
                         position.getX(),
                         position.getY(),
@@ -77,7 +77,7 @@ namespace graphique
                 }
             }
 
-            ICharacterEntity* getCharacterEntity() {
+            business::ICharacterEntity* getCharacterEntity() {
                 return this->entity;
             }
 
@@ -95,6 +95,8 @@ namespace graphique
                     case EACTIONEVENT_DEPLACE_X:
                         action = new character::DeplaceX();
                         action->execute(this);
+                        this->entity->getPosition();
+                        std::cout << this->entity->getPosition().getX() << std::endl;
                         break;
                     case EACTIONEVENT_DEPLACE_Y:
                         break;

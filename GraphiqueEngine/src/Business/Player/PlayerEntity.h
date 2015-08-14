@@ -3,7 +3,7 @@
 
 #include "IPlayerEntity.h"
 
-namespace graphique
+namespace business
 {
     class PlayerEntity : public IPlayerEntity
     {

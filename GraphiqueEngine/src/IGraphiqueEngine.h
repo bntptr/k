@@ -18,8 +18,8 @@ namespace graphique
             virtual bool exit()=0;
             virtual bool drop()=0;
 
-            virtual BusinessInterface* getBusiness()=0;
-            virtual IGraphiqueEngine* setBusiness(BusinessInterface *business)=0;
+            virtual business::BusinessInterface* getBusiness()=0;
+            virtual IGraphiqueEngine* setBusiness(business::BusinessInterface *business)=0;
             virtual IView* getView()=0;
             virtual IGraphiqueEngine* setView(IView *view)=0;
     };

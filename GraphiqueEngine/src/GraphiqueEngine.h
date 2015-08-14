@@ -26,13 +26,13 @@ namespace graphique
             bool start();
             bool exit();
 
-            BusinessInterface* getBusiness();
-            IGraphiqueEngine* setBusiness(BusinessInterface *business);
+            business::BusinessInterface* getBusiness();
+            IGraphiqueEngine* setBusiness(business::BusinessInterface *business);
             IView* getView();
             IGraphiqueEngine* setView(IView *view);
 
         protected:
-            BusinessInterface *business;
+            business::BusinessInterface *business;
             IView *view;
             //IController *controller;
         private:
@@ -73,12 +73,12 @@ namespace graphique
         return true;
     }
 
-    BusinessInterface* GraphiqueEngine::getBusiness()
+    business::BusinessInterface* GraphiqueEngine::getBusiness()
     {
         return this->business;
     }
 
-    IGraphiqueEngine* GraphiqueEngine::setBusiness(BusinessInterface *business)
+    IGraphiqueEngine* GraphiqueEngine::setBusiness(business::BusinessInterface *business)
     {
         this->business = business;
         IGraphiqueEngine *engine = this;

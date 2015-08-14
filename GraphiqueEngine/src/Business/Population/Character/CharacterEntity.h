@@ -2,8 +2,9 @@
 #define CHARACTERENTITY_H
 
 #include "ICharacterEntity.h"
+#include "Action/DeplaceX.h"
 
-namespace graphique
+namespace business
 {
     class CharacterEntity : public ICharacterEntity
     {
@@ -14,6 +15,7 @@ namespace graphique
             Vector3d scale;
             ETEXTURE texture;
             EMESH mesh;
+
         public:
             CharacterEntity(){
                 this->thisInstance = this;
@@ -39,10 +41,11 @@ namespace graphique
             }
 
             Vector3d getPosition(){
+            std::cout << "position " << this->position.getX() << std::endl;
                 return this->position;
             }
 
-            ICharacterEntity* setPosition(Vector3d position){
+            ICharacterEntity* setPosition(Vector3d position) {
                 this->position = position;
                 return this->thisInstance;
             }
@@ -65,10 +68,25 @@ namespace graphique
                 return this->thisInstance;
             }
 
-            // Actions Character
-            void deplaceX() {
-                float newPosition = this->position.getX() + 1;
-                this->position.setX(newPosition);
+             bool oneEvent(EACTIONEVENT event) {
+                std::cout << ACTIONEVENTInfoNames[event] << std::endl;
+                character::IAction *action;
+                switch(event)
+                {
+                    case EACTIONEVENT_DEFAULT:
+                        break;
+                    case EACTIONEVENT_DEPLACE_X:
+                        action = new character::DeplaceX();
+                        action->execute(this);
+                        break;
+                    case EACTIONEVENT_DEPLACE_Y:
+                        break;
+                    case EACTIONEVENT_DEPLACE_Z:
+                        break;
+                    default:
+                    break;
+                }
+                return true;
             }
     };
 } // business

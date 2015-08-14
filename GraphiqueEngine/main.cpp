@@ -39,7 +39,7 @@ int main()
     objetA.print();*/
     cout << "[NOK]" << endl;
 
-    BusinessInterface *business = new BusinessService();
+    business::BusinessInterface *business = new business::BusinessService();
     View *view = new View();
     cout << "GraphiqueEngine NOW !" << endl;
     IGraphiqueEngine *engine = GraphiqueEngine::createEngine();

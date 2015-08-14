@@ -1,7 +1,7 @@
 #ifndef ISKYENTITY_H
 #define ISKYENTITY_H
 
-namespace graphique
+namespace business
 {
     class ISkyEntity
     {

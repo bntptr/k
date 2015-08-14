@@ -1,7 +1,7 @@
 #ifndef IACCESSORYENTITY_H
 #define IACCESSORYENTITY_H
 
-namespace graphique
+namespace business
 {
     class IAccessoryEntity
     {

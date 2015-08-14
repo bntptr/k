@@ -3,7 +3,7 @@
 
 #include "GroundEntity.h"
 
-namespace graphique
+namespace business
 {
     class GroundFactory
     {
@@ -12,6 +12,6 @@ namespace graphique
             return new GroundEntity();
         }
     };
-} // graphique
+} // business
 
 #endif

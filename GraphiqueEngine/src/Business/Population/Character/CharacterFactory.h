@@ -3,7 +3,7 @@
 
 #include "CharacterEntity.h"
 
-using namespace graphique;
+//using namespace graphique;
 
 namespace business
 {
@@ -25,7 +25,7 @@ namespace business
             return entity;
         }
     };
-} // graphique
+} // business
 
 #endif
 

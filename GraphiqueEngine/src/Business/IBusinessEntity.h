@@ -8,7 +8,7 @@
 #include "Population/IPopulationEntity.h"
 #include "Player/IPlayerEntity.h"
 
-namespace graphique
+namespace business
 {
     class IBusinessEntity
     {

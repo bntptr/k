@@ -3,7 +3,7 @@
 
 #include "PopulationEntity.h"
 
-namespace graphique
+namespace business
 {
     class PopulationFactory
     {
@@ -27,6 +27,6 @@ namespace graphique
             return entity;
         }
     };
-} // graphique
+} // business
 
 #endif

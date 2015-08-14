@@ -1,7 +1,7 @@
 #ifndef IPLAYERENTITY_H
 #define IPLAYERENTITY_H
 
-namespace graphique
+namespace business
 {
     class IPlayerEntity
     {

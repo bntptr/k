@@ -14,7 +14,7 @@ namespace graphique
 
             virtual int error()=0;
             virtual int init()=0;
-            virtual int build(BusinessInterface *business)=0;
+            virtual int build(business::BusinessInterface *business)=0;
             virtual int run()=0;
             virtual int runExemple()=0;
 

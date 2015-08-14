@@ -9,12 +9,12 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            ISkyEntity *skyEntity;
+            business::ISkyEntity *skyEntity;
             scene::ISceneNode* skybox;
             scene::ISceneNode* skydome;
 
         public:
-            SkyView(irr::IrrlichtDevice *device, ISkyEntity *skyEntity){
+            SkyView(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity){
                 this->device = device;
                 this->skyEntity = skyEntity;
             };

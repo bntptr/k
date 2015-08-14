@@ -1,16 +1,20 @@
 #ifndef ICHARACTERENTITY_H
 #define ICHARACTERENTITY_H
 
+#include "../../../View/EventReceiver/Action/EActionEvent.h"
 #include "Texture/ETexture.h"
 #include "Mesh/EMesh.h"
+#include "Vector3d/Vector3d.h"
 
-namespace graphique
+namespace business
 {
     class ICharacterEntity
     {
         public:
             ICharacterEntity(){};
             virtual ~ICharacterEntity(){};
+
+            virtual bool oneEvent(EACTIONEVENT event)=0;
 
             virtual EMESH getMesh()=0;
             virtual ICharacterEntity* setMesh(EMESH mesh)=0;
@@ -22,9 +26,6 @@ namespace graphique
             virtual ICharacterEntity* setRotation(Vector3d rotation)=0;
             virtual Vector3d getScale()=0;
             virtual ICharacterEntity* setScale(Vector3d scale)=0;
-
-            // Action from CharacterEntity | de meilleurs solutions?
-            virtual void deplaceX()=0;
     };
 } // business
 
