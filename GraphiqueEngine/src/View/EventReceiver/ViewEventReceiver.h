@@ -15,12 +15,13 @@ namespace graphique
 {
     class ViewEventReceiver : public IEventReceiver
     {
+        private:
+            IView* view;
+
         public:
-            ViewEventReceiver(scene::ISceneNode* terrain, scene::ISceneNode* skybox, scene::ISceneNode* skydome) :
-                Terrain(terrain), Skybox(skybox), Skydome(skydome), showBox(true)
+            ViewEventReceiver(IView *view)
             {
-                Skybox->setVisible(true);
-                Skydome->setVisible(false);
+                this->setView(view);
             }
 
             /*/// methode Sourie2D
@@ -115,14 +116,6 @@ namespace graphique
                 this->view = view;
                 return this;
             }
-
-        private:
-            scene::ISceneNode* Terrain;
-            scene::ISceneNode* Skybox;
-            scene::ISceneNode* Skydome;
-            bool showBox;
-
-            IView* view;
     };
 }
 

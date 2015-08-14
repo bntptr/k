@@ -53,6 +53,9 @@ namespace graphique
                 this->skydome=smgr->addSkyDomeSceneNode(driver->getTexture(MEDIA + "skydome.jpg"),16,8,0.95f,2.0f);
 
                 driver->setTextureCreationFlag(video::ETCF_CREATE_MIP_MAPS, true);
+
+                this->skybox->setVisible(true);
+                this->skydome->setVisible(false);
             }
     };
 } // graphique

@@ -130,11 +130,7 @@ namespace graphique
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
                 // create event receiver
-                this->receiver = new ViewEventReceiver(
-                    this->terrain->getTerrain(),
-                    this->sky->getSkyBox(),
-                    this->sky->getSkyDome()
-                );
+                this->receiver = new ViewEventReceiver(this);
                 this->receiver->setView(this); // segmentation fault si oublié
                 device->setEventReceiver(this->receiver);
 
