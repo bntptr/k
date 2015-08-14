@@ -41,7 +41,6 @@ namespace business
             }
 
             Vector3d getPosition(){
-            std::cout << "position " << this->position.getX() << std::endl;
                 return this->position;
             }
 

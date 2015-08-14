@@ -95,8 +95,6 @@ namespace graphique
                     case EACTIONEVENT_DEPLACE_X:
                         action = new character::DeplaceX();
                         action->execute(this);
-                        this->entity->getPosition();
-                        std::cout << this->entity->getPosition().getX() << std::endl;
                         break;
                     case EACTIONEVENT_DEPLACE_Y:
                         break;

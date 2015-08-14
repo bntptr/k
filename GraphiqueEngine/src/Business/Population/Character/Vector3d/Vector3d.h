@@ -30,9 +30,7 @@ namespace business
 
             IVector3d* setX(float x) {
                 this->x = x;
-                std::cout << "Vector " << this->x << std::endl;
                 IVector3d *thisInstance = this;
-                std::cout << "Vector " << this->x << std::endl;
                 return thisInstance;
             }
 

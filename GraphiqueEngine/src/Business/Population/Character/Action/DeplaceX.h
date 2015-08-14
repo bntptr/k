@@ -14,9 +14,10 @@ namespace business
                 virtual ~DeplaceX(){};
 
                 int execute(ICharacterEntity *character) {
-                    float newX = character->getPosition().getX() + 10;
-                    character->getPosition().setX(newX);
-std::cout << "character " << character->getPosition().getX() << std::endl;;
+                    Vector3d newPosition = character->getPosition();
+                    float newX = newPosition.getX() + 1;
+                    newPosition.setX(newX);
+                    character->setPosition(newPosition);
                 }
         };
     }

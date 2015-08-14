@@ -24,7 +24,6 @@ namespace graphique
                         position.getY(),
                         position.getZ()
                     ));
-                    std::cout << position.getX() << std::endl;;
                 }
         };
     }
