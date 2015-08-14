@@ -3,6 +3,10 @@
 
 #include <irrlicht.h>
 #include <iostream>
+#include "Action/KeyQ.h"
+#include "Action/KeyS.h"
+#include "Action/KeyD.h"
+#include "Action/KeyF.h"
 #include "Action/KeyW.h"
 
 using namespace irr;
@@ -19,32 +23,67 @@ namespace graphique
                 Skydome->setVisible(false);
             }
 
+            /*/// methode Sourie2D
+            bool OnEventSourie2D(const SEvent& event)
+            {
+                 if(sourie != NULL)
+                          return sourie->OnEventSourie2D(event);
+                  return false;
+             }
+
+             /// methode Sourie3D
+             bool OnEventSourie3D(const SEvent& event)
+            {
+                  return false;
+             }
+
+             /// methode Clavier
+             bool OnEventClavier(const SEvent& event)
+            {
+                  if(clav != NULL)
+                          return clav->OnEventClavier(event);
+                  return false;
+
+             }
+
+             /// methode GUI
+             bool OnEventGUI(const SEvent& event)
+            {
+                  if(env != NULL)
+                         return env->OnEventGUI(event);
+
+                  return false;
+             }*/
+
             bool OnEvent(const SEvent& event)
             {
+                /// Sourie  (irr::gui::ICursorControl Class Reference)
+                if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
+                {
+                    //OnEventSourie2D(event);
+                }
+
+                /// Clavier
                 if (event.EventType == irr::EET_KEY_INPUT_EVENT && event.KeyInput.PressedDown)
                 {
                     IKey *key;
                     switch (event.KeyInput.Key)
                     {
-                    case irr::KEY_KEY_Q: // switch wire frame mode
-                        Terrain->setMaterialFlag(video::EMF_WIREFRAME,
-                                !Terrain->getMaterial(0).Wireframe);
-                        Terrain->setMaterialFlag(video::EMF_POINTCLOUD, false);
+                    case irr::KEY_KEY_Q:
+                        key = new KeyQ();
+                        key->execute(this->view);
                         return true;
-                    case irr::KEY_KEY_F: // switch wire frame mode
-                        Terrain->setMaterialFlag(video::EMF_POINTCLOUD,
-                                !Terrain->getMaterial(0).PointCloud);
-                        Terrain->setMaterialFlag(video::EMF_WIREFRAME, false);
+                    case irr::KEY_KEY_F:
+                        key = new KeyF();
+                        key->execute(this->view);
                         return true;
-                    case irr::KEY_KEY_D: // toggle detail map
-                        Terrain->setMaterialType(
-                            Terrain->getMaterial(0).MaterialType == video::EMT_SOLID ?
-                            video::EMT_DETAIL_MAP : video::EMT_SOLID);
+                    case irr::KEY_KEY_D:
+                        key = new KeyD();
+                        key->execute(this->view);
                         return true;
-                    case irr::KEY_KEY_S: // toggle skies
-                        showBox=!showBox;
-                        Skybox->setVisible(showBox);
-                        Skydome->setVisible(!showBox);
+                    case irr::KEY_KEY_S:
+                        key = new KeyS();
+                        key->execute(this->view);
                         return true;
 
                     case irr::KEY_KEY_W:
@@ -61,6 +100,12 @@ namespace graphique
                     default:
                         break;
                     }
+                }
+
+                /// GUI Environnement
+                if (event.EventType == irr::EET_GUI_EVENT)
+                {
+                    //OnEventGUI(event);
                 }
 
                 return false;

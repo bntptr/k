@@ -42,12 +42,12 @@ namespace graphique
 {
     class ICamera
     {
-    public:
-        ICamera(){};
-        virtual ~ICamera(){};
+        public:
+            ICamera(){};
+            virtual ~ICamera(){};
 
-        virtual scene::ICameraSceneNode* getCamera()=0;
-        virtual bool draw()=0;
+            virtual irr::scene::ICameraSceneNode* getCamera()=0;
+            virtual bool draw()=0;
     };
 } // graphique
 

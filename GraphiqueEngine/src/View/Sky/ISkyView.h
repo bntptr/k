@@ -9,13 +9,13 @@ namespace graphique
 {
     class ISkyView
     {
-    public:
-        ISkyView(){};
-        virtual ~ISkyView(){};
+        public:
+            ISkyView(){};
+            virtual ~ISkyView(){};
 
-        virtual scene::ISceneNode* getSkyBox()=0;
-        virtual scene::ISceneNode* getSkyDome()=0;
-        virtual bool draw()=0;
+            virtual irr::scene::ISceneNode* getSkyBox()=0;
+            virtual irr::scene::ISceneNode* getSkyDome()=0;
+            virtual bool draw()=0;
     };
 } // graphique
 

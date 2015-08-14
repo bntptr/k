@@ -7,11 +7,11 @@ namespace graphique
 {
     class IEnvironnement
     {
-    public:
-        IEnvironnement(){};
-        virtual ~IEnvironnement(){};
+        public:
+            IEnvironnement(){};
+            virtual ~IEnvironnement(){};
 
-        virtual bool draw()=0;
+            virtual bool draw()=0;
     };
 } // graphique
 

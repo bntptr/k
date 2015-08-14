@@ -10,12 +10,12 @@ namespace graphique
 {
     class ITerrainView
     {
-    public:
-        ITerrainView(){};
-        virtual ~ITerrainView(){};
+        public:
+            ITerrainView(){};
+            virtual ~ITerrainView(){};
 
-        virtual scene::ITerrainSceneNode* getTerrain()=0;
-        virtual bool draw(ICamera* camera)=0;
+            virtual irr::scene::ITerrainSceneNode* getTerrain()=0;
+            virtual bool draw(ICamera* camera)=0;
     };
 } // graphique
 

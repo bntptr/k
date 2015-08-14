@@ -10,14 +10,14 @@ namespace graphique
 {
     class ICharacter : public IObjectView
     {
-    public:
-        ICharacter(){};
-        virtual ~ICharacter(){};
+        public:
+            ICharacter(){};
+            virtual ~ICharacter(){};
 
-        virtual bool draw()=0;
-        virtual bool oneEvent(EACTIONEVENT event)=0;
-        virtual business::ICharacterEntity* getCharacterEntity()=0;
-        virtual scene::IAnimatedMeshSceneNode* getNode()=0; // cacher les classes irrlicht
+            virtual bool draw()=0;
+            virtual bool oneEvent(EACTIONEVENT event)=0;
+            virtual business::ICharacterEntity* getCharacterEntity()=0;
+            virtual irr::scene::IAnimatedMeshSceneNode* getNode()=0; // cacher les classes irrlicht
     };
 } // graphique
 

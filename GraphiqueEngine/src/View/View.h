@@ -265,6 +265,26 @@ namespace graphique
         SelectorService* getSelector() {
             return this->selector;
         }
+
+        IEnvironnement *getEnvironnement() {
+            return this->environnement;
+        }
+
+        ICamera *getCamera() {
+            return this->camera;
+        }
+
+        ITerrainView *getTerrain() {
+            return this->terrain;
+        }
+
+        ISkyView *getSky() {
+            return this->sky;
+        }
+
+        IPopulationView *getPopulation() {
+            return this->population;
+        }
     };
 } // graphique
 
