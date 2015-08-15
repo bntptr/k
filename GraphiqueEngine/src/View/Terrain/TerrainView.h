@@ -2,6 +2,10 @@
 #define TERRAINVIEW_H
 
 #include "ITerrainView.h"
+#include "Action/IAction.h"
+#include "Action/MapDetail.h"
+#include "Action/MapTriangle.h"
+#include "Action/MapPoint.h"
 
 namespace graphique
 {
@@ -81,6 +85,29 @@ namespace graphique
                 video::S3DVertex2TCoords* data = (video::S3DVertex2TCoords*)buffer->getVertexBuffer().getData();
                 // Work on data or get the IndexBuffer with a similar call.
                 buffer->drop(); // When done drop the buffer again.
+            }
+
+            bool oneEvent(EACTIONEVENT event) {
+                std::cout << ACTIONEVENTInfoNames[event] << std::endl;
+                terrain::IAction *action;
+                switch(event)
+                {
+                    case EACTIONEVENT_TERRAIN_MAP_DETAIL:
+                        action = new terrain::MapDetail();
+                        action->execute(this);
+                        break;
+                    case EACTIONEVENT_TERRAIN_MAP_TRIANGLE:
+                        action = new terrain::MapTriangle();
+                        action->execute(this);
+                        break;
+                    case EACTIONEVENT_TERRAIN_MAP_POINT:
+                        action = new terrain::MapPoint();
+                        action->execute(this);
+                        break;
+                    default:
+                    break;
+                }
+                return true;
             }
     };
 } // graphique

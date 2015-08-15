@@ -1026,10 +1026,14 @@
 1438543811 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/ViewConfig.h
 	<irrlicht.h>
 
-1439583896 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/TerrainView.h
+1439636686 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/TerrainView.h
 	"ITerrainView.h"
+	"Action/IAction.h"
+	"Action/MapDetail.h"
+	"Action/MapTriangle.h"
+	"Action/MapPoint.h"
 
-1439591119 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/ITerrainView.h
+1439629402 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/ITerrainView.h
 	<irrlicht.h>
 	"../../Business/Ground/IGroundEntity.h"
 	"../Camera/ICamera.h"
@@ -1305,7 +1309,7 @@
 	"../IView.h"
 	"EActionEvent.h"
 
-1439625361 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/EActionEvent.h
+1439636678 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/EActionEvent.h
 
 1439590018 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyW.h
 	"IKey.h"
@@ -1337,17 +1341,17 @@
 	"TMap.h"
 	"TNoeudMap.h"
 
-1439591366 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyQ.h
+1439637026 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyQ.h
 	"IKey.h"
 
 1439625462 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyS.h
 	"IKey.h"
 	"../../Sky/ISkyView.h"
 
-1439591392 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyD.h
+1439636708 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyD.h
 	"IKey.h"
 
-1439591411 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyF.h
+1439637034 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyF.h
 	"IKey.h"
 
 1439588054 source:/home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Kutility/TMap/TMap.cpp
@@ -1363,5 +1367,17 @@
 	"../ISkyView.h"
 
 1439625647 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/Action/ChangeSky.h
+	"IAction.h"
+
+1439630442 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/Action/IAction.h
+	"../ITerrainView.h"
+
+1439636455 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/Action/MapDetail.h
+	"IAction.h"
+
+1439636481 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/Action/MapTriangle.h
+	"IAction.h"
+
+1439636493 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Terrain/Action/MapPoint.h
 	"IAction.h"
 

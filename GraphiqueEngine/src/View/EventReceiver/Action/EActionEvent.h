@@ -15,6 +15,9 @@ enum EACTIONEVENT
 	EACTIONEVENT_POSTURE_DEBOUT,
 
 	EACTIONEVENT_CHANGE_SKY,
+	EACTIONEVENT_TERRAIN_MAP_DETAIL, // D
+	EACTIONEVENT_TERRAIN_MAP_TRIANGLE, // Q
+	EACTIONEVENT_TERRAIN_MAP_POINT, // F
 
 };
 const char* const ACTIONEVENTInfoNames[] =
@@ -29,6 +32,9 @@ const char* const ACTIONEVENTInfoNames[] =
          "Action posture denout",
 
          "Action change Sky",
+         "Action change detail",
+         "Action change triangle",
+         "Action change point",
 };
 #endif /* EACTION_EVENT_VIEW_H_ */
 

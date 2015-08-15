@@ -12,11 +12,9 @@ namespace graphique
             virtual ~KeyF(){};
 
             int execute(IView *view) {
-                irr::scene::ISceneNode* Terrain = view->getTerrain()->getTerrain();
-                 // switch wire frame mode
-                Terrain->setMaterialFlag(irr::video::EMF_POINTCLOUD,
-                        !Terrain->getMaterial(0).PointCloud);
-                Terrain->setMaterialFlag(irr::video::EMF_WIREFRAME, false);
+                ITerrainView* terrain = view->getTerrain();
+                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_POINT);
+                return 0;
             }
     };
 } // graphique

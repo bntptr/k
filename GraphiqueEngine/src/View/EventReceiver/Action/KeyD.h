@@ -12,11 +12,9 @@ namespace graphique
             virtual ~KeyD(){};
 
             int execute(IView *view) {
-                irr::scene::ISceneNode* Terrain = view->getTerrain()->getTerrain();
-                // toggle detail map
-                Terrain->setMaterialType(
-                    Terrain->getMaterial(0).MaterialType == irr::video::EMT_SOLID ?
-                    irr::video::EMT_DETAIL_MAP : irr::video::EMT_SOLID);
+                ITerrainView* terrain = view->getTerrain();
+                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_DETAIL);
+                return 0;
             }
     };
 } // graphique

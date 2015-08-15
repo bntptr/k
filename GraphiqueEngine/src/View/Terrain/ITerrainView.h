@@ -16,6 +16,7 @@ namespace graphique
 
             virtual irr::scene::ITerrainSceneNode* getTerrain()=0;
             virtual bool draw(ICamera* camera)=0;
+            virtual bool oneEvent(EACTIONEVENT event)=0;
     };
 } // graphique
 
