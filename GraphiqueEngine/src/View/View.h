@@ -227,60 +227,34 @@ namespace graphique
 */
                 return 0;
             }
-      //RequestController*  draw(RequestController* request) {
-      /*void draw() {
-    	  // charge la vue
-    	  if (true) {
 
-              // affecte le receiver de la vue
-    		  this->device->setEventReceiver(this->receiver);
+            irr::IrrlichtDevice* setDevice(irr::IrrlichtDevice *dvc) {
+                return this->device = dvc;
+            }
 
-    	  // récupère les driver, manager, ...
-    	  irr::video::IVideoDriver* driver = this->device->getVideoDriver();
-		  irr::scene::ISceneManager* smgr = this->device->getSceneManager();
-		  irr::gui::IGUIEnvironment* guienv = this->device->getGUIEnvironment();
+            SelectorService* getSelector() {
+                return this->selector;
+            }
 
-    	  // execute la vue
-    	  while(device->run())
-			{
-				driver->beginScene(true, true, irr::video::SColor(255,100,101,140));
-				smgr->drawAll();
-				guienv->drawAll();
-				driver->endScene();
+            IEnvironnement *getEnvironnement() {
+                return this->environnement;
+            }
 
-		        //this->frame();
-			}
-    	  }
-    	  //return this->afterAction(request);
-      }*/
+            ICamera *getCamera() {
+                return this->camera;
+            }
 
-        irr::IrrlichtDevice* setDevice(irr::IrrlichtDevice *dvc) {
-            return this->device = dvc;
-        }
+            ITerrainView *getTerrain() {
+                return this->terrain;
+            }
 
-        SelectorService* getSelector() {
-            return this->selector;
-        }
+            ISkyView *getSky() {
+                return this->sky;
+            }
 
-        IEnvironnement *getEnvironnement() {
-            return this->environnement;
-        }
-
-        ICamera *getCamera() {
-            return this->camera;
-        }
-
-        ITerrainView *getTerrain() {
-            return this->terrain;
-        }
-
-        ISkyView *getSky() {
-            return this->sky;
-        }
-
-        IPopulationView *getPopulation() {
-            return this->population;
-        }
+            IPopulationView *getPopulation() {
+                return this->population;
+            }
     };
 } // graphique
 

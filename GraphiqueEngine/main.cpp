@@ -12,6 +12,7 @@ Aides:
 #include "src/GraphiqueEngine.h"
 #include "src/Business/BusinessService.h"
 #include "src/View/View.h"
+#include "src/View/ViewFPS.h"
 
 using namespace std;
 using namespace graphique;
@@ -40,7 +41,8 @@ int main()
     cout << "[NOK]" << endl;
 
     business::BusinessInterface *business = new business::BusinessService();
-    View *view = new View();
+    //View *view = new View();
+    View *view = new ViewFPS();
     cout << "GraphiqueEngine NOW !" << endl;
     IGraphiqueEngine *engine = GraphiqueEngine::createEngine();
     engine->setBusiness(business);
