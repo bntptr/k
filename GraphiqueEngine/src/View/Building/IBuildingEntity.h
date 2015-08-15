@@ -9,11 +9,11 @@ namespace graphique
 {
     class IBuildingView
     {
-    public:
-        IBuildingView(){};
-        virtual ~IBuildingView(){};
+        public:
+            IBuildingView(){};
+            virtual ~IBuildingView(){};
 
-        virtual bool draw()=0;
+            virtual bool draw()=0;
     };
 } // graphique
 

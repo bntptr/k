@@ -1046,10 +1046,12 @@
 1439591158 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Camera/ICamera.h
 	<irrlicht.h>
 
-1439591841 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/SkyView.h
+1439625578 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/SkyView.h
 	"ISkyView.h"
+	"Action/IAction.h"
+	"Action/ChangeSky.h"
 
-1439591184 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/ISkyView.h
+1439625262 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/ISkyView.h
 	<irrlicht.h>
 	"../../Business/Sky/ISkyEntity.h"
 
@@ -1303,7 +1305,7 @@
 	"../IView.h"
 	"EActionEvent.h"
 
-1439151869 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/EActionEvent.h
+1439625361 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/EActionEvent.h
 
 1439590018 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyW.h
 	"IKey.h"
@@ -1338,8 +1340,9 @@
 1439591366 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyQ.h
 	"IKey.h"
 
-1439590663 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyS.h
+1439625462 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyS.h
 	"IKey.h"
+	"../../Sky/ISkyView.h"
 
 1439591392 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/EventReceiver/Action/KeyD.h
 	"IKey.h"
@@ -1355,4 +1358,10 @@
 1322082168 source:/home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/Kutility/TMap/TNoeudMap.cpp
 	<iostream>
 	"TNoeudMap.h"
+
+1439625529 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/Action/IAction.h
+	"../ISkyView.h"
+
+1439625647 /home/ubuntu/Workspaces/Essais/EssaiSoft/GraphiqueEngine/src/View/Sky/Action/ChangeSky.h
+	"IAction.h"
 

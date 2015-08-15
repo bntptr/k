@@ -2,28 +2,20 @@
 #define IACTIONKEY_S_H
 
 #include "IKey.h"
+#include "../../Sky/ISkyView.h"
 
 namespace graphique
 {
     class KeyS : public IKey
     {
-        protected:
-            irr::scene::ISceneNode* Skybox;
-            irr::scene::ISceneNode* Skydome;
-            bool showBox;
         public:
-            KeyS(){
-                this->showBox = true;
-            };
+            KeyS(){};
             virtual ~KeyS(){};
 
             int execute(IView *view) {
-                this->Skybox = view->getSky()->getSkyBox();
-                this->Skydome = view->getSky()->getSkyDome();
-                // toggle skies
-                this->showBox=!this->showBox;
-                this->Skybox->setVisible(showBox);
-                this->Skydome->setVisible(!showBox);
+                ISkyView* sky = view->getSky();
+                sky->oneEvent(EACTIONEVENT_CHANGE_SKY);
+                return 0;
             }
     };
 } // graphique

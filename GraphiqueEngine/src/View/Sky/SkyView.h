@@ -2,6 +2,8 @@
 #define SKYVIEW_H
 
 #include "ISkyView.h"
+#include "Action/IAction.h"
+#include "Action/ChangeSky.h"
 
 namespace graphique
 {
@@ -12,11 +14,13 @@ namespace graphique
             business::ISkyEntity *skyEntity;
             scene::ISceneNode* skybox;
             scene::ISceneNode* skydome;
+            bool showBox;
 
         public:
             SkyView(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity){
                 this->device = device;
                 this->skyEntity = skyEntity;
+                this->showBox = true;
             };
             ~SkyView(){};
 
@@ -27,6 +31,14 @@ namespace graphique
 
             scene::ISceneNode* getSkyDome(){
                 return this->skydome;
+            }
+
+            bool getShowBox(){
+                return this->showBox;
+            }
+
+            bool setShowBox(bool showBox){
+                return this->showBox = showBox;
             }
 
             bool draw() {
@@ -56,6 +68,21 @@ namespace graphique
 
                 this->skybox->setVisible(true);
                 this->skydome->setVisible(false);
+            }
+
+            bool oneEvent(EACTIONEVENT event) {
+                std::cout << ACTIONEVENTInfoNames[event] << std::endl;
+                sky::IAction *action;
+                switch(event)
+                {
+                    case EACTIONEVENT_CHANGE_SKY:
+                        action = new sky::ChangeSky();
+                        action->execute(this);
+                        break;
+                    default:
+                    break;
+                }
+                return true;
             }
     };
 } // graphique

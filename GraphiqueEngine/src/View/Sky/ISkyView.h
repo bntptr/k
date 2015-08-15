@@ -15,7 +15,11 @@ namespace graphique
 
             virtual irr::scene::ISceneNode* getSkyBox()=0;
             virtual irr::scene::ISceneNode* getSkyDome()=0;
+            virtual bool getShowBox()=0;
+            virtual bool setShowBox(bool showBox)=0;
             virtual bool draw()=0;
+            virtual bool oneEvent(EACTIONEVENT event)=0;
+
     };
 } // graphique
 

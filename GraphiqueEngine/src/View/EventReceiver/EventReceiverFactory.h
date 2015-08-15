@@ -7,10 +7,10 @@ namespace graphique
 {
     class EventReceiverFactory
     {
-    public:
-        static ViewEventReceiver* createEntity(irr::IrrlichtDevice *device) {
-            return new ViewEventReceiver(device);
-        }
+        public:
+            static ViewEventReceiver* createEntity(irr::IrrlichtDevice *device) {
+                return new ViewEventReceiver(device);
+            }
     };
 } // graphique
 
