@@ -7,10 +7,10 @@ namespace business
 {
     class GroundFactory
     {
-    public:
-        static IGroundEntity* createEntity() {
-            return new GroundEntity();
-        }
+        public:
+            static IGroundEntity* createEntity() {
+                return new GroundEntity();
+            }
     };
 } // business
 

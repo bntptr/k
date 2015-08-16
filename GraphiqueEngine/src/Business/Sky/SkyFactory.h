@@ -7,10 +7,10 @@ namespace business
 {
     class SkyFactory
     {
-    public:
-        static ISkyEntity* createEntity() {
-            return new SkyEntity();
-        }
+        public:
+            static ISkyEntity* createEntity() {
+                return new SkyEntity();
+            }
     };
 } // business
 

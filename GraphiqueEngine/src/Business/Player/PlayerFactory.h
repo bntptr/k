@@ -7,10 +7,10 @@ namespace business
 {
     class PlayerFactory
     {
-    public:
-        static IPlayerEntity* createEntity() {
-            return new PlayerEntity();
-        }
+        public:
+            static IPlayerEntity* createEntity() {
+                return new PlayerEntity();
+            }
     };
 } // business
 

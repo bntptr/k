@@ -56,6 +56,10 @@
 		<Unit filename="src/Business/Accessories/AccessoryEntity.h" />
 		<Unit filename="src/Business/Accessories/AccessoryFactory.h" />
 		<Unit filename="src/Business/Accessories/IAccessoryEntity.h" />
+		<Unit filename="src/Business/Building/BuildingEntity.cpp" />
+		<Unit filename="src/Business/Building/BuildingEntity.h" />
+		<Unit filename="src/Business/Building/BuildingFactory.h" />
+		<Unit filename="src/Business/Building/IBuildingEntity.h" />
 		<Unit filename="src/Business/BusinessEntity.h" />
 		<Unit filename="src/Business/BusinessFactory.h" />
 		<Unit filename="src/Business/BusinessInterface.h" />
@@ -97,12 +101,16 @@
 		<Unit filename="src/Kutility/TMap/TNoeudMap.cpp" />
 		<Unit filename="src/Kutility/TMap/TNoeudMap.h" />
 		<Unit filename="src/Kutility/kutility.h" />
+		<Unit filename="src/View/Building/BuildingEntity.h" />
+		<Unit filename="src/View/Building/BuildingFactory.h" />
 		<Unit filename="src/View/Building/IBuildingEntity.h" />
 		<Unit filename="src/View/Camera/Camera.h" />
 		<Unit filename="src/View/Camera/CameraFactory.h" />
 		<Unit filename="src/View/Camera/FPS/FPS.h" />
 		<Unit filename="src/View/Camera/FPS/FPSFactory.h" />
 		<Unit filename="src/View/Camera/ICamera.h" />
+		<Unit filename="src/View/Cursor/CursorEntity.h" />
+		<Unit filename="src/View/Cursor/CursorFactory.h" />
 		<Unit filename="src/View/Cursor/ICursorEntity.h" />
 		<Unit filename="src/View/Environnement/Environnement.h" />
 		<Unit filename="src/View/Environnement/EnvironnementFactory.h" />
@@ -119,7 +127,9 @@
 		<Unit filename="src/View/EventReceiver/ViewEventReceiver.h" />
 		<Unit filename="src/View/IObjectView.h" />
 		<Unit filename="src/View/IView.h" />
+		<Unit filename="src/View/Keyboard/IKeyboard.h" />
 		<Unit filename="src/View/Keyboard/Keyboard.h" />
+		<Unit filename="src/View/Keyboard/KeyboardFactory.h" />
 		<Unit filename="src/View/Player/IPlayerView.h" />
 		<Unit filename="src/View/Player/PlayerView.h" />
 		<Unit filename="src/View/Player/PlayerViewFactory.h" />
@@ -131,16 +141,26 @@
 		<Unit filename="src/View/Population/Characters/CharacterFactory.h" />
 		<Unit filename="src/View/Population/Characters/CharacterService.h" />
 		<Unit filename="src/View/Population/Characters/ICharacter.h" />
+		<Unit filename="src/View/Population/FPSCharacter/FPSCharacter.h" />
+		<Unit filename="src/View/Population/FPSCharacter/FPSCharacterFactory.h" />
+		<Unit filename="src/View/Population/FPSCharacter/FPSCharacterService.h" />
+		<Unit filename="src/View/Population/FPSCharacter/IFPSCharacter.h" />
 		<Unit filename="src/View/Population/IPopulationView.h" />
 		<Unit filename="src/View/Population/PopulationView.h" />
 		<Unit filename="src/View/Population/PopulationViewFactory.h" />
 		<Unit filename="src/View/Selector/ISelectorEntity.h" />
 		<Unit filename="src/View/Selector/SelectorEntity.h" />
 		<Unit filename="src/View/Selector/SelectorService.h" />
+		<Unit filename="src/View/Sky/Action/ChangeSky.h" />
+		<Unit filename="src/View/Sky/Action/IAction.h" />
 		<Unit filename="src/View/Sky/ISkyView.h" />
 		<Unit filename="src/View/Sky/SkyView.h" />
 		<Unit filename="src/View/Sky/SkyViewFactory.h" />
 		<Unit filename="src/View/Sound/SoundService.h" />
+		<Unit filename="src/View/Terrain/Action/IAction.h" />
+		<Unit filename="src/View/Terrain/Action/MapDetail.h" />
+		<Unit filename="src/View/Terrain/Action/MapPoint.h" />
+		<Unit filename="src/View/Terrain/Action/MapTriangle.h" />
 		<Unit filename="src/View/Terrain/ITerrainView.h" />
 		<Unit filename="src/View/Terrain/TerrainView.h" />
 		<Unit filename="src/View/Terrain/TerrainViewFactory.h" />
@@ -149,6 +169,7 @@
 		<Unit filename="src/View/View.cpp" />
 		<Unit filename="src/View/View.h" />
 		<Unit filename="src/View/ViewConfig.h" />
+		<Unit filename="src/View/ViewFPS.h" />
 		<Unit filename="src/View/ViewInterface.h" />
 		<Extensions>
 			<code_completion />

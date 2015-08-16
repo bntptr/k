@@ -1,5 +1,5 @@
-#ifndef IBUILDINGVIEW_H
-#define IBUILDINGVIEW_H
+#ifndef VIEW_IBUILDING_ENTITY_H
+#define VIEW_IBUILDING_ENTITY_H
 
 #include <irrlicht.h>
 
@@ -7,11 +7,11 @@
 
 namespace graphique
 {
-    class IBuildingView
+    class IBuildingEntity
     {
         public:
-            IBuildingView(){};
-            virtual ~IBuildingView(){};
+            IBuildingEntity(){};
+            virtual ~IBuildingEntity(){};
 
             virtual bool draw()=0;
     };
