@@ -5,6 +5,8 @@
 
 #include "IView.h"
 #include "EventReceiver/ViewEventReceiver.h"
+#include "ViewConfig.h"
+#include "Cursor/CursorFactory.h"
 #include "Selector/SelectorService.h"
 #include "ViewConfig.h"
 #include "Environnement/EnvironnementFactory.h"
@@ -12,6 +14,7 @@
 #include "Camera/FPS/FPSFactory.h"
 #include "Terrain/TerrainViewFactory.h"
 #include "Sky/SkyViewFactory.h"
+#include "Building/BuildingFactory.h"
 #include "Population/PopulationViewFactory.h"
 //#include "Player/PlayerViewFactory.h"
 
@@ -23,12 +26,14 @@ namespace graphique
             irr::IrrlichtDevice *device;
             //SoundService *sound;
             ViewEventReceiver *receiver;
+            ICursorEntity *cursor;
             SelectorService *selector;
             IEnvironnement *environnement;
             ICamera *camera;
             ITerrainView *terrain;
             ISkyView *sky;
             IPopulationView *population;
+            IBuildingEntity *building;
             //IPlayerView *player;
 
         public:
@@ -88,11 +93,14 @@ namespace graphique
                 std::cout <<"build view !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
+                this->cursor = CursorFactory::createEntity(this->device);
+                this->cursor->draw();
+
                 this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();
 
-                this->camera = CameraFactory::createEntity(this->device);
-                //this->camera = FPSFactory::createEntity(this->device);
+                this->camera = CameraFactory::createEntity(this->device, this->cursor);
+                //this->camera = FPSFactory::createEntity(this->device, this->cursor);
                 this->camera->draw();
 
                 business::IGroundEntity *ground = entity->getGround();
@@ -106,6 +114,10 @@ namespace graphique
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
                 this->population = PopulationViewFactory::createEntity(this->device, populationEntity);
                 this->population->draw();
+
+                business::IBuildingEntity *buildingEntity = entity->getBuilding();
+                this->building = BuildingFactory::createEntity(this->device, buildingEntity);
+                this->building->draw();
 
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();
@@ -254,6 +266,10 @@ namespace graphique
 
             IPopulationView *getPopulation() {
                 return this->population;
+            }
+
+            IBuildingEntity *getBuilding() {
+                return this->building;
             }
     };
 } // graphique

@@ -8,6 +8,7 @@
 #include "Terrain/ITerrainView.h"
 #include "Sky/ISkyView.h"
 #include "Population/IPopulationView.h"
+#include "Building/IBuildingEntity.h"
 
 namespace graphique
 {
@@ -29,6 +30,7 @@ namespace graphique
             virtual ITerrainView *getTerrain()=0;
             virtual ISkyView *getSky()=0;
             virtual IPopulationView *getPopulation()=0;
+            virtual IBuildingEntity *getBuilding()=0;
     };
 
 } // graphique

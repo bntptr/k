@@ -10,9 +10,11 @@ namespace graphique
         protected:
             irr::IrrlichtDevice *device;
             scene::ICameraSceneNode* camera;
+            ICursorEntity* cursor;
         public:
-            Camera(irr::IrrlichtDevice *device){
+            Camera(irr::IrrlichtDevice *device, ICursorEntity *cursor){
                 this->device = device;
+                this->cursor = cursor;
             };
             ~Camera(){};
 
@@ -39,8 +41,15 @@ namespace graphique
                 camera->setTarget(core::vector3df(2397*2,343*2,2700*2));
                 camera->setFarValue(42000.0f);
 
-                // disable mouse cursor
-                device->getCursorControl()->setVisible(false);
+                if (this->cursor->getSelector())
+                {
+                    scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
+                        this->cursor->getSelector(), camera, core::vector3df(30,50,30),
+                        core::vector3df(0,-10,0), core::vector3df(0,30,0));
+                    this->cursor->getSelector()->drop(); // As soon as we're done with the selector, drop it.
+                    camera->addAnimator(anim);
+                    anim->drop();  // And likewise, drop the animator when we're done referring to it.
+                }
             }
     };
 } // graphique

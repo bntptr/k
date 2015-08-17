@@ -41,8 +41,8 @@ int main()
     cout << "[NOK]" << endl;
 
     business::BusinessInterface *business = new business::BusinessService();
-    //View *view = new View();
-    View *view = new ViewFPS();
+    View *view = new View();
+    //View *view = new ViewFPS();
     cout << "GraphiqueEngine NOW !" << endl;
     IGraphiqueEngine *engine = GraphiqueEngine::createEngine();
     engine->setBusiness(business);

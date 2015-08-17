@@ -15,17 +15,20 @@ namespace business
             IGroundEntity* getGround();
             ISkyEntity* getSky();
             IPopulationEntity* getPopulation();
+            IBuildingEntity* getBuilding();
             IPlayerEntity* getPlayer();
 
             IBusinessEntity* setGround(IGroundEntity *ground);
             IBusinessEntity* setSky(ISkyEntity *sky);
             IBusinessEntity* setPopulation(IPopulationEntity *population);
+            IBusinessEntity* setBuilding(IBuildingEntity *building);
             IBusinessEntity* setPlayer(IPlayerEntity *player);
 
         protected:
             IGroundEntity *ground;
             ISkyEntity *sky;
             IPopulationEntity *population;
+            IBuildingEntity *building;
             IPlayerEntity *player;
 
             IBusinessEntity *thisInterface;
@@ -45,6 +48,12 @@ namespace business
     {
         return this->population;
     }
+
+    IBuildingEntity* BusinessEntity::getBuilding()
+    {
+        return this->building;
+    }
+
 
     IPlayerEntity* BusinessEntity::getPlayer()
     {
@@ -66,6 +75,12 @@ namespace business
     IBusinessEntity* BusinessEntity::setPopulation(IPopulationEntity *population)
     {
         this->population = population;
+        return thisInterface;
+    }
+
+    IBusinessEntity* BusinessEntity::setBuilding(IBuildingEntity *building)
+    {
+        this->building = building;
         return thisInterface;
     }
 

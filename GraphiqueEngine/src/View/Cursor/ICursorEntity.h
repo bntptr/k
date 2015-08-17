@@ -12,6 +12,8 @@ namespace graphique
             virtual ~ICursorEntity(){};
 
             virtual bool draw()=0;
+            virtual bool oneEvent(EACTIONEVENT event)=0;
+            virtual scene::ITriangleSelector* getSelector()=0;
     };
 } // graphique
 

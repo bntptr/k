@@ -44,7 +44,8 @@ namespace graphique
 
                 if (q3node)
                 {
-                    q3node->setPosition(core::vector3df(-1350,-130,-1400));
+                    q3node->setPosition(core::vector3df(1350,-130,1400));
+                    //q3node->setPosition(core::vector3df(0,0,2600*2));
 
                     selector = smgr->createOctTreeTriangleSelector(
                             q3node->getMesh(), q3node, 128);

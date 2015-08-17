@@ -2,6 +2,7 @@
 #define VIEW_CURSOR_ENTITY_H
 
 #include "ICursorEntity.h"
+#include "../ViewConfig.h"
 //#include "Action/IAction.h"
 
 enum
@@ -26,12 +27,13 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
+            scene::ITriangleSelector* selector;
 
         public:
             CursorEntity(irr::IrrlichtDevice *device){
                 this->device = device;
             };
-            ~BuildingEntity(){};
+            ~CursorEntity(){};
 
             bool draw() {
                 ViewConfig *config = ViewConfig::getInstance();
@@ -45,13 +47,13 @@ namespace graphique
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
 
-                scene::ITriangleSelector* selector = 0;
+                this->selector = 0;
 
                 //////**************************************
 
                 // Set a jump speed of 3 units per second, which gives a fairly realistic jump
                 // when used with the gravity of (0, -10, 0) in the collision response animator.
-                scene::ICameraSceneNode* camera =
+                /*scene::ICameraSceneNode* camera =
                     smgr->addCameraSceneNodeFPS(0, 100.0f, .3f, ID_IsNotPickable, 0, 0, true, 3.f);
                 camera->setPosition(core::vector3df(50,50,-60));
                 camera->setTarget(core::vector3df(-70,30,-60));
@@ -64,8 +66,7 @@ namespace graphique
                     selector->drop(); // As soon as we're done with the selector, drop it.
                     camera->addAnimator(anim);
                     anim->drop();  // And likewise, drop the animator when we're done referring to it.
-                }
-
+                }*/
                 // Now I create three animated characters which we can pick, a dynamic light for
                 // lighting them, and a billboard for drawing where we found an intersection.
 
@@ -88,6 +89,10 @@ namespace graphique
                     break;
                 }
                 return true;
+            }
+
+            scene::ITriangleSelector* getSelector() {
+                return this->selector;
             }
     };
 } // graphique
