@@ -90,6 +90,27 @@ namespace graphique
                     }
                 }
 
+
+                //==========================================================================
+                //                           NINJA
+                // And this B3D file uses skinned skeletal animation.
+
+                scene::ITriangleSelector* selector = 0;
+                scene::IAnimatedMeshSceneNode* node = 0;
+                node = smgr->addAnimatedMeshSceneNode(smgr->getMesh("../../../media/ninja.b3d"),
+                                    0, IDFlag_IsPickable | IDFlag_IsHighlightable);
+                //node->setMaterialTexture(0, driver->getTexture("../../../../../../media/nskinrd.jpg") );
+                node->setScale(core::vector3df(10, 10, 10));
+                node->setPosition(core::vector3df(-70,-66,-60));
+                node->setRotation(core::vector3df(0,90,0));
+                node->setAnimationSpeed(10.f);
+                node->getMaterial(0).NormalizeNormals = true;
+                // Just do the same as we did above.
+                selector = smgr->createTriangleSelector(node);
+                node->setTriangleSelector(selector);
+                selector->drop();
+
+
                 // NINJA
                 scene::IAnimatedMeshSceneNode* anms =
                     smgr->addAnimatedMeshSceneNode(smgr->getMesh(MEDIA + "ninja.b3d"));

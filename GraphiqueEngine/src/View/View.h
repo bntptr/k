@@ -150,6 +150,32 @@ namespace graphique
                 That's it, draw everything.
                 */
 ////////////////////////////////////////////////////////////////////////////////
+// POUR LE CURSOR
+////////////////////////////////////////////////////////////////////////////////
+
+                video::SMaterial material;
+                material.setTexture(0, driver->getTexture("../../../media/faerie3.bmp"));
+                material.Lighting = true;
+                material.NormalizeNormals = true;
+
+                // Add the billboard.//panneau d'affichage
+                scene::IBillboardSceneNode * bill = smgr->addBillboardSceneNode();
+                bill->setMaterialType(video::EMT_TRANSPARENT_ADD_COLOR );
+                bill->setMaterialTexture(0, driver->getTexture("../../../media/particle.bmp"));//le truc rouge :)
+                bill->setMaterialFlag(video::EMF_LIGHTING, false);
+                bill->setMaterialFlag(video::EMF_ZBUFFER, false);
+                bill->setSize(core::dimension2d<f32>(20.0f, 20.0f));
+                bill->setID(ID_IsNotPickable); // This ensures that we don't accidentally ray-pick it
+            /////////////////************************
+                // Add a light, so that the unselected nodes aren't completely dark.
+                scene::ILightSceneNode * light = smgr->addLightSceneNode(0, core::vector3df(-60,100,400),
+                    video::SColorf(1.0f,1.0f,1.0f,1.0f), 600.0f);
+                light->setID(ID_IsNotPickable); // Make it an invalid target for selection.
+
+                // Remember which scene node is highlighted
+                scene::ISceneNode* highlightedSceneNode = 0;
+                scene::ISceneCollisionManager* collMan = smgr->getSceneCollisionManager();
+////////////////////////////////////////////////////////////////////////////////
                 int lastFPS = -1;
 
                 while(device->run())
@@ -159,6 +185,70 @@ namespace graphique
 
                     smgr->drawAll();
                     env->drawAll();
+
+////////////////////////////////////////////////////////////////////////////////
+// POUR LE CURSOR
+////////////////////////////////////////////////////////////////////////////////
+                    // Unlight any currently highlighted scene node
+                    if (highlightedSceneNode)
+                    {
+                        highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, true);
+                        highlightedSceneNode = 0;
+                    }
+
+                    // All intersections in this example are done with a ray cast out from the camera to
+                    // a distance of 1000.  You can easily modify this to check (e.g.) a bullet
+                    // trajectory or a sword's position, or create a ray from a mouse click position using
+                    // ISceneCollisionManager::getRayFromScreenCoordinates()
+                    core::line3d<f32> ray;
+                    ray.start = this->getCamera()->getCamera()->getPosition();
+                    ray.end = ray.start + (this->getCamera()->getCamera()->getTarget() - ray.start).normalize() * 1000.0f;
+
+                    // Tracks the current intersection point with the level or a mesh
+                    core::vector3df intersection;
+                    // Used to show with triangle has been hit
+                    core::triangle3df hitTriangle;
+
+                    // This call is all you need to perform ray/triangle collision on every scene node
+                    // that has a triangle selector, including the Quake level mesh.  It finds the nearest
+                    // collision point/triangle, and returns the scene node containing that point.
+                    // Irrlicht provides other types of selection, including ray/triangle selector,
+                    // ray/box and ellipse/triangle selector, plus associated helpers.
+                    // See the methods of ISceneCollisionManager
+                    scene::ISceneNode * selectedSceneNode =
+                        collMan->getSceneNodeAndCollisionPointFromRay(
+                                ray,
+                                intersection, // This will be the position of the collision
+                                hitTriangle, // This will be the triangle hit in the collision
+                                IDFlag_IsPickable, // This ensures that only nodes that we have
+                                        // set up to be pickable are considered
+                                0); // Check the entire scene (this is actually the implicit default)
+
+                    // If the ray hit anything, move the billboard to the collision position
+                    // and draw the triangle that was hit.
+                    if(selectedSceneNode)
+                    {
+                        bill->setPosition(intersection);
+
+                        // We need to reset the transform before doing our own rendering.
+                        driver->setTransform(video::ETS_WORLD, core::matrix4());
+                        driver->setMaterial(material);
+                        driver->draw3DTriangle(hitTriangle, video::SColor(0,255,0,0));
+
+                        // We can check the flags for the scene node that was hit to see if it should be
+                        // highlighted. The animated nodes can be highlighted, but not the Quake level mesh
+                        if((selectedSceneNode->getID() & IDFlag_IsHighlightable) == IDFlag_IsHighlightable)
+                        {
+                            highlightedSceneNode = selectedSceneNode;
+
+                            // Highlighting in this case means turning lighting OFF for this node,
+                            // which means that it will be drawn with full brightness.
+                            highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, false);
+                        }
+                    }
+
+
+////////////////////////////////////////////////////////////////////////////////
 
                     driver->endScene();
 
