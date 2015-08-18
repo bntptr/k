@@ -115,7 +115,7 @@ namespace graphique
                 // ISceneCollisionManager::getRayFromScreenCoordinates()
                 core::line3d<f32> ray;
                 ray.start = this->camera->getCamera()->getPosition();
-                ray.end = ray.start + (this->camera->getCamera()->getTarget() - ray.start).normalize() * 1000.0f;
+                ray.end = ray.start + (this->camera->getCamera()->getTarget() - ray.start).normalize() * 10000.0f;
 
                 // Tracks the current intersection point with the level or a mesh
                 core::vector3df intersection;
@@ -158,6 +158,7 @@ namespace graphique
                         // which means that it will be drawn with full brightness.
                         highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, false);
                         std::cout << "selected : " << selectedSceneNode->getID() << std::endl;
+                        std::cout << "intersection : " << intersection.X << ", "<< intersection.Y << ", "<< intersection.Z << std::endl;
                     }
                 }
 

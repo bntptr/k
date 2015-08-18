@@ -68,8 +68,18 @@ namespace graphique
                     MEDIA + MESHInfoNames[code_mesh]
                 );
                 scene::IAnimatedMeshSceneNode* anms =
-                    smgr->addAnimatedMeshSceneNode(mesh);
+                    smgr->addAnimatedMeshSceneNode(
+                        mesh,
+                        0,
+                        IDFlag_IsPickable | IDFlag_IsHighlightable
+                );
 
+// Pour la selection avec le curseur
+                scene::ITriangleSelector* selector = 0;
+                selector = smgr->createTriangleSelector(anms);
+                anms->setTriangleSelector(selector);
+                selector->drop();
+// fin selection curseur
                 ETEXTURE code_texture = this->entity->getTexture();
                 anms->setMaterialTexture(
                     0,

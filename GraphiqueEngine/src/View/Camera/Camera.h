@@ -35,7 +35,9 @@ namespace graphique
 
                 // add camera
                 this->camera =
-                    smgr->addCameraSceneNodeFPS(0,100.0f,1.2f/*0.1f*/);
+                    // RTS : smgr->addCameraSceneNodeFPS(0,100.0f,1.2f/*0.1f*/);
+                    // FPS:
+                    smgr->addCameraSceneNodeFPS(0, 100.0f, .3f, ID_IsNotPickable, 0, 0, false, 3.f);
 
                 camera->setPosition(core::vector3df(0,0,30)/*core::vector3df(2700*2,255*2,2600*2)*/);
                 camera->setTarget(core::vector3df(2397*2,343*2,2700*2));
@@ -44,8 +46,13 @@ namespace graphique
                 if (this->cursor->getSelector())
                 {
                     scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
-                        this->cursor->getSelector(), camera, core::vector3df(30,50,30),
-                        core::vector3df(0,-10,0), core::vector3df(0,30,0));
+                        this->cursor->getSelector(),
+                        camera,
+                        //core::vector3df(30,50,30),
+                        core::vector3df(1,1,1),
+                        core::vector3df(0,-10,0),
+                        core::vector3df(0,30,0)
+                    );
                     this->cursor->getSelector()->drop(); // As soon as we're done with the selector, drop it.
                     camera->addAnimator(anim);
                     anim->drop();  // And likewise, drop the animator when we're done referring to it.
