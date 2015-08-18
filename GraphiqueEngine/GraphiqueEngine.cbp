@@ -109,6 +109,7 @@
 		<Unit filename="src/View/Camera/FPS/FPS.h" />
 		<Unit filename="src/View/Camera/FPS/FPSFactory.h" />
 		<Unit filename="src/View/Camera/ICamera.h" />
+		<Unit filename="src/View/Cursor/CursorConfig.h" />
 		<Unit filename="src/View/Cursor/CursorEntity.h" />
 		<Unit filename="src/View/Cursor/CursorFactory.h" />
 		<Unit filename="src/View/Cursor/ICursorEntity.h" />

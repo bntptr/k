@@ -94,7 +94,7 @@ namespace graphique
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
                 this->cursor = CursorFactory::createEntity(this->device);
-                this->cursor->draw();
+                this->cursor->build();
 
                 this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();
@@ -102,6 +102,8 @@ namespace graphique
                 this->camera = CameraFactory::createEntity(this->device, this->cursor);
                 //this->camera = FPSFactory::createEntity(this->device, this->cursor);
                 this->camera->draw();
+
+                this->cursor->setCamera(this->camera);
 
                 business::IGroundEntity *ground = entity->getGround();
                 this->terrain = TerrainViewFactory::createEntity(this->device, ground);
@@ -153,10 +155,10 @@ namespace graphique
 // POUR LE CURSOR
 ////////////////////////////////////////////////////////////////////////////////
 
-                video::SMaterial material;
-                material.setTexture(0, driver->getTexture("../../../media/faerie3.bmp"));
-                material.Lighting = true;
-                material.NormalizeNormals = true;
+               /* video::SMaterial material;
+                //material.setTexture(0, driver->getTexture("../../../media/faerie3.bmp"));
+                //material.Lighting = true;
+                //material.NormalizeNormals = true;
 
                 // Add the billboard.//panneau d'affichage
                 scene::IBillboardSceneNode * bill = smgr->addBillboardSceneNode();
@@ -174,7 +176,7 @@ namespace graphique
 
                 // Remember which scene node is highlighted
                 scene::ISceneNode* highlightedSceneNode = 0;
-                scene::ISceneCollisionManager* collMan = smgr->getSceneCollisionManager();
+                scene::ISceneCollisionManager* collMan = smgr->getSceneCollisionManager();*/
 ////////////////////////////////////////////////////////////////////////////////
                 int lastFPS = -1;
 
@@ -185,11 +187,12 @@ namespace graphique
 
                     smgr->drawAll();
                     env->drawAll();
+                    this->cursor->draw();
 
 ////////////////////////////////////////////////////////////////////////////////
 // POUR LE CURSOR
 ////////////////////////////////////////////////////////////////////////////////
-                    // Unlight any currently highlighted scene node
+                   /* // Unlight any currently highlighted scene node
                     if (highlightedSceneNode)
                     {
                         highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, true);
@@ -244,10 +247,11 @@ namespace graphique
                             // Highlighting in this case means turning lighting OFF for this node,
                             // which means that it will be drawn with full brightness.
                             highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, false);
+                            std::cout << "selected : " << selectedSceneNode->getID() << std::endl;
                         }
                     }
 
-
+*/
 ////////////////////////////////////////////////////////////////////////////////
 
                     driver->endScene();

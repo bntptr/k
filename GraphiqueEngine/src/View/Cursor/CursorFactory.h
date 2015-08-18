@@ -7,10 +7,10 @@ namespace graphique
 {
     class CursorFactory
     {
-    public:
-        static ICursorEntity* createEntity(irr::IrrlichtDevice *device) {
-            return new CursorEntity(device);
-        }
+        public:
+            static ICursorEntity* createEntity(irr::IrrlichtDevice *device) {
+                return new CursorEntity(device);
+            }
     };
 } // graphique
 
