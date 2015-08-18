@@ -36,22 +36,22 @@ namespace business
                     Vector3d(800, 0, 100),
                     Vector3d(0, 90, 0),
                     Vector3d(2, 2, 2),
-                    ETEXTURE_NINJA_BLUE,
-                    EMESH_NINJA
+                    ETEXTURE_FAERIE,
+                    EMESH_FAERIE
                 );
                 entity->addCharacter(
                     Vector3d(815, 0, 100),
                     Vector3d(0, 0, 0),
                     Vector3d(2, 2, 2),
-                    ETEXTURE_NINJA,
-                    EMESH_NINJA
+                    ETEXTURE_SYDNEY,
+                    EMESH_SYDNEY
                 );
                 entity->addCharacter(
                     Vector3d(830, 0, 100),
                     Vector3d(0, 90, 0),
                     Vector3d(2, 2, 2),
-                    ETEXTURE_NINJA,
-                    EMESH_NINJA
+                    ETEXTURE_NAIN,
+                    EMESH_NAIN
                 );
                 entity->addCharacter(
                     Vector3d(800, 0, 110),

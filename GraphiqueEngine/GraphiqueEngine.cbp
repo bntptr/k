@@ -77,8 +77,6 @@
 		<Unit filename="src/Business/Population/Character/CharacterEntity.h" />
 		<Unit filename="src/Business/Population/Character/CharacterFactory.h" />
 		<Unit filename="src/Business/Population/Character/ICharacterEntity.h" />
-		<Unit filename="src/Business/Population/Character/Mesh/EMesh.h" />
-		<Unit filename="src/Business/Population/Character/Texture/ETexture.h" />
 		<Unit filename="src/Business/Population/Character/Vector3d/IVector3d.h" />
 		<Unit filename="src/Business/Population/Character/Vector3d/Vector3d.h" />
 		<Unit filename="src/Business/Population/IPopulationEntity.h" />
@@ -101,6 +99,8 @@
 		<Unit filename="src/Kutility/TMap/TNoeudMap.cpp" />
 		<Unit filename="src/Kutility/TMap/TNoeudMap.h" />
 		<Unit filename="src/Kutility/kutility.h" />
+		<Unit filename="src/Media/Mesh/EMesh.h" />
+		<Unit filename="src/Media/Texture/ETexture.h" />
 		<Unit filename="src/View/Building/BuildingEntity.h" />
 		<Unit filename="src/View/Building/BuildingFactory.h" />
 		<Unit filename="src/View/Building/IBuildingEntity.h" />
@@ -109,6 +109,15 @@
 		<Unit filename="src/View/Camera/FPS/FPS.h" />
 		<Unit filename="src/View/Camera/FPS/FPSFactory.h" />
 		<Unit filename="src/View/Camera/ICamera.h" />
+		<Unit filename="src/View/Cursor/Action/EActionEvent.h" />
+		<Unit filename="src/View/Cursor/Action/EmieCount.h" />
+		<Unit filename="src/View/Cursor/Action/EmieDoubleClick.h" />
+		<Unit filename="src/View/Cursor/Action/EmieLMouseLeftUp.h" />
+		<Unit filename="src/View/Cursor/Action/EmieLMousePressedDown.h" />
+		<Unit filename="src/View/Cursor/Action/EmieMouseMoved.h" />
+		<Unit filename="src/View/Cursor/Action/EmieMouseTripleClick.h" />
+		<Unit filename="src/View/Cursor/Action/EmieMouseWheel.h" />
+		<Unit filename="src/View/Cursor/Action/IEmie.h" />
 		<Unit filename="src/View/Cursor/CursorConfig.h" />
 		<Unit filename="src/View/Cursor/CursorEntity.h" />
 		<Unit filename="src/View/Cursor/CursorFactory.h" />
@@ -157,6 +166,7 @@
 		<Unit filename="src/View/Sky/ISkyView.h" />
 		<Unit filename="src/View/Sky/SkyView.h" />
 		<Unit filename="src/View/Sky/SkyViewFactory.h" />
+		<Unit filename="src/View/Sound/SoundEntity.h" />
 		<Unit filename="src/View/Sound/SoundService.h" />
 		<Unit filename="src/View/Terrain/Action/IAction.h" />
 		<Unit filename="src/View/Terrain/Action/MapDetail.h" />
@@ -165,7 +175,6 @@
 		<Unit filename="src/View/Terrain/ITerrainView.h" />
 		<Unit filename="src/View/Terrain/TerrainView.h" />
 		<Unit filename="src/View/Terrain/TerrainViewFactory.h" />
-		<Unit filename="src/View/Texture/ETexture.h" />
 		<Unit filename="src/View/Vegetal/IVegetalEntity.h" />
 		<Unit filename="src/View/View.cpp" />
 		<Unit filename="src/View/View.h" />

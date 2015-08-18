@@ -81,10 +81,13 @@ namespace graphique
                 selector->drop();
 // fin selection curseur
                 ETEXTURE code_texture = this->entity->getTexture();
-                anms->setMaterialTexture(
-                    0,
-                    driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture])
-                );
+
+                if ("" != TEXTUREInfoNames[code_texture]) {
+                    anms->setMaterialTexture(
+                        0,
+                        driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture])
+                    );
+                }
 
                 if (anms)
                 {

@@ -121,7 +121,7 @@ namespace graphique
                 node->setMD2Animation(scene::EMAT_POINT);
                 node->setAnimationSpeed(20.f);
                 video::SMaterial material;
-                material.setTexture(0, driver->getTexture("../../../media/faerie3.bmp"));
+                material.setTexture(0, driver->getTexture("../../../media/faerie.bmp"));
                 material.Lighting = true;
                 material.NormalizeNormals = true;
                 node->getMaterial(0) = material;

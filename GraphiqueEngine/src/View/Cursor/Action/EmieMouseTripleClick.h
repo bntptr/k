@@ -1,0 +1,24 @@
+#ifndef IACTIONKEY_Q_H
+#define IACTIONKEY_Q_H
+
+#include "IKey.h"
+
+namespace graphique
+{
+    class KeyQ : public IKey
+    {
+        public:
+            KeyQ(){};
+            virtual ~KeyQ(){};
+
+            int execute(IView *view) {
+                ITerrainView* terrain = view->getTerrain();
+                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_TRIANGLE);
+                return 0;
+            }
+    };
+} // graphique
+
+#endif
+
+
