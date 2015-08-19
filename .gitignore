@@ -3,4 +3,4 @@
 *.layout
 *.depend
 *~
-*/Debug/*
+*/bin/Debug/*

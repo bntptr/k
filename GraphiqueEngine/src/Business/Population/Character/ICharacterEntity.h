@@ -1,10 +1,10 @@
 #ifndef ICHARACTERENTITY_H
 #define ICHARACTERENTITY_H
 
+#include "../../../Kutility/kutility.h"
 #include "../../../View/EventReceiver/Action/EActionEvent.h"
 #include "../../../Media/Texture/ETexture.h"
 #include "../../../Media/Mesh/EMesh.h"
-#include "Vector3d/Vector3d.h"
 
 namespace business
 {

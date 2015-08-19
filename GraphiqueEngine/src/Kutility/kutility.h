@@ -12,4 +12,7 @@ de données de l'espace de nom std:: est obligatoire.
 #include "TList/TList.h"
 #include "TMap/TMap.h"
 
+/// Vector
+#include "Vector3d/Vector3d.h"
+
 #endif
