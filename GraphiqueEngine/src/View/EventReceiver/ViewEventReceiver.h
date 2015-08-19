@@ -6,8 +6,8 @@
 
 #include <irrlicht.h>
 #include <iostream>
-#include "../Keyboard/Keyboard.h"
-#include "../Cursor/CursorEntity.h"
+#include "../Keyboard/KeyboardFactory.h"
+#include "../Cursor/CursorFactory.h"
 #include "../Keyboard/Action/Actions.h"
 #include "../Cursor/Action/Actions.h"
 
@@ -27,8 +27,8 @@ namespace graphique
             ViewEventReceiver(IView *view)
             {
                 this->view = view;
-                this->keyboard = KeyboardFactory::createEntity();
-                this->cursor = CursorFactory::createEntity();
+                this->keyboard = KeyboardFactory::createEntity(view);
+                this->cursor = view->getCursor();
                 this->env = view->getEnvironnement();
             }
 
@@ -36,7 +36,7 @@ namespace graphique
             bool OnEventSourie(const SEvent& event)
             {
                  if(this->cursor != NULL)
-                          return this->cursor->onEvent(event);
+                          return this->cursor->oneEvent(event);
                   return false;
              }
 
@@ -45,9 +45,9 @@ namespace graphique
             {
                   if(this->keyboard != NULL) {
                     if (event.KeyInput.PressedDown) {
-                        return this->keyboard->onEventPressed(event);
+                        return this->keyboard->oneEventPressed(event);
                     } else {
-                        return this->keyboard->onEvent(event);
+                        return this->keyboard->oneEvent(event);
                     }
 
                   }
@@ -59,7 +59,7 @@ namespace graphique
              bool OnEventGUI(const SEvent& event)
             {
                   if(this->env != NULL)
-                         return this->env->onEvent(event);
+                         return this->env->oneEvent(event);
 
                   return false;
              }

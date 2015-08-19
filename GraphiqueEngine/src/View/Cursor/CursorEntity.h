@@ -13,10 +13,10 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            scene::ITriangleSelector* selector;
-            scene::IBillboardSceneNode * bill;
-            scene::ISceneNode* highlightedSceneNode;
-            scene::ISceneCollisionManager* collMan;
+            irr::scene::ITriangleSelector* selector;
+            irr::scene::IBillboardSceneNode * bill;
+            irr::scene::ISceneNode* highlightedSceneNode;
+            irr::scene::ISceneCollisionManager* collMan;
             ICamera *camera;
 
 
@@ -182,53 +182,53 @@ EMIE_COUNT 	No real event. Just for convenience to get number of events.
             bool oneEvent(const irr::SEvent& event) {
                 switch(event.MouseInput.Event)
                 {
-                    case EMIE_LMOUSE_PRESSED_DOWN:
-                        MouseState.LeftButtonDown = true;
+                    case irr::EMIE_LMOUSE_PRESSED_DOWN:
+                        /*MouseState.LeftButtonDown = true;
                         cursor->setCgDown();
-                        cursor->run();
+                        cursor->run();*/
                         break;
                     //Pour ctrl+clic droit ou gauche ? je sais pas...
                     // si comme cursor créer une classe clavier qui retiendra si une touche est ou non appuyée;
-                    case EMIE_LMOUSE_LEFT_UP:              //bouton gauche clic relaché
-                        MouseState.LeftButtonDown = false;
+                    case irr::EMIE_LMOUSE_LEFT_UP:              //bouton gauche clic relaché
+                        /*MouseState.LeftButtonDown = false;
                         cursor->setCgUp();
-                        cursor->run();
+                        cursor->run();*/
                         break;
 
-                    case EMIE_RMOUSE_PRESSED_DOWN:
-                        MouseState.LeftButtonDown = true;
+                    case irr::EMIE_RMOUSE_PRESSED_DOWN:
+                        /*MouseState.LeftButtonDown = true;
                         cursor->setCdDown();
-                        cursor->run();
+                        cursor->run();*/
                         break;
 
-                    case EMIE_RMOUSE_LEFT_UP:              //bouton droit clic relaché
-                        MouseState.LeftButtonDown = false;
+                    case irr::EMIE_RMOUSE_LEFT_UP:              //bouton droit clic relaché
+                        /*MouseState.LeftButtonDown = false;
                         cursor->setCdUp();
-                        cursor->run();
+                        cursor->run();*/
                         break;
 
-                    case EMIE_MOUSE_MOVED:
-                        MouseState.Position.X = event.MouseInput.X;
+                    case irr::EMIE_MOUSE_MOVED:
+                        /*MouseState.Position.X = event.MouseInput.X;
                         MouseState.Position.Y = event.MouseInput.Y;
                         cursor->setX(event.MouseInput.X); //si marche pas utiliser "core::position2di Position;" dans MyCursor
                         cursor->setY(event.MouseInput.Y);
-                        cursor->run();
+                        cursor->run();*/
                         break;
 
-                    case EMIE_MOUSE_WHEEL:
-
-                        break;
-
-                    case EMIE_MOUSE_DOUBLE_CLICK:
+                    case irr::EMIE_MOUSE_WHEEL:
 
                         break;
 
-                    case EMIE_MOUSE_TRIPLE_CLICK:
+                    case irr::EMIE_MOUSE_DOUBLE_CLICK:
+
+                        break;
+
+                    case irr::EMIE_MOUSE_TRIPLE_CLICK:
 
                         break;
 
 
-                    case EMIE_COUNT:
+                    case irr::EMIE_COUNT:
 
                         break;
 
@@ -239,7 +239,7 @@ EMIE_COUNT 	No real event. Just for convenience to get number of events.
                 return true;
             }
 
-            scene::ITriangleSelector* getSelector() {
+            irr::scene::ITriangleSelector* getSelector() {
                 return this->selector;
             }
 

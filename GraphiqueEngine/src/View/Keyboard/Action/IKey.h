@@ -31,8 +31,13 @@ namespace graphique
                 return this->vdown;
             }
 
-            virtual int execute(IView *view)=0;
-            virtual int executePressed(IView *view)=0;
+            virtual int execute(IView *view){
+                return -1;
+            };
+
+            virtual int executePressed(IView *view){
+                return -1;
+            };
     };
 } // graphique
 

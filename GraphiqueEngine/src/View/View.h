@@ -101,7 +101,6 @@ namespace graphique
                 this->cursor->build();
 
                 this->keyboard = KeyboardFactory::createEntity(this);
-                this->keyboard->build();
 
                 this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();
@@ -255,6 +254,14 @@ namespace graphique
 
             SelectorService* getSelector() {
                 return this->selector;
+            }
+
+            ICursorEntity *getCursor() {
+                return this->cursor;
+            }
+
+            IKeyboard *getKeyboard() {
+                return this->keyboard;
             }
 
             IEnvironnement *getEnvironnement() {

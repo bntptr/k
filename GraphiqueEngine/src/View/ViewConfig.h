@@ -14,7 +14,7 @@ namespace graphique
 
             irr::video::E_DRIVER_TYPE driverType;
 
-            io::path mediaPath;
+            irr::io::path mediaPath;
 
         public:
             ViewConfig(){};
@@ -54,11 +54,11 @@ namespace graphique
                 return this;
             }
 
-            const io::path getMediaPath() {
+            const irr::io::path getMediaPath() {
                 return this->mediaPath;
             }
 
-            ViewConfig* setMediaPath(const io::path mediaPath) {
+            ViewConfig* setMediaPath(const irr::io::path mediaPath) {
                 this->mediaPath = mediaPath;
                 return this;
             }
