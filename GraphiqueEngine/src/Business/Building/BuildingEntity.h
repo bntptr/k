@@ -2,21 +2,42 @@
 #define BUILDING_ENTITY_H
 
 #include "IBuildingEntity.h"
+#include "Unite/BuildingUniteFactory.h"
 
 namespace business
 {
     class BuildingEntity : public IBuildingEntity
     {
+        protected:
+            IBuildingEntity *thisInstance;
+            TList<IBuildingUnite>* buildingList;
         public:
-            BuildingEntity(){};
+            BuildingEntity(){
+                this->thisInstance = this;
+                this->buildingList = new TList<IBuildingUnite>();
+            };
             ~BuildingEntity(){};
 
-            char* getMeshName(){
-                return NULL;
+            TList<IBuildingUnite>* getBuildingList() {
+                return this->buildingList;
             }
 
-            IBuildingEntity* setMesh(char* meshName){
-                return NULL;
+            IBuildingEntity* addBuildingUnite(
+                const Vector3d & position,
+                Vector3d rotation,
+                Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) {
+                IBuildingUnite *entity = business::BuildingUniteFactory::createEntity(
+                    position,
+                    rotation,
+                    scale,
+                    texture,
+                    mesh
+                );
+                this->buildingList->addElement(entity);
+                return this->thisInstance;
             }
     };
 } // business
