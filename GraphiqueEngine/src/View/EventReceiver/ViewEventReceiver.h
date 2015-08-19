@@ -1,8 +1,13 @@
+/**
+ * source file:///home/ubuntu/Workspaces/Sources/irrlicht-1.6.1/doc/html/namespaceirr.html#c9eed96e06e85ce3c86fcbbbe9e48a0c
+ */
 #ifndef VIEWEVENTRECEIVER_H
 #define VIEWEVENTRECEIVER_H
 
 #include <irrlicht.h>
 #include <iostream>
+#include "../Keyboard/Keyboard.h"
+#include "../Cursor/CursorEntity.h"
 #include "../Keyboard/Action/Actions.h"
 #include "../Cursor/Action/Actions.h"
 
@@ -14,32 +19,38 @@ namespace graphique
     {
         private:
             IView* view;
+            IKeyboard *keyboard;
+            ICursorEntity *cursor;
+            IEnvironnement *env;
 
         public:
             ViewEventReceiver(IView *view)
             {
-                this->setView(view);
+                this->view = view;
+                this->keyboard = KeyboardFactory::createEntity();
+                this->cursor = CursorFactory::createEntity();
+                this->env = view->getEnvironnement();
             }
 
-            /*/// methode Sourie2D
-            bool OnEventSourie2D(const SEvent& event)
+            /// methode Sourie 2D & 3D
+            bool OnEventSourie(const SEvent& event)
             {
-                 if(sourie != NULL)
-                          return sourie->OnEventSourie2D(event);
-                  return false;
-             }
-
-             /// methode Sourie3D
-             bool OnEventSourie3D(const SEvent& event)
-            {
+                 if(this->cursor != NULL)
+                          return this->cursor->onEvent(event);
                   return false;
              }
 
              /// methode Clavier
              bool OnEventClavier(const SEvent& event)
             {
-                  if(clav != NULL)
-                          return clav->OnEventClavier(event);
+                  if(this->keyboard != NULL) {
+                    if (event.KeyInput.PressedDown) {
+                        return this->keyboard->onEventPressed(event);
+                    } else {
+                        return this->keyboard->onEvent(event);
+                    }
+
+                  }
                   return false;
 
              }
@@ -47,63 +58,35 @@ namespace graphique
              /// methode GUI
              bool OnEventGUI(const SEvent& event)
             {
-                  if(env != NULL)
-                         return env->OnEventGUI(event);
+                  if(this->env != NULL)
+                         return this->env->onEvent(event);
 
                   return false;
-             }*/
+             }
 
             bool OnEvent(const SEvent& event)
             {
                 /// Sourie  (irr::gui::ICursorControl Class Reference)
                 if (event.EventType == irr::EET_MOUSE_INPUT_EVENT)
                 {
-                    //OnEventSourie2D(event);
+                    OnEventSourie(event);
                 }
 
                 /// Clavier
-                if (event.EventType == irr::EET_KEY_INPUT_EVENT && event.KeyInput.PressedDown)
+                if (event.EventType == irr::EET_KEY_INPUT_EVENT)
                 {
-                    IKey *key;
-                    switch (event.KeyInput.Key)
-                    {
-                    case irr::KEY_KEY_Q:
-                        key = new KeyQ();
-                        key->execute(this->view);
-                        return true;
-                    case irr::KEY_KEY_F:
-                        key = new KeyF();
-                        key->execute(this->view);
-                        return true;
-                    case irr::KEY_KEY_D:
-                        key = new KeyD();
-                        key->execute(this->view);
-                        return true;
-                    case irr::KEY_KEY_S:
-                        key = new KeyS();
-                        key->execute(this->view);
-                        return true;
-
-                    case irr::KEY_KEY_W:
-                        key = new KeyW();
-                        key->execute(this->view);
-                        return true;
-                    case irr::KEY_KEY_X:
-                        //this->actionKeyService->execute(EACTIONKEY_X);
-                        return true;
-                    case irr::KEY_KEY_C:
-                        return true;
-                    case irr::KEY_KEY_V:
-                        return true;
-                    default:
-                        break;
-                    }
+                    OnEventClavier(event);
                 }
 
                 /// GUI Environnement
                 if (event.EventType == irr::EET_GUI_EVENT)
                 {
-                    //OnEventGUI(event);
+                    OnEventGUI(event);
+                }
+
+                /// Joystick
+                if (event.EventType == irr::EET_JOYSTICK_INPUT_EVENT)
+                {
                 }
 
                 return false;

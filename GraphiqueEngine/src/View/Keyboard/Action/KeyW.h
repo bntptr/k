@@ -16,6 +16,10 @@ namespace graphique
                 selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
                 return 0;
             }
+
+            int executePressed(IView *view) {
+                return 0;
+            }
     };
 } // graphique
 

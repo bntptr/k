@@ -8,8 +8,14 @@ namespace graphique
     class KeyboardFactory
     {
         public:
-            static IKeyboard* createEntity() {
-                return new Keyboard();
+            static IKeyboard* createEntity(IView *view) {
+                TMap<irr::EKEY_CODE, IKey>* keyMap = new TMap<irr::EKEY_CODE, IKey>();
+                keyMap->addElement(irr::KEY_KEY_D, new KeyD());
+                keyMap->addElement(irr::KEY_KEY_F, new KeyF());
+                keyMap->addElement(irr::KEY_KEY_Q, new KeyQ());
+                keyMap->addElement(irr::KEY_KEY_S, new KeyS());
+                keyMap->addElement(irr::KEY_KEY_W, new KeyW());
+                return new Keyboard(view);
             }
         };
 } // graphique

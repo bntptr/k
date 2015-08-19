@@ -7,6 +7,7 @@
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
 #include "Cursor/CursorFactory.h"
+#include "Keyboard/KeyboardFactory.h"
 #include "Selector/SelectorService.h"
 #include "ViewConfig.h"
 #include "Environnement/EnvironnementFactory.h"
@@ -26,10 +27,13 @@ namespace graphique
             irr::IrrlichtDevice *device;
             //SoundService *sound;
             ViewEventReceiver *receiver;
+
             ICursorEntity *cursor;
+            IKeyboard *keyboard;
             SelectorService *selector;
             IEnvironnement *environnement;
             ICamera *camera;
+
             ITerrainView *terrain;
             ISkyView *sky;
             IPopulationView *population;
@@ -95,6 +99,9 @@ namespace graphique
 
                 this->cursor = CursorFactory::createEntity(this->device);
                 this->cursor->build();
+
+                this->keyboard = KeyboardFactory::createEntity(this);
+                this->keyboard->build();
 
                 this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();

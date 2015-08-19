@@ -12,6 +12,7 @@ namespace graphique
             virtual ~IEnvironnement(){};
 
             virtual bool draw()=0;
+            virtual bool oneEvent(const irr::SEvent& event)=0;
     };
 } // graphique
 

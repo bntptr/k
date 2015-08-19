@@ -1,6 +1,9 @@
 #ifndef ETEXTURE_H_
 #define ETEXTURE_H_
 
+/**
+ * Devrait être dans BUSINESS
+ */
 //! Enumeration de tous les types de Texture
 enum ETEXTURE
 {
@@ -16,6 +19,10 @@ enum ETEXTURE
 	ETEXTURE_PENGUIN,
 
 };
+
+/**
+ * Devrait être dans VIEW
+ */
 const char* const TEXTUREInfoNames[] =
 {
          "nskinrd2.jpg",

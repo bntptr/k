@@ -12,6 +12,7 @@ namespace graphique
         protected:
             ISelectorEntity* cursorLeft;
             ISelectorEntity* cursorRight;
+
         public:
             SelectorService(){
                 this->cursorLeft = new SelectorEntity();

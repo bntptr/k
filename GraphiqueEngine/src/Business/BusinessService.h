@@ -18,7 +18,13 @@ namespace business
             ~BusinessService(){};
 
             IBusinessEntity* loadBusinessEntity(){
-                IGroundEntity *ground = GroundFactory::createEntity();
+                IGroundEntity *ground = GroundFactory::createEntity(
+                    Vector3d(0, 0, 0),
+                    Vector3d(0, 0, 0),
+                    Vector3d(40, 4.4, 40),
+                    ETEXTURE_FAERIE,
+                    EMESH_FAERIE
+                );
                 ISkyEntity *sky = SkyFactory::createEntity();
                 IPopulationEntity *population = PopulationFactory::createEntity();
                 IPlayerEntity *player = PlayerFactory::createEntity();

@@ -16,6 +16,10 @@ namespace graphique
                 terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_DETAIL);
                 return 0;
             }
+
+            int executePressed(IView *view) {
+                return 0;
+            }
     };
 } // graphique
 

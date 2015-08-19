@@ -1,6 +1,9 @@
 #ifndef EMESH_H_
 #define EMESH_H_
 
+/**
+ * Devrait être dans BUSINESS
+ */
 //! Enumeration de tous les types de Texture
 enum EMESH
 {
@@ -13,6 +16,10 @@ enum EMESH
 	EMESH_PENGUIN,
 
 };
+
+/**
+ * Devrait être dans VIEW
+ */
 const char* const MESHInfoNames[] =
 {
          "ninja.b3d",

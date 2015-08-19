@@ -1,3 +1,0 @@
-int kSampleAddInt(int a, int b);
-int carre(int entier);
-int SampleAddInt(int a, int b);

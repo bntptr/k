@@ -17,6 +17,10 @@ namespace graphique
                 sky->oneEvent(EACTIONEVENT_CHANGE_SKY);
                 return 0;
             }
+
+            int executePressed(IView *view) {
+                return 0;
+            }
     };
 } // graphique
 

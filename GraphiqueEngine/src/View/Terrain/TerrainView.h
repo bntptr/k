@@ -39,14 +39,31 @@ namespace graphique
                 video::IVideoDriver* driver = device->getVideoDriver();
                 scene::ISceneManager* smgr = device->getSceneManager();
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
+
                 // add terrain scene node
+                business::Vector3d position = this->ground->getPosition();
+                business::Vector3d rotation = this->ground->getRotation();
+                business::Vector3d scale = this->ground->getScale();
+
                 scene::ITerrainSceneNode* terrain = smgr->addTerrainSceneNode(
                     MEDIA + "terrain-heightmap-plat-bas.bmp",
                     0,					// parent node
                     -1,					// node id
-                    core::vector3df(0.f, 0.f, 0.f),		// position
-                    core::vector3df(0.f, 0.f, 0.f),		// rotation
-                    core::vector3df(40.f, 4.4f, 40.f),	// scale
+                    core::vector3df(
+                        position.getX(),
+                        position.getY(),
+                        position.getZ()
+                    ),		// position
+                    core::vector3df(
+                        rotation.getX(),
+                        rotation.getY(),
+                        rotation.getZ()
+                    ),		// rotation
+                    core::vector3df(
+                        scale.getX(),
+                        scale.getY(),
+                        scale.getZ()
+                    ),	// scale
                     video::SColor ( 255, 255, 255, 255 ),	// vertexColor
                     5,					// maxLOD
                     scene::ETPS_17,				// patchSize
@@ -73,16 +90,24 @@ namespace graphique
 
                 // create collision response animator and attach it to the camera
                 scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
-                    selector, camera->getCamera(), core::vector3df(60,100,60),
+                    selector,
+                    camera->getCamera(),
+                    core::vector3df(60,100,60),
                     core::vector3df(0,0,0),
-                    core::vector3df(0,50,0));
+                    core::vector3df(0,0,0) // ici y valait 50
+                );
                 selector->drop();
                 camera->getCamera()->addAnimator(anim);
                 anim->drop();
 
-                scene::CDynamicMeshBuffer* buffer = new scene::CDynamicMeshBuffer(video::EVT_2TCOORDS, video::EIT_16BIT);
+                scene::CDynamicMeshBuffer* buffer = new scene::CDynamicMeshBuffer(
+                    video::EVT_2TCOORDS,
+                    video::EIT_16BIT
+                );
                 terrain->getMeshBufferForLOD(*buffer, 0);
-                video::S3DVertex2TCoords* data = (video::S3DVertex2TCoords*)buffer->getVertexBuffer().getData();
+                video::S3DVertex2TCoords* data = (video::S3DVertex2TCoords*)buffer
+                    ->getVertexBuffer().getData();
+
                 // Work on data or get the IndexBuffer with a similar call.
                 buffer->drop(); // When done drop the buffer again.
             }

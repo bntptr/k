@@ -165,17 +165,76 @@ namespace graphique
                 return true;
             }
 
-            bool oneEvent(EACTIONEVENT event) {
-                std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                //sky::IAction *action;
-                switch(event)
+/**
+numerator:
+EMIE_LMOUSE_PRESSED_DOWN 	Left mouse button was pressed down.
+EMIE_RMOUSE_PRESSED_DOWN 	Right mouse button was pressed down.
+EMIE_MMOUSE_PRESSED_DOWN 	Middle mouse button was pressed down.
+EMIE_LMOUSE_LEFT_UP 	Left mouse button was left up.
+EMIE_RMOUSE_LEFT_UP 	Right mouse button was left up.
+EMIE_MMOUSE_LEFT_UP 	Middle mouse button was left up.
+EMIE_MOUSE_MOVED 	The mouse cursor changed its position.
+EMIE_MOUSE_WHEEL 	The mouse wheel was moved. Use Wheel value in event data to find out in what direction and how fast.
+EMIE_MOUSE_DOUBLE_CLICK 	Mouse double click. This event is generated after the second EMIE_LMOUSE_PRESSED_DOWN event.
+EMIE_MOUSE_TRIPLE_CLICK 	Mouse triple click. This event is generated after the third EMIE_LMOUSE_PRESSED_DOWN event.
+EMIE_COUNT 	No real event. Just for convenience to get number of events.
+*/
+            bool oneEvent(const irr::SEvent& event) {
+                switch(event.MouseInput.Event)
                 {
-                    case EACTIONEVENT_CHANGE_SKY:
-                        //action = new building::Build();
-                        //action->execute(this);
+                    case EMIE_LMOUSE_PRESSED_DOWN:
+                        MouseState.LeftButtonDown = true;
+                        cursor->setCgDown();
+                        cursor->run();
                         break;
+                    //Pour ctrl+clic droit ou gauche ? je sais pas...
+                    // si comme cursor créer une classe clavier qui retiendra si une touche est ou non appuyée;
+                    case EMIE_LMOUSE_LEFT_UP:              //bouton gauche clic relaché
+                        MouseState.LeftButtonDown = false;
+                        cursor->setCgUp();
+                        cursor->run();
+                        break;
+
+                    case EMIE_RMOUSE_PRESSED_DOWN:
+                        MouseState.LeftButtonDown = true;
+                        cursor->setCdDown();
+                        cursor->run();
+                        break;
+
+                    case EMIE_RMOUSE_LEFT_UP:              //bouton droit clic relaché
+                        MouseState.LeftButtonDown = false;
+                        cursor->setCdUp();
+                        cursor->run();
+                        break;
+
+                    case EMIE_MOUSE_MOVED:
+                        MouseState.Position.X = event.MouseInput.X;
+                        MouseState.Position.Y = event.MouseInput.Y;
+                        cursor->setX(event.MouseInput.X); //si marche pas utiliser "core::position2di Position;" dans MyCursor
+                        cursor->setY(event.MouseInput.Y);
+                        cursor->run();
+                        break;
+
+                    case EMIE_MOUSE_WHEEL:
+
+                        break;
+
+                    case EMIE_MOUSE_DOUBLE_CLICK:
+
+                        break;
+
+                    case EMIE_MOUSE_TRIPLE_CLICK:
+
+                        break;
+
+
+                    case EMIE_COUNT:
+
+                        break;
+
                     default:
-                    break;
+                        // We won't use the wheel
+                        break;
                 }
                 return true;
             }

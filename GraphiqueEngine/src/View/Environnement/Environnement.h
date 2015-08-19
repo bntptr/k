@@ -40,6 +40,35 @@ namespace graphique
                     L"Press 'Q' or 'P' to change wireframe mode\nPress 'D' to toggle detail map\nPress 'S' to toggle skybox/skydome\n 'W', 'X', 'C' and 'V' jostick",
                     core::rect<s32>(10,421,250,475), true, true, 0, -1, true);
             }
+
+            bool oneEvent(const irr::SEvent& event) {
+/*
+                switch(event.GUIEvent.EventType)
+                {
+                    case EGET_MENU_ITEM_SELECTED:
+                         OnEventGUIMenuItemSelected(event);
+                        break;
+
+                    case EGET_FILE_SELECTED:
+                         OnEventGUIFileSelected(event);
+                        break;
+
+                    case EGET_SCROLL_BAR_CHANGED:
+                         OnEventGUIScrollBarChanged(event);
+                        break;
+
+                    case EGET_COMBO_BOX_CHANGED:
+                         OnEventGUIComboBoxChanged(event);
+                        break;
+
+                    case EGET_BUTTON_CLICKED:
+                         OnEventGUIButtonClicked(event);
+                        break;
+                    default:
+                        break;
+                } //fin du switch(event.GUIEvent.EventType)*/
+                return true;
+            }
     };
 } // graphique
 
