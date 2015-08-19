@@ -1,19 +1,17 @@
-#ifndef IACTIONKEY_F_H
-#define IACTIONKEY_F_H
+#ifndef EMIE_DOUBLE_CLICK_H
+#define EMIE_DOUBLE_CLICK_H
 
-#include "IKey.h"
+#include "IEmie.h"
 
 namespace graphique
 {
-    class KeyF : public IKey
+    class EmieDoubleClick : public IEmie
     {
         public:
-            KeyF(){};
-            virtual ~KeyF(){};
+            EmieDoubleClick(){};
+            virtual ~EmieDoubleClick(){};
 
             int execute(IView *view) {
-                ITerrainView* terrain = view->getTerrain();
-                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_POINT);
                 return 0;
             }
     };

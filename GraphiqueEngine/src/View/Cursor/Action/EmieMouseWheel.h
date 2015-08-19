@@ -1,19 +1,17 @@
-#ifndef IACTIONKEY_W_H
-#define IACTIONKEY_W_H
+#ifndef EMIE_MOUSE_WHEEL_H
+#define EMIE_MOUSE_WHEEL_H
 
-#include "IKey.h"
+#include "IEmie.h"
 
 namespace graphique
 {
-    class KeyW : public IKey
+    class EmieMouseWheel : public IEmie
     {
         public:
-            KeyW(){};
-            virtual ~KeyW(){};
+            EmieMouseWheel(){};
+            virtual ~EmieMouseWheel(){};
 
             int execute(IView *view) {
-                SelectorService* selector = view->getSelector();
-                selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
                 return 0;
             }
     };

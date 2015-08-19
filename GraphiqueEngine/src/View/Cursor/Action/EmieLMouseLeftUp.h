@@ -1,20 +1,17 @@
-#ifndef IACTIONKEY_S_H
-#define IACTIONKEY_S_H
+#ifndef EMIE_LMOUSE_LEFT_UP_H
+#define EMIE_LMOUSE_LEFT_UP_H
 
-#include "IKey.h"
-#include "../../Sky/ISkyView.h"
+#include "IEmie.h"
 
 namespace graphique
 {
-    class KeyS : public IKey
+    class EmieLMouseLeftUp : public IEmie
     {
         public:
-            KeyS(){};
-            virtual ~KeyS(){};
+            EmieLMouseLeftUp(){};
+            virtual ~EmieLMouseLeftUp(){};
 
             int execute(IView *view) {
-                ISkyView* sky = view->getSky();
-                sky->oneEvent(EACTIONEVENT_CHANGE_SKY);
                 return 0;
             }
     };

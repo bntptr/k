@@ -1,19 +1,17 @@
-#ifndef IACTIONKEY_Q_H
-#define IACTIONKEY_Q_H
+#ifndef EMIE_COUNT_H
+#define EMIE_COUNT_H
 
-#include "IKey.h"
+#include "IEmie.h"
 
 namespace graphique
 {
-    class KeyQ : public IKey
+    class EmieCount : public IEmie
     {
         public:
-            KeyQ(){};
-            virtual ~KeyQ(){};
+            EmieCount(){};
+            virtual ~EmieCount(){};
 
             int execute(IView *view) {
-                ITerrainView* terrain = view->getTerrain();
-                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_TRIANGLE);
                 return 0;
             }
     };

@@ -1,19 +1,17 @@
-#ifndef IACTIONKEY_Q_H
-#define IACTIONKEY_Q_H
+#ifndef EMIE_MOUSE_MOVED_H
+#define EMIE_MOUSE_MOVED_H
 
-#include "IKey.h"
+#include "IEmie.h"
 
 namespace graphique
 {
-    class KeyQ : public IKey
+    class EmieMouseMoved : public IEmie
     {
         public:
-            KeyQ(){};
-            virtual ~KeyQ(){};
+            EmieMouseMoved(){};
+            virtual ~EmieMouseMoved(){};
 
             int execute(IView *view) {
-                ITerrainView* terrain = view->getTerrain();
-                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_TRIANGLE);
                 return 0;
             }
     };

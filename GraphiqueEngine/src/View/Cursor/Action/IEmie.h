@@ -1,16 +1,16 @@
-#ifndef IACTIONKEY_H
-#define IACTIONKEY_H
+#ifndef IEMIE_H
+#define IEMIE_H
 
 #include "../../IView.h"
-#include "EActionEvent.h"
+#include "../../../Business/Event/EActionEvent.h"
 
 namespace graphique
 {
-    class IKey
+    class IEmie
     {
         public:
-            IKey(){};
-            virtual ~IKey(){};
+            IEmie(){};
+            virtual ~IEmie(){};
 
             virtual int execute(IView *view)=0;
     };

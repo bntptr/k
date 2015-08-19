@@ -1,19 +1,17 @@
-#ifndef IACTIONKEY_D_H
-#define IACTIONKEY_D_H
+#ifndef EMIE_LMOUSE_PRESSED_DOWN_H
+#define EMIE_LMOUSE_PRESSED_DOWN_H
 
-#include "IKey.h"
+#include "IEmie.h"
 
 namespace graphique
 {
-    class KeyD : public IKey
+    class EmieMousePressedDown : public IEmie
     {
         public:
-            KeyD(){};
-            virtual ~KeyD(){};
+            EmieMousePressedDown(){};
+            virtual ~EmieMousePressedDown(){};
 
             int execute(IView *view) {
-                ITerrainView* terrain = view->getTerrain();
-                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_DETAIL);
                 return 0;
             }
     };

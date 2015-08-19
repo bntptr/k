@@ -1,19 +1,17 @@
-#ifndef IACTIONKEY_Q_H
-#define IACTIONKEY_Q_H
+#ifndef EMIE_MOUSE_TRIPLE_CLICK_H
+#define EMIE_MOUSE_TRIPLE_CLICK_H
 
-#include "IKey.h"
+#include "IEmie.h"
 
 namespace graphique
 {
-    class KeyQ : public IKey
+    class EmieMouseTripleClick : public IEmie
     {
         public:
-            KeyQ(){};
-            virtual ~KeyQ(){};
+            EmieMouseTripleClick(){};
+            virtual ~EmieMouseTripleClick(){};
 
             int execute(IView *view) {
-                ITerrainView* terrain = view->getTerrain();
-                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_TRIANGLE);
                 return 0;
             }
     };

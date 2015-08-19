@@ -3,11 +3,8 @@
 
 #include <irrlicht.h>
 #include <iostream>
-#include "Action/KeyQ.h"
-#include "Action/KeyS.h"
-#include "Action/KeyD.h"
-#include "Action/KeyF.h"
-#include "Action/KeyW.h"
+#include "../Keyboard/Action/Actions.h"
+#include "../Cursor/Action/Actions.h"
 
 using namespace irr;
 
