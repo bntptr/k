@@ -2,7 +2,7 @@
 #define IBUILDING_UNITE_H
 
 #include "../../../Kutility/kutility.h"
-#include "../../../View/EventReceiver/Action/EActionEvent.h"
+#include "../../../Business/Event/EActionEvent.h"
 #include "../../../Media/Texture/ETexture.h"
 #include "../../../Media/Mesh/EMesh.h"
 

@@ -1,7 +1,7 @@
 #ifndef IOBJECTVIEW_H
 #define IOBJECTVIEW_H
 
-#include "EventReceiver/Action/EActionEvent.h"
+#include "../Business/Event/EActionEvent.h"
 
 namespace graphique
 {
