@@ -3,6 +3,8 @@
 #include "EmieDoubleClick.h"
 #include "EmieLMouseLeftUp.h"
 #include "EmieLMousePressedDown.h"
+#include "EmieRMouseLeftUp.h"
+#include "EmieRMousePressedDown.h"
 #include "EmieMouseMoved.h"
 #include "EmieMouseTripleClick.h"
 #include "EmieMouseWheel.h"

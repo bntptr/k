@@ -206,8 +206,9 @@ namespace graphique
             IKeyboard* executePressed(irr::EKEY_CODE key) {
                 IKey *k = this->keyMap->get(key);
 
-                if (k)
+                if (k) {
                     k->executePressed(this->view);
+                }
                 return this->thisInstance;
             }
 

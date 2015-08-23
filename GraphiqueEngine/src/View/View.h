@@ -97,7 +97,7 @@ namespace graphique
                 std::cout <<"build view !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
-                this->cursor = CursorFactory::createEntity(this->device);
+                this->cursor = CursorFactory::createEntity(this->device, this);
                 this->cursor->build();
 
                 this->keyboard = KeyboardFactory::createEntity(this);

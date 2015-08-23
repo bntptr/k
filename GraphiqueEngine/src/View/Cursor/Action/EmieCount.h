@@ -14,6 +14,10 @@ namespace graphique
             int execute(IView *view) {
                 return 0;
             }
+
+            int executePressed(IView *view) {
+                return 0;
+            }
     };
 } // graphique
 

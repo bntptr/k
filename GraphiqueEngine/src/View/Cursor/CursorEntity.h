@@ -3,6 +3,7 @@
 
 #include "CursorConfig.h"
 #include "ICursorEntity.h"
+#include "Action/Actions.h"
 #include "../ViewConfig.h"
 //#include "Action/IAction.h"
 #include "../Camera/ICamera.h"
@@ -19,10 +20,17 @@ namespace graphique
             irr::scene::ISceneCollisionManager* collMan;
             ICamera *camera;
 
+            ICursorEntity *thisInstance;
+            TMap<irr::EMOUSE_INPUT_EVENT, IEmie>* keyMap;
+            IView *view;
+
 
         public:
-            CursorEntity(irr::IrrlichtDevice *device){
+            CursorEntity(irr::IrrlichtDevice *device, IView *view, TMap<irr::EMOUSE_INPUT_EVENT, IEmie>* keyMap){
+                this->thisInstance = this;
                 this->device = device;
+                this->keyMap = keyMap;
+                this->view = view;
             };
             ~CursorEntity(){};
 
@@ -179,7 +187,35 @@ EMIE_MOUSE_DOUBLE_CLICK 	Mouse double click. This event is generated after the s
 EMIE_MOUSE_TRIPLE_CLICK 	Mouse triple click. This event is generated after the third EMIE_LMOUSE_PRESSED_DOWN event.
 EMIE_COUNT 	No real event. Just for convenience to get number of events.
 */
+            ICursorEntity* execute(irr::EMOUSE_INPUT_EVENT key) {
+                IEmie *k = this->keyMap->get(key);
+                if (k) {
+                    k->execute(this->view);
+                }
+                return this->thisInstance;
+            }
+
+            ICursorEntity* executePressed(irr::EMOUSE_INPUT_EVENT key) {
+                IEmie *k = this->keyMap->get(key);
+
+                if (k) {
+                    k->executePressed(this->view);
+                }
+                return this->thisInstance;
+            }
+
             bool oneEvent(const irr::SEvent& event) {
+                this->execute(event.MouseInput.Event);
+                return true;
+            }
+
+            bool oneEventPressed(const irr::SEvent& event) {
+                this->executePressed(event.MouseInput.Event);
+                return true;
+            }
+
+            bool OldOneEvent(const irr::SEvent& event) {
+
                 switch(event.MouseInput.Event)
                 {
                     case irr::EMIE_LMOUSE_PRESSED_DOWN:
@@ -236,7 +272,6 @@ EMIE_COUNT 	No real event. Just for convenience to get number of events.
                         // We won't use the wheel
                         break;
                 }
-                return true;
             }
 
             irr::scene::ITriangleSelector* getSelector() {

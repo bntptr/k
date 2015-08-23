@@ -1,15 +1,15 @@
-#ifndef EMIE_LMOUSE_LEFT_UP_H
-#define EMIE_LMOUSE_LEFT_UP_H
+#ifndef EMIE_RMOUSE_LEFT_UP_H
+#define EMIE_RMOUSE_LEFT_UP_H
 
 #include "IEmie.h"
 
 namespace graphique
 {
-    class EmieLMouseLeftUp : public IEmie
+    class EmieRMouseLeftUp : public IEmie
     {
         public:
-            EmieLMouseLeftUp(){};
-            virtual ~EmieLMouseLeftUp(){};
+            EmieRMouseLeftUp(){};
+            virtual ~EmieRMouseLeftUp(){};
 
             int execute(IView *view) {
                 return 0;
@@ -22,5 +22,6 @@ namespace graphique
 } // graphique
 
 #endif
+
 
 

@@ -12,12 +12,12 @@ namespace graphique
             virtual ~KeyW(){};
 
             int execute(IView *view) {
-                SelectorService* selector = view->getSelector();
-                selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
                 return 0;
             }
 
             int executePressed(IView *view) {
+                SelectorService* selector = view->getSelector();
+                selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
                 return 0;
             }
     };

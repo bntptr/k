@@ -5,13 +5,17 @@
 
 namespace graphique
 {
-    class EmieMousePressedDown : public IEmie
+    class EmieLMousePressedDown : public IEmie
     {
         public:
-            EmieMousePressedDown(){};
-            virtual ~EmieMousePressedDown(){};
+            EmieLMousePressedDown(){};
+            virtual ~EmieLMousePressedDown(){};
 
             int execute(IView *view) {
+                return 0;
+            }
+
+            int executePressed(IView *view) {
                 return 0;
             }
     };
