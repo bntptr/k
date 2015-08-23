@@ -21,6 +21,50 @@ TMap<KEY, ELEMENT>::~TMap(){
 ///                          PERSONNALISE - MAP
 ////////////////////////////////////////////////////////////////////////////////
 
+template <class KEY, class ELEMENT>
+ELEMENT* TMap<KEY, ELEMENT>::get(KEY k){
+
+          if( first == NULL ){
+              return NULL;
+            }
+
+          TNoeudMap<KEY, ELEMENT> *nl=first;
+          int j=0;
+          while(nl != NULL){
+                          j++;
+                          if( nl->getKey() == k ){
+                              ELEMENT* e = nl->getElement();
+                              return e;
+                              }
+                          nl = nl->getSuivant();
+                        }
+          setSize(j);
+    return NULL;
+}
+
+template <class KEY, class ELEMENT>
+ELEMENT* TMap<KEY, ELEMENT>::addElement(KEY k, ELEMENT *newu){
+
+         if( newu == NULL ){
+            return NULL;
+        }
+
+          if( first == NULL ){
+              first = new TNoeudMap<KEY, ELEMENT>(k, newu, NULL, NULL);
+              setSize(1);
+              dernier = first ;
+              return dernier->getElement();
+            }
+
+          //ajoute en fin de liste
+          TNoeudMap<KEY, ELEMENT> *nl = new TNoeudMap<KEY, ELEMENT>(k, newu,dernier,NULL);
+          addSize(1);
+          dernier->setSuivant(nl);
+          dernier = nl ;
+
+          return dernier->getElement();
+}
+
 //key
 template <class KEY, class ELEMENT>
 KEY TMap<KEY, ELEMENT>::getKey(ELEMENT* e){
@@ -132,7 +176,7 @@ ELEMENT* TMap<KEY, ELEMENT>::getElement(int i){
 template <class KEY, class ELEMENT>
 bool TMap<KEY, ELEMENT>::isIn(ELEMENT *element){
          return first->isIn(element);
-         }
+}
 
 
 template <class KEY, class ELEMENT>
@@ -143,7 +187,7 @@ ELEMENT* TMap<KEY, ELEMENT>::addElement(ELEMENT *newu){
            }
 
           if( first == NULL ){
-              first = new TNoeudMap<KEY, ELEMENT>(newu,NULL,NULL);
+              first = new TNoeudMap<KEY, ELEMENT>(newu, NULL, NULL);
               setSize(1);
               dernier = first ;
               return dernier->getElement();

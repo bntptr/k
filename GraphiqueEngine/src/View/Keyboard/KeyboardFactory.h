@@ -11,8 +11,12 @@ namespace graphique
     {
         public:
             static IKeyboard* createEntity(IView *view) {
+                //TMap<EKEY, KeyD>* keyMapD = new TMap<EKEY, KeyD>();
+                //KeyD kd;// = new KeyD();
+                //keyMapD->addElement(EKEY_D, kd);
                 TMap<irr::EKEY_CODE, IKey>* keyMap = new TMap<irr::EKEY_CODE, IKey>();
-                keyMap->addElement(irr::KEY_KEY_D, new KeyD());
+                IKey *k = new KeyD();
+                keyMap->addElement(irr::KEY_KEY_D, k);
                 keyMap->addElement(irr::KEY_KEY_F, new KeyF());
                 keyMap->addElement(irr::KEY_KEY_Q, new KeyQ());
                 keyMap->addElement(irr::KEY_KEY_S, new KeyS());

@@ -197,9 +197,9 @@ namespace graphique
 
             IKeyboard* execute(irr::EKEY_CODE key) {
                 IKey *k = this->keyMap->get(key);
-
-                if (k)
+                if (k) {
                     k->execute(this->view);
+                }
                 return this->thisInstance;
             }
 

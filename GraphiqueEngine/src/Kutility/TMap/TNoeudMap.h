@@ -4,64 +4,64 @@
 
 template <class KEY, class CONTENU>   //KEY <=> int/float/double
 class TNoeudMap{
-      
-      private:    
 
-      CONTENU *contenu; 
+      private:
+
+      CONTENU *contenu;
       KEY     key;
-       
+
       TNoeudMap *suivant;
-      TNoeudMap *precedent; 
-                
+      TNoeudMap *precedent;
+
       public:
       TNoeudMap();
       ~TNoeudMap();
-      TNoeudMap(CONTENU *e,TNoeudMap *prec, TNoeudMap *suiv);
-      
-      
+      TNoeudMap(KEY k, CONTENU *e,TNoeudMap *prec, TNoeudMap *suiv);
+
+
       /// NOEUD MAP
-      
-      //clef 
-      KEY     getClef(){
+
+      //clef
+      KEY     getKey(){
                return key;
                }
-               
-      KEY setClef(KEY ky){
+
+      KEY setKey(KEY ky){
           return key=ky;
           }
-      
+
       //noeud
       TNoeudMap* getSuivant();
       TNoeudMap* getPrecedent();
       TNoeudMap* setSuivant(TNoeudMap *suiv);
       TNoeudMap* setPrecedent(TNoeudMap *prec);
-      
+
       //special
       CONTENU* getElement(int i, bool b);
       bool isIn(CONTENU *element);
-      
-      
+
+
       /// REFERENCE - NOEUD
-      
+
       //contenu
       CONTENU* getContenu();
       bool isEgal(CONTENU* c);
-      
+
       CONTENU* getElement();
       CONTENU* setElement(CONTENU *e);
-      
+
       /// GENERAL
       /*void run();
       void drop();
       void print();*/
-      
+
       /// TYPE of CLASSE
       static char* getType(){
              return "TNoeudMap";
              }
-             
-             
-      };   
+
+
+      };
 
 #include "TNoeudMap.cpp" //.tpp
 
@@ -69,6 +69,6 @@ class TNoeudMap{
 
 
 
-      
-      
-      
+
+
+
