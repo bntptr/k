@@ -14,10 +14,6 @@ namespace graphique
 
             virtual int execute(IView *view){
                 return -1;
-            };;
-
-            virtual int executePressed(IView *view){
-                return -1;
             };
     };
 } // graphique

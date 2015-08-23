@@ -195,22 +195,8 @@ EMIE_COUNT 	No real event. Just for convenience to get number of events.
                 return this->thisInstance;
             }
 
-            ICursorEntity* executePressed(irr::EMOUSE_INPUT_EVENT key) {
-                IEmie *k = this->keyMap->get(key);
-
-                if (k) {
-                    k->executePressed(this->view);
-                }
-                return this->thisInstance;
-            }
-
             bool oneEvent(const irr::SEvent& event) {
                 this->execute(event.MouseInput.Event);
-                return true;
-            }
-
-            bool oneEventPressed(const irr::SEvent& event) {
-                this->executePressed(event.MouseInput.Event);
                 return true;
             }
 

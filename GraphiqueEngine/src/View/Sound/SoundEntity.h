@@ -11,10 +11,7 @@ using namespace irrklang;
 				return false; // error starting up the engine
 
 			// play some sound stream, looped
-			device->play2D("somefile.mp3", true);
-
-			char i = 0;
-			std::cin >> i; // wait for user to press some key
+			device->play2D("impact.wav", true);
 
 			device->drop(); // delete engine
 			return false;

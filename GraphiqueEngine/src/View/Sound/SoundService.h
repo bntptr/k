@@ -9,7 +9,7 @@ namespace graphique
             SoundService(){};
             ~SoundService(){};
 
-            SoundService* run(){
+            SoundService* play(){
                 /*irr::audio::ISoundEngine* soundEngine = irr::audio::createIrrKlangDevice();
                 IrrlichtDevice* device = createDevice(video::EDT_OPENGL, core::dimension2d<s32>(640, 480), 16, false);
                 scene::ISceneManager* smgr = device->getSceneManager();

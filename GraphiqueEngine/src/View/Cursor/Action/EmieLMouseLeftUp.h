@@ -12,10 +12,7 @@ namespace graphique
             virtual ~EmieLMouseLeftUp(){};
 
             int execute(IView *view) {
-                return 0;
-            }
-
-            int executePressed(IView *view) {
+                std::cout << "LMouseLeftUp" << std::endl;
                 return 0;
             }
     };

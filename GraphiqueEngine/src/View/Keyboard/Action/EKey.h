@@ -49,6 +49,6 @@ const char* const KeyInfoNames[] =
          "Texture/penguin.jpg",
          0
 };
-#endif /* ETEXTURE_H_ */
+#endif /* EKEY_H_ */
 
 
