@@ -16,9 +16,14 @@ namespace business
             ETEXTURE texture;
             EMESH mesh;
 
+            TMap<EACTIONEVENT, character::IAction>* keyMap;
+
         public:
-            CharacterEntity(){
+            CharacterEntity(
+                TMap<EACTIONEVENT, character::IAction>* keyMap
+            ){
                 this->thisInstance = this;
+                this->keyMap = keyMap;
             };
             ~CharacterEntity(){};
 
@@ -69,22 +74,13 @@ namespace business
 
              bool oneEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                character::IAction *action;
-                switch(event)
-                {
-                    case EACTIONEVENT_DEFAULT:
-                        break;
-                    case EACTIONEVENT_DEPLACE_X:
-                        action = new character::DeplaceX();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_DEPLACE_Y:
-                        break;
-                    case EACTIONEVENT_DEPLACE_Z:
-                        break;
-                    default:
-                    break;
+                std::cout << ACTIONEVENTInfoNames[event] << std::endl;
+                character::IAction *action  = this->keyMap->get(event);
+
+                if (action) {
+                    action->execute(this);
                 }
+
                 return true;
             }
     };
