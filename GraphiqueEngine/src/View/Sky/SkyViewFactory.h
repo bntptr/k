@@ -9,10 +9,11 @@ namespace graphique
     {
     public:
         static ISkyView* createEntity(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity) {
-            return new SkyView(device, skyEntity);
+            TMap<EACTIONEVENT, sky::IAction>* keyMap = new TMap<EACTIONEVENT, sky::IAction>();
+            keyMap->addElement(EACTIONEVENT_CHANGE_SKY, new sky::ChangeSky());
+            return new SkyView(device, skyEntity, keyMap);
         }
     };
 } // graphique
 
 #endif
-

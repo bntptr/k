@@ -13,7 +13,9 @@ namespace graphique
                 IAction(){};
                 virtual ~IAction(){};
 
-                virtual int execute(ISkyView *sky)=0;
+                virtual int execute(ISkyView *sky) {
+                    return -1;
+                };
         };
     } // sky
 } // graphique
