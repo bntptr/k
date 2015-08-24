@@ -44,10 +44,17 @@ namespace graphique
             business::ICharacterEntity *entity;
             scene::IAnimatedMeshSceneNode* node;
 
+            TMap<EACTIONEVENT, character::IAction>* keyMap;
+
         public:
-            Character(irr::IrrlichtDevice *device, business::ICharacterEntity *entity){
+            Character(
+                irr::IrrlichtDevice *device,
+                business::ICharacterEntity *entity,
+                TMap<EACTIONEVENT, character::IAction>* keyMap
+            ){
                 this->device = device;
                 this->entity = entity;
+                this->keyMap = keyMap;
             };
             ~Character(){};
 
@@ -131,22 +138,12 @@ namespace graphique
 
             bool oneEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                character::IAction *action;
-                switch(event)
-                {
-                    case EACTIONEVENT_DEFAULT:
-                        break;
-                    case EACTIONEVENT_DEPLACE_X:
-                        action = new character::DeplaceX();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_DEPLACE_Y:
-                        break;
-                    case EACTIONEVENT_DEPLACE_Z:
-                        break;
-                    default:
-                    break;
+                character::IAction *action  = this->keyMap->get(event);
+
+                if (action) {
+                    action->execute(this);
                 }
+
                 return true;
             }
     };

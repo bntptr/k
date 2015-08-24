@@ -74,7 +74,6 @@ namespace business
 
              bool oneEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 character::IAction *action  = this->keyMap->get(event);
 
                 if (action) {
