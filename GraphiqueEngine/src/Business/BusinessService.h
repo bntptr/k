@@ -22,8 +22,8 @@ namespace business
                     Vector3d(0, 0, 0),
                     Vector3d(0, 0, 0),
                     Vector3d(40, 4.4, 40),
-                    ETEXTURE_FAERIE,
-                    EMESH_FAERIE
+                    ETEXTURE_TERRAIN_DEFAULT,
+                    EMESH_TERRAIN_DEFAULT
                 );
                 ISkyEntity *sky = SkyFactory::createEntity();
                 IPopulationEntity *population = PopulationFactory::createEntity();

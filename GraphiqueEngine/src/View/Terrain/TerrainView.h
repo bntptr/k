@@ -52,8 +52,9 @@ namespace graphique
                 business::Vector3d rotation = this->ground->getRotation();
                 business::Vector3d scale = this->ground->getScale();
 
+                EMESH code_mesh = this->ground->getMesh();
                 scene::ITerrainSceneNode* terrain = smgr->addTerrainSceneNode(
-                    MEDIA + "terrain-heightmap-plat-bas.bmp",
+                    MEDIA + MESHInfoNames[code_mesh],
                     0,					// parent node
                     -1,					// node id
                     core::vector3df(
@@ -80,8 +81,9 @@ namespace graphique
                 this->terrain = terrain;
                 terrain->setMaterialFlag(video::EMF_LIGHTING, false);
 
+                ETEXTURE code_texture = this->ground->getTexture();
                 terrain->setMaterialTexture(0,
-                        driver->getTexture(MEDIA + "terrain-texture-plat-riviere.jpg"));
+                        driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture]));
                 terrain->setMaterialTexture(1,
                         driver->getTexture(MEDIA + "detailmap3.jpg"));
 

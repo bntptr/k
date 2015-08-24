@@ -17,6 +17,7 @@ enum ETEXTURE
 	ETEXTURE_NAIN,
 	ETEXTURE_GUN,
 	ETEXTURE_PENGUIN,
+	ETEXTURE_TERRAIN_DEFAULT,
 
 };
 
@@ -34,6 +35,7 @@ const char* const TEXTUREInfoNames[] =
          "",
          "gun.jpg",
          "Texture/penguin.jpg",
+         "terrain-texture-plat-riviere.jpg",
          0
 };
 #endif /* ETEXTURE_H_ */
