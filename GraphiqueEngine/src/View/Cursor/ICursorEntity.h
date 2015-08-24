@@ -2,6 +2,7 @@
 #define VIEW_ICURSOR_ENTITY_H
 
 #include <irrlicht.h>
+#include "Button/IMouseButton.h"
 #include "../Camera/ICamera.h"
 
 namespace graphique
@@ -19,6 +20,9 @@ namespace graphique
 
             virtual irr::scene::ITriangleSelector* getSelector()=0;
             virtual ICursorEntity* setCamera(ICamera *camera)=0;
+
+            virtual IMouseButton* getLeft()=0;
+            virtual IMouseButton* getRight()=0;
     };
 } // graphique
 

@@ -12,6 +12,10 @@ namespace graphique
             virtual ~EmieRMouseLeftUp(){};
 
             int execute(IView *view) {
+                view->getCursor()->getRight()->up();
+                                    /*MouseState.LeftButtonDown = false;
+                        cursor->setCdUp();
+                        cursor->run();*/
                 return 0;
             }
     };

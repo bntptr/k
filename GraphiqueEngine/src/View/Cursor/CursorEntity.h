@@ -2,6 +2,7 @@
 #define VIEW_CURSOR_ENTITY_H
 
 #include "CursorConfig.h"
+#include "Button/MouseButton.h"
 #include "ICursorEntity.h"
 #include "Action/Actions.h"
 #include "../ViewConfig.h"
@@ -21,6 +22,8 @@ namespace graphique
             ICamera *camera;
 
             ICursorEntity *thisInstance;
+            IMouseButton *left;
+            IMouseButton *right;
             TMap<irr::EMOUSE_INPUT_EVENT, IEmie>* keyMap;
             IView *view;
 
@@ -31,6 +34,8 @@ namespace graphique
                 this->device = device;
                 this->keyMap = keyMap;
                 this->view = view;
+                this->left = new MouseButton();
+                this->right = new MouseButton();
             };
             ~CursorEntity(){};
 
@@ -81,7 +86,7 @@ namespace graphique
                 bill->setMaterialFlag(video::EMF_ZBUFFER, false);
                 bill->setSize(core::dimension2d<f32>(20.0f, 20.0f));
                 bill->setID(ID_IsNotPickable); // This ensures that we don't accidentally ray-pick it
-            /////////////////************************
+
                 // Add a light, so that the unselected nodes aren't completely dark.
                 scene::ILightSceneNode * light = smgr->addLightSceneNode(0, core::vector3df(-60,100,400),
                     video::SColorf(1.0f,1.0f,1.0f,1.0f), 600.0f);
@@ -173,20 +178,6 @@ namespace graphique
                 return true;
             }
 
-/**
-numerator:
-EMIE_LMOUSE_PRESSED_DOWN 	Left mouse button was pressed down.
-EMIE_RMOUSE_PRESSED_DOWN 	Right mouse button was pressed down.
-EMIE_MMOUSE_PRESSED_DOWN 	Middle mouse button was pressed down.
-EMIE_LMOUSE_LEFT_UP 	Left mouse button was left up.
-EMIE_RMOUSE_LEFT_UP 	Right mouse button was left up.
-EMIE_MMOUSE_LEFT_UP 	Middle mouse button was left up.
-EMIE_MOUSE_MOVED 	The mouse cursor changed its position.
-EMIE_MOUSE_WHEEL 	The mouse wheel was moved. Use Wheel value in event data to find out in what direction and how fast.
-EMIE_MOUSE_DOUBLE_CLICK 	Mouse double click. This event is generated after the second EMIE_LMOUSE_PRESSED_DOWN event.
-EMIE_MOUSE_TRIPLE_CLICK 	Mouse triple click. This event is generated after the third EMIE_LMOUSE_PRESSED_DOWN event.
-EMIE_COUNT 	No real event. Just for convenience to get number of events.
-*/
             ICursorEntity* execute(irr::EMOUSE_INPUT_EVENT key) {
                 IEmie *k = this->keyMap->get(key);
                 if (k) {
@@ -200,66 +191,6 @@ EMIE_COUNT 	No real event. Just for convenience to get number of events.
                 return true;
             }
 
-            bool OldOneEvent(const irr::SEvent& event) {
-
-                switch(event.MouseInput.Event)
-                {
-                    case irr::EMIE_LMOUSE_PRESSED_DOWN:
-                        /*MouseState.LeftButtonDown = true;
-                        cursor->setCgDown();
-                        cursor->run();*/
-                        break;
-                    //Pour ctrl+clic droit ou gauche ? je sais pas...
-                    // si comme cursor créer une classe clavier qui retiendra si une touche est ou non appuyée;
-                    case irr::EMIE_LMOUSE_LEFT_UP:              //bouton gauche clic relaché
-                        /*MouseState.LeftButtonDown = false;
-                        cursor->setCgUp();
-                        cursor->run();*/
-                        break;
-
-                    case irr::EMIE_RMOUSE_PRESSED_DOWN:
-                        /*MouseState.LeftButtonDown = true;
-                        cursor->setCdDown();
-                        cursor->run();*/
-                        break;
-
-                    case irr::EMIE_RMOUSE_LEFT_UP:              //bouton droit clic relaché
-                        /*MouseState.LeftButtonDown = false;
-                        cursor->setCdUp();
-                        cursor->run();*/
-                        break;
-
-                    case irr::EMIE_MOUSE_MOVED:
-                        /*MouseState.Position.X = event.MouseInput.X;
-                        MouseState.Position.Y = event.MouseInput.Y;
-                        cursor->setX(event.MouseInput.X); //si marche pas utiliser "core::position2di Position;" dans MyCursor
-                        cursor->setY(event.MouseInput.Y);
-                        cursor->run();*/
-                        break;
-
-                    case irr::EMIE_MOUSE_WHEEL:
-
-                        break;
-
-                    case irr::EMIE_MOUSE_DOUBLE_CLICK:
-
-                        break;
-
-                    case irr::EMIE_MOUSE_TRIPLE_CLICK:
-
-                        break;
-
-
-                    case irr::EMIE_COUNT:
-
-                        break;
-
-                    default:
-                        // We won't use the wheel
-                        break;
-                }
-            }
-
             irr::scene::ITriangleSelector* getSelector() {
                 return this->selector;
             }
@@ -268,6 +199,14 @@ EMIE_COUNT 	No real event. Just for convenience to get number of events.
                 this->camera = camera;
                 ICursorEntity* thisInstance = this;
                 return thisInstance;
+            }
+
+            IMouseButton* getLeft() {
+                return this->left;
+            }
+
+            IMouseButton* getRight() {
+                return this->right;
             }
     };
 } // graphique

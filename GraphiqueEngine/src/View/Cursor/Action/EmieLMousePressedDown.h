@@ -12,6 +12,11 @@ namespace graphique
             virtual ~EmieLMousePressedDown(){};
 
             int execute(IView *view) {
+                view->getCursor()->getLeft()->down();
+                //view->getSelector()->
+                        /*MouseState.LeftButtonDown = true;
+                        cursor->setCgDown();
+                        cursor->run();*/
                 return 0;
             }
     };
