@@ -13,7 +13,9 @@ namespace graphique
                 IAction(){};
                 virtual ~IAction(){};
 
-                virtual int execute(ITerrainView *sky)=0;
+                virtual int execute(ITerrainView *sky) {
+                    return -1;
+                };
         };
     } // terrain
 } // graphique

@@ -123,6 +123,8 @@
 		<Unit filename="src/View/Cursor/Action/EmieMouseMoved.h" />
 		<Unit filename="src/View/Cursor/Action/EmieMouseTripleClick.h" />
 		<Unit filename="src/View/Cursor/Action/EmieMouseWheel.h" />
+		<Unit filename="src/View/Cursor/Action/EmieRMouseLeftUp.h" />
+		<Unit filename="src/View/Cursor/Action/EmieRMousePressedDown.h" />
 		<Unit filename="src/View/Cursor/Action/IEmie.h" />
 		<Unit filename="src/View/Cursor/CursorConfig.h" />
 		<Unit filename="src/View/Cursor/CursorEntity.h" />
@@ -175,6 +177,10 @@
 		<Unit filename="src/View/Sky/ISkyView.h" />
 		<Unit filename="src/View/Sky/SkyView.h" />
 		<Unit filename="src/View/Sky/SkyViewFactory.h" />
+		<Unit filename="src/View/Sound/Action/Actions.h" />
+		<Unit filename="src/View/Sound/Action/ESound.h" />
+		<Unit filename="src/View/Sound/Action/ISound.h" />
+		<Unit filename="src/View/Sound/Action/Impact.h" />
 		<Unit filename="src/View/Sound/SoundEntity.h" />
 		<Unit filename="src/View/Sound/SoundService.h" />
 		<Unit filename="src/View/Terrain/Action/IAction.h" />

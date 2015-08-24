@@ -16,10 +16,17 @@ namespace graphique
             business::IGroundEntity *ground;
             scene::ITerrainSceneNode* terrain;
 
+            TMap<EACTIONEVENT, terrain::IAction>* keyMap;
+
         public:
-            TerrainView(irr::IrrlichtDevice *device, business::IGroundEntity *ground){
+            TerrainView(
+                irr::IrrlichtDevice *device,
+                business::IGroundEntity *ground,
+                TMap<EACTIONEVENT, terrain::IAction>* keyMap
+            ){
                 this->device = device;
                 this->ground = ground;
+                this->keyMap = keyMap;
             };
             ~TerrainView(){};
 
@@ -114,23 +121,10 @@ namespace graphique
 
             bool oneEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                terrain::IAction *action;
-                switch(event)
-                {
-                    case EACTIONEVENT_TERRAIN_MAP_DETAIL:
-                        action = new terrain::MapDetail();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_TERRAIN_MAP_TRIANGLE:
-                        action = new terrain::MapTriangle();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_TERRAIN_MAP_POINT:
-                        action = new terrain::MapPoint();
-                        action->execute(this);
-                        break;
-                    default:
-                    break;
+                terrain::IAction *action  = this->keyMap->get(event);
+
+                if (action) {
+                    action->execute(this);
                 }
                 return true;
             }
