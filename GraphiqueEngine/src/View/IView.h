@@ -3,7 +3,7 @@
 //#include "ViewInterface.h"
 #include "../Business/BusinessInterface.h"
 #include "Selector/ISelectorService.h"
-#include "Environnement/IEnvironnement.h"
+#include "Environnement/IEnvironnementService.h"
 #include "Cursor/ICursorEntity.h"
 #include "Keyboard/IKeyboardService.h"
 #include "Camera/ICameraService.h"
@@ -26,7 +26,7 @@ namespace graphique
             virtual int run()=0;
 
             virtual ISelectorService* getSelector()=0;
-            virtual IEnvironnement *getEnvironnement()=0;
+            virtual IEnvironnementService *getEnvironnementService()=0;
             virtual ICursorEntity *getCursor()=0;
             virtual IKeyboardService *getKeyboardService()=0;
             virtual ICameraService *getCameraService()=0;

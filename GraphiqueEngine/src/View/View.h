@@ -11,7 +11,7 @@
 #include "Camera/CameraServiceFactory.h"
 #include "Selector/SelectorService.h"
 #include "ViewConfig.h"
-#include "Environnement/EnvironnementFactory.h"
+#include "Environnement/EnvironnementServiceFactory.h"
 #include "Camera/FPS/FPSFactory.h"
 #include "Terrain/TerrainViewFactory.h"
 #include "Sky/SkyViewFactory.h"
@@ -31,7 +31,7 @@ namespace graphique
             ICursorEntity *cursor;
             IKeyboardService *keyboard;
             ISelectorService *selector;
-            IEnvironnement *environnement;
+            IEnvironnementService *environnement;
             ICameraService *camera;
 
             ITerrainView *terrain;
@@ -102,7 +102,7 @@ namespace graphique
 
                 this->keyboard = KeyboardServiceFactory::createService(this);
 
-                this->environnement = EnvironnementFactory::createEntity(this->device);
+                this->environnement = EnvironnementServiceFactory::createService(this->device);
                 this->environnement->draw();
 
                 this->camera = CameraServiceFactory::createService(this->device, this->cursor);
@@ -209,7 +209,7 @@ namespace graphique
                 return this->keyboard;
             }
 
-            IEnvironnement *getEnvironnement() {
+            IEnvironnementService *getEnvironnementService() {
                 return this->environnement;
             }
 

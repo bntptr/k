@@ -6,7 +6,7 @@
 
 #include <irrlicht.h>
 #include <iostream>
-#include "../Keyboard/KeyboardFactory.h"
+#include "../Keyboard/KeyboardServiceFactory.h"
 #include "../Cursor/CursorFactory.h"
 #include "../Keyboard/Action/Actions.h"
 #include "../Cursor/Action/Actions.h"
@@ -19,17 +19,17 @@ namespace graphique
     {
         private:
             IView* view;
-            IKeyboard *keyboard;
+            IKeyboardService *keyboard;
             ICursorEntity *cursor;
-            IEnvironnement *env;
+            IEnvironnementService *env;
 
         public:
             ViewEventReceiver(IView *view)
             {
                 this->view = view;
-                this->keyboard = KeyboardFactory::createEntity(view);
+                this->keyboard = view->getKeyboardService();
                 this->cursor = view->getCursor();
-                this->env = view->getEnvironnement();
+                this->env = view->getEnvironnementService();
             }
 
             /// methode Sourie 2D & 3D
