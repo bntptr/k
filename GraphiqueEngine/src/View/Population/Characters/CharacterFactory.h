@@ -7,6 +7,8 @@ namespace graphique
 {
     class CharacterFactory
     {
+        private:
+            static int nbId;
         public:
             static ICharacter* createEntity(irr::IrrlichtDevice *device, business::ICharacterEntity *entity) {
                 TMap<EACTIONEVENT, character::IAction>* keyMap = new TMap<EACTIONEVENT, character::IAction>();
@@ -15,9 +17,13 @@ namespace graphique
                 //keyMap->addElement(EACTIONEVENT_DEPLACE_Y, new character::DeplaceY());
                 //keyMap->addElement(EACTIONEVENT_DEPLACE_Z, new character::DeplaceZ());
 
-                return new Character(device, entity, keyMap);
+                ICharacter* obj = new Character(device, entity, keyMap);
+                obj->setId(CharacterFactory::nbId);
+                CharacterFactory::nbId = CharacterFactory::nbId + 1;
+                return obj;
             }
     };
+    int CharacterFactory::nbId = 1;
 } // graphique
 
 #endif

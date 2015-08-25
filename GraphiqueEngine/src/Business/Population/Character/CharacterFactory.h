@@ -5,8 +5,6 @@
 
 namespace business
 {
-    // Moche !! ouhh !!!
-    int nbCharacter = 0;
     class CharacterFactory
     {
         private:
