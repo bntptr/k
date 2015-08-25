@@ -5,7 +5,7 @@
 #include "Selector/ISelectorService.h"
 #include "Environnement/IEnvironnement.h"
 #include "Cursor/ICursorEntity.h"
-#include "Keyboard/IKeyboard.h"
+#include "Keyboard/IKeyboardService.h"
 #include "Camera/ICameraService.h"
 #include "Terrain/ITerrainView.h"
 #include "Sky/ISkyView.h"
@@ -28,7 +28,7 @@ namespace graphique
             virtual ISelectorService* getSelector()=0;
             virtual IEnvironnement *getEnvironnement()=0;
             virtual ICursorEntity *getCursor()=0;
-            virtual IKeyboard *getKeyboard()=0;
+            virtual IKeyboardService *getKeyboardService()=0;
             virtual ICameraService *getCameraService()=0;
             virtual ITerrainView *getTerrain()=0;
             virtual ISkyView *getSky()=0;

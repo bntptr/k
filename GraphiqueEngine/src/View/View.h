@@ -7,7 +7,7 @@
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
 #include "Cursor/CursorFactory.h"
-#include "Keyboard/KeyboardFactory.h"
+#include "Keyboard/KeyboardServiceFactory.h"
 #include "Camera/CameraServiceFactory.h"
 #include "Selector/SelectorService.h"
 #include "ViewConfig.h"
@@ -29,7 +29,7 @@ namespace graphique
             ViewEventReceiver *receiver;
 
             ICursorEntity *cursor;
-            IKeyboard *keyboard;
+            IKeyboardService *keyboard;
             ISelectorService *selector;
             IEnvironnement *environnement;
             ICameraService *camera;
@@ -100,7 +100,7 @@ namespace graphique
                 this->cursor = CursorFactory::createEntity(this->device, this);
                 this->cursor->build();
 
-                this->keyboard = KeyboardFactory::createEntity(this);
+                this->keyboard = KeyboardServiceFactory::createService(this);
 
                 this->environnement = EnvironnementFactory::createEntity(this->device);
                 this->environnement->draw();
@@ -205,7 +205,7 @@ namespace graphique
                 return this->cursor;
             }
 
-            IKeyboard *getKeyboard() {
+            IKeyboardService *getKeyboardService() {
                 return this->keyboard;
             }
 

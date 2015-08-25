@@ -23,11 +23,11 @@ namespace graphique
                 ISelectorService* selector = view->getSelector();
                 selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
 
-                if (view->getKeyboard()->isDown(irr::KEY_KEY_C)) {
+                if (view->getKeyboardService()->isDown(irr::KEY_KEY_C)) {
                 std::cout << "ça marche !!!" << std::endl;
                 std::cout << "ça marche !!!" << std::endl;
                 std::cout << "ça marche !!!" << std::endl;
-                    view->getKeyboard()->executePressed(irr::KEY_KEY_C);
+                    view->getKeyboardService()->executePressed(irr::KEY_KEY_C);
                 } else {
 
                 std::cout << "ça PAS !!!" << std::endl;
