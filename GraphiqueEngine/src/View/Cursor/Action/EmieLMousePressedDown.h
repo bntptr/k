@@ -13,7 +13,6 @@ namespace graphique
 
             int execute(IView *view) {
                 view->getCursor()->getLeft()->down();
-                view->getSelector()->selectLeft(view);
                         /*MouseState.LeftButtonDown = true;
                         cursor->setCgDown();
                         cursor->run();*/
