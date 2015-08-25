@@ -30,7 +30,6 @@ namespace graphique
             };
             ~TerrainView(){};
 
-
             scene::ITerrainSceneNode* getTerrain(){
                 return this->terrain;
             }

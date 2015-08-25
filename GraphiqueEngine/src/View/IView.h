@@ -7,7 +7,7 @@
 #include "Cursor/ICursorService.h"
 #include "Keyboard/IKeyboardService.h"
 #include "Camera/ICameraService.h"
-#include "Terrain/ITerrainView.h"
+#include "Terrain/ITerrainService.h"
 #include "Sky/ISkyService.h"
 #include "Population/IPopulationView.h"
 #include "Building/IBuildingService.h"
@@ -30,7 +30,7 @@ namespace graphique
             virtual ICursorService *getCursorService()=0;
             virtual IKeyboardService *getKeyboardService()=0;
             virtual ICameraService *getCameraService()=0;
-            virtual ITerrainView *getTerrain()=0;
+            virtual ITerrainService *getTerrain()=0;
             virtual ISkyService *getSkyService()=0;
             virtual IPopulationView *getPopulation()=0;
             virtual IBuildingService *getBuildingService()=0;

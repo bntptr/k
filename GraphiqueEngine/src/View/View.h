@@ -12,11 +12,11 @@
 #include "Selector/SelectorService.h"
 #include "Environnement/EnvironnementServiceFactory.h"
 #include "Camera/FPS/FPSFactory.h"
-#include "Terrain/TerrainViewFactory.h"
+#include "Terrain/TerrainServiceFactory.h"
 #include "Sky/SkyServiceFactory.h"
 #include "Building/BuildingServiceFactory.h"
 #include "Population/PopulationViewFactory.h"
-//#include "Player/PlayerViewFactory.h"
+//#include "Player/PlayerServiceFactory.h"
 
 namespace graphique
 {
@@ -34,11 +34,11 @@ namespace graphique
 
             //ISoundService *sound;
 
-            ITerrainView *terrain;
+            ITerrainService *terrain;
             ISkyService *sky;
             IPopulationView *population;
             IBuildingService *building;
-            //IPlayerView *player;
+            //IPlayerService *player;
 
         public:
             View() {
@@ -112,7 +112,7 @@ namespace graphique
                 this->cursor->setCameraService(this->camera);
 
                 business::IGroundEntity *ground = entity->getGround();
-                this->terrain = TerrainViewFactory::createEntity(this->device, ground);
+                this->terrain = TerrainServiceFactory::createService(this->device, ground);
                 this->terrain->draw(this->camera);
 
                 business::ISkyEntity *skyEntity = entity->getSky();
@@ -217,7 +217,7 @@ namespace graphique
                 return this->camera;
             }
 
-            ITerrainView *getTerrain() {
+            ITerrainService *getTerrain() {
                 return this->terrain;
             }
 

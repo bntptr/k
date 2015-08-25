@@ -10,6 +10,10 @@ namespace graphique
         public:
             ITerrainService(){};
             virtual ~ITerrainService(){};
+
+            virtual irr::scene::ITerrainSceneNode* getTerrain()=0;
+            virtual bool draw(ICameraService* camera)=0;
+            virtual bool oneEvent(EACTIONEVENT event)=0;
     };
 }
 

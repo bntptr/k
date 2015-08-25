@@ -1,7 +1,7 @@
 #ifndef VIEW_TERRAIN_SERVICE_H
 #define VIEW_TERRAIN_SERVICE_H
 
-#include "CursorEntity.h"
+#include "TerrainViewFactory.h"
 #include "ITerrainService.h"
 
 namespace graphique
@@ -10,12 +10,26 @@ namespace graphique
     {
         protected:
             ITerrainService* thisInstance;
+            ITerrainView *terrain;
 
         public:
-            TerrainService(){
+            TerrainService(irr::IrrlichtDevice *device, business::IGroundEntity *ground){
                 this->thisInstance = this;
+                this->terrain = TerrainViewFactory::createEntity(device, ground);
             };
             ~TerrainService(){};
+
+            scene::ITerrainSceneNode* getTerrain(){
+                return this->terrain->getTerrain();
+            }
+
+            bool draw(ICameraService* camera) {
+                return this->terrain->draw(camera);
+            }
+
+            bool oneEvent(EACTIONEVENT event) {
+                return this->terrain->oneEvent(event);
+            }
     };
 } // business
 
