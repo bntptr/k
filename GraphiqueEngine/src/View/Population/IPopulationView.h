@@ -11,22 +11,21 @@ namespace graphique
 {
     class IPopulationView
     {
-    public:
-        IPopulationView(){};
-        virtual ~IPopulationView(){};
+        public:
+            IPopulationView(){};
+            virtual ~IPopulationView(){};
 
-        virtual bool build()=0;
-        virtual bool draw()=0;
-        virtual bool drawAll()=0;
+            virtual bool build()=0;
+            virtual bool draw()=0;
+            virtual bool drawAll()=0;
 
-        virtual bool addCharacter(
-            irr::IrrlichtDevice *device,
-            business::ICharacterEntity *characterEntity
-        )=0;
+            virtual bool addCharacter(
+                irr::IrrlichtDevice *device,
+                business::ICharacterEntity *characterEntity
+            )=0;
 
-        virtual IObjectView* getCharacterFromPlayer()=0;
-        virtual IObjectView* getObjectViewFromId(int id)=0;
-
+            virtual IObjectView* getCharacterFromPlayer()=0;
+            virtual IObjectView* getObjectViewFromId(int id)=0;
     };
 } // graphique
 

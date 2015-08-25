@@ -9,7 +9,7 @@
 #include "Camera/ICameraService.h"
 #include "Terrain/ITerrainService.h"
 #include "Sky/ISkyService.h"
-#include "Population/IPopulationView.h"
+#include "Population/IPopulationService.h"
 #include "Building/IBuildingService.h"
 
 namespace graphique
@@ -32,7 +32,7 @@ namespace graphique
             virtual ICameraService *getCameraService()=0;
             virtual ITerrainService *getTerrain()=0;
             virtual ISkyService *getSkyService()=0;
-            virtual IPopulationView *getPopulation()=0;
+            virtual IPopulationService *getPopulation()=0;
             virtual IBuildingService *getBuildingService()=0;
     };
 } // graphique

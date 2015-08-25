@@ -15,7 +15,7 @@
 #include "Terrain/TerrainServiceFactory.h"
 #include "Sky/SkyServiceFactory.h"
 #include "Building/BuildingServiceFactory.h"
-#include "Population/PopulationViewFactory.h"
+#include "Population/PopulationServiceFactory.h"
 //#include "Player/PlayerServiceFactory.h"
 
 namespace graphique
@@ -36,7 +36,7 @@ namespace graphique
 
             ITerrainService *terrain;
             ISkyService *sky;
-            IPopulationView *population;
+            IPopulationService *population;
             IBuildingService *building;
             //IPlayerService *player;
 
@@ -120,7 +120,7 @@ namespace graphique
                 this->sky->draw();
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
-                this->population = PopulationViewFactory::createEntity(this->device, populationEntity);
+                this->population = PopulationServiceFactory::createService(this->device, populationEntity);
                 this->population->draw();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
@@ -225,7 +225,7 @@ namespace graphique
                 return this->sky;
             }
 
-            IPopulationView *getPopulation() {
+            IPopulationService *getPopulation() {
                 return this->population;
             }
 

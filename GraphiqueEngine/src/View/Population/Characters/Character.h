@@ -34,6 +34,7 @@ http://irrlicht.sourceforge.net/docu/_i_animated_mesh_m_d2_8h_source.html
 
 #include "ICharacter.h"
 #include "Action/Actions.h"
+#include "../../ViewConfig.h"
 
 namespace graphique
 {
@@ -42,7 +43,7 @@ namespace graphique
         protected:
             irr::IrrlichtDevice *device;
             business::ICharacterEntity *entity;
-            scene::IAnimatedMeshSceneNode* node;
+            irr::scene::IAnimatedMeshSceneNode* node;
 
             TMap<EACTIONEVENT, character::IAction>* keyMap;
 
@@ -132,7 +133,7 @@ namespace graphique
                 return this->entity;
             }
 
-            scene::IAnimatedMeshSceneNode* getNode() {
+            irr::scene::IAnimatedMeshSceneNode* getNode() {
                 return this->node;
             }
 

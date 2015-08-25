@@ -6,6 +6,7 @@
 #include "Characters/CharacterFactory.h"
 
 #include "../../Kutility/kutility.h"
+#include "../ViewConfig.h"
 
 namespace graphique
 {

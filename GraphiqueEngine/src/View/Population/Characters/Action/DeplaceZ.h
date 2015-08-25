@@ -18,8 +18,8 @@ namespace graphique
                     entity->oneEvent(EACTIONEVENT_DEPLACE_Z);
 
                     business::Vector3d position = entity->getPosition();
-                    scene::IAnimatedMeshSceneNode* node = character->getNode();
-                    node->setPosition(core::vector3df(
+                    irr::scene::IAnimatedMeshSceneNode* node = character->getNode();
+                    node->setPosition(irr::core::vector3df(
                         position.getX(),
                         position.getY(),
                         position.getZ()
