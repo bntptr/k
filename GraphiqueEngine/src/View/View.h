@@ -25,7 +25,7 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            //SoundService *sound;
+            //ISoundService *sound;
             ViewEventReceiver *receiver;
 
             ICursorEntity *cursor;
@@ -107,7 +107,7 @@ namespace graphique
 
                 this->camera = CameraFactory::createEntity(this->device, this->cursor);
                 //this->camera = FPSFactory::createEntity(this->device, this->cursor);
-                this->camera->draw();
+                this->camera->build();
 
                 this->cursor->setCamera(this->camera);
 
@@ -164,6 +164,7 @@ namespace graphique
                 {
                     driver->beginScene(true, true, 0 );
 
+                    this->camera->draw();
                     smgr->drawAll();
                     env->drawAll();
                     this->cursor->draw();

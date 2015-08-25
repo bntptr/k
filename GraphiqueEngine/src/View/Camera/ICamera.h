@@ -47,6 +47,7 @@ namespace graphique
             virtual ~ICamera(){};
 
             virtual irr::scene::ICameraSceneNode* getCamera()=0;
+            virtual bool build()=0;
             virtual bool draw()=0;
     };
 } // graphique
