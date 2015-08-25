@@ -2,7 +2,7 @@
 #define CHARACTERENTITY_H
 
 #include "ICharacterEntity.h"
-#include "Action/DeplaceX.h"
+#include "Action/Actions.h"
 
 namespace business
 {

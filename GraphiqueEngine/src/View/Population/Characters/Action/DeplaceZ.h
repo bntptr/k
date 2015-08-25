@@ -1,5 +1,5 @@
-#ifndef VIEW_CHARACTER_DEPLACE_X_H
-#define VIEW_CHARACTER_DEPLACE_X_H
+#ifndef VIEW_CHARACTER_DEPLACE_Z_H
+#define VIEW_CHARACTER_DEPLACE_Z_H
 
 #include "IAction.h"
 
@@ -7,15 +7,15 @@ namespace graphique
 {
     namespace character
     {
-        class DeplaceX : public IAction
+        class DeplaceZ : public IAction
         {
             public:
-                DeplaceX(){};
-                virtual ~DeplaceX(){};
+                DeplaceZ(){};
+                virtual ~DeplaceZ(){};
 
                 int execute(ICharacter *character) {
                     business::ICharacterEntity* entity = character->getCharacterEntity();
-                    entity->oneEvent(EACTIONEVENT_DEPLACE_X);
+                    entity->oneEvent(EACTIONEVENT_DEPLACE_Z);
 
                     business::Vector3d position = entity->getPosition();
                     scene::IAnimatedMeshSceneNode* node = character->getNode();
@@ -30,5 +30,7 @@ namespace graphique
 } // graphique
 
 #endif
+
+
 
 

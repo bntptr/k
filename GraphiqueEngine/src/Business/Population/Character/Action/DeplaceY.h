@@ -1,5 +1,5 @@
-#ifndef BUSINESS_CHARACTER_DEPLACE_X_H
-#define BUSINESS_CHARACTER_DEPLACE_X_H
+#ifndef BUSINESS_CHARACTER_DEPLACE_Y_H
+#define BUSINESS_CHARACTER_DEPLACE_Y_H
 
 #include "IAction.h"
 
@@ -7,16 +7,16 @@ namespace business
 {
     namespace character
     {
-        class DeplaceX : public IAction
+        class DeplaceY : public IAction
         {
             public:
-                DeplaceX(){};
-                virtual ~DeplaceX(){};
+                DeplaceY(){};
+                virtual ~DeplaceY(){};
 
                 int execute(ICharacterEntity *character) {
                     Vector3d newPosition = character->getPosition();
-                    float newX = newPosition.getX() + 1;
-                    newPosition.setX(newX);
+                    float newY = newPosition.getY() + 1;
+                    newPosition.setY(newY);
                     character->setPosition(newPosition);
                 }
         };
@@ -24,6 +24,7 @@ namespace business
 } // business
 
 #endif
+
 
 
 

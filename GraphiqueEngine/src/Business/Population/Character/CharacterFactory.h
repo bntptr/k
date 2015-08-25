@@ -20,8 +20,8 @@ namespace business
                 TMap<EACTIONEVENT, character::IAction>* keyMap = new TMap<EACTIONEVENT, character::IAction>();
                 //keyMap->addElement(EACTIONEVENT_DEFAULT, new character::Default());
                 keyMap->addElement(EACTIONEVENT_DEPLACE_X, new character::DeplaceX());
-                //keyMap->addElement(EACTIONEVENT_DEPLACE_Y, new character::DeplaceY());
-                //keyMap->addElement(EACTIONEVENT_DEPLACE_Z, new character::DeplaceZ());
+                keyMap->addElement(EACTIONEVENT_DEPLACE_Y, new character::DeplaceY());
+                keyMap->addElement(EACTIONEVENT_DEPLACE_Z, new character::DeplaceZ());
 
                 ICharacterEntity *entity = new CharacterEntity(CharacterFactory::nbId, keyMap);
                 CharacterFactory::nbId = CharacterFactory::nbId + 1;

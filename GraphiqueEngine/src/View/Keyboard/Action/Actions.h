@@ -4,3 +4,7 @@
 #include "KeyD.h"
 #include "KeyF.h"
 #include "KeyW.h"
+#include "KeyX.h"
+#include "KeyC.h"
+#include "KeyV.h"
+#include "KeyP.h"

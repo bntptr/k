@@ -33,7 +33,7 @@ http://irrlicht.sourceforge.net/docu/_i_animated_mesh_m_d2_8h_source.html
 #define CHARACTERVIEW_H
 
 #include "ICharacter.h"
-#include "Action/DeplaceX.h"
+#include "Action/Actions.h"
 
 namespace graphique
 {
