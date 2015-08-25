@@ -25,6 +25,7 @@ namespace graphique
         )=0;
 
         virtual IObjectView* getCharacterFromPlayer()=0;
+        virtual IObjectView* getObjectViewFromId(int id)=0;
 
     };
 } // graphique

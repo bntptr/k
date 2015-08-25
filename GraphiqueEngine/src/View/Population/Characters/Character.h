@@ -78,7 +78,7 @@ namespace graphique
                     smgr->addAnimatedMeshSceneNode(
                         mesh,
                         0,
-                        IDFlag_IsPickable | IDFlag_IsHighlightable
+                        this->entity->getId() //IDFlag_IsPickable | IDFlag_IsHighlightable
                 );
 
 // Pour la selection avec le curseur

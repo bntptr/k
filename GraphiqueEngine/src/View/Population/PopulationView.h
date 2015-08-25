@@ -26,6 +26,17 @@ namespace graphique
             };
             ~PopulationView(){};
 
+            IObjectView* getObjectViewFromId(int id) {
+                TList<ICharacter>* L = this->characterList;
+                for(int i = 0; i < L->size(); i++) {
+                    if (id == L->getElement(i)->getId()) {
+                        IObjectView* obj = L->getElement(i);
+                        return obj;
+                    }
+                }
+                return NULL;
+            }
+
             bool build() {
                 TList<business::ICharacterEntity>* L = this->populationEntity->getCharacterList();
                 for(int i = 0; i < L->size(); i++) {
@@ -98,7 +109,7 @@ namespace graphique
                 scene::ITriangleSelector* selector = 0;
                 scene::IAnimatedMeshSceneNode* node = 0;
                 node = smgr->addAnimatedMeshSceneNode(smgr->getMesh("../../../media/ninja.b3d"),
-                                    0, IDFlag_IsPickable | IDFlag_IsHighlightable);
+                                    0, 75/*IDFlag_IsPickable | IDFlag_IsHighlightable*/);
                 //node->setMaterialTexture(0, driver->getTexture("../../../../../../media/nskinrd.jpg") );
                 node->setScale(core::vector3df(10, 10, 10));
                 node->setPosition(core::vector3df(-70,-66,-60));

@@ -5,8 +5,12 @@
 
 namespace business
 {
+    // Moche !! ouhh !!!
+    int nbCharacter = 0;
     class CharacterFactory
     {
+        private:
+            static int nbId;
         public:
             static ICharacterEntity* createEntity(
                 Vector3d position,
@@ -21,7 +25,8 @@ namespace business
                 //keyMap->addElement(EACTIONEVENT_DEPLACE_Y, new character::DeplaceY());
                 //keyMap->addElement(EACTIONEVENT_DEPLACE_Z, new character::DeplaceZ());
 
-                ICharacterEntity *entity = new CharacterEntity(keyMap);
+                ICharacterEntity *entity = new CharacterEntity(CharacterFactory::nbId, keyMap);
+                CharacterFactory::nbId = CharacterFactory::nbId + 1;
 
                 entity->setPosition(position);
                 entity->setRotation(rotation);
@@ -31,6 +36,7 @@ namespace business
                 return entity;
             }
     };
+    int CharacterFactory::nbId = 1;
 } // business
 
 #endif

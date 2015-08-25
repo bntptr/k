@@ -80,6 +80,7 @@
 		<Unit filename="src/Business/Player/PlayerFactory.h" />
 		<Unit filename="src/Business/Population/Character/Action/DeplaceX.h" />
 		<Unit filename="src/Business/Population/Character/Action/IAction.h" />
+		<Unit filename="src/Business/Population/Character/CharacterEntity.cpp" />
 		<Unit filename="src/Business/Population/Character/CharacterEntity.h" />
 		<Unit filename="src/Business/Population/Character/CharacterFactory.h" />
 		<Unit filename="src/Business/Population/Character/ICharacterEntity.h" />
@@ -126,6 +127,8 @@
 		<Unit filename="src/View/Cursor/Action/EmieRMouseLeftUp.h" />
 		<Unit filename="src/View/Cursor/Action/EmieRMousePressedDown.h" />
 		<Unit filename="src/View/Cursor/Action/IEmie.h" />
+		<Unit filename="src/View/Cursor/Button/IMouseButton.h" />
+		<Unit filename="src/View/Cursor/Button/MouseButton.h" />
 		<Unit filename="src/View/Cursor/CursorConfig.h" />
 		<Unit filename="src/View/Cursor/CursorEntity.h" />
 		<Unit filename="src/View/Cursor/CursorFactory.h" />
@@ -170,6 +173,7 @@
 		<Unit filename="src/View/Population/PopulationView.h" />
 		<Unit filename="src/View/Population/PopulationViewFactory.h" />
 		<Unit filename="src/View/Selector/ISelectorEntity.h" />
+		<Unit filename="src/View/Selector/ISelectorService.h" />
 		<Unit filename="src/View/Selector/SelectorEntity.h" />
 		<Unit filename="src/View/Selector/SelectorService.h" />
 		<Unit filename="src/View/Sky/Action/ChangeSky.h" />

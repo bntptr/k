@@ -2,19 +2,23 @@
 #define SELECTORSERVICE_H
 
 #include "../IObjectView.h"
+#include "../IView.h"
 
 #include "SelectorEntity.h"
+#include "ISelectorService.h"
 
 namespace graphique
 {
-    class SelectorService
+    class SelectorService : public ISelectorService
     {
         protected:
+            ISelectorService* thisInstance;
             ISelectorEntity* cursorLeft;
             ISelectorEntity* cursorRight;
 
         public:
             SelectorService(){
+                this->thisInstance = this;
                 this->cursorLeft = new SelectorEntity();
                 this->cursorRight = new SelectorEntity();
             };
@@ -28,34 +32,41 @@ namespace graphique
                 return this->cursorRight;
             }
 
-            SelectorService* resetCursorLeft() {
+            ISelectorService* resetCursorLeft() {
                 this->cursorLeft->reset();
-                return this;
+                return this->thisInstance;
             }
 
-            SelectorService* resetCursorRight() {
+            ISelectorService* resetCursorRight() {
                 this->cursorRight->reset();
-                return this;
+                return this->thisInstance;
             }
 
-            SelectorService* addToCursorLeft(IObjectView *obj) {
+            ISelectorService* addToCursorLeft(IObjectView *obj) {
                 this->cursorLeft->add(obj);
-                return this;
+                return this->thisInstance;
             }
 
-            SelectorService* addToCursorRight(IObjectView *obj) {
+            ISelectorService* addToCursorRight(IObjectView *obj) {
                 this->cursorRight->add(obj);
-                return this;
+                return this->thisInstance;
             }
 
-            SelectorService* oneEventSelectorRight(EACTIONEVENT event) {
+            ISelectorService* selectLeft(IView *view) {
+                int id = view->getCursor()->getSelectedSceneNodeId();
+                IObjectView *obj = view->getPopulation()->getObjectViewFromId(id);
+                this->addToCursorLeft(obj);
+                return this->thisInstance;
+            }
+
+            ISelectorService* oneEventSelectorRight(EACTIONEVENT event) {
                 this->cursorRight->oneEvent(event);
-                return this;
+                return this->thisInstance;
             }
 
-            SelectorService* oneEventSelectorLeft(EACTIONEVENT event) {
+            ISelectorService* oneEventSelectorLeft(EACTIONEVENT event) {
                 this->cursorLeft->oneEvent(event);
-                return this;
+                return this->thisInstance;
             }
     };
 } // business

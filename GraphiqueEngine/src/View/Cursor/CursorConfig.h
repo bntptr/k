@@ -3,6 +3,8 @@
 
 enum
 {
+    CURSOR_VISIBLE = false,
+
 	// I use this ISceneNode ID to indicate a scene node that is
 	// not pickable by getSceneNodeAndCollisionPointFromRay()
 	ID_IsNotPickable = 0,

@@ -30,7 +30,7 @@ namespace graphique
 
             ICursorEntity *cursor;
             IKeyboard *keyboard;
-            SelectorService *selector;
+            ISelectorService *selector;
             IEnvironnement *environnement;
             ICamera *camera;
 
@@ -252,7 +252,7 @@ namespace graphique
                 return this->device = dvc;
             }
 
-            SelectorService* getSelector() {
+            ISelectorService* getSelector() {
                 return this->selector;
             }
 

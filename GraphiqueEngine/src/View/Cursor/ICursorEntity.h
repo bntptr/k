@@ -19,6 +19,7 @@ namespace graphique
             virtual bool oneEvent(const irr::SEvent& event)=0;
 
             virtual irr::scene::ITriangleSelector* getSelector()=0;
+            virtual int getSelectedSceneNodeId()=0;
             virtual ICursorEntity* setCamera(ICamera *camera)=0;
 
             virtual IMouseButton* getLeft()=0;

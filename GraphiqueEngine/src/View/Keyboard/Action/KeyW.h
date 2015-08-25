@@ -3,6 +3,8 @@
 
 #include "IKey.h"
 
+#include "../../Selector/ISelectorService.h"
+
 namespace graphique
 {
     class KeyW : public IKey
@@ -16,7 +18,7 @@ namespace graphique
             }
 
             int executePressed(IView *view) {
-                SelectorService* selector = view->getSelector();
+                ISelectorService* selector = view->getSelector();
                 selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
                 return 0;
             }

@@ -10,6 +10,7 @@ namespace business
     {
         protected:
             ICharacterEntity *thisInstance;
+            int id;
             Vector3d position;
             Vector3d rotation;
             Vector3d scale;
@@ -20,12 +21,18 @@ namespace business
 
         public:
             CharacterEntity(
+                int id,
                 TMap<EACTIONEVENT, character::IAction>* keyMap
             ){
                 this->thisInstance = this;
+                this->id = id; std::cout << "id " << this->id << std::endl;
                 this->keyMap = keyMap;
             };
             ~CharacterEntity(){};
+
+            int getId() {
+                return this->id;
+            }
 
             EMESH getMesh(){
                 return this->mesh;

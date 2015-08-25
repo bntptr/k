@@ -18,6 +18,7 @@ namespace graphique
             irr::scene::ITriangleSelector* selector;
             irr::scene::IBillboardSceneNode * bill;
             irr::scene::ISceneNode* highlightedSceneNode;
+            irr::scene::ISceneNode* selectedSceneNode;
             irr::scene::ISceneCollisionManager* collMan;
             ICamera *camera;
 
@@ -50,33 +51,7 @@ namespace graphique
                 scene::ISceneManager* smgr = device->getSceneManager();
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
-
-                this->selector = 0;
-
-                //////**************************************
-
-                // Set a jump speed of 3 units per second, which gives a fairly realistic jump
-                // when used with the gravity of (0, -10, 0) in the collision response animator.
-                /*scene::ICameraSceneNode* camera =
-                    smgr->addCameraSceneNodeFPS(0, 100.0f, .3f, ID_IsNotPickable, 0, 0, true, 3.f);
-                camera->setPosition(core::vector3df(50,50,-60));
-                camera->setTarget(core::vector3df(-70,30,-60));
-
-                if (selector)
-                {
-                    scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
-                        selector, camera, core::vector3df(30,50,30),
-                        core::vector3df(0,-10,0), core::vector3df(0,30,0));
-                    selector->drop(); // As soon as we're done with the selector, drop it.
-                    camera->addAnimator(anim);
-                    anim->drop();  // And likewise, drop the animator when we're done referring to it.
-                }*/
-                // Now I create three animated characters which we can pick, a dynamic light for
-                // lighting them, and a billboard for drawing where we found an intersection.
-
-                // First, let's get rid of the mouse cursor.  We'll use a billboard to show
-                // what we're looking at.
-                device->getCursorControl()->setVisible(false);
+                device->getCursorControl()->setVisible(CURSOR_VISIBLE);
 
                 // Add the billboard.//panneau d'affichage
                 scene::IBillboardSceneNode * bill = smgr->addBillboardSceneNode();
@@ -88,14 +63,22 @@ namespace graphique
                 bill->setID(ID_IsNotPickable); // This ensures that we don't accidentally ray-pick it
 
                 // Add a light, so that the unselected nodes aren't completely dark.
-                scene::ILightSceneNode * light = smgr->addLightSceneNode(0, core::vector3df(-60,100,400),
-                    video::SColorf(1.0f,1.0f,1.0f,1.0f), 600.0f);
+                scene::ILightSceneNode * light = smgr->addLightSceneNode(
+                    0,
+                    core::vector3df(-60,100,400),
+                    video::SColorf(1.0f,1.0f,1.0f,1.0f),
+                    600.0f
+                );
                 light->setID(ID_IsNotPickable); // Make it an invalid target for selection.
+
+                this->collMan = smgr->getSceneCollisionManager();
+                this->bill = bill;
 
                 // Remember which scene node is highlighted
                 this->highlightedSceneNode = 0;
-                this->collMan = smgr->getSceneCollisionManager();
-                this->bill = bill;
+
+                // Remember which scene node is selected
+                this->selector = 0;
 
             }
 
@@ -141,18 +124,18 @@ namespace graphique
                 // Irrlicht provides other types of selection, including ray/triangle selector,
                 // ray/box and ellipse/triangle selector, plus associated helpers.
                 // See the methods of ISceneCollisionManager
-                scene::ISceneNode * selectedSceneNode =
+                this->selectedSceneNode =
                     collMan->getSceneNodeAndCollisionPointFromRay(
                             ray,
                             intersection, // This will be the position of the collision
                             hitTriangle, // This will be the triangle hit in the collision
-                            IDFlag_IsPickable, // This ensures that only nodes that we have
+                            false,//IDFlag_IsPickable, // This ensures that only nodes that we have
                                     // set up to be pickable are considered
                             0); // Check the entire scene (this is actually the implicit default)
 
                 // If the ray hit anything, move the billboard to the collision position
                 // and draw the triangle that was hit.
-                if(selectedSceneNode)
+                if(this->selectedSceneNode)
                 {
                     this->bill->setPosition(intersection);
 
@@ -163,15 +146,18 @@ namespace graphique
 
                     // We can check the flags for the scene node that was hit to see if it should be
                     // highlighted. The animated nodes can be highlighted, but not the Quake level mesh
-                    if((selectedSceneNode->getID() & IDFlag_IsHighlightable) == IDFlag_IsHighlightable)
+                    //if((selectedSceneNode->getID() & IDFlag_IsHighlightable) == IDFlag_IsHighlightable)
+                    if(0 < this->selectedSceneNode->getID())
                     {
-                        highlightedSceneNode = selectedSceneNode;
+                        highlightedSceneNode = this->selectedSceneNode;
 
                         // Highlighting in this case means turning lighting OFF for this node,
                         // which means that it will be drawn with full brightness.
                         highlightedSceneNode->setMaterialFlag(video::EMF_LIGHTING, false);
-                        std::cout << "selected : " << selectedSceneNode->getID() << std::endl;
+                        std::cout << "selected : " << this->selectedSceneNode->getID() << std::endl;
                         std::cout << "intersection : " << intersection.X << ", "<< intersection.Y << ", "<< intersection.Z << std::endl;
+                    } else {
+                        std::cout << "No selected : " << this->selectedSceneNode->getID() << std::endl;
                     }
                 }
 
@@ -193,6 +179,13 @@ namespace graphique
 
             irr::scene::ITriangleSelector* getSelector() {
                 return this->selector;
+            }
+
+            int getSelectedSceneNodeId() {
+                if (this->selectedSceneNode)
+                    return this->selectedSceneNode->getID();
+                else
+                    return -1;
             }
 
             ICursorEntity* setCamera(ICamera *camera) {

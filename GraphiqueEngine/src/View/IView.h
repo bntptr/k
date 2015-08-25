@@ -2,7 +2,7 @@
 #define IVIEW_H
 //#include "ViewInterface.h"
 #include "../Business/BusinessInterface.h"
-#include "Selector/SelectorService.h"
+#include "Selector/ISelectorService.h"
 #include "Environnement/IEnvironnement.h"
 #include "Cursor/ICursorEntity.h"
 #include "Keyboard/IKeyboard.h"
@@ -26,7 +26,7 @@ namespace graphique
             virtual int run()=0;
             virtual int runExemple()=0;
 
-            virtual SelectorService* getSelector()=0;
+            virtual ISelectorService* getSelector()=0;
             virtual IEnvironnement *getEnvironnement()=0;
             virtual ICursorEntity *getCursor()=0;
             virtual IKeyboard *getKeyboard()=0;
