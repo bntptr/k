@@ -13,7 +13,7 @@ namespace graphique
 
             int execute(IView *view) {
                 std::cout << "LMouseLeftUp" << std::endl;
-                view->getCursor()->getLeft()->up();
+                view->getCursorService()->getLeft()->up();
                 view->getSelector()->selectLeft(view);
                         /*MouseState.LeftButtonDown = false;
                         cursor->setCgUp();

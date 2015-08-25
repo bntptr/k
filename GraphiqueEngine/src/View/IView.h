@@ -1,10 +1,10 @@
 #ifndef IVIEW_H
 #define IVIEW_H
-//#include "ViewInterface.h"
+
 #include "../Business/BusinessInterface.h"
 #include "Selector/ISelectorService.h"
 #include "Environnement/IEnvironnementService.h"
-#include "Cursor/ICursorEntity.h"
+#include "Cursor/ICursorService.h"
 #include "Keyboard/IKeyboardService.h"
 #include "Camera/ICameraService.h"
 #include "Terrain/ITerrainView.h"
@@ -14,7 +14,7 @@
 
 namespace graphique
 {
-    class IView //: public ViewInterface
+    class IView
     {
         public:
             IView(){};
@@ -27,7 +27,7 @@ namespace graphique
 
             virtual ISelectorService* getSelector()=0;
             virtual IEnvironnementService *getEnvironnementService()=0;
-            virtual ICursorEntity *getCursor()=0;
+            virtual ICursorService *getCursorService()=0;
             virtual IKeyboardService *getKeyboardService()=0;
             virtual ICameraService *getCameraService()=0;
             virtual ITerrainView *getTerrain()=0;
@@ -35,7 +35,6 @@ namespace graphique
             virtual IPopulationView *getPopulation()=0;
             virtual IBuildingEntity *getBuilding()=0;
     };
-
 } // graphique
 
 #endif

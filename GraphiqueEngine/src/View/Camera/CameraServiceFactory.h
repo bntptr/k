@@ -8,7 +8,7 @@ namespace graphique
     class CameraServiceFactory
     {
         public:
-            static ICameraService* createService(irr::IrrlichtDevice *device, ICursorEntity *cursor) {
+            static ICameraService* createService(irr::IrrlichtDevice *device, ICursorService *cursor) {
                 return new CameraService(device, cursor);
             }
     };

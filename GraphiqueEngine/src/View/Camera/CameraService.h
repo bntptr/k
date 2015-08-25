@@ -14,7 +14,7 @@ namespace graphique
             ICamera *camera;
 
         public:
-            CameraService(irr::IrrlichtDevice *device, ICursorEntity *cursor){
+            CameraService(irr::IrrlichtDevice *device, ICursorService *cursor){
                 this->thisInstance = this;
                 this->camera = CameraFactory::createEntity(device, cursor);
             };

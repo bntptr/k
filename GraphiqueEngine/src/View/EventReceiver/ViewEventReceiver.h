@@ -7,7 +7,7 @@
 #include <irrlicht.h>
 #include <iostream>
 #include "../Keyboard/KeyboardServiceFactory.h"
-#include "../Cursor/CursorFactory.h"
+#include "../Cursor/CursorServiceFactory.h"
 #include "../Keyboard/Action/Actions.h"
 #include "../Cursor/Action/Actions.h"
 
@@ -20,7 +20,7 @@ namespace graphique
         private:
             IView* view;
             IKeyboardService *keyboard;
-            ICursorEntity *cursor;
+            ICursorService *cursor;
             IEnvironnementService *env;
 
         public:
@@ -28,7 +28,7 @@ namespace graphique
             {
                 this->view = view;
                 this->keyboard = view->getKeyboardService();
-                this->cursor = view->getCursor();
+                this->cursor = view->getCursorService();
                 this->env = view->getEnvironnementService();
             }
 

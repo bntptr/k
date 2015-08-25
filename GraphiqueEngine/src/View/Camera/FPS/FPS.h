@@ -8,7 +8,7 @@ namespace graphique
     class FPS : public Camera
     {
         public:
-            FPS(irr::IrrlichtDevice *device, ICursorEntity *cursor) : Camera(device, cursor){
+            FPS(irr::IrrlichtDevice *device, ICursorService *cursor) : Camera(device, cursor){
             };
             ~FPS(){};
 

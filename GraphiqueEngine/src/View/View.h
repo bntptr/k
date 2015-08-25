@@ -6,7 +6,7 @@
 #include "IView.h"
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
-#include "Cursor/CursorFactory.h"
+#include "Cursor/CursorServiceFactory.h"
 #include "Keyboard/KeyboardServiceFactory.h"
 #include "Camera/CameraServiceFactory.h"
 #include "Selector/SelectorService.h"
@@ -25,14 +25,15 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            //ISoundService *sound;
             ViewEventReceiver *receiver;
 
-            ICursorEntity *cursor;
+            ICursorService *cursor;
             IKeyboardService *keyboard;
             ISelectorService *selector;
             IEnvironnementService *environnement;
             ICameraService *camera;
+
+            //ISoundService *sound;
 
             ITerrainView *terrain;
             ISkyView *sky;
@@ -97,7 +98,7 @@ namespace graphique
                 std::cout <<"build view !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
-                this->cursor = CursorFactory::createEntity(this->device, this);
+                this->cursor = CursorServiceFactory::createService(this->device, this);
                 this->cursor->build();
 
                 this->keyboard = KeyboardServiceFactory::createService(this);
@@ -201,7 +202,7 @@ namespace graphique
                 return this->selector;
             }
 
-            ICursorEntity *getCursor() {
+            ICursorService *getCursorService() {
                 return this->cursor;
             }
 

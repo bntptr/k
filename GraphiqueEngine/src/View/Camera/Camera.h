@@ -10,12 +10,12 @@ namespace graphique
         protected:
             irr::IrrlichtDevice *device;
             scene::ICameraSceneNode* camera;
-            ICursorEntity* cursor;
+            ICursorService* cursor;
             bool splitScreen;
             scene::ICameraSceneNode *cameras[4];
 
         public:
-            Camera(irr::IrrlichtDevice *device, ICursorEntity *cursor){
+            Camera(irr::IrrlichtDevice *device, ICursorService *cursor){
                 this->device = device;
                 this->cursor = cursor;
                 this->splitScreen = true;
