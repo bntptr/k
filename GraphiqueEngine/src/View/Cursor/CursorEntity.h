@@ -7,7 +7,7 @@
 #include "Action/Actions.h"
 #include "../ViewConfig.h"
 //#include "Action/IAction.h"
-#include "../Camera/ICamera.h"
+#include "../Camera/ICameraService.h"
 
 namespace graphique
 {
@@ -20,7 +20,7 @@ namespace graphique
             irr::scene::ISceneNode* highlightedSceneNode;
             irr::scene::ISceneNode* selectedSceneNode;
             irr::scene::ISceneCollisionManager* collMan;
-            ICamera *camera;
+            ICameraService *camera;
 
             ICursorEntity *thisInstance;
             IMouseButton *left;
@@ -188,7 +188,7 @@ namespace graphique
                     return -1;
             }
 
-            ICursorEntity* setCamera(ICamera *camera) {
+            ICursorEntity* setCameraService(ICameraService *camera) {
                 this->camera = camera;
                 ICursorEntity* thisInstance = this;
                 return thisInstance;

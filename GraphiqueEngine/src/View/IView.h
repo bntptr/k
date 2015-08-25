@@ -6,7 +6,7 @@
 #include "Environnement/IEnvironnement.h"
 #include "Cursor/ICursorEntity.h"
 #include "Keyboard/IKeyboard.h"
-#include "Camera/ICamera.h"
+#include "Camera/ICameraService.h"
 #include "Terrain/ITerrainView.h"
 #include "Sky/ISkyView.h"
 #include "Population/IPopulationView.h"
@@ -29,7 +29,7 @@ namespace graphique
             virtual IEnvironnement *getEnvironnement()=0;
             virtual ICursorEntity *getCursor()=0;
             virtual IKeyboard *getKeyboard()=0;
-            virtual ICamera *getCamera()=0;
+            virtual ICameraService *getCameraService()=0;
             virtual ITerrainView *getTerrain()=0;
             virtual ISkyView *getSky()=0;
             virtual IPopulationView *getPopulation()=0;

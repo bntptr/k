@@ -10,6 +10,11 @@ namespace graphique
         public:
             ICameraService(){};
             virtual ~ICameraService(){};
+
+            // renommer getCameraSceneNode
+            virtual irr::scene::ICameraSceneNode* getCamera()=0;
+            virtual bool build()=0;
+            virtual bool draw()=0;
     };
 }
 

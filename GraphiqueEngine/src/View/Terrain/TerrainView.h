@@ -35,7 +35,7 @@ namespace graphique
                 return this->terrain;
             }
 
-            bool draw(ICamera* camera) {
+            bool draw(ICameraService* camera) {
                 std::cout <<"Draw Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
