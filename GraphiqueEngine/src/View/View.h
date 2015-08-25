@@ -10,12 +10,11 @@
 #include "Keyboard/KeyboardServiceFactory.h"
 #include "Camera/CameraServiceFactory.h"
 #include "Selector/SelectorService.h"
-#include "ViewConfig.h"
 #include "Environnement/EnvironnementServiceFactory.h"
 #include "Camera/FPS/FPSFactory.h"
 #include "Terrain/TerrainViewFactory.h"
 #include "Sky/SkyViewFactory.h"
-#include "Building/BuildingFactory.h"
+#include "Building/BuildingServiceFactory.h"
 #include "Population/PopulationViewFactory.h"
 //#include "Player/PlayerViewFactory.h"
 
@@ -38,7 +37,7 @@ namespace graphique
             ITerrainView *terrain;
             ISkyView *sky;
             IPopulationView *population;
-            IBuildingEntity *building;
+            IBuildingService *building;
             //IPlayerView *player;
 
         public:
@@ -125,7 +124,7 @@ namespace graphique
                 this->population->draw();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
-                this->building = BuildingFactory::createEntity(this->device, buildingEntity);
+                this->building = BuildingServiceFactory::createService(this->device, buildingEntity);
                 this->building->draw();
 
                 // selection par default pour les tests
@@ -230,7 +229,7 @@ namespace graphique
                 return this->population;
             }
 
-            IBuildingEntity *getBuilding() {
+            IBuildingService *getBuildingService() {
                 return this->building;
             }
     };

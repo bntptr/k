@@ -10,6 +10,8 @@ namespace graphique
         public:
             IBuildingService(){};
             virtual ~IBuildingService(){};
+
+            virtual bool draw()=0;
     };
 }
 

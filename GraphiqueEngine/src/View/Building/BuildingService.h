@@ -1,7 +1,7 @@
 #ifndef BUILDING_SERVICE_H
 #define BUILDING_SERVICE_H
 
-#include "BuildingEntity.h"
+#include "BuildingFactory.h"
 #include "IBuildingService.h"
 
 namespace graphique
@@ -10,12 +10,22 @@ namespace graphique
     {
         protected:
             IBuildingService* thisInstance;
+            IBuildingEntity *building;
 
         public:
-            BuildingService(){
+            BuildingService(irr::IrrlichtDevice *device, business::IBuildingEntity *entity){
                 this->thisInstance = this;
+                this->building = BuildingFactory::createEntity(device, entity);
             };
             ~BuildingService(){};
+
+            bool draw() {
+                this->building->draw();
+            }
+
+            bool oneEvent(EACTIONEVENT event) {
+                return this->building->oneEvent(event);
+            }
     };
 } // business
 

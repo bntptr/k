@@ -8,10 +8,10 @@ namespace graphique
 {
     class FPSFactory
     {
-    public:
-        static ICamera* createEntity(irr::IrrlichtDevice *device, ICursorService *cursor) {
-            return new FPS(device, cursor);
-        }
+        public:
+            static ICamera* createEntity(irr::IrrlichtDevice *device, ICursorService *cursor) {
+                return new FPS(device, cursor);
+            }
     };
 } // graphique
 
