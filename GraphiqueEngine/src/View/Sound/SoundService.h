@@ -1,9 +1,11 @@
-#ifndef SOUNDSERVICE_H
-#define SOUNDSERVICE_H
+#ifndef VIEW_SOUND_SERVICE_H
+#define VIEW_SOUND_SERVICE_H
+
+#include "ISoundService.h"
 
 namespace graphique
 {
-    class SoundService
+    class SoundService : public ISoundService
     {
         public:
             SoundService(){};
