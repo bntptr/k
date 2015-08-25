@@ -13,7 +13,7 @@
 #include "Environnement/EnvironnementServiceFactory.h"
 #include "Camera/FPS/FPSFactory.h"
 #include "Terrain/TerrainViewFactory.h"
-#include "Sky/SkyViewFactory.h"
+#include "Sky/SkyServiceFactory.h"
 #include "Building/BuildingServiceFactory.h"
 #include "Population/PopulationViewFactory.h"
 //#include "Player/PlayerViewFactory.h"
@@ -35,7 +35,7 @@ namespace graphique
             //ISoundService *sound;
 
             ITerrainView *terrain;
-            ISkyView *sky;
+            ISkyService *sky;
             IPopulationView *population;
             IBuildingService *building;
             //IPlayerView *player;
@@ -116,7 +116,7 @@ namespace graphique
                 this->terrain->draw(this->camera);
 
                 business::ISkyEntity *skyEntity = entity->getSky();
-                this->sky = SkyViewFactory::createEntity(this->device, skyEntity);
+                this->sky = SkyServiceFactory::createService(this->device, skyEntity);
                 this->sky->draw();
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
@@ -221,7 +221,7 @@ namespace graphique
                 return this->terrain;
             }
 
-            ISkyView *getSky() {
+            ISkyService *getSkyService() {
                 return this->sky;
             }
 
