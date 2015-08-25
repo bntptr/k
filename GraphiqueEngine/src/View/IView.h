@@ -24,7 +24,6 @@ namespace graphique
             virtual int init()=0;
             virtual int build(business::BusinessInterface *business)=0;
             virtual int run()=0;
-            virtual int runExemple()=0;
 
             virtual ISelectorService* getSelector()=0;
             virtual IEnvironnement *getEnvironnement()=0;

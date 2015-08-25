@@ -49,7 +49,7 @@ namespace business
                 entity->addCharacter(
                     Vector3d(830, 0, 100),
                     Vector3d(0, 90, 0),
-                    Vector3d(2, 2, 2),
+                    Vector3d(1, 1, 1),
                     ETEXTURE_NAIN,
                     EMESH_NAIN
                 );
