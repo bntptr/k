@@ -4,6 +4,7 @@
 #include <irrlicht.h>
 
 #include "IView.h"
+#include "Action/Actions.h"
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
 #include "Cursor/CursorServiceFactory.h"
@@ -23,8 +24,10 @@ namespace graphique
     class View : public IView
     {
         protected:
+            IView *thisInstance;
             irr::IrrlichtDevice *device;
             ViewEventReceiver *receiver;
+            TMap<EVIEW, IAction>* keyMap;
 
             ICursorService *cursor;
             IKeyboardService *keyboard;
@@ -41,7 +44,9 @@ namespace graphique
             //IPlayerService *player;
 
         public:
-            View() {
+            View(TMap<EVIEW, IAction>* keyMap) {
+                this->thisInstance = this;
+                this->keyMap = keyMap;
                 this->selector = new SelectorService();
             }
             ~View();
@@ -231,6 +236,19 @@ namespace graphique
 
             IBuildingService *getBuildingService() {
                 return this->building;
+            }
+
+            IView* execute(EVIEW key) {
+                IAction *k = this->keyMap->get(key);
+                if (k) {
+                    k->execute(this);
+                }
+                return this->thisInstance;
+            }
+
+            bool onEvent(EVIEW event) {
+                this->execute(event);
+                return true;
             }
     };
 } // graphique

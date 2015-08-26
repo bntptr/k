@@ -1,15 +1,15 @@
-#ifndef VIEW_CLOSE_WINDOWS_H
-#define VIEW_CLOSE_WINDOWS_H
+#ifndef VIEW_MODE_2D_H
+#define VIEW_MODE_2D_H
 
 #include "IAction.h"
 
 namespace graphique
 {
-    class CloseWindows : public IAction
+    class Mode2d : public IAction
     {
         public:
-            CloseWindows(){};
-            virtual ~CloseWindows(){};
+            Mode2d(){};
+            virtual ~Mode2d(){};
 
             int execute(IView *view) {
                 return -1;
@@ -18,6 +18,7 @@ namespace graphique
 } // graphique
 
 #endif
+
 
 
 

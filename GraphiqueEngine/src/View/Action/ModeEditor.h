@@ -1,15 +1,15 @@
-#ifndef VIEW_MODE_RPG_H
-#define VIEW_MODE_RPG_H
+#ifndef VIEW_MODE_EDITOR_H
+#define VIEW_MODE_EDITOR_H
 
 #include "IAction.h"
 
 namespace graphique
 {
-    class ModeRPG : public IAction
+    class ModeEditor : public IAction
     {
         public:
-            ModeRPG(){};
-            virtual ~ModeRPG(){};
+            ModeEditor(){};
+            virtual ~ModeEditor(){};
 
             int execute(IView *view) {
                 return -1;

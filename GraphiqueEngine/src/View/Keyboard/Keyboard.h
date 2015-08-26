@@ -159,14 +159,12 @@ namespace graphique
         protected:
             IKeyboard *thisInstance;
             TMap<irr::EKEY_CODE, IKey>* keyMap;
-            TList<IKey>* keyDown;
             IView *view;
 
         public:
             Keyboard(IView *view, TMap<irr::EKEY_CODE, IKey>* keyMap){
                 this->thisInstance = this;
                 this->keyMap = keyMap;
-                this->keyDown = new TList<IKey>();
                 this->view = view;
             };
             ~Keyboard(){};
@@ -176,7 +174,6 @@ namespace graphique
 
                 if (k)
                     k->down();
-                //keyDown->addElement(k);
 
                 return this->thisInstance;
             }
@@ -186,7 +183,6 @@ namespace graphique
 
                 if (k)
                     k->up();
-                //keyDown->subElement(k);
 
                 return this->thisInstance;
             }

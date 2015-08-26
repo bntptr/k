@@ -1,15 +1,15 @@
-#ifndef VIEW_CLOSE_WINDOWS_H
-#define VIEW_CLOSE_WINDOWS_H
+#ifndef VIEW_MODE_FPS_H
+#define VIEW_MODE_FPS_H
 
 #include "IAction.h"
 
 namespace graphique
 {
-    class CloseWindows : public IAction
+    class ModeFPS : public IAction
     {
         public:
-            CloseWindows(){};
-            virtual ~CloseWindows(){};
+            ModeFPS(){};
+            virtual ~ModeFPS(){};
 
             int execute(IView *view) {
                 return -1;
@@ -18,6 +18,7 @@ namespace graphique
 } // graphique
 
 #endif
+
 
 
 

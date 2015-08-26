@@ -1,6 +1,7 @@
 #ifndef IVIEW_H
 #define IVIEW_H
 
+#include "Action/EView.h"
 #include "../Business/BusinessInterface.h"
 #include "Selector/ISelectorService.h"
 #include "Environnement/IEnvironnementService.h"
@@ -24,6 +25,9 @@ namespace graphique
             virtual int init()=0;
             virtual int build(business::BusinessInterface *business)=0;
             virtual int run()=0;
+
+            virtual IView* execute(EVIEW key)=0;
+            virtual bool onEvent(EVIEW event)=0;
 
             virtual ISelectorService* getSelector()=0;
             virtual IEnvironnementService *getEnvironnementService()=0;

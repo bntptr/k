@@ -10,7 +10,7 @@ namespace graphique
     class ViewFPS : public View
     {
         public:
-            ViewFPS() {};
+            ViewFPS(TMap<EVIEW, IAction>* keyMap) : View(keyMap) {};
             ~ViewFPS();
 
             int run()
