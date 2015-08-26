@@ -170,7 +170,7 @@ namespace graphique
                 {
                     driver->beginScene(true, true, 0 );
 
-                    this->camera->draw();
+                    this->camera->draw(this->getTerrain(), this->getPopulation());
                     smgr->drawAll();
                     env->drawAll();
                     this->cursor->draw();

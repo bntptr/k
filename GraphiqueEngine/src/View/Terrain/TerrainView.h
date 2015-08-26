@@ -35,7 +35,7 @@ namespace graphique
             }
 
             bool build(ICameraService* camera) {
-                std::cout <<"Draw Terrain!" << std::endl;
+                std::cout <<"Build Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -124,6 +124,39 @@ namespace graphique
              * Actif en cas de camera 2d
              */
             bool draw(ICameraService* camera) {
+                ViewConfig *config = ViewConfig::getInstance();
+                using namespace irr;
+
+                config->load();
+                const io::path MEDIA = config->getMediaPath();
+
+                video::IVideoDriver* driver = device->getVideoDriver();
+                scene::ISceneManager* smgr = device->getSceneManager();
+                gui::IGUIEnvironment* env = device->getGUIEnvironment();
+
+                // add terrain scene node
+                business::Vector3d position = this->ground->getPosition();
+                business::Vector3d rotation = this->ground->getRotation();
+                business::Vector3d scale = this->ground->getScale();
+
+                ETEXTURE code_texture = this->ground->getTexture();
+                terrain->setMaterialTexture(0,
+                        driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture]));
+
+                driver->draw2DImage(
+                    driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture]),
+                    core::position2d<s32>(0,40), //<<là début del'affichage
+                    //core::rect<s32>(0,0,512,384), 0,
+                    core::rect<s32>(
+                        camera->getX(),
+                        camera->getY(),
+                        camera->getX()+500,
+                        camera->getY()+500
+                    ),
+                    0,   //+512 +384//Attention: rect sur images
+                    video::SColor(255,255,255,255),
+                    true
+                );
                 return false;
             }
 

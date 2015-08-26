@@ -30,8 +30,14 @@ namespace graphique
                 camera->setTarget(core::vector3df(2397*2,343*2,2700*2));
                 camera->setFarValue(42000.0f);
 
-                // disable mouse cursor
-                device->getCursorControl()->setVisible(false);
+                // mouse cursor
+                device->getCursorControl()->setVisible(true);
+                return true;
+            }
+
+            bool draw(ITerrainService *terrain, IPopulationService *population) {
+                terrain->draw();
+                //population->draw();
             }
     };
 } // graphique

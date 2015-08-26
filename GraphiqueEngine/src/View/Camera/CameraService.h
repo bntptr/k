@@ -52,8 +52,8 @@ namespace graphique
                 return this->camera->build();
             }
 
-            bool draw() {
-                return this->camera->draw();
+            bool draw(ITerrainService *terrain, IPopulationService *population) {
+                return this->camera->draw(terrain, population);
             }
 
             bool active2d() {

@@ -38,6 +38,9 @@ touche j pour un saut
 
 #include <irrlicht.h>
 
+#include "../Terrain/ITerrainService.h"
+#include "../Population/IPopulationService.h"
+
 namespace graphique
 {
     class ICamera
@@ -48,7 +51,7 @@ namespace graphique
 
             virtual irr::scene::ICameraSceneNode* getCameraSceneNode()=0;
             virtual bool build()=0;
-            virtual bool draw()=0;
+            virtual bool draw(ITerrainService *terrain, IPopulationService *population)=0;
     };
 } // graphique
 
