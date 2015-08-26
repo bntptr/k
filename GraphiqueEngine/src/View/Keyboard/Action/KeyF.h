@@ -13,7 +13,7 @@ namespace graphique
 
             int execute(IView *view) {
                 ITerrainService* terrain = view->getTerrain();
-                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_POINT);
+                terrain->onEvent(EACTIONEVENT_TERRAIN_MAP_POINT);
                 return 0;
             }
 

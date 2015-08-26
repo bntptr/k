@@ -14,7 +14,7 @@ namespace graphique
 
             int execute(IView *view) {
                 ISkyService* sky = view->getSkyService();
-                sky->oneEvent(EACTIONEVENT_CHANGE_SKY);
+                sky->onEvent(EACTIONEVENT_CHANGE_SKY);
                 return 0;
             }
 

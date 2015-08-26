@@ -120,7 +120,7 @@ namespace graphique
                 buffer->drop(); // When done drop the buffer again.
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 terrain::IAction *action  = this->keyMap->get(event);
 

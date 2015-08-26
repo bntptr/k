@@ -41,13 +41,12 @@ namespace graphique
             }
 
             // Les autres ci dessus inutil chez le service?
-            // renommer en onEvent
-            bool oneEvent(const irr::SEvent& event) {
-                return this->keyboard->oneEvent(event);
+            bool onEvent(const irr::SEvent& event) {
+                return this->keyboard->onEvent(event);
             }
 
-            bool oneEventPressed(const irr::SEvent& event) {
-                return this->keyboard->oneEventPressed(event);
+            bool onEventPressed(const irr::SEvent& event) {
+                return this->keyboard->onEventPressed(event);
             }
     };
 } // business

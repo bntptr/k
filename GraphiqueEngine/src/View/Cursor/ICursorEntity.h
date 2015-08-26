@@ -16,7 +16,7 @@ namespace graphique
             virtual bool build()=0;
             virtual bool draw()=0;
             virtual ICursorEntity* execute(irr::EMOUSE_INPUT_EVENT key)=0;
-            virtual bool oneEvent(const irr::SEvent& event)=0;
+            virtual bool onEvent(const irr::SEvent& event)=0;
 
             virtual irr::scene::ITriangleSelector* getSelector()=0;
             virtual int getSelectedSceneNodeId()=0;

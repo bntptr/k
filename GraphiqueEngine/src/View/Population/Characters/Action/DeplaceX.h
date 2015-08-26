@@ -15,7 +15,7 @@ namespace graphique
 
                 int execute(ICharacter *character) {
                     business::ICharacterEntity* entity = character->getCharacterEntity();
-                    entity->oneEvent(EACTIONEVENT_DEPLACE_X);
+                    entity->onEvent(EACTIONEVENT_DEPLACE_X);
 
                     business::Vector3d position = entity->getPosition();
                     irr::scene::IAnimatedMeshSceneNode* node = character->getNode();

@@ -64,13 +64,13 @@ namespace graphique
                 return this->thisInstance;
             }
 
-            ISelectorService* oneEventSelectorRight(EACTIONEVENT event) {
-                this->cursorRight->oneEvent(event);
+            ISelectorService* onEventSelectorRight(EACTIONEVENT event) {
+                this->cursorRight->onEvent(event);
                 return this->thisInstance;
             }
 
-            ISelectorService* oneEventSelectorLeft(EACTIONEVENT event) {
-                this->cursorLeft->oneEvent(event);
+            ISelectorService* onEventSelectorLeft(EACTIONEVENT event) {
+                this->cursorLeft->onEvent(event);
                 return this->thisInstance;
             }
     };

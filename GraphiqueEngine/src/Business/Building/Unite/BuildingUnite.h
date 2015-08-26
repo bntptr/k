@@ -67,7 +67,7 @@ namespace business
                 return this->thisInstance;
             }
 
-             bool oneEvent(EACTIONEVENT event) {
+             bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 building::IAction *action;
                 switch(event)

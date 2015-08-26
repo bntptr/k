@@ -39,8 +39,8 @@ namespace graphique
                 return this->sky->draw();
             }
 
-            bool oneEvent(EACTIONEVENT event) {
-                return this->sky->oneEvent(event);
+            bool onEvent(EACTIONEVENT event) {
+                return this->sky->onEvent(event);
             }
     };
 } // business

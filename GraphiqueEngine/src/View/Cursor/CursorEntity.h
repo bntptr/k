@@ -172,7 +172,7 @@ namespace graphique
                 return this->thisInstance;
             }
 
-            bool oneEvent(const irr::SEvent& event) {
+            bool onEvent(const irr::SEvent& event) {
                 this->execute(event.MouseInput.Event);
                 return true;
             }

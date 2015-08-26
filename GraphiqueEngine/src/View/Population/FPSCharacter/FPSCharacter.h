@@ -105,7 +105,7 @@ namespace graphique
                 return this->node;
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 character::IAction *action;
                 switch(event)

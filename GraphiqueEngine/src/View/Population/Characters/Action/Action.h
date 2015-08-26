@@ -13,7 +13,7 @@ namespace graphique
 
             int execute(ICharacter *character) {
                 //SelectorService* selector = character->getSelector();
-                //selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
+                //selector->onEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
             }
     };
 } // graphique

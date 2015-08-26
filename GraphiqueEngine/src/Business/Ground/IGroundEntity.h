@@ -14,7 +14,7 @@ namespace business
             IGroundEntity(){};
             virtual ~IGroundEntity(){};
 
-            virtual bool oneEvent(EACTIONEVENT event)=0;
+            virtual bool onEvent(EACTIONEVENT event)=0;
 
             virtual EMESH getMesh()=0;
             virtual IGroundEntity* setMesh(EMESH mesh)=0;

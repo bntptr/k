@@ -19,7 +19,7 @@ namespace graphique
 
             int executePressed(IView *view) {
                 ISelectorService* selector = view->getSelector();
-                selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_Z);
+                selector->onEventSelectorLeft(EACTIONEVENT_DEPLACE_Z);
                 return 0;
             }
     };

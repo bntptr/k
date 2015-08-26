@@ -41,7 +41,7 @@ namespace graphique
                     core::rect<s32>(10,421,250,475), true, true, 0, -1, true);
             }
 
-            bool oneEvent(const irr::SEvent& event) {
+            bool onEvent(const irr::SEvent& event) {
 /*
                 switch(event.GUIEvent.EventType)
                 {

@@ -218,12 +218,12 @@ namespace graphique
                 return this->thisInstance;
             }
 
-            bool oneEvent(const irr::SEvent& event) {
+            bool onEvent(const irr::SEvent& event) {
                 this->execute(event.KeyInput.Key);
                 return true;
             }
 
-            bool oneEventPressed(const irr::SEvent& event) {
+            bool onEventPressed(const irr::SEvent& event) {
                 this->executePressed(event.KeyInput.Key);
                 return true;
             }

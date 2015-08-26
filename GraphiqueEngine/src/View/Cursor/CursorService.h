@@ -31,8 +31,8 @@ namespace graphique
                 return this->cursor->execute(key);
             }
 
-            bool oneEvent(const irr::SEvent& event) {
-                return this->cursor->oneEvent(event);
+            bool onEvent(const irr::SEvent& event) {
+                return this->cursor->onEvent(event);
             }
 
             irr::scene::ITriangleSelector* getSelector() {

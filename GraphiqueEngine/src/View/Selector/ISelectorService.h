@@ -30,9 +30,9 @@ namespace graphique
 
             virtual ISelectorService* selectLeft(IView *view)=0;
 
-            virtual ISelectorService* oneEventSelectorRight(EACTIONEVENT event)=0;
+            virtual ISelectorService* onEventSelectorRight(EACTIONEVENT event)=0;
 
-            virtual ISelectorService* oneEventSelectorLeft(EACTIONEVENT event)=0;
+            virtual ISelectorService* onEventSelectorLeft(EACTIONEVENT event)=0;
     };
 } // business
 

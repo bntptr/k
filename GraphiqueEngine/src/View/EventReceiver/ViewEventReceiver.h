@@ -36,7 +36,7 @@ namespace graphique
             bool OnEventSourie(const SEvent& event)
             {
                  if(this->cursor != NULL)
-                          return this->cursor->oneEvent(event);
+                          return this->cursor->onEvent(event);
                   return false;
              }
 
@@ -45,9 +45,9 @@ namespace graphique
             {
                   if(this->keyboard != NULL) {
                     if (event.KeyInput.PressedDown) {
-                        return this->keyboard->oneEventPressed(event);
+                        return this->keyboard->onEventPressed(event);
                     } else {
-                        return this->keyboard->oneEvent(event);
+                        return this->keyboard->onEvent(event);
                     }
 
                   }
@@ -59,7 +59,7 @@ namespace graphique
              bool OnEventGUI(const SEvent& event)
             {
                   if(this->env != NULL)
-                         return this->env->oneEvent(event);
+                         return this->env->onEvent(event);
 
                   return false;
              }

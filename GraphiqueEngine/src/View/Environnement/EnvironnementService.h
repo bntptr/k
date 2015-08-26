@@ -24,8 +24,8 @@ namespace graphique
                 return this->environnement->draw();
             }
 
-            bool oneEvent(const irr::SEvent& event) {
-                return this->environnement->oneEvent(event);
+            bool onEvent(const irr::SEvent& event) {
+                return this->environnement->onEvent(event);
             }
     };
 } // business

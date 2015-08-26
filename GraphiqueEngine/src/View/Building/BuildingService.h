@@ -23,8 +23,8 @@ namespace graphique
                 this->building->draw();
             }
 
-            bool oneEvent(EACTIONEVENT event) {
-                return this->building->oneEvent(event);
+            bool onEvent(EACTIONEVENT event) {
+                return this->building->onEvent(event);
             }
     };
 } // business

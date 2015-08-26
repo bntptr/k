@@ -27,8 +27,8 @@ namespace graphique
                 return this->terrain->draw(camera);
             }
 
-            bool oneEvent(EACTIONEVENT event) {
-                return this->terrain->oneEvent(event);
+            bool onEvent(EACTIONEVENT event) {
+                return this->terrain->onEvent(event);
             }
     };
 } // business

@@ -77,7 +77,7 @@ namespace graphique
                 this->skydome->setVisible(false);
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 sky::IAction *action  = this->keyMap->get(event);
 

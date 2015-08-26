@@ -54,7 +54,7 @@ namespace graphique
                 }
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 //sky::IAction *action;
                 switch(event)

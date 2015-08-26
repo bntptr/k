@@ -21,7 +21,7 @@ namespace graphique
 
             int executePressed(IView *view) {
                 ISelectorService* selector = view->getSelector();
-                selector->oneEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
+                selector->onEventSelectorLeft(EACTIONEVENT_DEPLACE_X);
 
 /* A gérer via Business
                 if (view->getKeyboardService()->isDown(irr::KEY_KEY_C)) {
