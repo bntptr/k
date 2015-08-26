@@ -14,6 +14,8 @@ namespace graphique
             int execute(IView *view) {
                 ICameraService *camera = view->getCameraService();
                 camera->activeFPS();
+                //IPopulationService *population = view->getPopulationService();
+                //population->activeFPS();
                 return -1;
             }
     };

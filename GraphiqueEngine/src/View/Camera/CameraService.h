@@ -17,6 +17,11 @@ namespace graphique
         protected:
             ICameraService *thisInstance;
             ICamera *camera;
+            ICamera *camera2d;
+            ICamera *cameraFPS;
+            ICamera *cameraRTS;
+            ICamera *cameraRPG;
+            ICamera *cameraEditor;
 
             irr::IrrlichtDevice *device;
             ICursorService *cursor;
@@ -24,9 +29,14 @@ namespace graphique
         public:
             CameraService(irr::IrrlichtDevice *device, ICursorService *cursor){
                 this->thisInstance = this;
-                this->camera = CameraFactory::createEntity(device, cursor);
                 this->device = device;
                 this->cursor = cursor;
+                this->camera = CameraFactory::createEntity(device, cursor);
+                this->camera2d = Camera2dFactory::createEntity(this->device, this->cursor);
+                this->cameraFPS = CameraFPSFactory::createEntity(this->device, this->cursor);
+                this->cameraRTS = CameraRTSFactory::createEntity(this->device, this->cursor);
+                this->cameraRPG = CameraRPGFactory::createEntity(this->device, this->cursor);
+                this->cameraEditor = this->camera;
             };
             ~CameraService(){};
 
@@ -35,6 +45,10 @@ namespace graphique
             }
 
             bool build() {
+                this->camera2d->build();
+                this->cameraFPS->build();
+                this->cameraRTS->build();
+                this->cameraRPG->build();
                 return this->camera->build();
             }
 
@@ -43,32 +57,47 @@ namespace graphique
             }
 
             bool active2d() {
-                this->camera = Camera2dFactory::createEntity(this->device, this->cursor);
-                this->build();
+                std::cout << "2d" << std::endl;
+                irr::scene::ISceneManager* smgr = device->getSceneManager();
+                this->camera = this->camera2d;
+                smgr->setActiveCamera(this->camera->getCameraSceneNode());
                 return true;
             }
 
             bool activeFPS() {
-                this->camera = CameraFPSFactory::createEntity(this->device, this->cursor);
-                this->build();
+                std::cout << "FPS" << std::endl;
+                irr::scene::ISceneManager* smgr = device->getSceneManager();
+                this->camera = this->cameraFPS;
+                this->cameraFPS->getCameraSceneNode()->setVisible(true);
+                smgr->setActiveCamera(this->cameraFPS->getCameraSceneNode());
                 return true;
             }
 
             bool activeRTS() {
-                this->camera = CameraRTSFactory::createEntity(this->device, this->cursor);
-                this->build();
+                std::cout << "RTS" << std::endl;
+                this->camera = this->cameraRTS;
+                irr::scene::ISceneManager* smgr = device->getSceneManager();
+                smgr->setActiveCamera(this->camera->getCameraSceneNode());
+                this->cameraFPS->getCameraSceneNode()->setVisible(false);
+                //this->cameraFPS->getCameraSceneNode()->remove();
                 return true;
             }
 
             bool activeRPG() {
-                this->camera = CameraRPGFactory::createEntity(this->device, this->cursor);
-                this->build();
+                std::cout << "RPG" << std::endl;
+                this->camera = this->cameraRPG;
+                irr::scene::ISceneManager* smgr = device->getSceneManager();
+                smgr->setActiveCamera(this->camera->getCameraSceneNode());
+                this->cameraFPS->getCameraSceneNode()->setVisible(false);
                 return true;
             }
 
             bool activeEditor() {
-                this->camera = CameraEditorFactory::createEntity(this->device, this->cursor);
-                this->build();
+                std::cout << "Editor" << std::endl;
+                this->camera = this->cameraEditor;
+                irr::scene::ISceneManager* smgr = device->getSceneManager();
+                smgr->setActiveCamera(this->camera->getCameraSceneNode());
+                this->cameraFPS->getCameraSceneNode()->setVisible(false);
                 return true;
             }
     };

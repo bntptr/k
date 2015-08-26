@@ -23,6 +23,10 @@ namespace graphique
                 return this->terrain->getTerrain();
             }
 
+            bool build(ICameraService* camera) {
+                return this->terrain->build(camera);
+            }
+
             bool draw(ICameraService* camera) {
                 return this->terrain->draw(camera);
             }

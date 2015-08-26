@@ -12,6 +12,8 @@ namespace graphique
             virtual ~ModeRPG(){};
 
             int execute(IView *view) {
+                ICameraService *camera = view->getCameraService();
+                camera->activeRPG();
                 return -1;
             }
     };

@@ -20,7 +20,7 @@ namespace graphique
             };
             ~BuildingEntity(){};
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 

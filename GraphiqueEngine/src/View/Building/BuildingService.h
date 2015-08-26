@@ -19,8 +19,8 @@ namespace graphique
             };
             ~BuildingService(){};
 
-            bool draw() {
-                this->building->draw();
+            bool build() {
+                this->building->build();
             }
 
             bool onEvent(EACTIONEVENT event) {

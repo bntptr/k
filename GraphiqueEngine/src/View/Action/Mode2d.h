@@ -12,6 +12,8 @@ namespace graphique
             virtual ~Mode2d(){};
 
             int execute(IView *view) {
+                ICameraService *camera = view->getCameraService();
+                camera->active2d();
                 return -1;
             }
     };

@@ -12,6 +12,8 @@ namespace graphique
             virtual ~ModeRTS(){};
 
             int execute(IView *view) {
+                ICameraService *camera = view->getCameraService();
+                camera->activeRTS();
                 return -1;
             }
     };

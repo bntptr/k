@@ -11,7 +11,7 @@ namespace graphique
             IEnvironnementService(){};
             virtual ~IEnvironnementService(){};
 
-            virtual bool draw()=0;
+            virtual bool build()=0;
             virtual bool onEvent(const irr::SEvent& event)=0;
     };
 }

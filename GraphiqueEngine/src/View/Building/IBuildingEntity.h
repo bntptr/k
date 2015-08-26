@@ -13,7 +13,7 @@ namespace graphique
             IBuildingEntity(){};
             virtual ~IBuildingEntity(){};
 
-            virtual bool draw()=0;
+            virtual bool build()=0;
             virtual bool onEvent(EACTIONEVENT event)=0;
     };
 } // graphique

@@ -20,8 +20,8 @@ namespace graphique
             };
             ~EnvironnementService(){};
 
-            bool draw() {
-                return this->environnement->draw();
+            bool build() {
+                return this->environnement->build();
             }
 
             bool onEvent(const irr::SEvent& event) {

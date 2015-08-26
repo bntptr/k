@@ -34,7 +34,7 @@ namespace graphique
                 return this->terrain;
             }
 
-            bool draw(ICameraService* camera) {
+            bool build(ICameraService* camera) {
                 std::cout <<"Draw Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
@@ -118,6 +118,13 @@ namespace graphique
 
                 // Work on data or get the IndexBuffer with a similar call.
                 buffer->drop(); // When done drop the buffer again.
+            }
+
+            /**
+             * Actif en cas de camera 2d
+             */
+            bool draw(ICameraService* camera) {
+                return false;
             }
 
             bool onEvent(EACTIONEVENT event) {

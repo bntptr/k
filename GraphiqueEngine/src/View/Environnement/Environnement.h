@@ -15,7 +15,7 @@ namespace graphique
             };
             ~Environnement(){};
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 

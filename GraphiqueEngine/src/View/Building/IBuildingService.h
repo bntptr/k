@@ -11,7 +11,7 @@ namespace graphique
             IBuildingService(){};
             virtual ~IBuildingService(){};
 
-            virtual bool draw()=0;
+            virtual bool build()=0;
     };
 }
 

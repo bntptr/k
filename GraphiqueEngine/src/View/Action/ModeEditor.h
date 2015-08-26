@@ -12,6 +12,8 @@ namespace graphique
             virtual ~ModeEditor(){};
 
             int execute(IView *view) {
+                ICameraService *camera = view->getCameraService();
+                camera->activeEditor();
                 return -1;
             }
     };

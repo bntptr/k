@@ -109,7 +109,7 @@ namespace graphique
                 this->keyboard = KeyboardServiceFactory::createService(this);
 
                 this->environnement = EnvironnementServiceFactory::createService(this->device);
-                this->environnement->draw();
+                this->environnement->build();
 
                 this->camera = CameraServiceFactory::createService(this->device, this->cursor);
                 //this->camera = FPSFactory::createEntity(this->device, this->cursor);
@@ -119,7 +119,7 @@ namespace graphique
 
                 business::IGroundEntity *ground = entity->getGround();
                 this->terrain = TerrainServiceFactory::createService(this->device, ground);
-                this->terrain->draw(this->camera);
+                this->terrain->build(this->camera);
 
                 business::ISkyEntity *skyEntity = entity->getSky();
                 this->sky = SkyServiceFactory::createService(this->device, skyEntity);
@@ -131,7 +131,7 @@ namespace graphique
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
                 this->building = BuildingServiceFactory::createService(this->device, buildingEntity);
-                this->building->draw();
+                this->building->build();
 
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();
