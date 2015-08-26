@@ -7,6 +7,8 @@
 #include "Action/MapTriangle.h"
 #include "Action/MapPoint.h"
 
+#include "../Camera/ICamera.h"
+
 namespace graphique
 {
     class TerrainView : public ITerrainView
@@ -123,7 +125,8 @@ namespace graphique
             /**
              * Actif en cas de camera 2d
              */
-            bool draw(ICameraService* camera) {
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
+                std::cout <<"draw Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -148,10 +151,10 @@ namespace graphique
                     core::position2d<s32>(0,40), //<<là début del'affichage
                     //core::rect<s32>(0,0,512,384), 0,
                     core::rect<s32>(
-                        camera->getX(),
-                        camera->getY(),
-                        camera->getX()+500,
-                        camera->getY()+500
+                        cameraPosition.getX(),
+                        cameraPosition.getZ(),
+                        cameraPosition.getX() + cameraScale.getX(),
+                        cameraPosition.getZ() + cameraScale.getZ()
                     ),
                     0,   //+512 +384//Attention: rect sur images
                     video::SColor(255,255,255,255),

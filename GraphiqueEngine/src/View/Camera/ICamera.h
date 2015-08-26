@@ -38,11 +38,13 @@ touche j pour un saut
 
 #include <irrlicht.h>
 
-#include "../Terrain/ITerrainService.h"
-#include "../Population/IPopulationService.h"
+//#include "../Terrain/ITerrainService.h"
+//#include "../Population/IPopulationService.h"
 
 namespace graphique
 {
+    class ITerrainService;
+    class IPopulationService;
     class ICamera
     {
         public:

@@ -27,8 +27,8 @@ namespace graphique
                 return this->terrain->build(camera);
             }
 
-            bool draw(ICameraService* camera) {
-                return this->terrain->draw(camera);
+            bool draw(business::Vector3d position, business::Vector3d scale) {
+                return this->terrain->draw(position, scale);
             }
 
             bool onEvent(EACTIONEVENT event) {

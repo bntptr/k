@@ -61,6 +61,10 @@ namespace graphique
                 irr::scene::ISceneManager* smgr = device->getSceneManager();
                 this->camera = this->camera2d;
                 smgr->setActiveCamera(this->camera->getCameraSceneNode());
+                this->cameraFPS->getCameraSceneNode()->setVisible(false);
+                this->cameraRTS->getCameraSceneNode()->setVisible(false);
+                this->cameraRPG->getCameraSceneNode()->setVisible(false);
+                this->cameraEditor->getCameraSceneNode()->setVisible(false);
                 return true;
             }
 

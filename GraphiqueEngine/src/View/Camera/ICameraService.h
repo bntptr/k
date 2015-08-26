@@ -5,6 +5,8 @@
 
 namespace graphique
 {
+    class ITerrainService;
+    class IPopulationService;
     class ICameraService
     {
         public:
