@@ -133,6 +133,7 @@
 		<Unit filename="src/View/Building/BuildingEntity.h" />
 		<Unit filename="src/View/Building/BuildingFactory.h" />
 		<Unit filename="src/View/Building/BuildingService.h" />
+		<Unit filename="src/View/Building/BuildingServiceFactory.h" />
 		<Unit filename="src/View/Building/IBuildingEntity.h" />
 		<Unit filename="src/View/Building/IBuildingService.h" />
 		<Unit filename="src/View/Camera/2D/2D.h" />
@@ -166,6 +167,7 @@
 		<Unit filename="src/View/Cursor/CursorEntity.h" />
 		<Unit filename="src/View/Cursor/CursorFactory.h" />
 		<Unit filename="src/View/Cursor/CursorService.h" />
+		<Unit filename="src/View/Cursor/CursorServiceFactory.h" />
 		<Unit filename="src/View/Cursor/ICursorEntity.h" />
 		<Unit filename="src/View/Cursor/ICursorService.h" />
 		<Unit filename="src/View/Environnement/Environnement.h" />
@@ -225,6 +227,7 @@
 		<Unit filename="src/View/Population/IPopulationService.h" />
 		<Unit filename="src/View/Population/IPopulationView.h" />
 		<Unit filename="src/View/Population/PopulationService.h" />
+		<Unit filename="src/View/Population/PopulationServiceFactory.h" />
 		<Unit filename="src/View/Population/PopulationView.h" />
 		<Unit filename="src/View/Population/PopulationViewFactory.h" />
 		<Unit filename="src/View/Selector/ISelectorEntity.h" />
@@ -236,6 +239,8 @@
 		<Unit filename="src/View/Sky/ISkyService.h" />
 		<Unit filename="src/View/Sky/ISkyView.h" />
 		<Unit filename="src/View/Sky/SkyService.h" />
+		<Unit filename="src/View/Sky/SkyServiceFactory.h" />
+		<Unit filename="src/View/Sky/SkyServicefactory.h" />
 		<Unit filename="src/View/Sky/SkyView.h" />
 		<Unit filename="src/View/Sky/SkyViewFactory.h" />
 		<Unit filename="src/View/Sound/Action/Actions.h" />
@@ -252,11 +257,13 @@
 		<Unit filename="src/View/Terrain/ITerrainService.h" />
 		<Unit filename="src/View/Terrain/ITerrainView.h" />
 		<Unit filename="src/View/Terrain/TerrainService.h" />
+		<Unit filename="src/View/Terrain/TerrainServiceFactory.h" />
 		<Unit filename="src/View/Terrain/TerrainView.h" />
 		<Unit filename="src/View/Terrain/TerrainViewFactory.h" />
 		<Unit filename="src/View/Vegetal/IVegetalEntity.h" />
 		<Unit filename="src/View/Vegetal/IVegetalService.h" />
 		<Unit filename="src/View/Vegetal/VegetalService.h" />
+		<Unit filename="src/View/Vegetal/VegetalServiceFactory.h" />
 		<Unit filename="src/View/View.cpp" />
 		<Unit filename="src/View/View.h" />
 		<Unit filename="src/View/ViewConfig.h" />
