@@ -26,7 +26,7 @@ namespace graphique
             };
             ~Camera(){};
 
-            scene::ICameraSceneNode* getCamera() {
+            scene::ICameraSceneNode* getCameraSceneNode() {
                 return this->camera;
             }
 

@@ -12,7 +12,6 @@
 #include "Camera/CameraServiceFactory.h"
 #include "Selector/SelectorService.h"
 #include "Environnement/EnvironnementServiceFactory.h"
-#include "Camera/FPS/FPSFactory.h"
 #include "Terrain/TerrainServiceFactory.h"
 #include "Sky/SkyServiceFactory.h"
 #include "Building/BuildingServiceFactory.h"
@@ -25,6 +24,7 @@ namespace graphique
     {
         protected:
             IView *thisInstance;
+            EVIEW mode;
             irr::IrrlichtDevice *device;
             ViewEventReceiver *receiver;
             TMap<EVIEW, IAction>* keyMap;
@@ -48,6 +48,7 @@ namespace graphique
                 this->thisInstance = this;
                 this->keyMap = keyMap;
                 this->selector = new SelectorService();
+                this->mode = EVIEW_MODE_EDITOR;
             }
             ~View();
 
@@ -187,8 +188,8 @@ namespace graphique
                         // Also print terrain height of current camera position
                         // We can use camera position because terrain is located at coordinate origin
                         str += " Height: ";
-                        str += terrain->getTerrain()->getHeight(camera->getCamera()->getAbsolutePosition().X,
-                                camera->getCamera()->getAbsolutePosition().Z);
+                        str += terrain->getTerrain()->getHeight(camera->getCameraSceneNode()->getAbsolutePosition().X,
+                                camera->getCameraSceneNode()->getAbsolutePosition().Z);
 
                         device->setWindowCaption(str.c_str());
                         lastFPS = fps;
@@ -196,6 +197,10 @@ namespace graphique
                 }
 
                 device->drop();
+            }
+
+            int exit() {
+                device->closeDevice();
             }
 
             irr::IrrlichtDevice* setDevice(irr::IrrlichtDevice *dvc) {
@@ -243,12 +248,17 @@ namespace graphique
                 if (k) {
                     k->execute(this);
                 }
+                this->mode = key;
                 return this->thisInstance;
             }
 
             bool onEvent(EVIEW event) {
                 this->execute(event);
                 return true;
+            }
+
+            EVIEW getMode() {
+                return this->mode;
             }
     };
 } // graphique

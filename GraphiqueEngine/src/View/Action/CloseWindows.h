@@ -12,7 +12,8 @@ namespace graphique
             virtual ~CloseWindows(){};
 
             int execute(IView *view) {
-                return -1;
+                view->exit();
+                return 0;
             }
     };
 } // graphique

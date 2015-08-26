@@ -12,6 +12,7 @@ namespace graphique
             virtual ~KeyEscap(){};
 
             int execute(IView *view) {
+                view->onEvent(EVIEW_CLOSE_WINDOWS);
                 return 0;
             }
 

@@ -5,14 +5,14 @@
 
 namespace graphique
 {
-    class FPS : public Camera
+    class CameraFPS : public Camera
     {
         public:
-            FPS(irr::IrrlichtDevice *device, ICursorEntity *cursor) : Camera(device, cursor){
+            CameraFPS(irr::IrrlichtDevice *device, ICursorService *cursor) : Camera(device, cursor){
             };
-            ~FPS(){};
+            ~CameraFPS(){};
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 

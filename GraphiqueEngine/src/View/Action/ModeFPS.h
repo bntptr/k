@@ -12,6 +12,8 @@ namespace graphique
             virtual ~ModeFPS(){};
 
             int execute(IView *view) {
+                ICameraService *camera = view->getCameraService();
+                camera->activeFPS();
                 return -1;
             }
     };

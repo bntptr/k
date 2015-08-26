@@ -1,16 +1,16 @@
-#ifndef FPS_CAMERA_FACTORY_H
-#define FPS_CAMERA_FACTORY_H
+#ifndef EDITOR_CAMERA_FACTORY_H
+#define EDITOR_CAMERA_FACTORY_H
 
-#include "FPS.h"
+#include "Editor.h"
 #include "../../Cursor/ICursorService.h"
 
 namespace graphique
 {
-    class FPSFactory
+    class CameraEditorFactory
     {
         public:
             static ICamera* createEntity(irr::IrrlichtDevice *device, ICursorService *cursor) {
-                return new FPS(device, cursor);
+                return new CameraEditor(device, cursor);
             }
     };
 } // graphique

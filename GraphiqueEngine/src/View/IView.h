@@ -25,6 +25,8 @@ namespace graphique
             virtual int init()=0;
             virtual int build(business::BusinessInterface *business)=0;
             virtual int run()=0;
+            virtual int exit()=0;
+            virtual EVIEW getMode()=0;
 
             virtual IView* execute(EVIEW key)=0;
             virtual bool onEvent(EVIEW event)=0;

@@ -99,13 +99,13 @@ namespace graphique
                 // create collision response animator and attach it to the camera
                 scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
                     selector,
-                    camera->getCamera(),
+                    camera->getCameraSceneNode(),
                     core::vector3df(60,100,60),
                     core::vector3df(0,0,0),
                     core::vector3df(0,0,0) // ici y valait 50
                 );
                 selector->drop();
-                camera->getCamera()->addAnimator(anim);
+                camera->getCameraSceneNode()->addAnimator(anim);
                 anim->drop();
 
                 scene::CDynamicMeshBuffer* buffer = new scene::CDynamicMeshBuffer(

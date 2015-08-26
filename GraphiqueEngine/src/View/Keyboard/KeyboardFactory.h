@@ -25,7 +25,7 @@ namespace graphique
                 keyMap->addElement(irr::KEY_KEY_C, new KeyC());
                 keyMap->addElement(irr::KEY_KEY_V, new KeyV());
                 keyMap->addElement(irr::KEY_KEY_P, new KeyP());
-                keyMap->addElement(irr::KEY_CANCEL, new KeyEscap());
+                keyMap->addElement(irr::KEY_END, new KeyEscap());
                 keyMap->addElement(irr::KEY_TAB, new KeyTab());
                 return new Keyboard(view, keyMap);
             }

@@ -110,8 +110,8 @@ namespace graphique
                 // trajectory or a sword's position, or create a ray from a mouse click position using
                 // ISceneCollisionManager::getRayFromScreenCoordinates()
                 core::line3d<f32> ray;
-                ray.start = this->camera->getCamera()->getPosition();
-                ray.end = ray.start + (this->camera->getCamera()->getTarget() - ray.start).normalize() * 10000.0f;
+                ray.start = this->camera->getCameraSceneNode()->getPosition();
+                ray.end = ray.start + (this->camera->getCameraSceneNode()->getTarget() - ray.start).normalize() * 10000.0f;
 
                 // Tracks the current intersection point with the level or a mesh
                 core::vector3df intersection;

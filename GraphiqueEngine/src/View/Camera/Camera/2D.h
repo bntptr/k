@@ -1,18 +1,18 @@
-#ifndef FPS_CAMERA_H
-#define FPS_CAMERA_H
+#ifndef TWO_D_CAMERA_H
+#define TWO_D_CAMERA_H
 
 #include "../Camera.h"
 
 namespace graphique
 {
-    class FPS : public Camera
+    class Camera2D : public Camera
     {
         public:
-            FPS(irr::IrrlichtDevice *device, ICursorEntity *cursor) : Camera(device, cursor){
+            Camera2D(irr::IrrlichtDevice *device, ICursorService *cursor) : Camera(device, cursor){
             };
-            ~FPS(){};
+            ~Camera2D(){};
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
