@@ -53,10 +53,10 @@ namespace graphique
             }
 
             ISelectorService* selectLeft(IView *view) {
-                int id = view->getCursorService()->getSelectedSceneNodeId();
+                int id = view->getCursorService()->getSelectedSceneNodeId();std::cout <<"id selected "<< id <<std::endl;
                 if (0 < id) {
                     this->resetCursorLeft();
-                    IObjectView *obj = view->getPopulation()->getObjectViewFromId(id);
+                    IObjectView *obj = view->getPopulation()->getObjectViewFromId(id);if (obj) {std::cout <<"obj " <<std::endl;}else{std::cout <<"not obj" <<std::endl;}
                     this->addToCursorLeft(obj);
                 } else {
                     this->resetCursorLeft();
@@ -69,7 +69,7 @@ namespace graphique
                 return this->thisInstance;
             }
 
-            ISelectorService* onEventSelectorLeft(EACTIONEVENT event) {
+            ISelectorService* onEventSelectorLeft(EACTIONEVENT event) {std::cout <<"coucou"<<std::endl;
                 this->cursorLeft->onEvent(event);
                 return this->thisInstance;
             }

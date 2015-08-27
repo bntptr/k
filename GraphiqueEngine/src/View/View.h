@@ -50,7 +50,7 @@ namespace graphique
                 this->selector = new SelectorService();
                 this->mode = EVIEW_MODE_EDITOR;
             }
-            ~View();
+            ~View(){};
 
             /**
              * Initialisation des drivers et de la fenêtre principale
@@ -153,7 +153,7 @@ namespace graphique
             /**
              *  Exemple Terrain Rendering
              */
-            int run() {
+            EGRAPHIQUE run() {
                 std::cout <<"run View !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
@@ -205,13 +205,20 @@ namespace graphique
                         lastFPS = fps;
                     }
                 }
-
-                device->drop();
+                return EGRAPHIQUE_CLOSE;
             }
 
             int exit() {
                 device->closeDevice();
+                return 0;
             }
+
+            int drop() {
+                this->device->drop();
+                this->~View();
+                return 0;
+            }
+
 
             irr::IrrlichtDevice* setDevice(irr::IrrlichtDevice *dvc) {
                 return this->device = dvc;

@@ -146,8 +146,8 @@ KEY_OEM_CLEAR
 KEY_KEY_CODES_COUNT
 
 */
-#ifndef KEYBOARD_H
-#define KEYBOARD_H
+#ifndef VIEW_KEYBOARD_H
+#define VIEW_KEYBOARD_H
 
 #include "IKeyboard.h"
 #include "Action/IKey.h"

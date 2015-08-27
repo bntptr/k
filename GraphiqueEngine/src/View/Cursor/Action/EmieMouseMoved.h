@@ -1,5 +1,5 @@
-#ifndef EMIE_MOUSE_MOVED_H
-#define EMIE_MOUSE_MOVED_H
+#ifndef VIEW_EMIE_MOUSE_MOVED_H
+#define VIEW_EMIE_MOUSE_MOVED_H
 
 #include "IEmie.h"
 

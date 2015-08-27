@@ -13,7 +13,7 @@ namespace graphique
             ViewFPS(TMap<EVIEW, IAction>* keyMap) : View(keyMap) {};
             ~ViewFPS();
 
-            int run()
+            EGRAPHIQUE run()
             {
                 // let user select driver type
 
@@ -35,7 +35,7 @@ namespace graphique
                     case 'd': driverType = video::EDT_SOFTWARE; break;
                     case 'e': driverType = video::EDT_BURNINGSVIDEO;break;
                     case 'f': driverType = video::EDT_NULL;     break;
-                    default: return 0;
+                    default: return EGRAPHIQUE_CLOSE;
                 }
 
                 // create device
@@ -44,7 +44,7 @@ namespace graphique
                     createDevice(driverType, core::dimension2d<u32>(1280, 960), 16, false);
 
                 if (device == 0)
-                    return 1; // could not create selected driver.
+                    return EGRAPHIQUE_ERROR_DRIVER; // could not create selected driver.
 
                 video::IVideoDriver* driver = device->getVideoDriver();
                 scene::ISceneManager* smgr = device->getSceneManager();
@@ -436,7 +436,7 @@ namespace graphique
 
                 device->drop();
 
-                return 0;
+                return EGRAPHIQUE_CLOSE;
             }
     };
 } // graphique

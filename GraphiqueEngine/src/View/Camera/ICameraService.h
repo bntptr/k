@@ -1,5 +1,5 @@
-#ifndef ICAMERA_SERVICE_H
-#define ICAMERA_SERVICE_H
+#ifndef VIEW_ICAMERA_SERVICE_H
+#define VIEW_ICAMERA_SERVICE_H
 
 #include "ICamera.h"
 

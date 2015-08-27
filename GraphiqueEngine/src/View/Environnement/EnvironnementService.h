@@ -14,6 +14,9 @@ namespace graphique
             IEnvironnement *environnement;
 
         public:
+            EnvironnementService(){
+                this->thisInstance = this;
+            };
             EnvironnementService(irr::IrrlichtDevice *device){
                 this->thisInstance = this;
                 this->environnement = EnvironnementFactory::createEntity(device);

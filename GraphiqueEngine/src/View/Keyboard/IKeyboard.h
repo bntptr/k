@@ -1,5 +1,5 @@
-#ifndef IKEYBOARD_H
-#define IKEYBOARD_H
+#ifndef VIEW_IKEYBOARD_H
+#define VIEW_IKEYBOARD_H
 
 #include <irrlicht.h>
 

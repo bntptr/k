@@ -28,12 +28,12 @@ namespace graphique
             ~PopulationView(){};
 
             IObjectView* getObjectViewFromId(int id) {
-                TList<ICharacter>* L = this->characterList;
+                TList<ICharacter>* L = this->characterList;std::cout <<"L->size() " <<L->size()<<std::endl;
                 for(int i = 0; i < L->size(); i++) {
                     if (id == L->getElement(i)->getId()) {
                         IObjectView* obj = L->getElement(i);
                         return obj;
-                    }
+                    }std::cout <<"L->getElement(i)->getId() " <<L->getElement(i)->getId()<<std::endl;
                 }
                 return NULL;
             }

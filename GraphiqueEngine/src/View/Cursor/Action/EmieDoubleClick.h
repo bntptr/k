@@ -1,5 +1,5 @@
-#ifndef EMIE_DOUBLE_CLICK_H
-#define EMIE_DOUBLE_CLICK_H
+#ifndef VIEW_EMIE_DOUBLE_CLICK_H
+#define VIEW_EMIE_DOUBLE_CLICK_H
 
 #include "IEmie.h"
 

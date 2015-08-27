@@ -33,8 +33,8 @@ EKA_JUMP_UP
 KEY_KEY_J
 touche j pour un saut
 **/
-#ifndef ICAMERA_H
-#define ICAMERA_H
+#ifndef VIEW_ICAMERA_H
+#define VIEW_ICAMERA_H
 
 #include <irrlicht.h>
 

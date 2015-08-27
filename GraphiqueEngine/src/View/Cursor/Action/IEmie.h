@@ -1,5 +1,5 @@
-#ifndef IEMIE_H
-#define IEMIE_H
+#ifndef VIEW_IEMIE_H
+#define VIEW_IEMIE_H
 
 #include "../../IView.h"
 #include "../../../Business/Event/EActionEvent.h"

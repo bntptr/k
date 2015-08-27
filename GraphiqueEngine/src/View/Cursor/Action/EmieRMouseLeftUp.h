@@ -1,5 +1,5 @@
-#ifndef EMIE_RMOUSE_LEFT_UP_H
-#define EMIE_RMOUSE_LEFT_UP_H
+#ifndef VIEW_EMIE_RMOUSE_LEFT_UP_H
+#define VIEW_EMIE_RMOUSE_LEFT_UP_H
 
 #include "IEmie.h"
 

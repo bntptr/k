@@ -1,5 +1,5 @@
-#ifndef ENVIRONNEMENT_H
-#define ENVIRONNEMENT_H
+#ifndef VIEW_ENVIRONNEMENT_H
+#define VIEW_ENVIRONNEMENT_H
 
 #include "IEnvironnement.h"
 

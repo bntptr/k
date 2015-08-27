@@ -1,5 +1,5 @@
-#ifndef CAMERA_FACTORY_H
-#define CAMERA_FACTORY_H
+#ifndef VIEW_CAMERA_FACTORY_H
+#define VIEW_CAMERA_FACTORY_H
 
 #include "Camera.h"
 #include "../Cursor/ICursorService.h"

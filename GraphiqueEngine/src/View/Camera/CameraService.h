@@ -1,5 +1,5 @@
-#ifndef CAMERA_SERVICE_H
-#define CAMERA_SERVICE_H
+#ifndef VIEW_CAMERA_SERVICE_H
+#define VIEW_CAMERA_SERVICE_H
 
 #include "Camera.h"
 #include "ICameraService.h"
@@ -27,6 +27,9 @@ namespace graphique
             ICursorService *cursor;
 
         public:
+            CameraService(){
+                this->thisInstance = this;
+            };
             CameraService(irr::IrrlichtDevice *device, ICursorService *cursor){
                 this->thisInstance = this;
                 this->device = device;
@@ -40,7 +43,7 @@ namespace graphique
             };
             ~CameraService(){};
 
-            scene::ICameraSceneNode* getCameraSceneNode() {
+            irr::scene::ICameraSceneNode* getCameraSceneNode() {
                 return this->camera->getCameraSceneNode();
             }
 

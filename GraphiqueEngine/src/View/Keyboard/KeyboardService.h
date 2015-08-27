@@ -14,6 +14,9 @@ namespace graphique
             IKeyboard *keyboard;
 
         public:
+            KeyboardService(){
+                this->thisInstance = this;
+            };
             KeyboardService(IView *view){
                 this->thisInstance = this;
                 this->keyboard = KeyboardFactory::createEntity(view);

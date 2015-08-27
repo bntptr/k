@@ -1,5 +1,5 @@
-#ifndef MOUSE_BUTTON_H
-#define MOUSE_BUTTON_H
+#ifndef VIEW_MOUSE_BUTTON_H
+#define VIEW_MOUSE_BUTTON_H
 
 #include "IMouseButton.h"
 

@@ -1,5 +1,5 @@
-#ifndef CURSOR_FACTORY_H
-#define CURSOR_FACTORY_H
+#ifndef VIEW_CURSOR_FACTORY_H
+#define VIEW_CURSOR_FACTORY_H
 
 #include "CursorEntity.h"
 

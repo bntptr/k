@@ -1,5 +1,5 @@
-#ifndef CAMERA_H
-#define CAMERA_H
+#ifndef VIEW_CAMERA_H
+#define VIEW_CAMERA_H
 
 #include "ICamera.h"
 
@@ -9,10 +9,10 @@ namespace graphique
     {
         protected:
             irr::IrrlichtDevice *device;
-            scene::ICameraSceneNode* camera;
+            irr::scene::ICameraSceneNode* camera;
             ICursorService* cursor;
             bool splitScreen;
-            scene::ICameraSceneNode *cameras[4];
+            irr::scene::ICameraSceneNode *cameras[4];
 
         public:
             Camera(irr::IrrlichtDevice *device, ICursorService *cursor){
@@ -26,7 +26,7 @@ namespace graphique
             };
             ~Camera(){};
 
-            scene::ICameraSceneNode* getCameraSceneNode() {
+            irr::scene::ICameraSceneNode* getCameraSceneNode() {
                 return this->camera;
             }
 
@@ -53,13 +53,13 @@ namespace graphique
 
                 if (this->cursor->getSelector())
                 {
-                    scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
+                    irr::scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
                         this->cursor->getSelector(),
                         camera,
                         //core::vector3df(30,50,30),
-                        core::vector3df(1,1,1),
-                        core::vector3df(0,-10,0),
-                        core::vector3df(0,30,0)
+                        irr::core::vector3df(1,1,1),
+                        irr::core::vector3df(0,-10,0),
+                        irr::core::vector3df(0,30,0)
                     );
                     this->cursor->getSelector()->drop(); // As soon as we're done with the selector, drop it.
                     camera->addAnimator(anim);
@@ -72,7 +72,7 @@ namespace graphique
                 return true;
             }
 
-            bool buildA() {
+            /*bool buildA() {
                 this->build();
                 using namespace irr;
                 using namespace core;
@@ -96,9 +96,9 @@ namespace graphique
                     this->cameras[3]->setPosition(core::vector3df(-50,0,-50));
                 this->device->getCursorControl()->setVisible(false);
                 return true;
-            }
+            }*/
 
-            bool drawA () {
+            /*bool drawA () {
                 using namespace irr;
                 using namespace core;
                 ViewConfig *config = ViewConfig::getInstance();
@@ -140,7 +140,7 @@ namespace graphique
                 // Active la caméra 4.
                 smgr->setActiveCamera(this->cameras[3]);
                 return true;
-            }
+            }*/
     };
 } // graphique
 

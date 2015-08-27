@@ -1,5 +1,5 @@
-#ifndef IENVIRONNEMENT_H
-#define IENVIRONNEMENT_H
+#ifndef VIEW_IENVIRONNEMENT_H
+#define VIEW_IENVIRONNEMENT_H
 
 #include <irrlicht.h>
 

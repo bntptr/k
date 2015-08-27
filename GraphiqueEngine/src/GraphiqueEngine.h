@@ -2,6 +2,7 @@
 #define GRAPHIQUEENGINE_H
 
 #include "IGraphiqueEngine.h"
+#include "Action/Actions.h"
 
 //class IController;
 
@@ -9,12 +10,22 @@ namespace graphique
 {
     class GraphiqueEngine : public IGraphiqueEngine
     {
+        protected:
+            TMap<EGRAPHIQUE, IGraphiqueAction>* keyMap;
+            business::BusinessInterface *business;
+            IView *view;
+            //IController *controller;
         public:
             GraphiqueEngine() {
+                this->keyMap = new TMap<EGRAPHIQUE, IGraphiqueAction>();
+            };
+            GraphiqueEngine(TMap<EGRAPHIQUE, IGraphiqueAction>* keyMap) {
+                this->keyMap = keyMap;
             };
             ~GraphiqueEngine() {
             };
 
+            /// OBSOLETE ? 27/08/2015
             static IGraphiqueEngine* createEngine()
             {
                 IGraphiqueEngine *engine = new GraphiqueEngine();
@@ -26,16 +37,13 @@ namespace graphique
             bool start();
             bool exit();
 
+            void execute(EGRAPHIQUE key);
+            bool onEvent(EGRAPHIQUE event);
+
             business::BusinessInterface* getBusiness();
             IGraphiqueEngine* setBusiness(business::BusinessInterface *business);
             IView* getView();
             IGraphiqueEngine* setView(IView *view);
-
-        protected:
-            business::BusinessInterface *business;
-            IView *view;
-            //IController *controller;
-        private:
     };
 
     bool GraphiqueEngine::start()
@@ -55,7 +63,8 @@ namespace graphique
     bool GraphiqueEngine::run()
     {
         if (this->view) {
-            this->view->run();
+            EGRAPHIQUE event = this->view->run();
+            this->onEvent(event);
         }
         return true;
     }
@@ -95,6 +104,18 @@ namespace graphique
         this->view = view;
         IGraphiqueEngine *engine = this;
         return engine;
+    }
+
+    void GraphiqueEngine::execute(EGRAPHIQUE key) {
+        IGraphiqueAction *k = this->keyMap->get(key);
+        if (k) {
+            k->execute(this);
+        }
+    }
+
+    bool GraphiqueEngine::onEvent(EGRAPHIQUE event) {
+        this->execute(event);
+        return true;
     }
 }
 #endif // GRAPHIQUEENGINE_H

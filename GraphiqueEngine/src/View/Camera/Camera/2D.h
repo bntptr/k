@@ -14,12 +14,12 @@ namespace graphique
         public:
             Camera2D(irr::IrrlichtDevice *device, ICursorService *cursor) : Camera(device, cursor){
                 this->setPosition(business::Vector3d(0,0,0));
-                this->setScale(business::Vector3d(500,0,500));
+                this->setScale(business::Vector3d(800,0,600));
             };
             ~Camera2D(){};
 
             bool build() {
-                ViewConfig *config = ViewConfig::getInstance();
+                /*ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
                 config->load();
@@ -54,7 +54,7 @@ namespace graphique
                 // Ne commence pas à la position de Sydney.
                 if (this->cameras[3])
                     this->cameras[3]->setPosition(core::vector3df(-50,0,-50));
-                this->device->getCursorControl()->setVisible(false);
+                this->device->getCursorControl()->setVisible(false);*/
                 return true;
             }
 
@@ -71,7 +71,7 @@ namespace graphique
                 scene::ISceneManager* smgr = this->device->getSceneManager();
 
                 // Définit la zone de rendu sur la totalité de l'écran et commence la scène.
-                driver->setViewPort(rect<s32>(0, 0, ResX, ResY));
+                /*driver->setViewPort(rect<s32>(0, 0, ResX, ResY));
                 driver->beginScene(true,true,video::SColor(255,100,100,100));
                 // Si la division d'écran est utilisée.
                 if (this->splitScreen)
@@ -98,7 +98,7 @@ namespace graphique
                     driver->setViewPort(rect<s32>(ResX/2,ResY/2,ResX,ResY));
                 }
                 // Active la caméra 4.
-                smgr->setActiveCamera(this->cameras[3]);
+                smgr->setActiveCamera(this->cameras[3]);*/
 
                 terrain->draw(this->getPosition(), this->getScale());
                 //population->draw();

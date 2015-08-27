@@ -1,5 +1,5 @@
-#ifndef IMOUSE_BUTTON_H
-#define IMOUSE_BUTTON_H
+#ifndef VIEW_IMOUSE_BUTTON_H
+#define VIEW_IMOUSE_BUTTON_H
 
 namespace graphique
 {

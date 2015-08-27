@@ -1,6 +1,7 @@
 #ifndef IVIEW_H
 #define IVIEW_H
 
+#include "../Action/EGraphique.h"
 #include "Action/EView.h"
 #include "../Business/BusinessInterface.h"
 #include "Selector/ISelectorService.h"
@@ -24,8 +25,9 @@ namespace graphique
             virtual int error()=0;
             virtual int init()=0;
             virtual int build(business::BusinessInterface *business)=0;
-            virtual int run()=0;
+            virtual EGRAPHIQUE run()=0;
             virtual int exit()=0;
+            virtual int drop()=0;
             virtual EVIEW getMode()=0;
 
             virtual IView* execute(EVIEW key)=0;

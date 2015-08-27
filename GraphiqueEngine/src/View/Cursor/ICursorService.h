@@ -1,5 +1,5 @@
-#ifndef ICURSOR_SERVICE_H
-#define ICURSOR_SERVICE_H
+#ifndef VIEW_ICURSOR_SERVICE_H
+#define VIEW_ICURSOR_SERVICE_H
 
 #include "ICursorEntity.h"
 

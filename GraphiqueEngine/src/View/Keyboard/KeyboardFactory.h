@@ -1,5 +1,5 @@
-#ifndef KEYBOARD_FACTORY_H
-#define KEYBOARD_FACTORY_H
+#ifndef VIEW_KEYBOARD_FACTORY_H
+#define VIEW_KEYBOARD_FACTORY_H
 
 #include <irrlicht.h>
 #include "Keyboard.h"

@@ -1,5 +1,5 @@
-#ifndef CURSOR_SERVICE_H
-#define CURSOR_SERVICE_H
+#ifndef VIEW_CURSOR_SERVICE_H
+#define VIEW_CURSOR_SERVICE_H
 
 #include "CursorFactory.h"
 #include "ICursorService.h"
@@ -13,6 +13,9 @@ namespace graphique
             ICursorEntity *cursor;
 
         public:
+            CursorService(){
+                this->thisInstance = this;
+            };
             CursorService(irr::IrrlichtDevice *device, IView *view){
                 this->thisInstance = this;
                 this->cursor = CursorFactory::createEntity(device, view);

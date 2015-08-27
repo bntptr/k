@@ -19,7 +19,7 @@ namespace graphique
             ~SelectorEntity(){};
 
             ISelectorEntity* add(IObjectView *object) {
-                this->selection->addElement(object);
+                this->selection->addElement(object);std::cout <<"taille selection "<< this->selection->getSize() <<std::endl;
                 return this->thisInstance;
             }
 
