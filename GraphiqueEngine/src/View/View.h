@@ -99,23 +99,9 @@ namespace graphique
             /**
              * Construction de tous les éléments de la scène graphique
              */
-            int build(business::BusinessInterface *business) {
-                std::cout <<"build view !" << std::endl;
+            int buildGame(business::BusinessInterface *business) {
+                std::cout <<"build game !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
-
-                this->cursor = CursorServiceFactory::createService(this->device, this);
-                this->cursor->build();
-
-                this->keyboard = KeyboardServiceFactory::createService(this);
-
-                this->environnement = EnvironnementServiceFactory::createService(this->device);
-                this->environnement->build();
-
-                this->camera = CameraServiceFactory::createService(this->device, this->cursor);
-                //this->camera = FPSFactory::createEntity(this->device, this->cursor);
-                this->camera->build();
-
-                this->cursor->setCameraService(this->camera);
 
                 business::IGroundEntity *ground = entity->getGround();
                 this->terrain = TerrainServiceFactory::createService(this->device, ground);
@@ -137,6 +123,30 @@ namespace graphique
                 IObjectView *obj = this->population->getCharacterFromPlayer();
                 this->selector->addToCursorLeft(obj);
                 //business::IPlayerEntity *player = entity->getPlayer();
+                return 0;
+            }
+
+            /**
+             * Construction de tous les éléments de la scène graphique
+             */
+            int build(business::BusinessInterface *business) {
+                std::cout <<"build view !" << std::endl;
+                business::IBusinessEntity *entity = business->loadBusinessEntity();
+
+                this->cursor = CursorServiceFactory::createService(this->device, this);
+                this->cursor->build();
+
+                this->keyboard = KeyboardServiceFactory::createService(this);
+
+                this->environnement = EnvironnementServiceFactory::createService(this->device);
+                this->environnement->build();
+
+                this->camera = CameraServiceFactory::createService(this->device, this->cursor);
+                this->camera->build();
+
+                this->cursor->setCameraService(this->camera);
+
+                this->buildGame(business);
                 return 0;
             }
 
