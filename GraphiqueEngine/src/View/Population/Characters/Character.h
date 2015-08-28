@@ -130,6 +130,32 @@ namespace graphique
             }
 
             bool draw() {
+                using namespace irr;
+                std::cout <<"hello ninja !" << std::endl;
+                ViewConfig *config = ViewConfig::getInstance();
+                config->load();
+                const io::path MEDIA = config->getMediaPath();
+
+                video::IVideoDriver* driver = this->device->getVideoDriver();
+
+                u32 time = this->device->getTimer()->getTime();
+                core::rect<s32> imp1(349,15,385,78);
+                core::rect<s32> imp2(387,15,423,78);
+                ETEXTURE code_texture = this->entity->getTexture();
+                business::Vector3d position = this->entity->getPosition();
+
+                /// Couleur transparente
+                video::ITexture *image = driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture]);
+                driver->makeColorKeyTexture(image, core::position2d<s32>(0,0));
+                // draw flying imp
+                driver->draw2DImage(
+                    image,
+                    core::position2d<s32>(position.getX()-18,position.getZ()-31),
+                    (time/500 % 2) ? imp1 : imp2,
+                    0,
+                    video::SColor(255,255,255,255),
+                    true
+                );
                 return true;
             }
 

@@ -47,15 +47,15 @@ const char* const TEXTUREInfoNames[] =
  */
 const char* const TEXTURE2DInfoNames[] =
 {
-         "nskinrd2.jpg",
-         "nskingr.jpg",
-         "nskinrd.jpg",
-         "nskinbl.jpg",
-         "faerie.bmp",
-         "sydney.bmp",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
          "",
          "gun.jpg",
-         "Texture/penguin.jpg",
+         "Texture/Texture2d/2ddemo.png",
          "Terrain/Texture2d/prairie.png",
          0
 };
