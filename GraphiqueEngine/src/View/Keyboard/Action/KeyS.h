@@ -2,7 +2,7 @@
 #define IACTIONKEY_S_H
 
 #include "IKey.h"
-#include "../../Sky/ISkyView.h"
+#include "../../Sky/ISkyService.h"
 
 namespace graphique
 {
@@ -13,8 +13,8 @@ namespace graphique
             virtual ~KeyS(){};
 
             int execute(IView *view) {
-                ISkyView* sky = view->getSky();
-                sky->oneEvent(EACTIONEVENT_CHANGE_SKY);
+                ISkyService* sky = view->getSkyService();
+                sky->onEvent(EACTIONEVENT_CHANGE_SKY);
                 return 0;
             }
 

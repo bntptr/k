@@ -4,6 +4,7 @@
 //#include <IEngine.h>
 #include "Business/BusinessInterface.h"
 #include "View/IView.h"
+#include "Action/EGraphique.h"
 
 namespace graphique
 {
@@ -17,6 +18,11 @@ namespace graphique
             virtual bool run()=0;
             virtual bool exit()=0;
             virtual bool drop()=0;
+            virtual bool isActive()=0;
+            virtual bool setActive(bool active)=0;
+
+            virtual void execute(EGRAPHIQUE key)=0;
+            virtual bool onEvent(EGRAPHIQUE event)=0;
 
             virtual business::BusinessInterface* getBusiness()=0;
             virtual IGraphiqueEngine* setBusiness(business::BusinessInterface *business)=0;

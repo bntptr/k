@@ -1,15 +1,17 @@
-#ifndef SOUNDSERVICE_H
-#define SOUNDSERVICE_H
+#ifndef VIEW_SOUND_SERVICE_H
+#define VIEW_SOUND_SERVICE_H
+
+#include "ISoundService.h"
 
 namespace graphique
 {
-    class SoundService
+    class SoundService : public ISoundService
     {
         public:
             SoundService(){};
             ~SoundService(){};
 
-            SoundService* run(){
+            SoundService* play(){
                 /*irr::audio::ISoundEngine* soundEngine = irr::audio::createIrrKlangDevice();
                 IrrlichtDevice* device = createDevice(video::EDT_OPENGL, core::dimension2d<s32>(640, 480), 16, false);
                 scene::ISceneManager* smgr = device->getSceneManager();

@@ -6,6 +6,7 @@
 #include "Characters/CharacterFactory.h"
 
 #include "../../Kutility/kutility.h"
+#include "../ViewConfig.h"
 
 namespace graphique
 {
@@ -26,7 +27,18 @@ namespace graphique
             };
             ~PopulationView(){};
 
-            bool build() {
+            IObjectView* getObjectViewFromId(int id) {
+                TList<ICharacter>* L = this->characterList;std::cout <<"L->size() " <<L->size()<<std::endl;
+                for(int i = 0; i < L->size(); i++) {
+                    if (id == L->getElement(i)->getId()) {
+                        IObjectView* obj = L->getElement(i);
+                        return obj;
+                    }std::cout <<"L->getElement(i)->getId() " <<L->getElement(i)->getId()<<std::endl;
+                }
+                return NULL;
+            }
+
+            bool loadCharacterList() {
                 TList<business::ICharacterEntity>* L = this->populationEntity->getCharacterList();
                 for(int i = 0; i < L->size(); i++) {
                     this->addCharacter(this->device, L->getElement(i));
@@ -34,8 +46,8 @@ namespace graphique
                 return true;
             }
 
-            bool draw() {
-                this->build();
+            bool build() {
+                this->loadCharacterList();
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -46,7 +58,7 @@ namespace graphique
                 scene::ISceneManager* smgr = device->getSceneManager();
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
                 // create POPULATION
-                this->drawAll();
+                this->buildAll();
 
                 // create ESSAI
                 scene::IAnimatedMesh* mesh = smgr->getMesh(MEDIA + "sydney.md2");
@@ -98,7 +110,7 @@ namespace graphique
                 scene::ITriangleSelector* selector = 0;
                 scene::IAnimatedMeshSceneNode* node = 0;
                 node = smgr->addAnimatedMeshSceneNode(smgr->getMesh("../../../media/ninja.b3d"),
-                                    0, IDFlag_IsPickable | IDFlag_IsHighlightable);
+                                    0, 75/*IDFlag_IsPickable | IDFlag_IsHighlightable*/);
                 //node->setMaterialTexture(0, driver->getTexture("../../../../../../media/nskinrd.jpg") );
                 node->setScale(core::vector3df(10, 10, 10));
                 node->setPosition(core::vector3df(-70,-66,-60));
@@ -141,12 +153,26 @@ namespace graphique
                 }
             }
 
+            bool draw() {
+                this->loadCharacterList();
+                this->drawAll();
+                return true;
+            }
+
             bool addCharacter(
                 irr::IrrlichtDevice *device,
                 business::ICharacterEntity *characterEntity
             ){
                 ICharacter *entity = graphique::CharacterFactory::createEntity(device, characterEntity);
                 this->characterList->addElement(entity);
+            }
+
+            bool buildAll() {
+                TList<ICharacter>* L = this->characterList;
+                for(int i = 0; i < L->size(); i++) {
+                    L->getElement(i)->build();
+                }
+                return true;
             }
 
             bool drawAll() {
@@ -160,6 +186,10 @@ namespace graphique
             IObjectView* getCharacterFromPlayer(){
                 IObjectView *objectView = this->characterList->begin();
                 return objectView;
+            }
+
+            business::IPopulationEntity* getPopulationEntity() {
+                return this->populationEntity;
             }
     };
 } // graphique

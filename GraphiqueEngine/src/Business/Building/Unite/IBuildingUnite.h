@@ -14,7 +14,7 @@ namespace business
             IBuildingUnite(){};
             virtual ~IBuildingUnite(){};
 
-            virtual bool oneEvent(EACTIONEVENT event)=0;
+            virtual bool onEvent(EACTIONEVENT event)=0;
 
             virtual EMESH getMesh()=0;
             virtual IBuildingUnite* setMesh(EMESH mesh)=0;

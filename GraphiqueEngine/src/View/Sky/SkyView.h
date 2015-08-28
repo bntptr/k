@@ -16,11 +16,18 @@ namespace graphique
             scene::ISceneNode* skydome;
             bool showBox;
 
+            TMap<EACTIONEVENT, sky::IAction>* keyMap;
+
         public:
-            SkyView(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity){
+            SkyView(
+                irr::IrrlichtDevice *device,
+                business::ISkyEntity *skyEntity,
+                TMap<EACTIONEVENT, sky::IAction>* keyMap
+            ){
                 this->device = device;
                 this->skyEntity = skyEntity;
                 this->showBox = true;
+                this->keyMap = keyMap;
             };
             ~SkyView(){};
 
@@ -41,7 +48,7 @@ namespace graphique
                 return this->showBox = showBox;
             }
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -70,19 +77,22 @@ namespace graphique
                 this->skydome->setVisible(false);
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool draw() {
+                return true;
+            }
+
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                sky::IAction *action;
-                switch(event)
-                {
-                    case EACTIONEVENT_CHANGE_SKY:
-                        action = new sky::ChangeSky();
-                        action->execute(this);
-                        break;
-                    default:
-                    break;
+                sky::IAction *action  = this->keyMap->get(event);
+
+                if (action) {
+                    action->execute(this);
                 }
                 return true;
+            }
+
+            business::ISkyEntity* getSkyEntity() {
+                return this->skyEntity;
             }
     };
 } // graphique

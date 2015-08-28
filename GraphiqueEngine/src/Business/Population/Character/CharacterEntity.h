@@ -2,7 +2,7 @@
 #define CHARACTERENTITY_H
 
 #include "ICharacterEntity.h"
-#include "Action/DeplaceX.h"
+#include "Action/Actions.h"
 
 namespace business
 {
@@ -10,17 +10,29 @@ namespace business
     {
         protected:
             ICharacterEntity *thisInstance;
+            int id;
             Vector3d position;
             Vector3d rotation;
             Vector3d scale;
             ETEXTURE texture;
             EMESH mesh;
 
+            TMap<EACTIONEVENT, character::IAction>* keyMap;
+
         public:
-            CharacterEntity(){
+            CharacterEntity(
+                int id,
+                TMap<EACTIONEVENT, character::IAction>* keyMap
+            ){
                 this->thisInstance = this;
+                this->id = id; std::cout << "id " << this->id << std::endl;
+                this->keyMap = keyMap;
             };
             ~CharacterEntity(){};
+
+            int getId() {
+                return this->id;
+            }
 
             EMESH getMesh(){
                 return this->mesh;
@@ -67,24 +79,14 @@ namespace business
                 return this->thisInstance;
             }
 
-             bool oneEvent(EACTIONEVENT event) {
+             bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                character::IAction *action;
-                switch(event)
-                {
-                    case EACTIONEVENT_DEFAULT:
-                        break;
-                    case EACTIONEVENT_DEPLACE_X:
-                        action = new character::DeplaceX();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_DEPLACE_Y:
-                        break;
-                    case EACTIONEVENT_DEPLACE_Z:
-                        break;
-                    default:
-                    break;
+                character::IAction *action  = this->keyMap->get(event);
+
+                if (action) {
+                    action->execute(this);
                 }
+
                 return true;
             }
     };

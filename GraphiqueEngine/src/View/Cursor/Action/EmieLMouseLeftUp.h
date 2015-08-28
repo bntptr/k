@@ -1,5 +1,5 @@
-#ifndef EMIE_LMOUSE_LEFT_UP_H
-#define EMIE_LMOUSE_LEFT_UP_H
+#ifndef VIEW_EMIE_LMOUSE_LEFT_UP_H
+#define VIEW_EMIE_LMOUSE_LEFT_UP_H
 
 #include "IEmie.h"
 
@@ -12,6 +12,12 @@ namespace graphique
             virtual ~EmieLMouseLeftUp(){};
 
             int execute(IView *view) {
+                std::cout << "LMouseLeftUp" << std::endl;
+                view->getCursorService()->getLeft()->up();
+                view->getSelector()->selectLeft(view);
+                        /*MouseState.LeftButtonDown = false;
+                        cursor->setCgUp();
+                        cursor->run();*/
                 return 0;
             }
     };

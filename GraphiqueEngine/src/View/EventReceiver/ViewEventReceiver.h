@@ -6,8 +6,8 @@
 
 #include <irrlicht.h>
 #include <iostream>
-#include "../Keyboard/KeyboardFactory.h"
-#include "../Cursor/CursorFactory.h"
+#include "../Keyboard/KeyboardServiceFactory.h"
+#include "../Cursor/CursorServiceFactory.h"
 #include "../Keyboard/Action/Actions.h"
 #include "../Cursor/Action/Actions.h"
 
@@ -19,24 +19,24 @@ namespace graphique
     {
         private:
             IView* view;
-            IKeyboard *keyboard;
-            ICursorEntity *cursor;
-            IEnvironnement *env;
+            IKeyboardService *keyboard;
+            ICursorService *cursor;
+            IEnvironnementService *env;
 
         public:
             ViewEventReceiver(IView *view)
             {
                 this->view = view;
-                this->keyboard = KeyboardFactory::createEntity(view);
-                this->cursor = view->getCursor();
-                this->env = view->getEnvironnement();
+                this->keyboard = view->getKeyboardService();
+                this->cursor = view->getCursorService();
+                this->env = view->getEnvironnementService();
             }
 
             /// methode Sourie 2D & 3D
             bool OnEventSourie(const SEvent& event)
             {
                  if(this->cursor != NULL)
-                          return this->cursor->oneEvent(event);
+                          return this->cursor->onEvent(event);
                   return false;
              }
 
@@ -45,9 +45,9 @@ namespace graphique
             {
                   if(this->keyboard != NULL) {
                     if (event.KeyInput.PressedDown) {
-                        return this->keyboard->oneEventPressed(event);
+                        return this->keyboard->onEventPressed(event);
                     } else {
-                        return this->keyboard->oneEvent(event);
+                        return this->keyboard->onEvent(event);
                     }
 
                   }
@@ -59,7 +59,7 @@ namespace graphique
              bool OnEventGUI(const SEvent& event)
             {
                   if(this->env != NULL)
-                         return this->env->oneEvent(event);
+                         return this->env->onEvent(event);
 
                   return false;
              }

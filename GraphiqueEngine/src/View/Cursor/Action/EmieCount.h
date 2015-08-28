@@ -1,5 +1,5 @@
-#ifndef EMIE_COUNT_H
-#define EMIE_COUNT_H
+#ifndef VIEW_EMIE_COUNT_H
+#define VIEW_EMIE_COUNT_H
 
 #include "IEmie.h"
 

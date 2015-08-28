@@ -17,9 +17,11 @@ namespace graphique
             virtual irr::scene::ISceneNode* getSkyDome()=0;
             virtual bool getShowBox()=0;
             virtual bool setShowBox(bool showBox)=0;
+            virtual bool build()=0;
             virtual bool draw()=0;
-            virtual bool oneEvent(EACTIONEVENT event)=0;
+            virtual bool onEvent(EACTIONEVENT event)=0;
 
+            virtual business::ISkyEntity* getSkyEntity()=0;
     };
 } // graphique
 

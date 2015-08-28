@@ -20,7 +20,7 @@ namespace graphique
             };
             ~BuildingEntity(){};
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -54,7 +54,7 @@ namespace graphique
                 }
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 //sky::IAction *action;
                 switch(event)
@@ -67,6 +67,10 @@ namespace graphique
                     break;
                 }
                 return true;
+            }
+
+            business::IBuildingEntity* getBuildingEntity() {
+                return this->buildingEntity;
             }
     };
 } // graphique

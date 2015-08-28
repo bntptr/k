@@ -14,6 +14,7 @@ enum EMESH
 	EMESH_NAIN,
 	EMESH_GUN,
 	EMESH_PENGUIN,
+	EMESH_TERRAIN_DEFAULT,
 
 };
 
@@ -28,6 +29,7 @@ const char* const MESHInfoNames[] =
          "dwarf.x",
          "gun.md2",
          "Mesh/penguin.mesh",
+         "terrain-heightmap-plat-bas.bmp",
          0
 };
 #endif /* EMESH_H_ */

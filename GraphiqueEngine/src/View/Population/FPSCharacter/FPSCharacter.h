@@ -22,7 +22,7 @@ namespace graphique
 
             bool draw() {
                 using namespace irr;
-                std::cout <<"hello ninja !" << std::endl;
+                std::cout <<"hello FPSCharacter !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 config->load();
                 const io::path MEDIA = config->getMediaPath();
@@ -34,25 +34,25 @@ namespace graphique
     //==========================================================================
 	//                           Gun
 	// Add an MD2 node, which uses vertex-based animation.
-	node = smgr->addAnimatedMeshSceneNode(smgr->getMesh("../../../media/gun.md2"),
+	anms = smgr->addAnimatedMeshSceneNode(smgr->getMesh("../../../media/gun.md2"),
 						0, IDFlag_IsPickable | IDFlag_IsHighlightable);
-	node->setPosition(core::vector3df(0,15,0)); // Put its feet on the floor.
-	node->setScale(core::vector3df(1, 1, 1)); // Make it appear realistically scaled
-    node->setMD2Animation(scene::EMAT_RUN); //EMAT_QUOI???  POINT, RUN  voir IAnimatedMeshMD2.h
+	anms->setPosition(core::vector3df(0,15,0)); // Put its feet on the floor.
+	anms->setScale(core::vector3df(1, 1, 1)); // Make it appear realistically scaled
+    anms->setMD2Animation(scene::EMAT_RUN); //EMAT_QUOI???  POINT, RUN  voir IAnimatedMeshMD2.h
 	/*node->setAnimationSpeed(20.f);*/
 	//video::SMaterial material;//redéclaration, a donc virer
 	material.setTexture(0, driver->getTexture("../../../media/gun.jpg"));
 	material.Lighting = true;
 	material.NormalizeNormals = true;
-	node->getMaterial(0) = material;
+	anms->getMaterial(0) = material;
 
 	// Now create a triangle selector for it.  The selector will know that it
 	// is associated with an animated node, and will update itself as necessary.
-	selector = smgr->createTriangleSelector(node);
-	node->setTriangleSelector(selector);
+	selector = smgr->createTriangleSelector(anms);
+	anms->setTriangleSelector(selector);
 	selector->drop(); // We're done with this selector, so drop it now.
                 // NINJA
-                EMESH code_mesh = this->entity->getMesh();
+                /*EMESH code_mesh = this->entity->getMesh();
                 scene::IAnimatedMesh *mesh= smgr->getMesh(
                     MEDIA + MESHInfoNames[code_mesh]
                 );
@@ -71,7 +71,7 @@ namespace graphique
 
                     anms->setFrameLoop(0, 13);
                     anms->setAnimationSpeed(15);
-            		//anms->setMD2Animation(scene::EMAT_RUN);
+            		//anms->setMD2Animation(scene::EMAT_RUN);*/
 
                     business::Vector3d scale = this->entity->getScale();
                     anms->setScale(core::vector3df(
@@ -105,7 +105,7 @@ namespace graphique
                 return this->node;
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
                 character::IAction *action;
                 switch(event)

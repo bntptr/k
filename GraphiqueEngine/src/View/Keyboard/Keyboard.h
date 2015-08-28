@@ -146,8 +146,8 @@ KEY_OEM_CLEAR
 KEY_KEY_CODES_COUNT
 
 */
-#ifndef KEYBOARD_H
-#define KEYBOARD_H
+#ifndef VIEW_KEYBOARD_H
+#define VIEW_KEYBOARD_H
 
 #include "IKeyboard.h"
 #include "Action/IKey.h"
@@ -198,6 +198,7 @@ namespace graphique
             IKeyboard* execute(irr::EKEY_CODE key) {
                 IKey *k = this->keyMap->get(key);
                 if (k) {
+                    k->up();
                     k->execute(this->view);
                 }
                 return this->thisInstance;
@@ -206,17 +207,19 @@ namespace graphique
             IKeyboard* executePressed(irr::EKEY_CODE key) {
                 IKey *k = this->keyMap->get(key);
 
-                if (k)
+                if (k) {
+                    k->down();
                     k->executePressed(this->view);
+                }
                 return this->thisInstance;
             }
 
-            bool oneEvent(const irr::SEvent& event) {
+            bool onEvent(const irr::SEvent& event) {
                 this->execute(event.KeyInput.Key);
                 return true;
             }
 
-            bool oneEventPressed(const irr::SEvent& event) {
+            bool onEventPressed(const irr::SEvent& event) {
                 this->executePressed(event.KeyInput.Key);
                 return true;
             }

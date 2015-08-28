@@ -13,7 +13,9 @@ namespace business
                 IAction(){};
                 virtual ~IAction(){};
 
-                virtual int execute(ICharacterEntity *character)=0;
+                virtual int execute(ICharacterEntity *character) {
+                    return -1;
+                }
         };
     } // character
 } // business

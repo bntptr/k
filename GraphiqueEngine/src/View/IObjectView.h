@@ -7,11 +7,21 @@ namespace graphique
 {
     class IObjectView
     {
-    public:
-        IObjectView(){};
-        virtual ~IObjectView(){};
+        protected:
+            int id;
+        public:
+            IObjectView(){};
+            virtual ~IObjectView(){};
 
-        virtual bool oneEvent(EACTIONEVENT event)=0;
+            int getId() {
+                return this->id;
+            }
+
+            int setId(int id) {
+                return this->id = id;
+            }
+
+            virtual bool onEvent(EACTIONEVENT event)=0;
     };
 } // graphique
 

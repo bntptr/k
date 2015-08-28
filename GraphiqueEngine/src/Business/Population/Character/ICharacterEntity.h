@@ -14,7 +14,9 @@ namespace business
             ICharacterEntity(){};
             virtual ~ICharacterEntity(){};
 
-            virtual bool oneEvent(EACTIONEVENT event)=0;
+            virtual bool onEvent(EACTIONEVENT event)=0;
+
+            virtual int getId()=0;
 
             virtual EMESH getMesh()=0;
             virtual ICharacterEntity* setMesh(EMESH mesh)=0;

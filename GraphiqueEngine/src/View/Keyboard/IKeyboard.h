@@ -1,5 +1,5 @@
-#ifndef IKEYBOARD_H
-#define IKEYBOARD_H
+#ifndef VIEW_IKEYBOARD_H
+#define VIEW_IKEYBOARD_H
 
 #include <irrlicht.h>
 
@@ -17,8 +17,8 @@ namespace graphique
             virtual IKeyboard* execute(irr::EKEY_CODE key)=0;
             virtual IKeyboard* executePressed(irr::EKEY_CODE key)=0;
 
-            virtual bool oneEvent(const irr::SEvent& event)=0;
-            virtual bool oneEventPressed(const irr::SEvent& event)=0;
+            virtual bool onEvent(const irr::SEvent& event)=0;
+            virtual bool onEventPressed(const irr::SEvent& event)=0;
     };
 } // graphique
 

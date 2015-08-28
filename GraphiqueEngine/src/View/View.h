@@ -4,47 +4,59 @@
 #include <irrlicht.h>
 
 #include "IView.h"
+#include "Action/Actions.h"
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
-#include "Cursor/CursorFactory.h"
-#include "Keyboard/KeyboardFactory.h"
+#include "Cursor/CursorServiceFactory.h"
+#include "Keyboard/KeyboardServiceFactory.h"
+#include "Camera/CameraServiceFactory.h"
 #include "Selector/SelectorService.h"
-#include "ViewConfig.h"
-#include "Environnement/EnvironnementFactory.h"
-#include "Camera/CameraFactory.h"
-#include "Camera/FPS/FPSFactory.h"
-#include "Terrain/TerrainViewFactory.h"
-#include "Sky/SkyViewFactory.h"
-#include "Building/BuildingFactory.h"
-#include "Population/PopulationViewFactory.h"
-//#include "Player/PlayerViewFactory.h"
+#include "Environnement/EnvironnementServiceFactory.h"
+#include "Terrain/TerrainServiceFactory.h"
+#include "Sky/SkyServiceFactory.h"
+#include "Building/BuildingServiceFactory.h"
+#include "Population/PopulationServiceFactory.h"
+//#include "Player/PlayerServiceFactory.h"
 
 namespace graphique
 {
     class View : public IView
     {
         protected:
+            IView *thisInstance;
+            EVIEW mode;
+            EGRAPHIQUE eventGraphique;
             irr::IrrlichtDevice *device;
-            //SoundService *sound;
             ViewEventReceiver *receiver;
+            TMap<EVIEW, IAction>* keyMap;
 
-            ICursorEntity *cursor;
-            IKeyboard *keyboard;
-            SelectorService *selector;
-            IEnvironnement *environnement;
-            ICamera *camera;
+            ICursorService *cursor;
+            IKeyboardService *keyboard;
+            ISelectorService *selector;
+            IEnvironnementService *environnement;
+            ICameraService *camera;
 
-            ITerrainView *terrain;
-            ISkyView *sky;
-            IPopulationView *population;
-            IBuildingEntity *building;
-            //IPlayerView *player;
+            //ISoundService *sound;
+
+            ITerrainService *terrain;
+            ISkyService *sky;
+            IPopulationService *population;
+            IBuildingService *building;
+            //IPlayerService *player;
 
         public:
-            View() {
+            View(TMap<EVIEW, IAction>* keyMap) {
+                this->thisInstance = this;
+                this->keyMap = keyMap;
                 this->selector = new SelectorService();
+                this->mode = EVIEW_MODE_EDITOR;
+                this->eventGraphique = EGRAPHIQUE_CLOSE;
             }
-            ~View();
+            View(TMap<EVIEW, IAction>* keyMap, IView *view) {
+                std::cout << "constructeur à ne pas utiliser" << std::endl;
+                this->eventGraphique = EGRAPHIQUE_CLOSE;
+            }
+            ~View(){};
 
             /**
              * Initialisation des drivers et de la fenêtre principale
@@ -93,39 +105,25 @@ namespace graphique
             /**
              * Construction de tous les éléments de la scène graphique
              */
-            int build(business::BusinessInterface *business) {
-                std::cout <<"build view !" << std::endl;
+            int buildGame(business::BusinessInterface *business) {
+                std::cout <<"build game !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
-                this->cursor = CursorFactory::createEntity(this->device);
-                this->cursor->build();
-
-                this->keyboard = KeyboardFactory::createEntity(this);
-
-                this->environnement = EnvironnementFactory::createEntity(this->device);
-                this->environnement->draw();
-
-                this->camera = CameraFactory::createEntity(this->device, this->cursor);
-                //this->camera = FPSFactory::createEntity(this->device, this->cursor);
-                this->camera->draw();
-
-                this->cursor->setCamera(this->camera);
-
                 business::IGroundEntity *ground = entity->getGround();
-                this->terrain = TerrainViewFactory::createEntity(this->device, ground);
-                this->terrain->draw(this->camera);
+                this->terrain = TerrainServiceFactory::createService(this->device, ground);
+                this->terrain->build(this->camera);
 
                 business::ISkyEntity *skyEntity = entity->getSky();
-                this->sky = SkyViewFactory::createEntity(this->device, skyEntity);
-                this->sky->draw();
+                this->sky = SkyServiceFactory::createService(this->device, skyEntity);
+                this->sky->build();
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
-                this->population = PopulationViewFactory::createEntity(this->device, populationEntity);
-                this->population->draw();
+                this->population = PopulationServiceFactory::createService(this->device, populationEntity);
+                this->population->build();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
-                this->building = BuildingFactory::createEntity(this->device, buildingEntity);
-                this->building->draw();
+                this->building = BuildingServiceFactory::createService(this->device, buildingEntity);
+                this->building->build();
 
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();
@@ -135,9 +133,33 @@ namespace graphique
             }
 
             /**
+             * Construction de tous les éléments de la scène graphique
+             */
+            int build(business::BusinessInterface *business) {
+                std::cout <<"build view !" << std::endl;
+                business::IBusinessEntity *entity = business->loadBusinessEntity();
+
+                this->cursor = CursorServiceFactory::createService(this->device, this);
+                this->cursor->build();
+
+                this->keyboard = KeyboardServiceFactory::createService(this);
+
+                this->environnement = EnvironnementServiceFactory::createService(this->device);
+                this->environnement->build();
+
+                this->camera = CameraServiceFactory::createService(this->device, this->cursor);
+                this->camera->build();
+
+                this->cursor->setCameraService(this->camera);
+
+                this->buildGame(business);
+                return 0;
+            }
+
+            /**
              *  Exemple Terrain Rendering
              */
-            int run() {
+            EGRAPHIQUE run() {
                 std::cout <<"run View !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
@@ -164,6 +186,7 @@ namespace graphique
                 {
                     driver->beginScene(true, true, 0 );
 
+                    this->camera->draw(this->getTerrainService(), this->getPopulationService());
                     smgr->drawAll();
                     env->drawAll();
                     this->cursor->draw();
@@ -171,7 +194,7 @@ namespace graphique
                     driver->endScene();
 
                     // display frames per second in window title
-                    int fps = driver->getFPS();
+                    /*int fps = driver->getFPS();
                     if (lastFPS != fps)
                     {
                         core::stringw str = L"Terrain Renderer - Irrlicht Engine [";
@@ -181,111 +204,90 @@ namespace graphique
                         // Also print terrain height of current camera position
                         // We can use camera position because terrain is located at coordinate origin
                         str += " Height: ";
-                        str += terrain->getTerrain()->getHeight(camera->getCamera()->getAbsolutePosition().X,
-                                camera->getCamera()->getAbsolutePosition().Z);
+                        str += terrain->getTerrainSceneNode()->getHeight(camera->getCameraSceneNode()->getAbsolutePosition().X,
+                                camera->getCameraSceneNode()->getAbsolutePosition().Z);
 
                         device->setWindowCaption(str.c_str());
                         lastFPS = fps;
-                    }
+                    }*/
                 }
-
-                device->drop();
-////////////////////////////////////////////////////////////////////////////////
+                return this->eventGraphique;
             }
 
-            int runExemple() {
-                /*using namespace irr;
-
-                using namespace core;
-                using namespace scene;
-                using namespace video;
-                using namespace io;
-                using namespace gui;
-                IrrlichtDevice *device =
-                    createDevice( video::EDT_SOFTWARE, dimension2d<u32>(640, 480), 16,
-                        false, false, false, 0);
-
-                if (!device)
-                    return 1;
-
-                device->setWindowCaption(L"Hello World! - Irrlicht Engine Demo");
-
-                IVideoDriver* driver = device->getVideoDriver();
-                ISceneManager* smgr = device->getSceneManager();
-                IGUIEnvironment* guienv = device->getGUIEnvironment();
-
-                guienv->addStaticText(L"Hello World! This is the Irrlicht Software renderer!",
-                    rect<s32>(10,10,260,22), true);
-
-                IAnimatedMesh* mesh = smgr->getMesh("../../../media/sydney.md2");
-                if (!mesh)
-                {
-                    device->drop();
-                    return 1;
-                }
-                IAnimatedMeshSceneNode* node = smgr->addAnimatedMeshSceneNode( mesh );
-
-                if (node)
-                {
-                    node->setMaterialFlag(EMF_LIGHTING, false);
-                    node->setMD2Animation(scene::EMAT_STAND);
-                    node->setMaterialTexture( 0, driver->getTexture("../../../media/sydney.bmp") );
-                }
-
-                smgr->addCameraSceneNode(0, vector3df(0,30,-40), vector3df(0,5,0));
-
-                while(device->run())
-                {
-                    driver->beginScene(true, true, SColor(255,100,101,140));
-
-                    smgr->drawAll();
-                    guienv->drawAll();
-
-                    driver->endScene();
-                }
-                device->drop();
-*/
+            int exit() {
+                device->closeDevice();
                 return 0;
             }
+
+            int exit(EGRAPHIQUE event) {
+                this->device->closeDevice();
+                this->eventGraphique = event;
+                return 0;
+            }
+
+            int drop() {
+                this->device->drop();
+                this->~View();
+                return 0;
+            }
+
 
             irr::IrrlichtDevice* setDevice(irr::IrrlichtDevice *dvc) {
                 return this->device = dvc;
             }
 
-            SelectorService* getSelector() {
+            ISelectorService* getSelector() {
                 return this->selector;
             }
 
-            ICursorEntity *getCursor() {
+            ICursorService *getCursorService() {
                 return this->cursor;
             }
 
-            IKeyboard *getKeyboard() {
+            IKeyboardService *getKeyboardService() {
                 return this->keyboard;
             }
 
-            IEnvironnement *getEnvironnement() {
+            IEnvironnementService *getEnvironnementService() {
                 return this->environnement;
             }
 
-            ICamera *getCamera() {
+            ICameraService* getCameraService() {
                 return this->camera;
             }
 
-            ITerrainView *getTerrain() {
+            ITerrainService *getTerrainService() {
                 return this->terrain;
             }
 
-            ISkyView *getSky() {
+            ISkyService *getSkyService() {
                 return this->sky;
             }
 
-            IPopulationView *getPopulation() {
+            IPopulationService *getPopulationService() {
                 return this->population;
             }
 
-            IBuildingEntity *getBuilding() {
+            IBuildingService *getBuildingService() {
                 return this->building;
+            }
+
+            IView* execute(EVIEW key) {
+                IAction *k = this->keyMap->get(key);
+                if (k) {
+                    k->execute(this);
+                }
+                this->mode = key;
+                return this->thisInstance;
+            }
+
+            bool onEvent(EVIEW event) {
+                this->execute(event);
+                return true;
+            }
+
+            EVIEW getMode() {
+                return this->mode;
             }
     };
 } // graphique

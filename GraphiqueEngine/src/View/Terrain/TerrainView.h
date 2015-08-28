@@ -7,6 +7,8 @@
 #include "Action/MapTriangle.h"
 #include "Action/MapPoint.h"
 
+#include "../Camera/ICamera.h"
+
 namespace graphique
 {
     class TerrainView : public ITerrainView
@@ -16,20 +18,26 @@ namespace graphique
             business::IGroundEntity *ground;
             scene::ITerrainSceneNode* terrain;
 
+            TMap<EACTIONEVENT, terrain::IAction>* keyMap;
+
         public:
-            TerrainView(irr::IrrlichtDevice *device, business::IGroundEntity *ground){
+            TerrainView(
+                irr::IrrlichtDevice *device,
+                business::IGroundEntity *ground,
+                TMap<EACTIONEVENT, terrain::IAction>* keyMap
+            ){
                 this->device = device;
                 this->ground = ground;
+                this->keyMap = keyMap;
             };
             ~TerrainView(){};
-
 
             scene::ITerrainSceneNode* getTerrain(){
                 return this->terrain;
             }
 
-            bool draw(ICamera* camera) {
-                std::cout <<"Draw Terrain!" << std::endl;
+            bool build(ICameraService* camera) {
+                std::cout <<"Build Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -45,8 +53,9 @@ namespace graphique
                 business::Vector3d rotation = this->ground->getRotation();
                 business::Vector3d scale = this->ground->getScale();
 
+                EMESH code_mesh = this->ground->getMesh();
                 scene::ITerrainSceneNode* terrain = smgr->addTerrainSceneNode(
-                    MEDIA + "terrain-heightmap-plat-bas.bmp",
+                    MEDIA + MESHInfoNames[code_mesh],
                     0,					// parent node
                     -1,					// node id
                     core::vector3df(
@@ -73,8 +82,9 @@ namespace graphique
                 this->terrain = terrain;
                 terrain->setMaterialFlag(video::EMF_LIGHTING, false);
 
+                ETEXTURE code_texture = this->ground->getTexture();
                 terrain->setMaterialTexture(0,
-                        driver->getTexture(MEDIA + "terrain-texture-plat-riviere.jpg"));
+                        driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture]));
                 terrain->setMaterialTexture(1,
                         driver->getTexture(MEDIA + "detailmap3.jpg"));
 
@@ -91,13 +101,13 @@ namespace graphique
                 // create collision response animator and attach it to the camera
                 scene::ISceneNodeAnimator* anim = smgr->createCollisionResponseAnimator(
                     selector,
-                    camera->getCamera(),
+                    camera->getCameraSceneNode(),
                     core::vector3df(60,100,60),
                     core::vector3df(0,0,0),
                     core::vector3df(0,0,0) // ici y valait 50
                 );
                 selector->drop();
-                camera->getCamera()->addAnimator(anim);
+                camera->getCameraSceneNode()->addAnimator(anim);
                 anim->drop();
 
                 scene::CDynamicMeshBuffer* buffer = new scene::CDynamicMeshBuffer(
@@ -112,27 +122,61 @@ namespace graphique
                 buffer->drop(); // When done drop the buffer again.
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            /**
+             * Actif en cas de camera 2d
+             */
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
+                std::cout <<"draw Terrain!" << std::endl;
+                ViewConfig *config = ViewConfig::getInstance();
+                using namespace irr;
+
+                config->load();
+                const io::path MEDIA = config->getMediaPath();
+
+                video::IVideoDriver* driver = device->getVideoDriver();
+                scene::ISceneManager* smgr = device->getSceneManager();
+                gui::IGUIEnvironment* env = device->getGUIEnvironment();
+
+                // add terrain scene node
+                business::Vector3d position = this->ground->getPosition();
+                business::Vector3d rotation = this->ground->getRotation();
+                business::Vector3d scale = this->ground->getScale();
+
+                ETEXTURE code_texture = this->ground->getTexture();
+                std::cout << TEXTURE2DInfoNames[code_texture] << std::endl;
+                //terrain->setMaterialTexture(0,
+                //    driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture])
+                //);
+
+                driver->draw2DImage(
+                    driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture]),
+                    core::position2d<s32>(0,40), //<<là début del'affichage
+                    //core::rect<s32>(0,0,512,384), 0,
+                    core::rect<s32>(
+                        cameraPosition.getX(),
+                        cameraPosition.getZ(),
+                        cameraPosition.getX() + cameraScale.getX(),
+                        cameraPosition.getZ() + cameraScale.getZ()
+                    ),
+                    0,   //+512 +384//Attention: rect sur images
+                    video::SColor(255,255,255,255),
+                    true
+                );
+                return false;
+            }
+
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                terrain::IAction *action;
-                switch(event)
-                {
-                    case EACTIONEVENT_TERRAIN_MAP_DETAIL:
-                        action = new terrain::MapDetail();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_TERRAIN_MAP_TRIANGLE:
-                        action = new terrain::MapTriangle();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_TERRAIN_MAP_POINT:
-                        action = new terrain::MapPoint();
-                        action->execute(this);
-                        break;
-                    default:
-                    break;
+                terrain::IAction *action  = this->keyMap->get(event);
+
+                if (action) {
+                    action->execute(this);
                 }
                 return true;
+            }
+
+            business::IGroundEntity* getGroundEntity() {
+                return this->ground;
             }
     };
 } // graphique

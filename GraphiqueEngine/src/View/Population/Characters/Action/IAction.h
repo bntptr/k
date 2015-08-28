@@ -13,7 +13,9 @@ namespace graphique
                 IAction(){};
                 virtual ~IAction(){};
 
-                virtual int execute(ICharacter *character)=0;
+                virtual int execute(ICharacter *character) {
+                    return -1;
+                }
         };
     } // character
 } // graphique

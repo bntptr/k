@@ -17,6 +17,10 @@ enum ETEXTURE
 	ETEXTURE_NAIN,
 	ETEXTURE_GUN,
 	ETEXTURE_PENGUIN,
+	ETEXTURE_TERRAIN_DEFAULT,
+
+	//! Texture 2d .png
+	ETEXTURE_TERRAIN_2D_PRAIRIE,
 
 };
 
@@ -34,7 +38,27 @@ const char* const TEXTUREInfoNames[] =
          "",
          "gun.jpg",
          "Texture/penguin.jpg",
+         "terrain-texture-plat-riviere.jpg",
          0
 };
+
+/**
+ * Devrait être dans VIEW
+ */
+const char* const TEXTURE2DInfoNames[] =
+{
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "Texture/Texture2d/2ddemo.png",
+         "",
+         "gun.jpg",
+         "Texture/Texture2d/2ddemo.png",
+         "Terrain/Texture2d/prairie.png",
+         0
+};
+
 #endif /* ETEXTURE_H_ */
 

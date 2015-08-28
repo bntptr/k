@@ -19,7 +19,7 @@ namespace graphique
             ~SelectorEntity(){};
 
             ISelectorEntity* add(IObjectView *object) {
-                this->selection->addElement(object);
+                this->selection->addElement(object);std::cout <<"taille selection "<< this->selection->getSize() <<std::endl;
                 return this->thisInstance;
             }
 
@@ -28,10 +28,10 @@ namespace graphique
                 return this->thisInstance;
             }
 
-            ISelectorEntity* oneEvent(EACTIONEVENT event) {
+            ISelectorEntity* onEvent(EACTIONEVENT event) {
                 TList<IObjectView>* L = this->selection;
                 for(int i = 0; i < L->size(); i++) {
-                    L->getElement(i)->oneEvent(event);
+                    L->getElement(i)->onEvent(event);
                 }
                 return this->thisInstance;
             }

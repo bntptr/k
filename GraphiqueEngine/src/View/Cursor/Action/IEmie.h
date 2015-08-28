@@ -1,5 +1,5 @@
-#ifndef IEMIE_H
-#define IEMIE_H
+#ifndef VIEW_IEMIE_H
+#define VIEW_IEMIE_H
 
 #include "../../IView.h"
 #include "../../../Business/Event/EActionEvent.h"
@@ -12,7 +12,9 @@ namespace graphique
             IEmie(){};
             virtual ~IEmie(){};
 
-            virtual int execute(IView *view)=0;
+            virtual int execute(IView *view){
+                return -1;
+            };
     };
 } // graphique
 

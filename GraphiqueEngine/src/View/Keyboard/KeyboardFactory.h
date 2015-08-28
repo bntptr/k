@@ -1,5 +1,5 @@
-#ifndef KEYBOARD_FACTORY_H
-#define KEYBOARD_FACTORY_H
+#ifndef VIEW_KEYBOARD_FACTORY_H
+#define VIEW_KEYBOARD_FACTORY_H
 
 #include <irrlicht.h>
 #include "Keyboard.h"
@@ -21,6 +21,12 @@ namespace graphique
                 keyMap->addElement(irr::KEY_KEY_Q, new KeyQ());
                 keyMap->addElement(irr::KEY_KEY_S, new KeyS());
                 keyMap->addElement(irr::KEY_KEY_W, new KeyW());
+                keyMap->addElement(irr::KEY_KEY_X, new KeyX());
+                keyMap->addElement(irr::KEY_KEY_C, new KeyC());
+                keyMap->addElement(irr::KEY_KEY_V, new KeyV());
+                keyMap->addElement(irr::KEY_KEY_P, new KeyP());
+                keyMap->addElement(irr::KEY_END, new KeyEscap());
+                keyMap->addElement(irr::KEY_TAB, new KeyTab());
                 return new Keyboard(view, keyMap);
             }
         };

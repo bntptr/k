@@ -12,8 +12,8 @@ namespace graphique
             virtual ~KeyQ(){};
 
             int execute(IView *view) {
-                ITerrainView* terrain = view->getTerrain();
-                terrain->oneEvent(EACTIONEVENT_TERRAIN_MAP_TRIANGLE);
+                ITerrainService* terrain = view->getTerrainService();
+                terrain->onEvent(EACTIONEVENT_TERRAIN_MAP_TRIANGLE);
                 return 0;
             }
 

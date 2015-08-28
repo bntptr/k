@@ -33,21 +33,27 @@ EKA_JUMP_UP
 KEY_KEY_J
 touche j pour un saut
 **/
-#ifndef ICAMERA_H
-#define ICAMERA_H
+#ifndef VIEW_ICAMERA_H
+#define VIEW_ICAMERA_H
 
 #include <irrlicht.h>
 
+//#include "../Terrain/ITerrainService.h"
+//#include "../Population/IPopulationService.h"
+
 namespace graphique
 {
+    class ITerrainService;
+    class IPopulationService;
     class ICamera
     {
         public:
             ICamera(){};
             virtual ~ICamera(){};
 
-            virtual irr::scene::ICameraSceneNode* getCamera()=0;
-            virtual bool draw()=0;
+            virtual irr::scene::ICameraSceneNode* getCameraSceneNode()=0;
+            virtual bool build()=0;
+            virtual bool draw(ITerrainService *terrain, IPopulationService *population)=0;
     };
 } // graphique
 

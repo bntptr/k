@@ -1,5 +1,5 @@
-#ifndef ENVIRONNEMENT_H
-#define ENVIRONNEMENT_H
+#ifndef VIEW_ENVIRONNEMENT_H
+#define VIEW_ENVIRONNEMENT_H
 
 #include "IEnvironnement.h"
 
@@ -15,7 +15,7 @@ namespace graphique
             };
             ~Environnement(){};
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -41,7 +41,7 @@ namespace graphique
                     core::rect<s32>(10,421,250,475), true, true, 0, -1, true);
             }
 
-            bool oneEvent(const irr::SEvent& event) {
+            bool onEvent(const irr::SEvent& event) {
 /*
                 switch(event.GUIEvent.EventType)
                 {

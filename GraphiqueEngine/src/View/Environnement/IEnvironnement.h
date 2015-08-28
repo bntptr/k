@@ -1,5 +1,5 @@
-#ifndef IENVIRONNEMENT_H
-#define IENVIRONNEMENT_H
+#ifndef VIEW_IENVIRONNEMENT_H
+#define VIEW_IENVIRONNEMENT_H
 
 #include <irrlicht.h>
 
@@ -11,8 +11,8 @@ namespace graphique
             IEnvironnement(){};
             virtual ~IEnvironnement(){};
 
-            virtual bool draw()=0;
-            virtual bool oneEvent(const irr::SEvent& event)=0;
+            virtual bool build()=0;
+            virtual bool onEvent(const irr::SEvent& event)=0;
     };
 } // graphique
 

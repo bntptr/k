@@ -7,13 +7,18 @@ namespace graphique
 {
     class TerrainViewFactory
     {
-    public:
-        static ITerrainView* createEntity(irr::IrrlichtDevice *device, business::IGroundEntity *ground) {
-            return new TerrainView(device, ground);
-        }
+        public:
+            static ITerrainView* createEntity(irr::IrrlichtDevice *device, business::IGroundEntity *ground) {
+                TMap<EACTIONEVENT, terrain::IAction>* keyMap = new TMap<EACTIONEVENT, terrain::IAction>();
+                keyMap->addElement(EACTIONEVENT_TERRAIN_MAP_DETAIL, new terrain::MapDetail());
+                keyMap->addElement(EACTIONEVENT_TERRAIN_MAP_TRIANGLE, new terrain::MapTriangle());
+                keyMap->addElement(EACTIONEVENT_TERRAIN_MAP_POINT, new terrain::MapPoint());
+                return new TerrainView(device, ground, keyMap);
+            }
     };
 } // graphique
 
 #endif
+
 
 

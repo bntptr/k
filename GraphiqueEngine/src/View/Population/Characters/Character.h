@@ -33,7 +33,8 @@ http://irrlicht.sourceforge.net/docu/_i_animated_mesh_m_d2_8h_source.html
 #define CHARACTERVIEW_H
 
 #include "ICharacter.h"
-#include "Action/DeplaceX.h"
+#include "Action/Actions.h"
+#include "../../ViewConfig.h"
 
 namespace graphique
 {
@@ -42,16 +43,23 @@ namespace graphique
         protected:
             irr::IrrlichtDevice *device;
             business::ICharacterEntity *entity;
-            scene::IAnimatedMeshSceneNode* node;
+            irr::scene::IAnimatedMeshSceneNode* node;
+
+            TMap<EACTIONEVENT, character::IAction>* keyMap;
 
         public:
-            Character(irr::IrrlichtDevice *device, business::ICharacterEntity *entity){
+            Character(
+                irr::IrrlichtDevice *device,
+                business::ICharacterEntity *entity,
+                TMap<EACTIONEVENT, character::IAction>* keyMap
+            ){
                 this->device = device;
                 this->entity = entity;
+                this->keyMap = keyMap;
             };
             ~Character(){};
 
-            bool draw() {
+            bool build() {
                 using namespace irr;
                 std::cout <<"hello ninja !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
@@ -71,7 +79,7 @@ namespace graphique
                     smgr->addAnimatedMeshSceneNode(
                         mesh,
                         0,
-                        IDFlag_IsPickable | IDFlag_IsHighlightable
+                        this->getId()//this->entity->getId() //IDFlag_IsPickable | IDFlag_IsHighlightable
                 );
 
 // Pour la selection avec le curseur
@@ -121,32 +129,52 @@ namespace graphique
                 }
             }
 
+            bool draw() {
+                using namespace irr;
+                std::cout <<"hello ninja !" << std::endl;
+                ViewConfig *config = ViewConfig::getInstance();
+                config->load();
+                const io::path MEDIA = config->getMediaPath();
+
+                video::IVideoDriver* driver = this->device->getVideoDriver();
+
+                u32 time = this->device->getTimer()->getTime();
+                core::rect<s32> imp1(349,15,385,78);
+                core::rect<s32> imp2(387,15,423,78);
+                ETEXTURE code_texture = this->entity->getTexture();
+                business::Vector3d position = this->entity->getPosition();
+
+                /// Couleur transparente
+                video::ITexture *image = driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture]);
+                driver->makeColorKeyTexture(image, core::position2d<s32>(0,0));
+                // draw flying imp
+                driver->draw2DImage(
+                    image,
+                    core::position2d<s32>(position.getX()-18,position.getZ()-31),
+                    (time/500 % 2) ? imp1 : imp2,
+                    0,
+                    video::SColor(255,255,255,255),
+                    true
+                );
+                return true;
+            }
+
             business::ICharacterEntity* getCharacterEntity() {
                 return this->entity;
             }
 
-            scene::IAnimatedMeshSceneNode* getNode() {
+            irr::scene::IAnimatedMeshSceneNode* getNode() {
                 return this->node;
             }
 
-            bool oneEvent(EACTIONEVENT event) {
+            bool onEvent(EACTIONEVENT event) {
                 std::cout << ACTIONEVENTInfoNames[event] << std::endl;
-                character::IAction *action;
-                switch(event)
-                {
-                    case EACTIONEVENT_DEFAULT:
-                        break;
-                    case EACTIONEVENT_DEPLACE_X:
-                        action = new character::DeplaceX();
-                        action->execute(this);
-                        break;
-                    case EACTIONEVENT_DEPLACE_Y:
-                        break;
-                    case EACTIONEVENT_DEPLACE_Z:
-                        break;
-                    default:
-                    break;
+                character::IAction *action  = this->keyMap->get(event);
+
+                if (action) {
+                    action->execute(this);
                 }
+
                 return true;
             }
     };
