@@ -59,7 +59,7 @@ namespace graphique
             };
             ~Character(){};
 
-            bool draw() {
+            bool build() {
                 using namespace irr;
                 std::cout <<"hello ninja !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
@@ -127,6 +127,10 @@ namespace graphique
                     ));
                     this->node = anms;
                 }
+            }
+
+            bool draw() {
+                return true;
             }
 
             business::ICharacterEntity* getCharacterEntity() {

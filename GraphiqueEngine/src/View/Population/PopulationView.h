@@ -38,7 +38,7 @@ namespace graphique
                 return NULL;
             }
 
-            bool build() {
+            bool loadCharacterList() {
                 TList<business::ICharacterEntity>* L = this->populationEntity->getCharacterList();
                 for(int i = 0; i < L->size(); i++) {
                     this->addCharacter(this->device, L->getElement(i));
@@ -46,8 +46,8 @@ namespace graphique
                 return true;
             }
 
-            bool draw() {
-                this->build();
+            bool build() {
+                this->loadCharacterList();
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -58,7 +58,7 @@ namespace graphique
                 scene::ISceneManager* smgr = device->getSceneManager();
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
                 // create POPULATION
-                this->drawAll();
+                this->buildAll();
 
                 // create ESSAI
                 scene::IAnimatedMesh* mesh = smgr->getMesh(MEDIA + "sydney.md2");
@@ -153,12 +153,26 @@ namespace graphique
                 }
             }
 
+            bool draw() {
+                this->loadCharacterList();
+                this->drawAll();
+                return true;
+            }
+
             bool addCharacter(
                 irr::IrrlichtDevice *device,
                 business::ICharacterEntity *characterEntity
             ){
                 ICharacter *entity = graphique::CharacterFactory::createEntity(device, characterEntity);
                 this->characterList->addElement(entity);
+            }
+
+            bool buildAll() {
+                TList<ICharacter>* L = this->characterList;
+                for(int i = 0; i < L->size(); i++) {
+                    L->getElement(i)->build();
+                }
+                return true;
             }
 
             bool drawAll() {

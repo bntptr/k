@@ -2,7 +2,7 @@
 #define VIEW_KEYBOARD_2D_SERVICE_H
 
 #include "../KeyboardService.h"
-#include "../KeyboardFactory.h"
+#include "Keyboard2dFactory.h"
 
 namespace graphique
 {
@@ -10,8 +10,8 @@ namespace graphique
     {
         public:
             Keyboard2dService(IView *view) : KeyboardService(view){
-                //this->thisInstance = this;
-                //this->keyboard = KeyboardFactory::createEntity(view);
+                this->thisInstance = this;
+                this->keyboard = Keyboard2dFactory::createEntity(view);
             };
             ~Keyboard2dService(){};
     };

@@ -130,9 +130,6 @@ namespace graphique
         } else {
             std::cout << GraphiqueInfoNames[key] << " non trouvé " << this->keyMap->getSize() << std::endl;
         }
-                int choice;
-                std::cout << "iciEEE" << std::endl;
-                std::cin >> choice;
     }
 
     bool GraphiqueEngine::onEvent(EGRAPHIQUE event) {

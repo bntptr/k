@@ -35,6 +35,10 @@ namespace graphique
                 return this->sky->setShowBox(showBox);
             }
 
+            bool build() {
+                return this->sky->build();
+            }
+
             bool draw() {
                 return this->sky->draw();
             }

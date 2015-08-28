@@ -48,7 +48,7 @@ namespace graphique
                 return this->showBox = showBox;
             }
 
-            bool draw() {
+            bool build() {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -75,6 +75,10 @@ namespace graphique
 
                 this->skybox->setVisible(true);
                 this->skydome->setVisible(false);
+            }
+
+            bool draw() {
+                return true;
             }
 
             bool onEvent(EACTIONEVENT event) {

@@ -115,11 +115,11 @@ namespace graphique
 
                 business::ISkyEntity *skyEntity = entity->getSky();
                 this->sky = SkyServiceFactory::createService(this->device, skyEntity);
-                this->sky->draw();
+                this->sky->build();
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
                 this->population = PopulationServiceFactory::createService(this->device, populationEntity);
-                this->population->draw();
+                this->population->build();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
                 this->building = BuildingServiceFactory::createService(this->device, buildingEntity);

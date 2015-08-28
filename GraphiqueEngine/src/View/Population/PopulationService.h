@@ -41,6 +41,16 @@ namespace graphique
                 return this->population->addCharacter(device, characterEntity);
             }
 
+            /**
+             * Non utilisé à ce niveau
+             */
+            bool buildAll() {
+                return this->population->buildAll();
+            }
+
+            /**
+             * Non utilisé à ce niveau
+             */
             bool drawAll() {
                 return this->population->drawAll();
             }

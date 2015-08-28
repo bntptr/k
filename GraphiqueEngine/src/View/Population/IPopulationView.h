@@ -15,8 +15,10 @@ namespace graphique
             IPopulationView(){};
             virtual ~IPopulationView(){};
 
+            virtual bool loadCharacterList()=0;
             virtual bool build()=0;
             virtual bool draw()=0;
+            virtual bool buildAll()=0;
             virtual bool drawAll()=0;
 
             virtual bool addCharacter(
