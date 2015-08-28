@@ -15,6 +15,8 @@ namespace graphique
 
             virtual bool build()=0;
             virtual bool onEvent(EACTIONEVENT event)=0;
+
+            virtual business::IBuildingEntity* getBuildingEntity()=0;
     };
 } // graphique
 

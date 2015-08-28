@@ -86,6 +86,10 @@ namespace graphique
                 }
                 return true;
             }
+
+            business::ISkyEntity* getSkyEntity() {
+                return this->skyEntity;
+            }
     };
 } // graphique
 

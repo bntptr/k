@@ -12,6 +12,8 @@ namespace graphique
             virtual ~IBuildingService(){};
 
             virtual bool build()=0;
+
+            virtual IBuildingEntity* getBuildingView()=0;
     };
 }
 

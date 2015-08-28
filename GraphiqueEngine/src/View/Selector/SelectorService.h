@@ -56,7 +56,7 @@ namespace graphique
                 int id = view->getCursorService()->getSelectedSceneNodeId();std::cout <<"id selected "<< id <<std::endl;
                 if (0 < id) {
                     this->resetCursorLeft();
-                    IObjectView *obj = view->getPopulation()->getObjectViewFromId(id);if (obj) {std::cout <<"obj " <<std::endl;}else{std::cout <<"not obj" <<std::endl;}
+                    IObjectView *obj = view->getPopulationService()->getObjectViewFromId(id);if (obj) {std::cout <<"obj " <<std::endl;}else{std::cout <<"not obj" <<std::endl;}
                     this->addToCursorLeft(obj);
                 } else {
                     this->resetCursorLeft();

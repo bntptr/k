@@ -173,6 +173,10 @@ namespace graphique
                 IObjectView *objectView = this->characterList->begin();
                 return objectView;
             }
+
+            business::IPopulationEntity* getPopulationEntity() {
+                return this->populationEntity;
+            }
     };
 } // graphique
 

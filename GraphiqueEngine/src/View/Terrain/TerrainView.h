@@ -172,6 +172,10 @@ namespace graphique
                 }
                 return true;
             }
+
+            business::IGroundEntity* getGroundEntity() {
+                return this->ground;
+            }
     };
 } // graphique
 

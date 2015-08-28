@@ -50,6 +50,9 @@ namespace graphique
                 this->selector = new SelectorService();
                 this->mode = EVIEW_MODE_EDITOR;
             }
+            View(TMap<EVIEW, IAction>* keyMap, IView *view) {
+                std::cout << "constructeur à ne pas utiliser" << std::endl;
+            }
             ~View(){};
 
             /**
@@ -180,7 +183,7 @@ namespace graphique
                 {
                     driver->beginScene(true, true, 0 );
 
-                    this->camera->draw(this->getTerrain(), this->getPopulation());
+                    this->camera->draw(this->getTerrainService(), this->getPopulationService());
                     smgr->drawAll();
                     env->drawAll();
                     this->cursor->draw();
@@ -198,7 +201,7 @@ namespace graphique
                         // Also print terrain height of current camera position
                         // We can use camera position because terrain is located at coordinate origin
                         str += " Height: ";
-                        str += terrain->getTerrain()->getHeight(camera->getCameraSceneNode()->getAbsolutePosition().X,
+                        str += terrain->getTerrainSceneNode()->getHeight(camera->getCameraSceneNode()->getAbsolutePosition().X,
                                 camera->getCameraSceneNode()->getAbsolutePosition().Z);
 
                         device->setWindowCaption(str.c_str());
@@ -244,7 +247,7 @@ namespace graphique
                 return this->camera;
             }
 
-            ITerrainService *getTerrain() {
+            ITerrainService *getTerrainService() {
                 return this->terrain;
             }
 
@@ -252,7 +255,7 @@ namespace graphique
                 return this->sky;
             }
 
-            IPopulationService *getPopulation() {
+            IPopulationService *getPopulationService() {
                 return this->population;
             }
 

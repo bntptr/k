@@ -53,6 +53,14 @@
 			<Add directory="./lib" />
 		</Linker>
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Action/Actions.h" />
+		<Unit filename="src/Action/EGraphique.h" />
+		<Unit filename="src/Action/IGraphiqueAction.h" />
+		<Unit filename="src/Action/LoadEditor.h" />
+		<Unit filename="src/Action/LoadLoading.h" />
+		<Unit filename="src/Action/LoadMenu.h" />
+		<Unit filename="src/Action/LoadView2d.h" />
+		<Unit filename="src/Action/LoadView3d.h" />
 		<Unit filename="src/Business/Accessories/AccessoryEntity.h" />
 		<Unit filename="src/Business/Accessories/AccessoryFactory.h" />
 		<Unit filename="src/Business/Accessories/AccessoryService.h" />
@@ -141,6 +149,10 @@
 		<Unit filename="src/View/Camera/Camera.h" />
 		<Unit filename="src/View/Camera/Camera/2D.h" />
 		<Unit filename="src/View/Camera/Camera/Camera2dFactory.h" />
+		<Unit filename="src/View/Camera/Camera/Camera2dService.h" />
+		<Unit filename="src/View/Camera/Camera/Camera2dServiceFactory.h" />
+		<Unit filename="src/View/Camera/Camera/Camera3dService.h" />
+		<Unit filename="src/View/Camera/Camera/Camera3dServiceFactory.h" />
 		<Unit filename="src/View/Camera/Camera/CameraEditorFactory.h" />
 		<Unit filename="src/View/Camera/Camera/CameraFPSFactory.h" />
 		<Unit filename="src/View/Camera/Camera/CameraRPGFactory.h" />
@@ -167,6 +179,8 @@
 		<Unit filename="src/View/Cursor/Action/IEmie.h" />
 		<Unit filename="src/View/Cursor/Button/IMouseButton.h" />
 		<Unit filename="src/View/Cursor/Button/MouseButton.h" />
+		<Unit filename="src/View/Cursor/Cursor/Cursor2dService.h" />
+		<Unit filename="src/View/Cursor/Cursor/Cursor2dServiceFactory.h" />
 		<Unit filename="src/View/Cursor/CursorConfig.h" />
 		<Unit filename="src/View/Cursor/CursorEntity.h" />
 		<Unit filename="src/View/Cursor/CursorFactory.h" />
@@ -175,6 +189,8 @@
 		<Unit filename="src/View/Cursor/ICursorEntity.h" />
 		<Unit filename="src/View/Cursor/ICursorService.h" />
 		<Unit filename="src/View/Environnement/Environnement.h" />
+		<Unit filename="src/View/Environnement/Environnement/Environnement2dService.h" />
+		<Unit filename="src/View/Environnement/Environnement/Environnement2dServiceFactory.h" />
 		<Unit filename="src/View/Environnement/EnvironnementFactory.h" />
 		<Unit filename="src/View/Environnement/EnvironnementService.h" />
 		<Unit filename="src/View/Environnement/EnvironnementServiceFactory.h" />
@@ -207,6 +223,8 @@
 		<Unit filename="src/View/Keyboard/IKeyboard.h" />
 		<Unit filename="src/View/Keyboard/IKeyboardService.h" />
 		<Unit filename="src/View/Keyboard/Keyboard.h" />
+		<Unit filename="src/View/Keyboard/Keyboard/Keyboard2dService.h" />
+		<Unit filename="src/View/Keyboard/Keyboard/Keyboard2dServiceFactory.h" />
 		<Unit filename="src/View/Keyboard/Keyboard/KeyboardEditor.h" />
 		<Unit filename="src/View/Keyboard/Keyboard/KeyboardEditorFactory.h" />
 		<Unit filename="src/View/Keyboard/KeyboardFactory.h" />
@@ -274,10 +292,15 @@
 		<Unit filename="src/View/Vegetal/VegetalServiceFactory.h" />
 		<Unit filename="src/View/View.cpp" />
 		<Unit filename="src/View/View.h" />
+		<Unit filename="src/View/View/View2d.h" />
+		<Unit filename="src/View/View/View2dFactory.h" />
+		<Unit filename="src/View/View/View3d.h" />
+		<Unit filename="src/View/View/View3dFactory.h" />
+		<Unit filename="src/View/View/ViewMenu.h" />
+		<Unit filename="src/View/View/ViewMenuFactory.h" />
 		<Unit filename="src/View/ViewConfig.h" />
 		<Unit filename="src/View/ViewFPS.h" />
 		<Unit filename="src/View/ViewFactory.h" />
-		<Unit filename="src/View/ViewInterface.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

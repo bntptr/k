@@ -38,9 +38,9 @@ namespace graphique
             virtual ICursorService *getCursorService()=0;
             virtual IKeyboardService *getKeyboardService()=0;
             virtual ICameraService *getCameraService()=0;
-            virtual ITerrainService *getTerrain()=0;
+            virtual ITerrainService *getTerrainService()=0;
             virtual ISkyService *getSkyService()=0;
-            virtual IPopulationService *getPopulation()=0;
+            virtual IPopulationService *getPopulationService()=0;
             virtual IBuildingService *getBuildingService()=0;
     };
 } // graphique

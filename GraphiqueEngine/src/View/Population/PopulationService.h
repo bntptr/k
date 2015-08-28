@@ -48,6 +48,10 @@ namespace graphique
             IObjectView* getCharacterFromPlayer(){
                 return this->population->getCharacterFromPlayer();
             }
+
+            IPopulationView* getPopulationView() {
+                return this->population;
+            }
     };
 } // business
 

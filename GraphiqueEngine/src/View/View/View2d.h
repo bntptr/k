@@ -15,6 +15,32 @@ namespace graphique
     {
         public:
             View2d(TMap<EVIEW, IAction>* keyMap) : View(keyMap) {}
+            View2d(TMap<EVIEW, IAction>* keyMap, IView *view) : View(keyMap, view){
+                this->thisInstance = this;
+                this->keyMap = keyMap;
+                this->selector = new SelectorService();
+                this->mode = EVIEW_MODE_2D;
+
+                this->terrain = TerrainServiceFactory::createService(
+                    this->device,
+                    view->getTerrainService()->getTerrainView()->getGroundEntity()
+                );
+
+                this->sky = SkyServiceFactory::createService(
+                    this->device,
+                    view->getSkyService()->getSkyView()->getSkyEntity()
+                );
+
+                this->population = PopulationServiceFactory::createService(
+                    this->device,
+                    view->getPopulationService()->getPopulationView()->getPopulationEntity()
+                );
+
+                this->building = BuildingServiceFactory::createService(
+                    this->device,
+                    view->getBuildingService()->getBuildingView()->getBuildingEntity()
+                );
+            }
             ~View2d(){};
 
             /**
@@ -38,6 +64,18 @@ namespace graphique
                 this->cursor->setCameraService(this->camera);
 
                 this->buildGame(business);
+                return 0;
+            }
+
+            /**
+             * Construction de tous les éléments de la scène graphique
+             */
+            int buildGame(business::BusinessInterface *business) {
+                std::cout << "build game 2d !" << std::endl;
+                // selection par default pour les tests
+                IObjectView *obj = this->population->getCharacterFromPlayer();
+                this->selector->addToCursorLeft(obj);
+                //business::IPlayerEntity *player = entity->getPlayer();
                 return 0;
             }
     };

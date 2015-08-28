@@ -68,6 +68,10 @@ namespace graphique
                 }
                 return true;
             }
+
+            business::IBuildingEntity* getBuildingEntity() {
+                return this->buildingEntity;
+            }
     };
 } // graphique
 

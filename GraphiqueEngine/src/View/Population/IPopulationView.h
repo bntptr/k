@@ -26,6 +26,8 @@ namespace graphique
 
             virtual IObjectView* getCharacterFromPlayer()=0;
             virtual IObjectView* getObjectViewFromId(int id)=0;
+
+            virtual business::IPopulationEntity* getPopulationEntity()=0;
     };
 } // graphique
 

@@ -19,7 +19,7 @@ namespace graphique
             };
             ~TerrainService(){};
 
-            scene::ITerrainSceneNode* getTerrain(){
+            scene::ITerrainSceneNode* getTerrainSceneNode(){
                 return this->terrain->getTerrain();
             }
 
@@ -33,6 +33,10 @@ namespace graphique
 
             bool onEvent(EACTIONEVENT event) {
                 return this->terrain->onEvent(event);
+            }
+
+            ITerrainView* getTerrainView() {
+                return this->terrain;
             }
     };
 } // business

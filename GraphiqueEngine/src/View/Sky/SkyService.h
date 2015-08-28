@@ -42,6 +42,10 @@ namespace graphique
             bool onEvent(EACTIONEVENT event) {
                 return this->sky->onEvent(event);
             }
+
+            ISkyView* getSkyView() {
+                return this->sky;
+            }
     };
 } // business
 

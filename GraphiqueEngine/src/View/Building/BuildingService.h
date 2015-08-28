@@ -26,6 +26,10 @@ namespace graphique
             bool onEvent(EACTIONEVENT event) {
                 return this->building->onEvent(event);
             }
+
+            IBuildingEntity* getBuildingView() {
+                return this->building;
+            }
     };
 } // business
 
