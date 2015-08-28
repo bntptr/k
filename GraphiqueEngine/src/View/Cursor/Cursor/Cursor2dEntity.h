@@ -19,6 +19,11 @@ namespace graphique
             //clic
             bool clicg;
             bool clicd;
+            //color
+            video::SColor colorCursorDefault;
+            video::SColor colorCursorAction;
+            video::SColor colorLeft;
+            video::SColor colorRight;
         public:
             Cursor2dEntity(
                 irr::IrrlichtDevice *device,
@@ -32,6 +37,10 @@ namespace graphique
                 this->Y = 0;
                 this->clicg = false;
                 this->clicd = false;
+                this->colorLeft.set(100,200,100,255);
+                this->colorRight.set(200,255,100,100);
+                this->colorCursorDefault.set(100,200,200,200);
+                this->colorCursorAction.set(100,255,100,0);
             };
             ~Cursor2dEntity(){};
 
@@ -45,7 +54,7 @@ namespace graphique
                     if (this->x > this->X) {
                         if (this->y > this->Y) {
                             driver->draw2DRectangle(
-                                video::SColor(100,200,100,255),
+                                this->colorLeft,
                                 core::rect<s32>(
                                     this->X,
                                     this->Y,
@@ -55,7 +64,7 @@ namespace graphique
                             );
                         } else {
                             driver->draw2DRectangle(
-                                video::SColor(100,200,100,255),
+                                this->colorLeft,
                                 core::rect<s32>(
                                     this->X,
                                     this->y,
@@ -67,7 +76,7 @@ namespace graphique
                     } else {
                         if (this->y > this->Y) {
                             driver->draw2DRectangle(
-                                video::SColor(100,200,100,255),
+                                this->colorLeft,
                                 core::rect<s32>(
                                     this->x,
                                     this->Y,
@@ -77,7 +86,7 @@ namespace graphique
                             );
                         } else {
                             driver->draw2DRectangle(
-                                video::SColor(100,200,100,255),
+                                this->colorLeft,
                                 core::rect<s32>(
                                     this->x,
                                     this->y,
@@ -93,7 +102,7 @@ namespace graphique
                     if (this->x > this->X) {
                         if (this->y > this->Y) {
                             driver->draw2DRectangle(
-                                video::SColor(200,255,100,100),
+                                this->colorRight,
                                 core::rect<s32>(
                                     this->X,
                                     this->Y,
@@ -103,7 +112,7 @@ namespace graphique
                             );
                         } else {
                             driver->draw2DRectangle(
-                                video::SColor(200,255,100,100),
+                                this->colorRight,
                                 core::rect<s32>(
                                     this->X,
                                     this->y,
@@ -115,7 +124,7 @@ namespace graphique
                     } else {
                         if (this->y > this->Y) {
                             driver->draw2DRectangle(
-                                video::SColor(200,255,100,100),
+                                this->colorRight,
                                 core::rect<s32>(
                                     this->x,
                                     this->Y,
@@ -125,7 +134,7 @@ namespace graphique
                             );
                         } else {
                             driver->draw2DRectangle(
-                                video::SColor(200,255,100,100),
+                                this->colorRight,
                                 core::rect<s32>(
                                     this->x,
                                     this->y,
@@ -143,14 +152,18 @@ namespace graphique
                     case CURSOR_CREER_UNITE:
                         // draw transparent rect under cursor
                         //core::position2d<s32> m = device->getCursorControl()->getPosition();
-                        driver->draw2DRectangle(video::SColor(100,255,100,0),
-                        core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20));
+                        driver->draw2DRectangle(
+                            this->colorCursorAction,
+                            core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20)
+                        );
                         break;
                     default:
                         // draw transparent rect under cursor
                         //core::position2d<s32> m = device->getCursorControl()->getPosition();
-                        driver->draw2DRectangle(video::SColor(100,200,200,200),
-                        core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20));
+                        driver->draw2DRectangle(
+                            this->colorCursorDefault,
+                            core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20)
+                        );
                         break;
                 }
             }
