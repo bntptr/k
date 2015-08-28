@@ -129,9 +129,9 @@ namespace graphique
                 }
             }
 
-            bool draw() {
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
                 using namespace irr;
-                std::cout <<"hello ninja !" << std::endl;
+                //std::cout <<"hello ninja !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 config->load();
                 const io::path MEDIA = config->getMediaPath();

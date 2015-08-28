@@ -153,9 +153,9 @@ namespace graphique
                 }
             }
 
-            bool draw() {
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
                 this->loadCharacterList();
-                this->drawAll();
+                this->drawAll(cameraPosition, cameraScale);
                 return true;
             }
 
@@ -175,10 +175,10 @@ namespace graphique
                 return true;
             }
 
-            bool drawAll() {
+            bool drawAll(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
                 TList<ICharacter>* L = this->characterList;
                 for(int i = 0; i < L->size(); i++) {
-                    L->getElement(i)->draw();
+                    L->getElement(i)->draw(cameraPosition, cameraScale);
                 }
                 return true;
             }

@@ -101,7 +101,7 @@ namespace graphique
                 smgr->setActiveCamera(this->cameras[3]);*/
 
                 terrain->draw(this->getPosition(), this->getScale());
-                population->draw();
+                population->draw(this->getPosition(), this->getScale());
             }
 
             business::Vector3d getPosition(){

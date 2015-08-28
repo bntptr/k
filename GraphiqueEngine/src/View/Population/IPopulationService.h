@@ -12,9 +12,9 @@ namespace graphique
             virtual ~IPopulationService(){};
 
             virtual bool build()=0;
-            virtual bool draw()=0;
+            virtual bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale)=0;
             virtual bool buildAll()=0;
-            virtual bool drawAll()=0;
+            virtual bool drawAll(business::Vector3d cameraPosition, business::Vector3d cameraScale)=0;
 
             virtual bool addCharacter(
                 irr::IrrlichtDevice *device,

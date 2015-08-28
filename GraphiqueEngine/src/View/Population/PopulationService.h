@@ -30,8 +30,8 @@ namespace graphique
                 return this->population->build();
             }
 
-            bool draw() {
-                return this->population->draw();
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
+                return this->population->draw(cameraPosition, cameraScale);
             }
 
             bool addCharacter(
@@ -51,8 +51,8 @@ namespace graphique
             /**
              * Non utilisé à ce niveau
              */
-            bool drawAll() {
-                return this->population->drawAll();
+            bool drawAll(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
+                return this->population->drawAll(cameraPosition, cameraScale);
             }
 
             IObjectView* getCharacterFromPlayer(){

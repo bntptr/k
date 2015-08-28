@@ -6,4 +6,11 @@ enum
     CURSOR_2D_VISIBLE = false,
 };
 
+//! etat du curseur
+enum
+{
+    CURSOR_DEFAULT = 100,
+    CURSOR_CREER_UNITE,
+};
+
 #endif;

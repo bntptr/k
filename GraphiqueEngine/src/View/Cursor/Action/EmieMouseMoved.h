@@ -12,11 +12,6 @@ namespace graphique
             virtual ~EmieMouseMoved(){};
 
             int execute(IView *view) {
-                        /*MouseState.Position.X = event.MouseInput.X;
-                        MouseState.Position.Y = event.MouseInput.Y;
-                        cursor->setX(event.MouseInput.X); //si marche pas utiliser "core::position2di Position;" dans MyCursor
-                        cursor->setY(event.MouseInput.Y);
-                        cursor->run();*/
                 return 0;
             }
     };

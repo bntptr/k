@@ -166,6 +166,7 @@ namespace graphique
 
             ICursorEntity* execute(irr::EMOUSE_INPUT_EVENT key) {
                 IEmie *k = this->keyMap->get(key);
+
                 if (k) {
                     k->execute(this->view);
                 }

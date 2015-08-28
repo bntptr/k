@@ -53,7 +53,7 @@ const char* const TEXTURE2DInfoNames[] =
          "Texture/Texture2d/2ddemo.png",
          "Texture/Texture2d/2ddemo.png",
          "Texture/Texture2d/2ddemo.png",
-         "",
+         "Texture/Texture2d/2ddemo.png",
          "gun.jpg",
          "Texture/Texture2d/2ddemo.png",
          "Terrain/Texture2d/prairie.png",

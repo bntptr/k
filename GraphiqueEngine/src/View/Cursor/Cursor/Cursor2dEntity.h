@@ -10,14 +10,150 @@ namespace graphique
     {
         protected:
             IObjectView* selectedObjectView;
+            int etat;
+            //rectangle de sélection
+            int x;
+            int y;
+            int X;
+            int Y;
+            //clic
+            bool clicg;
+            bool clicd;
         public:
             Cursor2dEntity(
                 irr::IrrlichtDevice *device,
                 IView *view,
                 TMap<irr::EMOUSE_INPUT_EVENT, IEmie>* keyMap
             ) : CursorEntity (device, view, keyMap){
+                this->etat = CURSOR_DEFAULT;
+                this->x = 0;
+                this->y = 0;
+                this->X = 0;
+                this->Y = 0;
+                this->clicg = false;
+                this->clicd = false;
             };
             ~Cursor2dEntity(){};
+
+            //affiche()
+            void affiche(){
+
+                using namespace irr;
+                video::IVideoDriver* driver = device->getVideoDriver();
+
+                if (this->clicg) {
+                    if (this->x > this->X) {
+                        if (this->y > this->Y) {
+                            driver->draw2DRectangle(
+                                video::SColor(100,200,100,255),
+                                core::rect<s32>(
+                                    this->X,
+                                    this->Y,
+                                    this->x,
+                                    this->y
+                                )
+                            );
+                        } else {
+                            driver->draw2DRectangle(
+                                video::SColor(100,200,100,255),
+                                core::rect<s32>(
+                                    this->X,
+                                    this->y,
+                                    this->x,
+                                    this->Y
+                                )
+                            );
+                        }
+                    } else {
+                        if (this->y > this->Y) {
+                            driver->draw2DRectangle(
+                                video::SColor(100,200,100,255),
+                                core::rect<s32>(
+                                    this->x,
+                                    this->Y,
+                                    this->X,
+                                    this->y
+                                )
+                            );
+                        } else {
+                            driver->draw2DRectangle(
+                                video::SColor(100,200,100,255),
+                                core::rect<s32>(
+                                    this->x,
+                                    this->y,
+                                    this->X,
+                                    this->Y
+                                )
+                            );
+                        }
+                    }
+                    //driver->draw2DRectangle(video::SColor(100,200,100,255),core::rect<s32>(cursor->x, cursor->y, cursor->X, cursor->Y));
+                }
+                if (this->clicd) {
+                    if (this->x > this->X) {
+                        if (this->y > this->Y) {
+                            driver->draw2DRectangle(
+                                video::SColor(200,255,100,100),
+                                core::rect<s32>(
+                                    this->X,
+                                    this->Y,
+                                    this->x,
+                                    this->y
+                                )
+                            );
+                        } else {
+                            driver->draw2DRectangle(
+                                video::SColor(200,255,100,100),
+                                core::rect<s32>(
+                                    this->X,
+                                    this->y,
+                                    this->x,
+                                    this->Y
+                                )
+                            );
+                        }
+                    } else {
+                        if (this->y > this->Y) {
+                            driver->draw2DRectangle(
+                                video::SColor(200,255,100,100),
+                                core::rect<s32>(
+                                    this->x,
+                                    this->Y,
+                                    this->X,
+                                    this->y
+                                )
+                            );
+                        } else {
+                            driver->draw2DRectangle(
+                                video::SColor(200,255,100,100),
+                                core::rect<s32>(
+                                    this->x,
+                                    this->y,
+                                    this->X,
+                                    this->Y
+                                )
+                            );
+                        }
+                    }
+                }
+
+                core::position2d<s32> m = device->getCursorControl()->getPosition();
+                //Type de cursor
+                switch(this->etat) {
+                    case CURSOR_CREER_UNITE:
+                        // draw transparent rect under cursor
+                        //core::position2d<s32> m = device->getCursorControl()->getPosition();
+                        driver->draw2DRectangle(video::SColor(100,255,100,0),
+                        core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20));
+                        break;
+                    default:
+                        // draw transparent rect under cursor
+                        //core::position2d<s32> m = device->getCursorControl()->getPosition();
+                        driver->draw2DRectangle(video::SColor(100,200,200,200),
+                        core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20));
+                        break;
+                }
+            }
 
             bool build() {
                 std::cout << "Rien car 2D" << std::endl;
@@ -36,61 +172,10 @@ namespace graphique
 
                 driver->draw2DRectangle(
                     video::SColor(100,200,100,255),
-                    core::rect<s32>(0, 0, 100, 100)
+                    core::rect<s32>(this->x, this->y, this->X, this->Y)
                 );
+                this->affiche();
 
-        /*
-    if(this->clicg){
-                      if(this->x>this->X){
-                                              if(this->y>this->Y){
-                                                                      prt->driver->draw2DRectangle(video::SColor(100,200,100,255),core::rect<s32>(this->X, this->Y, this->x, this->y));
-                                                                      }else{
-                                                                            prt->driver->draw2DRectangle(video::SColor(100,200,100,255),core::rect<s32>(this->X, this->y, this->x, this->Y));
-                                                                            }
-                                              }else{
-                                                    if(this->y>this->Y){
-                                                                            prt->driver->draw2DRectangle(video::SColor(100,200,100,255),core::rect<s32>(this->x, this->Y, this->X, this->y));
-                                                                            }else{
-                                                                                  prt->driver->draw2DRectangle(video::SColor(100,200,100,255),core::rect<s32>(this->x, this->y, this->X, this->Y));
-                                                                                  }
-                                                    }
-               //driver->draw2DRectangle(video::SColor(100,200,100,255),core::rect<s32>(cursor->x, cursor->y, cursor->X, cursor->Y));
-               }
-    if(this->clicd){
-                      if(this->x>this->X){
-                                              if(this->y>this->Y){
-                                                                      prt->driver->draw2DRectangle(video::SColor(200,255,100,100),core::rect<s32>(this->X, this->Y, this->x, this->y));
-                                                                      }else{
-                                                                            prt->driver->draw2DRectangle(video::SColor(200,255,100,100),core::rect<s32>(this->X, this->y, this->x, this->Y));
-                                                                            }
-                                              }else{
-                                                    if(this->y>this->Y){
-                                                                            prt->driver->draw2DRectangle(video::SColor(200,255,100,100),core::rect<s32>(this->x, this->Y, this->X, this->y));
-                                                                            }else{
-                                                                                  prt->driver->draw2DRectangle(video::SColor(200,255,100,100),core::rect<s32>(this->x, this->y, this->X, this->Y));
-                                                                                  }
-                                                    }
-
-
-               }
-
-    core::position2d<s32> m = prt->device->getCursorControl()->getPosition();
-    //Type de cursor
-    switch(this->etat){
-                         case CURSOR_CREER_UNITE:
-                              // draw transparent rect under cursor
-                              //core::position2d<s32> m = device->getCursorControl()->getPosition();
-                              prt->driver->draw2DRectangle(video::SColor(100,255,100,0),
-                              core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20)); break;
-                         default:
-                                  // draw transparent rect under cursor
-                              //core::position2d<s32> m = device->getCursorControl()->getPosition();
-                              prt->driver->draw2DRectangle(video::SColor(100,200,200,200),
-                              core::rect<s32>(m.X-20, m.Y-20, m.X+20, m.Y+20));break;
-                         }
-
-                     //}
-*/
                 return true;
             }
 
@@ -100,11 +185,6 @@ namespace graphique
                     k->execute(this->view);
                 }
                 return this->thisInstance;
-            }
-
-            bool onEvent(const irr::SEvent& event) {
-                this->execute(event.MouseInput.Event);
-                return true;
             }
 
             irr::scene::ITriangleSelector* getSelector() {
@@ -130,6 +210,85 @@ namespace graphique
 
             IMouseButton* getRight() {
                 return this->right;
+            }
+
+            //Général
+            int think(){
+                if (this->left->isDown()) {
+                    if (!clicg) {
+                        x = X;
+                        y = Y;
+                        clicg = true;
+                    }
+                    return 0;
+                }
+                if (this->right->isDown()) {
+                    if (!clicd) {
+                        x = X;
+                        y = Y;
+                        clicd = true;
+                    }
+                    return 0;
+                }
+                if ((!this->left->isDown()) && (clicg)) {
+                    if ((x == X)&&( y== Y)) {
+                        switch(etat) {
+                            //case CURSOR_CREER_UNITE: joueur->addUnite(new Unite(x, y)); resetEtat(); break;
+                            case CURSOR_CREER_UNITE:
+                            //prt->vue2d->positionnerUnite(x, y, 0); resetEtat();
+                                break;
+                            default:
+                                //s->actualiseSelect(x, y);
+                                break;
+                        }
+                    } else {
+                        switch(this->etat) {
+                            case CURSOR_CREER_UNITE:
+                                //resetEtat();
+                                break;
+                            default:
+                                //s->actualiseSelect(x, y, X, Y);
+                                break;
+                        }
+                    }
+                    clicg = false;
+                    return 0;
+                }
+
+                if ((!this->right->isDown()) && (clicd)){
+                    if((x == X) && (y == Y)) {
+                        switch(this->etat) {
+                            case CURSOR_CREER_UNITE:
+                                //resetEtat();
+                                break;
+                            default:
+                                //s->objectifSelect(x, y);
+                                break;
+                        }
+                    } else {
+                        switch(this->etat){
+                            case CURSOR_CREER_UNITE:
+                                //resetEtat();
+                                break;
+                            default:
+                                //s->objectifSelect(x, y, X, Y);
+                                break;
+                        }
+                    }
+                    clicd = false;
+                    return 0;
+                }
+                return -1;
+            }
+
+            bool onEvent(const irr::SEvent& event) {
+                if (irr::EMIE_MOUSE_MOVED == event.MouseInput.Event) {
+                    this->X = event.MouseInput.X; //si marche pas utiliser "core::position2di Position;" dans MyCursor
+                    this->Y = event.MouseInput.Y;
+                    this->think();
+                }
+                this->execute(event.MouseInput.Event);
+                return true;
             }
     };
 } // graphique

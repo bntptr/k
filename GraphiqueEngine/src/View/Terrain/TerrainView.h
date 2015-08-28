@@ -126,7 +126,7 @@ namespace graphique
              * Actif en cas de camera 2d
              */
             bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
-                std::cout <<"draw Terrain!" << std::endl;
+                //std::cout <<"draw Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 

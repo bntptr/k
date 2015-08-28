@@ -54,6 +54,7 @@
 		</Linker>
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Action/Actions.h" />
+		<Unit filename="src/Action/Close.h" />
 		<Unit filename="src/Action/EGraphique.h" />
 		<Unit filename="src/Action/IGraphiqueAction.h" />
 		<Unit filename="src/Action/LoadEditor.h" />
@@ -179,6 +180,9 @@
 		<Unit filename="src/View/Cursor/Action/IEmie.h" />
 		<Unit filename="src/View/Cursor/Button/IMouseButton.h" />
 		<Unit filename="src/View/Cursor/Button/MouseButton.h" />
+		<Unit filename="src/View/Cursor/Cursor/Cursor2dConfig.h" />
+		<Unit filename="src/View/Cursor/Cursor/Cursor2dEntity.h" />
+		<Unit filename="src/View/Cursor/Cursor/Cursor2dFactory.h" />
 		<Unit filename="src/View/Cursor/Cursor/Cursor2dService.h" />
 		<Unit filename="src/View/Cursor/Cursor/Cursor2dServiceFactory.h" />
 		<Unit filename="src/View/Cursor/CursorConfig.h" />
@@ -223,6 +227,8 @@
 		<Unit filename="src/View/Keyboard/IKeyboard.h" />
 		<Unit filename="src/View/Keyboard/IKeyboardService.h" />
 		<Unit filename="src/View/Keyboard/Keyboard.h" />
+		<Unit filename="src/View/Keyboard/Keyboard/Keyboard2d.h" />
+		<Unit filename="src/View/Keyboard/Keyboard/Keyboard2dFactory.h" />
 		<Unit filename="src/View/Keyboard/Keyboard/Keyboard2dService.h" />
 		<Unit filename="src/View/Keyboard/Keyboard/Keyboard2dServiceFactory.h" />
 		<Unit filename="src/View/Keyboard/Keyboard/KeyboardEditor.h" />
