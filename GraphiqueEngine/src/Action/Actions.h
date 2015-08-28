@@ -5,3 +5,4 @@
 #include "LoadMenu.h"
 #include "LoadView2d.h"
 #include "LoadView3d.h"
+#include "Close.h"

@@ -143,11 +143,13 @@ namespace graphique
                 business::Vector3d scale = this->ground->getScale();
 
                 ETEXTURE code_texture = this->ground->getTexture();
-                terrain->setMaterialTexture(0,
-                        driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture]));
+                std::cout << TEXTURE2DInfoNames[code_texture] << std::endl;
+                //terrain->setMaterialTexture(0,
+                //    driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture])
+                //);
 
                 driver->draw2DImage(
-                    driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture]),
+                    driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture]),
                     core::position2d<s32>(0,40), //<<là début del'affichage
                     //core::rect<s32>(0,0,512,384), 0,
                     core::rect<s32>(

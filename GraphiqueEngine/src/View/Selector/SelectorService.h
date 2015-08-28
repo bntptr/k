@@ -53,7 +53,8 @@ namespace graphique
             }
 
             ISelectorService* selectLeft(IView *view) {
-                int id = view->getCursorService()->getSelectedSceneNodeId();std::cout <<"id selected "<< id <<std::endl;
+                int id = view->getCursorService()->getSelectedSceneNodeId();
+                std::cout <<"id selected "<< id <<std::endl;
                 if (0 < id) {
                     this->resetCursorLeft();
                     IObjectView *obj = view->getPopulationService()->getObjectViewFromId(id);if (obj) {std::cout <<"obj " <<std::endl;}else{std::cout <<"not obj" <<std::endl;}

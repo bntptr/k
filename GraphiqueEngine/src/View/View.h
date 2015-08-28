@@ -25,6 +25,7 @@ namespace graphique
         protected:
             IView *thisInstance;
             EVIEW mode;
+            EGRAPHIQUE eventGraphique;
             irr::IrrlichtDevice *device;
             ViewEventReceiver *receiver;
             TMap<EVIEW, IAction>* keyMap;
@@ -49,9 +50,11 @@ namespace graphique
                 this->keyMap = keyMap;
                 this->selector = new SelectorService();
                 this->mode = EVIEW_MODE_EDITOR;
+                this->eventGraphique = EGRAPHIQUE_CLOSE;
             }
             View(TMap<EVIEW, IAction>* keyMap, IView *view) {
                 std::cout << "constructeur à ne pas utiliser" << std::endl;
+                this->eventGraphique = EGRAPHIQUE_CLOSE;
             }
             ~View(){};
 
@@ -191,7 +194,7 @@ namespace graphique
                     driver->endScene();
 
                     // display frames per second in window title
-                    int fps = driver->getFPS();
+                    /*int fps = driver->getFPS();
                     if (lastFPS != fps)
                     {
                         core::stringw str = L"Terrain Renderer - Irrlicht Engine [";
@@ -206,13 +209,19 @@ namespace graphique
 
                         device->setWindowCaption(str.c_str());
                         lastFPS = fps;
-                    }
+                    }*/
                 }
-                return EGRAPHIQUE_CLOSE;
+                return this->eventGraphique;
             }
 
             int exit() {
                 device->closeDevice();
+                return 0;
+            }
+
+            int exit(EGRAPHIQUE event) {
+                this->device->closeDevice();
+                this->eventGraphique = event;
                 return 0;
             }
 

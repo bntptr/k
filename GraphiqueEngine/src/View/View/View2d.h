@@ -51,7 +51,6 @@ namespace graphique
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
                 this->cursor = Cursor2dServiceFactory::createService(this->device, this);
-                this->cursor->build();
 
                 this->keyboard = Keyboard2dServiceFactory::createService(this);
 
@@ -69,9 +68,25 @@ namespace graphique
 
             /**
              * Construction de tous les éléments de la scène graphique
+             * Si on ne récupère pas le buildGame de la View d'avant cela n'a plus de sens [28/08/2015]
              */
             int buildGame(business::BusinessInterface *business) {
                 std::cout << "build game 2d !" << std::endl;
+                business::IBusinessEntity *entity = business->loadBusinessEntity();
+
+                business::IGroundEntity *ground = entity->getGround();
+                this->terrain = TerrainServiceFactory::createService(this->device, ground);
+
+                business::ISkyEntity *skyEntity = entity->getSky();
+                this->sky = SkyServiceFactory::createService(this->device, skyEntity);
+
+                business::IPopulationEntity *populationEntity = entity->getPopulation();
+                this->population = PopulationServiceFactory::createService(this->device, populationEntity);
+                this->population->build();
+
+                business::IBuildingEntity *buildingEntity = entity->getBuilding();
+                this->building = BuildingServiceFactory::createService(this->device, buildingEntity);
+
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();
                 this->selector->addToCursorLeft(obj);

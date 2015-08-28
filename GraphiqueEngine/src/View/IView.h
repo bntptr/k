@@ -27,6 +27,7 @@ namespace graphique
             virtual int build(business::BusinessInterface *business)=0;
             virtual EGRAPHIQUE run()=0;
             virtual int exit()=0;
+            virtual int exit(EGRAPHIQUE event)=0;
             virtual int drop()=0;
             virtual EVIEW getMode()=0;
 

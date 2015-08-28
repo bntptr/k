@@ -9,7 +9,7 @@ namespace graphique
     class Keyboard2dService : public KeyboardService
     {
         public:
-            Keyboard2dService(IView *view) : Keyboard2dService(view){
+            Keyboard2dService(IView *view) : KeyboardService(view){
                 //this->thisInstance = this;
                 //this->keyboard = KeyboardFactory::createEntity(view);
             };

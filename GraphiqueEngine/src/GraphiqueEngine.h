@@ -14,15 +14,19 @@ namespace graphique
             TMap<EGRAPHIQUE, IGraphiqueAction>* keyMap;
             business::BusinessInterface *business;
             IView *view;
+            bool active;
             //IController *controller;
         public:
             GraphiqueEngine() {
                 this->keyMap = new TMap<EGRAPHIQUE, IGraphiqueAction>();
+                this->active = true;
             };
             GraphiqueEngine(TMap<EGRAPHIQUE, IGraphiqueAction>* keyMap) {
                 this->keyMap = keyMap;
+                this->active = true;
             };
             ~GraphiqueEngine() {
+
             };
 
             /// OBSOLETE ? 27/08/2015
@@ -36,6 +40,9 @@ namespace graphique
             bool drop();
             bool start();
             bool exit();
+
+            bool isActive();
+            bool setActive(bool active);
 
             void execute(EGRAPHIQUE key);
             bool onEvent(EGRAPHIQUE event);
@@ -62,9 +69,16 @@ namespace graphique
 
     bool GraphiqueEngine::run()
     {
-        if (this->view) {
-            EGRAPHIQUE event = this->view->run();
-            this->onEvent(event);
+        while(this->isActive()) {
+            if (this->view) {
+                EGRAPHIQUE event = this->view->run();
+                this->onEvent(event);
+            } else {
+                std::cout << "Erreur View absente" << std::endl;
+                int choice;
+                std::cout << "iciEEE" << std::endl;
+                std::cin >> choice;
+            }
         }
         return true;
     }
@@ -72,13 +86,16 @@ namespace graphique
     bool GraphiqueEngine::exit()
     {
         if (this->view) {
-            //this->view->exit();
+            this->view->exit();
         }
         return true;
     }
 
     bool GraphiqueEngine::drop()
     {
+        if (this->view) {
+            this->view->drop();
+        }
         return true;
     }
 
@@ -110,12 +127,25 @@ namespace graphique
         IGraphiqueAction *k = this->keyMap->get(key);
         if (k) {
             k->execute(this);
+        } else {
+            std::cout << GraphiqueInfoNames[key] << " non trouvé " << this->keyMap->getSize() << std::endl;
         }
+                int choice;
+                std::cout << "iciEEE" << std::endl;
+                std::cin >> choice;
     }
 
     bool GraphiqueEngine::onEvent(EGRAPHIQUE event) {
         this->execute(event);
         return true;
+    }
+
+    bool GraphiqueEngine::isActive() {
+        return this->active;
+    }
+
+    bool GraphiqueEngine::setActive(bool active) {
+        return this->active = active;
     }
 }
 #endif // GRAPHIQUEENGINE_H

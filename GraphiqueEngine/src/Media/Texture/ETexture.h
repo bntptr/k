@@ -19,6 +19,9 @@ enum ETEXTURE
 	ETEXTURE_PENGUIN,
 	ETEXTURE_TERRAIN_DEFAULT,
 
+	//! Texture 2d .png
+	ETEXTURE_TERRAIN_2D_PRAIRIE,
+
 };
 
 /**
@@ -38,5 +41,24 @@ const char* const TEXTUREInfoNames[] =
          "terrain-texture-plat-riviere.jpg",
          0
 };
+
+/**
+ * Devrait être dans VIEW
+ */
+const char* const TEXTURE2DInfoNames[] =
+{
+         "nskinrd2.jpg",
+         "nskingr.jpg",
+         "nskinrd.jpg",
+         "nskinbl.jpg",
+         "faerie.bmp",
+         "sydney.bmp",
+         "",
+         "gun.jpg",
+         "Texture/penguin.jpg",
+         "Terrain/Texture2d/prairie.png",
+         0
+};
+
 #endif /* ETEXTURE_H_ */
 

@@ -14,7 +14,7 @@ namespace graphique
         public:
             Camera2D(irr::IrrlichtDevice *device, ICursorService *cursor) : Camera(device, cursor){
                 this->setPosition(business::Vector3d(0,0,0));
-                this->setScale(business::Vector3d(800,0,600));
+                this->setScale(business::Vector3d(1100,0,800));
             };
             ~Camera2D(){};
 

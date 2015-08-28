@@ -14,7 +14,8 @@ namespace graphique
                 keyMap->addElement(EGRAPHIQUE_VIEW_LOADING, new LoadLoading());
                 keyMap->addElement(EGRAPHIQUE_VIEW_2D, new LoadView2d());
                 keyMap->addElement(EGRAPHIQUE_VIEW_3D, new LoadView3d());
-                return new GraphiqueEngine();
+                keyMap->addElement(EGRAPHIQUE_CLOSE, new Close());
+                return new GraphiqueEngine(keyMap);
             }
     };
 } // graphique

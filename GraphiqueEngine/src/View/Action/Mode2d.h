@@ -2,6 +2,7 @@
 #define VIEW_MODE_2D_H
 
 #include "IAction.h"
+#include "../../Action/EGraphique.h"
 //#include "../View/View2dFactory.h"
 
 namespace graphique
@@ -13,8 +14,8 @@ namespace graphique
             virtual ~Mode2d(){};
 
             int execute(IView *view) {
-                view->exit();
-                view->drop();
+                view->exit(EGRAPHIQUE_VIEW_2D);
+                //view->drop();
                 //view = View2dFactory::createEntity();
                 //ICameraService *camera = view->getCameraService();
                 //camera->active2d();

@@ -9,7 +9,7 @@ Aides:
 
 #include <iostream>
 #include "kadriciellib.h"
-#include "src/GraphiqueEngine.h"
+#include "src/GraphiqueEngineFactory.h"
 #include "src/Business/BusinessService.h"
 #include "src/View/ViewFactory.h"
 #include "src/View/ViewFPS.h"
@@ -43,14 +43,12 @@ int main()
     business::BusinessInterface *business = new business::BusinessService();
     IView *view = ViewFactory::createEntity();
     cout << "GraphiqueEngine NOW !" << endl;
-    IGraphiqueEngine *engine = GraphiqueEngine::createEngine();
+    IGraphiqueEngine *engine = GraphiqueEngineFactory::createEngine();
     engine->setBusiness(business);
     engine->setView(view);
 
     engine->start();
     engine->run();
-    engine->exit();
-    engine->drop();
     cout << "[end]" << endl;
     return 0;
 }

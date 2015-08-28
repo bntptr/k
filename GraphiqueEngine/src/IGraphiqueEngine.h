@@ -18,6 +18,8 @@ namespace graphique
             virtual bool run()=0;
             virtual bool exit()=0;
             virtual bool drop()=0;
+            virtual bool isActive()=0;
+            virtual bool setActive(bool active)=0;
 
             virtual void execute(EGRAPHIQUE key)=0;
             virtual bool onEvent(EGRAPHIQUE event)=0;
