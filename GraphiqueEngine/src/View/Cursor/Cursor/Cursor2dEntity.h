@@ -244,11 +244,12 @@ namespace graphique
                     return 0;
                 }
                 if ((!this->left->isDown()) && (clicg)) {
-                    if ((x == X)&&( y== Y)) {
+                    if ((x == X) && (y== Y)) {
                         switch(etat) {
                             //case CURSOR_CREER_UNITE: joueur->addUnite(new Unite(x, y)); resetEtat(); break;
                             case CURSOR_CREER_UNITE:
-                            //prt->vue2d->positionnerUnite(x, y, 0); resetEtat();
+                            //prt->vue2d->positionnerUnite(x, y, 0);
+                            //resetEtat();
                                 break;
                             default:
                                 //s->actualiseSelect(x, y);
