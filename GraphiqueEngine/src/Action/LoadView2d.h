@@ -13,10 +13,6 @@ namespace graphique
             virtual ~LoadView2d(){};
 
             int execute(IGraphiqueEngine *engine) {
-                /*IView *sauv = engine->getView();
-                engine->setView(
-                    View2dFactory::createEntity(engine->getView())
-                );*/
                 std::cout << "LoadView2d" << std::endl;
                 engine->getView()->drop();
                 engine->setView(

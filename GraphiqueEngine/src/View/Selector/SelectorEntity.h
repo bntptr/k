@@ -35,6 +35,10 @@ namespace graphique
                 }
                 return this->thisInstance;
             }
+
+            IObjectView* getFirstObjectViewSelected() {
+                return this->selection->begin();
+            }
     };
 } // graphique
 

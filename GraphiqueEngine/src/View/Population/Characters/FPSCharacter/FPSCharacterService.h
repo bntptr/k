@@ -2,18 +2,15 @@
 #define FPSCHARACTER_SERVICE_H
 
 #include "FPSCharacterFactory.h"
+#include "../CharacterService.h"
 
 namespace graphique
 {
-    class FPSCharacterService
+    class FPSCharacterService : public CharacterService
     {
         public:
             FPSCharacterService(){};
             ~FPSCharacterService(){};
-
-            IFPSCharacter* loadBusinessEntity(){
-                return NULL;
-            }
     };
 } // business
 

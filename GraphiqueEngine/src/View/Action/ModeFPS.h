@@ -13,10 +13,11 @@ namespace graphique
 
             int execute(IView *view) {
                 ICameraService *camera = view->getCameraService();
+                IPopulationService *population = view->getPopulationService();
+                IObjectView *firstObjectView = view->getSelector()->getFirstObjectViewSelected();
                 camera->activeFPS();
-                //IPopulationService *population = view->getPopulationService();
-                //population->activeFPS();
-                return -1;
+                population->activeFPS(firstObjectView);
+                return 0;
             }
     };
 } // graphique

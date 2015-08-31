@@ -7,10 +7,10 @@ namespace graphique
 {
     class EnvironnementFactory
     {
-    public:
-        static IEnvironnement* createEntity(irr::IrrlichtDevice *device) {
-            return new Environnement(device);
-        }
+        public:
+            static IEnvironnement* createEntity(irr::IrrlichtDevice *device) {
+                return new Environnement(device);
+            }
     };
 } // graphique
 

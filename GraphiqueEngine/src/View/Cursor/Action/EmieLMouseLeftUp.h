@@ -15,9 +15,6 @@ namespace graphique
                 std::cout << "LMouseLeftUp" << std::endl;
                 view->getCursorService()->getLeft()->up();
                 view->getSelector()->selectLeft(view);
-                        /*MouseState.LeftButtonDown = false;
-                        cursor->setCgUp();
-                        cursor->run();*/
                 return 0;
             }
     };

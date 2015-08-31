@@ -62,6 +62,11 @@ namespace graphique
             IPopulationView* getPopulationView() {
                 return this->population;
             }
+
+            bool activeFPS(IObjectView *firstObjectView) {
+                std::cout << "population active FPS" << std::endl;
+                return true;
+            }
     };
 } // business
 

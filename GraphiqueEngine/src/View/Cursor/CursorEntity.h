@@ -6,7 +6,6 @@
 #include "ICursorEntity.h"
 #include "Action/Actions.h"
 #include "../ViewConfig.h"
-//#include "Action/IAction.h"
 #include "../Camera/ICameraService.h"
 
 namespace graphique

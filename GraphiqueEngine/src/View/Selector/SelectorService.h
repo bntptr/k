@@ -1,5 +1,5 @@
-#ifndef SELECTORSERVICE_H
-#define SELECTORSERVICE_H
+#ifndef VIEW_SELECTOR_SERVICE_H
+#define VIEW_SELECTOR_SERVICE_H
 
 #include "../IObjectView.h"
 #include "../IView.h"
@@ -73,6 +73,10 @@ namespace graphique
             ISelectorService* onEventSelectorLeft(EACTIONEVENT event) {std::cout <<"coucou"<<std::endl;
                 this->cursorLeft->onEvent(event);
                 return this->thisInstance;
+            }
+
+            IObjectView* getFirstObjectViewSelected() {
+                return this->cursorLeft->getFirstObjectViewSelected();
             }
     };
 } // business

@@ -17,22 +17,20 @@ namespace graphique
             virtual ~ISelectorService(){};
 
             virtual ISelectorEntity* getCursorLeft()=0;
-
             virtual ISelectorEntity* getCursorRight()=0;
 
             virtual ISelectorService* resetCursorLeft()=0;
-
             virtual ISelectorService* resetCursorRight()=0;
 
             virtual ISelectorService* addToCursorLeft(IObjectView *obj)=0;
-
             virtual ISelectorService* addToCursorRight(IObjectView *obj)=0;
 
             virtual ISelectorService* selectLeft(IView *view)=0;
 
             virtual ISelectorService* onEventSelectorRight(EACTIONEVENT event)=0;
-
             virtual ISelectorService* onEventSelectorLeft(EACTIONEVENT event)=0;
+
+            virtual IObjectView* getFirstObjectViewSelected()=0;
     };
 } // business
 

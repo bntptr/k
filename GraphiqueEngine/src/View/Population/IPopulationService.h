@@ -25,6 +25,7 @@ namespace graphique
             virtual IObjectView* getObjectViewFromId(int id)=0;
 
             virtual IPopulationView* getPopulationView()=0;
+            virtual bool activeFPS(IObjectView *firstObjectView)=0;
     };
 }
 

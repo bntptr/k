@@ -8,6 +8,8 @@ namespace graphique
 {
     class Camera2dService : public CameraService
     {
+        protected:
+            ICamera *camera2d;
         public:
             Camera2dService(irr::IrrlichtDevice *device, ICursorService *cursor){
                 this->thisInstance = this;

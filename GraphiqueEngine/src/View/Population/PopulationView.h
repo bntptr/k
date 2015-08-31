@@ -1,6 +1,5 @@
-
-#ifndef POPULATIONVIEW_H
-#define POPULATIONVIEW_H
+#ifndef VIEW_POPULATIONVIEW_H
+#define VIEW_POPULATIONVIEW_H
 
 #include "IPopulationView.h"
 #include "Characters/CharacterFactory.h"

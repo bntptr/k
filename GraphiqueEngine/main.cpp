@@ -12,7 +12,6 @@ Aides:
 #include "src/GraphiqueEngineFactory.h"
 #include "src/Business/BusinessService.h"
 #include "src/View/ViewFactory.h"
-#include "src/View/ViewFPS.h"
 
 using namespace std;
 using namespace graphique;
