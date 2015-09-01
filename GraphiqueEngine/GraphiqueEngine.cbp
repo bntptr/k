@@ -251,13 +251,17 @@
 		<Unit filename="src/View/Population/Characters/Character.h" />
 		<Unit filename="src/View/Population/Characters/CharacterFactory.h" />
 		<Unit filename="src/View/Population/Characters/CharacterService.h" />
+		<Unit filename="src/View/Population/Characters/FPSCharacter/FPSCharacter.h" />
+		<Unit filename="src/View/Population/Characters/FPSCharacter/FPSCharacterFactory.h" />
+		<Unit filename="src/View/Population/Characters/FPSCharacter/FPSCharacterService.h" />
+		<Unit filename="src/View/Population/Characters/FPSCharacter/IFPSCharacter.h" />
 		<Unit filename="src/View/Population/Characters/ICharacter.h" />
-		<Unit filename="src/View/Population/FPSCharacter/FPSCharacter.h" />
-		<Unit filename="src/View/Population/FPSCharacter/FPSCharacterFactory.h" />
-		<Unit filename="src/View/Population/FPSCharacter/FPSCharacterService.h" />
-		<Unit filename="src/View/Population/FPSCharacter/IFPSCharacter.h" />
 		<Unit filename="src/View/Population/IPopulationService.h" />
 		<Unit filename="src/View/Population/IPopulationView.h" />
+		<Unit filename="src/View/Population/Population/PopulationFPSService.h" />
+		<Unit filename="src/View/Population/Population/PopulationFPSServiceFactory.h" />
+		<Unit filename="src/View/Population/Population/PopulationFPSView.h" />
+		<Unit filename="src/View/Population/Population/PopulationFPSViewFactory.h" />
 		<Unit filename="src/View/Population/PopulationService.h" />
 		<Unit filename="src/View/Population/PopulationServiceFactory.h" />
 		<Unit filename="src/View/Population/PopulationView.h" />
@@ -311,7 +315,6 @@
 		<Unit filename="src/View/View/ViewMenu.h" />
 		<Unit filename="src/View/View/ViewMenuFactory.h" />
 		<Unit filename="src/View/ViewConfig.h" />
-		<Unit filename="src/View/ViewFPS.h" />
 		<Unit filename="src/View/ViewFactory.h" />
 		<Extensions>
 			<code_completion />

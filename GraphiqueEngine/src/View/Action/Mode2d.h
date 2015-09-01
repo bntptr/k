@@ -15,11 +15,7 @@ namespace graphique
 
             int execute(IView *view) {
                 view->exit(EGRAPHIQUE_VIEW_2D);
-                //view->drop();
-                //view = View2dFactory::createEntity();
-                //ICameraService *camera = view->getCameraService();
-                //camera->active2d();
-                return -1;
+                return 0;
             }
     };
 } // graphique
