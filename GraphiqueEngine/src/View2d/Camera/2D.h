@@ -1,7 +1,7 @@
 #ifndef TWO_D_CAMERA_H
 #define TWO_D_CAMERA_H
 
-#include "../Camera.h"
+#include "../../View/Camera/Camera.h"
 
 namespace graphique
 {

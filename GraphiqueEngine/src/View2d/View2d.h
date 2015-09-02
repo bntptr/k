@@ -3,11 +3,12 @@
 
 #include <irrlicht.h>
 
-#include "../View.h"
-#include "../Cursor/Cursor/Cursor2dServiceFactory.h"
-#include "../Keyboard/Keyboard/Keyboard2dServiceFactory.h"
-#include "../Camera/Camera/Camera2dServiceFactory.h"
-#include "../Environnement/Environnement/Environnement2dServiceFactory.h"
+#include "../View/View.h"
+#include "Action/Actions.h"
+#include "Cursor/Cursor2dServiceFactory.h"
+#include "Keyboard/Keyboard2dServiceFactory.h"
+#include "Camera/Camera2dServiceFactory.h"
+#include "Environnement/Environnement2dServiceFactory.h"
 
 namespace graphique
 {

@@ -1,7 +1,7 @@
 #ifndef VIEW_CURSOR_2D_SERVICE_H
 #define VIEW_CURSOR_2D_SERVICE_H
 
-#include "../CursorService.h"
+#include "../../View/Cursor/CursorService.h"
 #include "Cursor2dFactory.h"
 
 namespace graphique

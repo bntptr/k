@@ -4,11 +4,6 @@
 #include "Camera.h"
 #include "ICameraService.h"
 #include "CameraFactory.h"
-#include "Camera/Camera2dFactory.h"
-#include "Camera/CameraFPSFactory.h"
-#include "Camera/CameraRTSFactory.h"
-#include "Camera/CameraRPGFactory.h"
-#include "Camera/CameraEditorFactory.h"
 
 namespace graphique
 {
@@ -17,11 +12,6 @@ namespace graphique
         protected:
             ICameraService *thisInstance;
             ICamera *camera;
-            ICamera *camera2d;
-            ICamera *cameraFPS;
-            ICamera *cameraRTS;
-            ICamera *cameraRPG;
-            ICamera *cameraEditor;
 
             irr::IrrlichtDevice *device;
             ICursorService *cursor;
@@ -35,11 +25,6 @@ namespace graphique
                 this->device = device;
                 this->cursor = cursor;
                 this->camera = CameraFactory::createEntity(device, cursor);
-                this->camera2d = Camera2dFactory::createEntity(this->device, this->cursor);
-                this->cameraFPS = CameraFPSFactory::createEntity(this->device, this->cursor);
-                this->cameraRTS = CameraRTSFactory::createEntity(this->device, this->cursor);
-                this->cameraRPG = CameraRPGFactory::createEntity(this->device, this->cursor);
-                this->cameraEditor = this->camera;
             };
             ~CameraService(){};
 
@@ -48,10 +33,6 @@ namespace graphique
             }
 
             bool build() {
-                this->camera2d->build();
-                this->cameraFPS->build();
-                this->cameraRTS->build();
-                this->cameraRPG->build();
                 return this->camera->build();
             }
 
@@ -59,7 +40,7 @@ namespace graphique
                 return this->camera->draw(terrain, population);
             }
 
-            bool active2d() {
+            /*bool active2d() {
                 std::cout << "2d" << std::endl;
                 irr::scene::ISceneManager* smgr = device->getSceneManager();
                 this->camera = this->camera2d;
@@ -106,7 +87,7 @@ namespace graphique
                 smgr->setActiveCamera(this->camera->getCameraSceneNode());
                 this->cameraFPS->getCameraSceneNode()->setVisible(false);
                 return true;
-            }
+            }*/
     };
 } // business
 

@@ -13,7 +13,7 @@ namespace graphique
 
             int execute(IView *view) {
                 ICameraService *camera = view->getCameraService();
-                camera->activeEditor();
+                //! K1 et maintenant? camera->activeEditor();
                 return -1;
             }
     };

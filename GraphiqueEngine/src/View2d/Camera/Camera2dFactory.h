@@ -2,7 +2,7 @@
 #define TWO_D_CAMERA_FACTORY_H
 
 #include "2D.h"
-#include "../../Cursor/ICursorService.h"
+#include "../../View/Cursor/ICursorService.h"
 
 namespace graphique
 {

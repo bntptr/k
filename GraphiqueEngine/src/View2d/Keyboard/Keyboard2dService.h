@@ -1,7 +1,7 @@
 #ifndef VIEW_KEYBOARD_2D_SERVICE_H
 #define VIEW_KEYBOARD_2D_SERVICE_H
 
-#include "../KeyboardService.h"
+#include "../../View/Keyboard/KeyboardService.h"
 #include "Keyboard2dFactory.h"
 
 namespace graphique

@@ -1,7 +1,7 @@
 #ifndef VIEW_MODE_2D_H
 #define VIEW_MODE_2D_H
 
-#include "IAction.h"
+#include "../../View/Action/IAction.h"
 #include "../../Action/EGraphique.h"
 //#include "../View/View2dFactory.h"
 

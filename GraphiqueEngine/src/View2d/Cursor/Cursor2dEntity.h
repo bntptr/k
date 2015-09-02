@@ -2,7 +2,7 @@
 #define VIEW_CURSOR_2D_ENTITY_H
 
 #include "Cursor2dConfig.h"
-#include "../../Camera/Camera/Camera2dService.h"
+#include "../Camera/Camera2dService.h"
 
 namespace graphique
 {

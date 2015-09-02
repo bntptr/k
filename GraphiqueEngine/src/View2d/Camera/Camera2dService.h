@@ -1,7 +1,7 @@
 #ifndef CAMERA_2D_SERVICE_H
 #define CAMERA_2D_SERVICE_H
 
-#include "../CameraService.h"
+#include "../../View/Camera/CameraService.h"
 #include "Camera2dFactory.h"
 
 namespace graphique
