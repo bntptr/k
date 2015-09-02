@@ -1,7 +1,7 @@
 #ifndef VIEW_MODE_RPG_H
 #define VIEW_MODE_RPG_H
 
-#include "IAction.h"
+#include "../../View/Action/IAction.h"
 
 namespace graphique
 {
@@ -13,8 +13,8 @@ namespace graphique
 
             int execute(IView *view) {
                 ICameraService *camera = view->getCameraService();
-                camera->activeRPG();
-                return -1;
+                //camera->activeRPG();
+                return 0;
             }
     };
 } // graphique

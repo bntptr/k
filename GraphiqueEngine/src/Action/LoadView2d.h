@@ -20,7 +20,7 @@ namespace graphique
                 );
                 engine->getView()->init();
                 engine->getView()->build(engine->getBusiness());
-                return -1;
+                return 0;
             }
     };
 } // graphique

@@ -1,7 +1,7 @@
 #ifndef VIEW_MODE_RTS_H
 #define VIEW_MODE_RTS_H
 
-#include "IAction.h"
+#include "../../View/Action/IAction.h"
 
 namespace graphique
 {
@@ -13,8 +13,8 @@ namespace graphique
 
             int execute(IView *view) {
                 ICameraService *camera = view->getCameraService();
-                camera->activeRTS();
-                return -1;
+                //camera->activeRTS();
+                return 0;
             }
     };
 } // graphique

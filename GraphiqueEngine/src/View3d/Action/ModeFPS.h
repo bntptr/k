@@ -1,7 +1,7 @@
 #ifndef VIEW_MODE_FPS_H
 #define VIEW_MODE_FPS_H
 
-#include "IAction.h"
+#include "../../View/Action/IAction.h"
 
 namespace graphique
 {
@@ -15,8 +15,8 @@ namespace graphique
                 ICameraService *camera = view->getCameraService();
                 IPopulationService *population = view->getPopulationService();
                 IObjectView *firstObjectView = view->getSelector()->getFirstObjectViewSelected();
-                camera->activeFPS();
-                population->activeFPS(firstObjectView);
+                //camera->activeFPS();
+                //population->activeFPS(firstObjectView);
                 return 0;
             }
     };
