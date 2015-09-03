@@ -38,7 +38,7 @@ namespace graphique
                 );
 
                 this->building = BuildingServiceFactory::createService(
-                    this->device,
+                    this->sceneNodeService,
                     view->getBuildingService()->getBuildingView()->getBuildingEntity()
                 );
             }
@@ -86,7 +86,10 @@ namespace graphique
                 this->population->build();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
-                this->building = BuildingServiceFactory::createService(this->device, buildingEntity);
+                this->building = BuildingServiceFactory::createService(
+                    this->sceneNodeService,
+                    buildingEntity
+                );
 
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();

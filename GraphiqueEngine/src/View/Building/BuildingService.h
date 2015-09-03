@@ -13,9 +13,9 @@ namespace graphique
             IBuildingEntity *building;
 
         public:
-            BuildingService(irr::IrrlichtDevice *device, business::IBuildingEntity *entity){
+            BuildingService(ISceneNodeService *sceneNodeService, business::IBuildingEntity *entity){
                 this->thisInstance = this;
-                this->building = BuildingFactory::createEntity(device, entity);
+                this->building = BuildingFactory::createEntity(sceneNodeService, entity);
             };
             ~BuildingService(){};
 

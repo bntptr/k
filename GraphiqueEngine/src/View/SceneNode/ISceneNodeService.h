@@ -12,6 +12,17 @@ namespace graphique
             virtual bool build()=0;
             virtual bool draw()=0;
             virtual bool onEvent(const irr::SEvent& event)=0;
+
+            virtual ISceneNodeService* addCubeSceneNode()=0;
+            virtual ISceneNodeService* addSphereSceneNode()=0;
+            virtual ISceneNodeService* addOctTreeSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale
+            )=0;
+            virtual ISceneNodeService* addCharacterSceneNode()=0;
+            virtual ISceneNodeService* addTerrainSceneNode()=0;
+            virtual ISceneNodeService* addSkySceneNode()=0;
     };
 }
 

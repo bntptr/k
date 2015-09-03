@@ -10,7 +10,9 @@ namespace graphique
     {
         protected:
             ISceneNodeService* thisInstance;
-            ISceneNode *sceneNode;
+            TList<ISceneNode>* sceneNodeList;
+
+            irr::IrrlichtDevice *device;
 
         public:
             SceneNodeService(){
@@ -18,20 +20,68 @@ namespace graphique
             };
             SceneNodeService(irr::IrrlichtDevice *device){
                 this->thisInstance = this;
-                this->sceneNode = SceneNodeFactory::createEntity(device);
+                this->sceneNodeList = new TList<ISceneNode>();
+                this->device = device;
             };
             ~SceneNodeService(){};
 
             bool build() {
-                return this->sceneNode->build();
+                TList<ISceneNode>* L = this->sceneNodeList;
+                for(int i = 0; i < L->size(); i++) {
+                    L->getElement(i)->build();
+                }
+                return true;
             }
 
             bool draw() {
-                return this->sceneNode->draw();
+                TList<ISceneNode>* L = this->sceneNodeList;
+                for(int i = 0; i < L->size(); i++) {
+                    L->getElement(i)->draw();
+                }
+                return true;
             }
 
             bool onEvent(const irr::SEvent& event) {
-                return this->environnement->onEvent(event);
+                TList<ISceneNode>* L = this->sceneNodeList;
+                for(int i = 0; i < L->size(); i++) {
+                    L->getElement(i)->onEvent(event);
+                }
+                return true;
+            }
+
+            ISceneNodeService* addCubeSceneNode() {
+                return this->thisInstance;
+            }
+
+            ISceneNodeService* addSphereSceneNode() {
+                return this->thisInstance;
+            }
+
+            ISceneNodeService* addOctTreeSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale
+            ) {
+                ISceneNode *node = SceneNodeFactory::createOctTreeSceneNode(
+                    this->device,
+                    position,
+                    rotation,
+                    scale
+                );
+                this->sceneNodeList->addElement(node);
+                return this->thisInstance;
+            }
+
+            ISceneNodeService* addCharacterSceneNode() {
+                return this->thisInstance;
+            }
+
+            ISceneNodeService* addTerrainSceneNode() {
+                return this->thisInstance;
+            }
+
+            ISceneNodeService* addSkySceneNode() {
+                return this->thisInstance;
             }
     };
 } // business

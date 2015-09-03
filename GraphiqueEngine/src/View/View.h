@@ -7,11 +7,14 @@
 #include "Action/Actions.h"
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
+#include "SceneNode/SceneNodeServiceFactory.h"
+
 #include "Cursor/CursorServiceFactory.h"
 #include "Keyboard/KeyboardServiceFactory.h"
 #include "Camera/CameraServiceFactory.h"
-#include "Selector/SelectorService.h"
+#include "Selector/SelectorServiceFactory.h"
 #include "Environnement/EnvironnementServiceFactory.h"
+
 #include "Terrain/TerrainServiceFactory.h"
 #include "Sky/SkyServiceFactory.h"
 #include "Building/BuildingServiceFactory.h"
@@ -29,6 +32,8 @@ namespace graphique
             irr::IrrlichtDevice *device;
             ViewEventReceiver *receiver;
             TMap<EVIEW, IAction>* keyMap;
+
+            ISceneNodeService *sceneNodeService;
 
             ICursorService *cursor;
             IKeyboardService *keyboard;
@@ -48,7 +53,7 @@ namespace graphique
             View(TMap<EVIEW, IAction>* keyMap) {
                 this->thisInstance = this;
                 this->keyMap = keyMap;
-                this->selector = new SelectorService();
+                this->selector = SelectorServiceFactory::createService();
                 this->mode = EVIEW_MODE_EDITOR;
                 this->eventGraphique = EGRAPHIQUE_CLOSE;
             }
@@ -91,6 +96,8 @@ namespace graphique
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
                 driver->setTextureCreationFlag(video::ETCF_ALWAYS_32_BIT, true);
+
+                this->sceneNodeService = SceneNodeServiceFactory::createService(device);
                 return 0;
             }
 
@@ -118,17 +125,25 @@ namespace graphique
                 this->sky->build();
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
-                this->population = PopulationServiceFactory::createService(this->device, populationEntity);
+                this->population = PopulationServiceFactory::createService(
+                    this->device,
+                    populationEntity
+                );
                 this->population->build();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
-                this->building = BuildingServiceFactory::createService(this->device, buildingEntity);
+                this->building = BuildingServiceFactory::createService(
+                    this->sceneNodeService,
+                    buildingEntity
+                );
                 this->building->build();
 
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();
                 this->selector->addToCursorLeft(obj);
                 //business::IPlayerEntity *player = entity->getPlayer();
+
+                this->sceneNodeService->build();
                 return 0;
             }
 
