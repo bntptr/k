@@ -14,11 +14,11 @@ namespace graphique
 
         public:
             PopulationService(
-                irr::IrrlichtDevice *device,
+                ISceneNodeService *sceneNodeService,
                 business::IPopulationEntity *populationEntity
             ){
                 this->thisInstance = this;
-                this->population = PopulationViewFactory::createEntity(device, populationEntity);
+                this->population = PopulationViewFactory::createEntity(sceneNodeService, populationEntity);
             };
             ~PopulationService(){};
 
@@ -35,10 +35,9 @@ namespace graphique
             }
 
             bool addCharacter(
-                irr::IrrlichtDevice *device,
                 business::ICharacterEntity *characterEntity
             ){
-                return this->population->addCharacter(device, characterEntity);
+                return this->population->addCharacter(characterEntity);
             }
 
             /**

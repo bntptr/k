@@ -13,6 +13,7 @@ namespace graphique
         public:
             OctTreeSceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
                 this->device = device;
+                this->build();
             };
             ~OctTreeSceneNode(){};
 

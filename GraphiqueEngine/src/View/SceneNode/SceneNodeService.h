@@ -49,15 +49,41 @@ namespace graphique
                 return true;
             }
 
-            ISceneNodeService* addCubeSceneNode() {
-                return this->thisInstance;
+            ISceneNode* addCubeSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture
+            ) {
+                ISceneNode *node = SceneNodeFactory::createCubeSceneNode(
+                    this->device,
+                    position,
+                    rotation,
+                    scale,
+                    texture
+                );
+                this->sceneNodeList->addElement(node);
+                return node;
             }
 
-            ISceneNodeService* addSphereSceneNode() {
-                return this->thisInstance;
+            ISceneNode* addSphereSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture
+            ) {
+                ISceneNode *node = SceneNodeFactory::createSphereSceneNode(
+                    this->device,
+                    position,
+                    rotation,
+                    scale,
+                    texture
+                );
+                this->sceneNodeList->addElement(node);
+                return node;
             }
 
-            ISceneNodeService* addOctTreeSceneNode(
+            ISceneNode* addOctTreeSceneNode(
                 business::Vector3d position,
                 business::Vector3d rotation,
                 business::Vector3d scale
@@ -69,19 +95,55 @@ namespace graphique
                     scale
                 );
                 this->sceneNodeList->addElement(node);
-                return this->thisInstance;
+                return node;
             }
 
-            ISceneNodeService* addCharacterSceneNode() {
-                return this->thisInstance;
+            ISceneNode* addCharacterSceneNode(
+                int id,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) {
+                ISceneNode *node = SceneNodeFactory::createCharacterSceneNode(
+                    this->device,
+                    id,
+                    position,
+                    rotation,
+                    scale,
+                    texture,
+                    mesh
+                );
+                this->sceneNodeList->addElement(node);
+                return node;
             }
 
-            ISceneNodeService* addTerrainSceneNode() {
-                return this->thisInstance;
+            ISceneNode* addTerrainSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) {
+                ISceneNode *node = SceneNodeFactory::createTerrainSceneNode(
+                    this->device,
+                    position,
+                    rotation,
+                    scale,
+                    texture,
+                    mesh
+                );
+                this->sceneNodeList->addElement(node);
+                return node;
             }
 
-            ISceneNodeService* addSkySceneNode() {
-                return this->thisInstance;
+            ISceneNode* addSkySceneNode() {
+                ISceneNode *node = SceneNodeFactory::createSkySceneNode(
+                    this->device
+                );
+                this->sceneNodeList->addElement(node);
+                return node;
             }
     };
 } // business

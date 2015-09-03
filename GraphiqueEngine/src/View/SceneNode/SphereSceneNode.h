@@ -10,11 +10,28 @@ namespace graphique
         public:
             SphereSceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
                 this->device = device;
+                this->build();
             };
             ~SphereSceneNode(){};
 
             bool build() {
+                ViewConfig *config = ViewConfig::getInstance();
+                using namespace irr;
 
+                config->load();
+                const io::path MEDIA = config->getMediaPath();
+
+                video::IVideoDriver* driver = device->getVideoDriver();
+                scene::ISceneManager* smgr = device->getSceneManager();
+
+                // SPHERE
+                scene::ISceneNode * node3 = smgr->addSphereSceneNode();
+                if (node3)
+                {
+                    node3->setPosition(core::vector3df(0,0,30));
+                    node3->setMaterialTexture(0, driver->getTexture(MEDIA + "wall.bmp"));
+                    node3->setMaterialFlag(video::EMF_LIGHTING, false);
+                }
                 return true;
             }
 

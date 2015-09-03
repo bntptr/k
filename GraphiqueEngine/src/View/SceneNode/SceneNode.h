@@ -11,15 +11,24 @@ namespace graphique
             ISceneNode* thisInstance;
             irr::IrrlichtDevice *device;
 
+            int id;
             business::Vector3d position;
             business::Vector3d rotation;
             business::Vector3d scale;
             ETEXTURE texture;
             EMESH mesh;
+
         public:
-            SceneNode(irr::IrrlichtDevice *device){
+            SceneNode(irr::IrrlichtDevice *device, int id=-1){
                 this->thisInstance = this;
                 this->device = device;
+                this->id = id;
+                this->build();
+                this->setPosition(business::Vector3d(0,0,0));
+                this->setRotation(business::Vector3d(0,0,0));
+                this->setScale(business::Vector3d(1,1,1));
+                this->texture = ETEXTURE_FAERIE;
+                this->mesh = EMESH_FAERIE;
             };
             ~SceneNode(){};
 
@@ -39,7 +48,7 @@ namespace graphique
             }
 
             int getId() {
-                return -1;
+                return this->id;
             }
 
             EMESH getMesh(){

@@ -33,7 +33,7 @@ namespace graphique
                 );
 
                 this->population = PopulationServiceFactory::createService(
-                    this->device,
+                    this->sceneNodeService,
                     view->getPopulationService()->getPopulationView()->getPopulationEntity()
                 );
 
@@ -82,7 +82,10 @@ namespace graphique
                 this->sky = SkyServiceFactory::createService(this->device, skyEntity);
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
-                this->population = PopulationServiceFactory::createService(this->device, populationEntity);
+                this->population = PopulationServiceFactory::createService(
+                    this->sceneNodeService,
+                    populationEntity
+                );
                 this->population->build();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();

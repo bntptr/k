@@ -9,8 +9,9 @@ namespace graphique
     {
         protected:
             ISceneNodeService *sceneNodeService;
+            ISceneNode *node;
             irr::IrrlichtDevice *device;
-            scene::IMeshSceneNode* node;
+            //scene::IMeshSceneNode* node;
             business::IBuildingEntity *buildingEntity;
 
         public:
@@ -21,7 +22,7 @@ namespace graphique
             ~BuildingEntity(){};
 
             bool build() {
-                this->sceneNodeService->addOctTreeSceneNode(
+                this->node = this->sceneNodeService->addOctTreeSceneNode(
                     business::Vector3d(1350,-130,1400),
                     business::Vector3d(0,0,0),
                     business::Vector3d(1,1,1)

@@ -97,7 +97,7 @@ namespace graphique
 
                 driver->setTextureCreationFlag(video::ETCF_ALWAYS_32_BIT, true);
 
-                this->sceneNodeService = SceneNodeServiceFactory::createService(device);
+                this->sceneNodeService = SceneNodeServiceFactory::createService(this->device);
                 return 0;
             }
 
@@ -126,7 +126,7 @@ namespace graphique
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
                 this->population = PopulationServiceFactory::createService(
-                    this->device,
+                    this->sceneNodeService,
                     populationEntity
                 );
                 this->population->build();

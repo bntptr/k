@@ -18,11 +18,23 @@ namespace graphique
                 return new SceneNode(device);
             }
 
-            static ISceneNode* createCubeSceneNode(irr::IrrlichtDevice *device) {
+            static ISceneNode* createCubeSceneNode(
+                irr::IrrlichtDevice *device,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture
+            ) {
                 return new CubeSceneNode(device);
             }
 
-            static ISceneNode* createSphereSceneNode(irr::IrrlichtDevice *device) {
+            static ISceneNode* createSphereSceneNode(
+                irr::IrrlichtDevice *device,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture
+            ) {
                 return new SphereSceneNode(device);
             }
 
@@ -39,15 +51,36 @@ namespace graphique
                 return node;
             }
 
-            static ISceneNode* createCharacterSceneNode(irr::IrrlichtDevice *device) {
-                return new CharacterSceneNode(device);
+            static ISceneNode* createCharacterSceneNode(
+                irr::IrrlichtDevice *device,
+                int id,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) {
+                ISceneNode *node = new CharacterSceneNode(device, id);
+                node->setPosition(position);
+                node->setRotation(rotation);
+                node->setScale(scale);
+                node->setTexture(texture);
+                node->setMesh(mesh);
+                return node;
             }
 
             static ISceneNode* createSkySceneNode(irr::IrrlichtDevice *device) {
                 return new SkySceneNode(device);
             }
 
-            static ISceneNode* createTerrainSceneNode(irr::IrrlichtDevice *device) {
+            static ISceneNode* createTerrainSceneNode(
+                irr::IrrlichtDevice *device,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) {
                 return new TerrainSceneNode(device);
             }
     };

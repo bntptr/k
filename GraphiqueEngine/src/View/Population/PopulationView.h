@@ -13,14 +13,14 @@ namespace graphique
     {
         protected:
             IPopulationView *thisInstance;
-            irr::IrrlichtDevice *device;
+            ISceneNodeService *sceneNodeService;
             business::IPopulationEntity *populationEntity;
             TList<ICharacter>* characterList;
 
         public:
-            PopulationView(irr::IrrlichtDevice *device, business::IPopulationEntity *populationEntity){
+            PopulationView(ISceneNodeService *service, business::IPopulationEntity *populationEntity){
                 this->thisInstance = this;
-                this->device = device;
+                this->sceneNodeService = service;
                 this->populationEntity = populationEntity;
                 this->characterList = new TList<ICharacter>();
             };
@@ -40,7 +40,7 @@ namespace graphique
             bool loadCharacterList() {
                 TList<business::ICharacterEntity>* L = this->populationEntity->getCharacterList();
                 for(int i = 0; i < L->size(); i++) {
-                    this->addCharacter(this->device, L->getElement(i));
+                    this->addCharacter(L->getElement(i));
                 }
                 return true;
             }
@@ -53,14 +53,11 @@ namespace graphique
                 config->load();
                 const io::path MEDIA = config->getMediaPath();
 
-                video::IVideoDriver* driver = device->getVideoDriver();
-                scene::ISceneManager* smgr = device->getSceneManager();
-                gui::IGUIEnvironment* env = device->getGUIEnvironment();
                 // create POPULATION
                 this->buildAll();
 
                 // create ESSAI
-                scene::IAnimatedMesh* mesh = smgr->getMesh(MEDIA + "sydney.md2");
+                /*scene::IAnimatedMesh* mesh = smgr->getMesh(MEDIA + "sydney.md2");
                 if (!mesh)
                 {
                     device->drop();
@@ -76,31 +73,6 @@ namespace graphique
                     node2->setMaterialTexture( 0, driver->getTexture(MEDIA + "sydney.bmp") );
                 }
 
-                // SPHERE
-                scene::ISceneNode * node3 = smgr->addSphereSceneNode();
-                if (node3)
-                {
-                    node3->setPosition(core::vector3df(0,0,30));
-                    node3->setMaterialTexture(0, driver->getTexture(MEDIA + "wall.bmp"));
-                    node3->setMaterialFlag(video::EMF_LIGHTING, false);
-                }
-
-                //CUBE
-                scene::ISceneNode* n = smgr->addCubeSceneNode();
-
-                if (n)
-                {
-                    n->setMaterialTexture(0, driver->getTexture(MEDIA + "t351sml.jpg"));
-                    n->setMaterialFlag(video::EMF_LIGHTING, false);
-                    scene::ISceneNodeAnimator* anim =
-                        smgr->createFlyCircleAnimator(core::vector3df(0,0,30), 20.0f);
-                    if (anim)
-                    {
-                        n->addAnimator(anim);
-                        anim->drop();
-                    }
-                }
-
 
                 //==========================================================================
                 //                           NINJA
@@ -109,7 +81,7 @@ namespace graphique
                 scene::ITriangleSelector* selector = 0;
                 scene::IAnimatedMeshSceneNode* node = 0;
                 node = smgr->addAnimatedMeshSceneNode(smgr->getMesh("../../../media/ninja.b3d"),
-                                    0, 75/*IDFlag_IsPickable | IDFlag_IsHighlightable*/);
+                                    0, 75);
                 //node->setMaterialTexture(0, driver->getTexture("../../../../../../media/nskinrd.jpg") );
                 node->setScale(core::vector3df(10, 10, 10));
                 node->setPosition(core::vector3df(-70,-66,-60));
@@ -149,7 +121,7 @@ namespace graphique
                     anms->setRotation(core::vector3df(0,-90,0));
                     anms->setPosition(core::vector3df(2700*2,255*2,2600*2));
             //		anms->setMaterialTexture(0, driver->getTexture(MEDIA + "sydney.bmp"));
-                }
+                }*/
             }
 
             bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
@@ -159,10 +131,9 @@ namespace graphique
             }
 
             bool addCharacter(
-                irr::IrrlichtDevice *device,
                 business::ICharacterEntity *characterEntity
             ){
-                ICharacter *entity = graphique::CharacterFactory::createEntity(device, characterEntity);
+                ICharacter *entity = graphique::CharacterFactory::createEntity(this->sceneNodeService, characterEntity);
                 this->characterList->addElement(entity);
             }
 

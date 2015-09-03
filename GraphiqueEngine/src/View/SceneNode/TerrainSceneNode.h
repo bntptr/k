@@ -10,6 +10,7 @@ namespace graphique
         public:
             TerrainSceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
                 this->device = device;
+                this->build();
             };
             ~TerrainSceneNode(){};
 

@@ -22,7 +22,6 @@ namespace graphique
             virtual bool drawAll(business::Vector3d cameraPosition, business::Vector3d cameraScale)=0;
 
             virtual bool addCharacter(
-                irr::IrrlichtDevice *device,
                 business::ICharacterEntity *characterEntity
             )=0;
 

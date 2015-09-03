@@ -9,10 +9,10 @@ namespace graphique
     {
         public:
             static IPopulationService* createService(
-                irr::IrrlichtDevice *device,
+                ISceneNodeService *service,
                 business::IPopulationEntity *populationEntity
             ) {
-                return new PopulationService(device, populationEntity);
+                return new PopulationService(service, populationEntity);
             }
     };
 } // graphique

@@ -10,6 +10,7 @@ namespace graphique
         public:
             SkySceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
                 this->device = device;
+                this->build();
             };
             ~SkySceneNode(){};
 

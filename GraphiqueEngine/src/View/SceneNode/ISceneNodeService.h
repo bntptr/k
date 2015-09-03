@@ -13,16 +13,39 @@ namespace graphique
             virtual bool draw()=0;
             virtual bool onEvent(const irr::SEvent& event)=0;
 
-            virtual ISceneNodeService* addCubeSceneNode()=0;
-            virtual ISceneNodeService* addSphereSceneNode()=0;
-            virtual ISceneNodeService* addOctTreeSceneNode(
+            virtual ISceneNode* addCubeSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture
+            )=0;
+            virtual ISceneNode* addSphereSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture
+            )=0;
+            virtual ISceneNode* addOctTreeSceneNode(
                 business::Vector3d position,
                 business::Vector3d rotation,
                 business::Vector3d scale
             )=0;
-            virtual ISceneNodeService* addCharacterSceneNode()=0;
-            virtual ISceneNodeService* addTerrainSceneNode()=0;
-            virtual ISceneNodeService* addSkySceneNode()=0;
+            virtual ISceneNode* addCharacterSceneNode(
+                int id,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            )=0;
+            virtual ISceneNode* addTerrainSceneNode(
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            )=0;
+            virtual ISceneNode* addSkySceneNode()=0;
     };
 }
 
