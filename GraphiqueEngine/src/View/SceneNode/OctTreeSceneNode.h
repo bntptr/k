@@ -7,19 +7,12 @@ namespace graphique
 {
     class OctTreeSceneNode : public SceneNode
     {
-        protected:
-            irr::scene::ISceneNode* node;
-
         public:
-            OctTreeSceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
+            OctTreeSceneNode(irr::IrrlichtDevice *device) : SceneNode() {
                 this->device = device;
                 this->build();
             };
             ~OctTreeSceneNode(){};
-
-            int getId() {
-                return this->node->getID();
-            }
 
             bool build() {
                 ViewConfig *config = ViewConfig::getInstance();

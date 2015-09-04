@@ -10,6 +10,7 @@ namespace graphique
         protected:
             ISceneNode* thisInstance;
             irr::IrrlichtDevice *device;
+            irr::scene::ISceneNode* node;
 
             int id;
             business::Vector3d position;
@@ -19,36 +20,47 @@ namespace graphique
             EMESH mesh;
 
         public:
-            SceneNode(irr::IrrlichtDevice *device, int id=-1){
+            SceneNode(){
+                this->thisInstance = this;
+            };
+            SceneNode(
+                irr::IrrlichtDevice *device,
+                int id,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ){
                 this->thisInstance = this;
                 this->device = device;
                 this->id = id;
-                this->build();
-                this->setPosition(business::Vector3d(0,0,0));
-                this->setRotation(business::Vector3d(0,0,0));
-                this->setScale(business::Vector3d(1,1,1));
-                this->texture = ETEXTURE_FAERIE;
-                this->mesh = EMESH_FAERIE;
+                this->position = position;
+                this->rotation = rotation;
+                this->scale = scale;
+                this->texture = texture;
+                this->mesh = mesh;
             };
             ~SceneNode(){};
 
-            bool build() {
+            int getId() {
+                return this->id;
+            }
 
+            void setDevice(irr::IrrlichtDevice *device) {
+                this->device = device;
+            }
+
+            bool build() {
                 return true;
             }
 
             bool draw() {
-
                 return true;
             }
 
             bool onEvent(const irr::SEvent& event) {
-
                 return true;
-            }
-
-            int getId() {
-                return this->id;
             }
 
             EMESH getMesh(){

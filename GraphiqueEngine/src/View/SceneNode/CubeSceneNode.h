@@ -8,7 +8,7 @@ namespace graphique
     class CubeSceneNode : public SceneNode
     {
         public:
-            CubeSceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
+            CubeSceneNode(irr::IrrlichtDevice *device) : SceneNode() {
                 this->device = device;
                 this->build();
             };

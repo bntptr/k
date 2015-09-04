@@ -11,10 +11,23 @@ namespace graphique
             irr::scene::IAnimatedMeshSceneNode* node;
 
         public:
-            CharacterSceneNode(irr::IrrlichtDevice *device, int id=-1) : SceneNode(device, id) {
-                this->device = device;
-                this->build();
-            };
+            CharacterSceneNode(
+                irr::IrrlichtDevice *device,
+                int id,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) : SceneNode(
+                device,
+                id,
+                position,
+                rotation,
+                scale,
+                texture,
+                mesh
+            ) {};
             ~CharacterSceneNode(){};
 
             bool build() {

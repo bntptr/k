@@ -11,6 +11,8 @@ namespace graphique
             ISceneNode(){};
             virtual ~ISceneNode(){};
 
+            virtual void setDevice(irr::IrrlichtDevice *device)=0;
+
             virtual bool build()=0;
             virtual bool draw()=0;
             virtual bool onEvent(const irr::SEvent& event)=0;

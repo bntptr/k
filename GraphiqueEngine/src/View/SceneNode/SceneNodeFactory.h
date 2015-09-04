@@ -15,7 +15,9 @@ namespace graphique
     {
         public:
             static ISceneNode* createEntity(irr::IrrlichtDevice *device) {
-                return new SceneNode(device);
+                ISceneNode *node = new SceneNode();
+                node->setDevice(device);
+                return node;
             }
 
             static ISceneNode* createCubeSceneNode(
@@ -60,12 +62,15 @@ namespace graphique
                 ETEXTURE texture,
                 EMESH mesh
             ) {
-                ISceneNode *node = new CharacterSceneNode(device, id);
-                node->setPosition(position);
-                node->setRotation(rotation);
-                node->setScale(scale);
-                node->setTexture(texture);
-                node->setMesh(mesh);
+                ISceneNode *node = new CharacterSceneNode(
+                    device,
+                    id,
+                    position,
+                    rotation,
+                    scale,
+                    texture,
+                    mesh
+                );
                 return node;
             }
 

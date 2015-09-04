@@ -8,7 +8,7 @@ namespace graphique
     class SkySceneNode : public SceneNode
     {
         public:
-            SkySceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
+            SkySceneNode(irr::IrrlichtDevice *device) : SceneNode() {
                 this->device = device;
                 this->build();
             };

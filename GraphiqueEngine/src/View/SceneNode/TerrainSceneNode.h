@@ -8,7 +8,7 @@ namespace graphique
     class TerrainSceneNode : public SceneNode
     {
         public:
-            TerrainSceneNode(irr::IrrlichtDevice *device) : SceneNode(device) {
+            TerrainSceneNode(irr::IrrlichtDevice *device) : SceneNode() {
                 this->device = device;
                 this->build();
             };
