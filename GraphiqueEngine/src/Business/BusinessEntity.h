@@ -12,6 +12,7 @@ namespace business
                 this->thisInterface = this;
             };
             ~BusinessEntity(){};
+
             IGroundEntity* getGround();
             ISkyEntity* getSky();
             IPopulationEntity* getPopulation();

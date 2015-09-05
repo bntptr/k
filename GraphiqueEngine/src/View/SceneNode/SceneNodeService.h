@@ -138,9 +138,23 @@ namespace graphique
                 return node;
             }
 
-            ISceneNode* addSkySceneNode() {
+            ISceneNode* addSkySceneNode(
+                ETEXTURE textureSkyDome,
+                ETEXTURE textureSkyBoxUp,
+                ETEXTURE textureSkyBoxDn,
+                ETEXTURE textureSkyBoxLf,
+                ETEXTURE textureSkyBoxRt,
+                ETEXTURE textureSkyBoxFt,
+                ETEXTURE textureSkyBoxBk
+            ) {
                 ISceneNode *node = SceneNodeFactory::createSkySceneNode(
-                    this->device
+                    this->device,
+                    textureSkyBoxUp,
+                    textureSkyBoxDn,
+                    textureSkyBoxLf,
+                    textureSkyBoxRt,
+                    textureSkyBoxFt,
+                    textureSkyBoxBk
                 );
                 this->sceneNodeList->addElement(node);
                 return node;

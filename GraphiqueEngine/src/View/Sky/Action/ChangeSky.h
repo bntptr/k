@@ -14,8 +14,8 @@ namespace graphique
                 virtual ~ChangeSky(){};
 
                 int execute(ISkyView *sky) {
-                    irr::scene::ISceneNode* Skybox;
-                    irr::scene::ISceneNode* Skydome;
+                    ISceneNode* Skybox;
+                    ISceneNode* Skydome;
                     bool showBox;
                     Skybox = sky->getSkyBox();
                     Skydome = sky->getSkyDome();

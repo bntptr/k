@@ -8,10 +8,13 @@ namespace graphique
     class SkyViewFactory
     {
         public:
-            static ISkyView* createEntity(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity) {
+            static ISkyView* createEntity(
+                ISceneNodeService *service,
+                business::ISkyEntity *skyEntity
+            ) {
                 TMap<EACTIONEVENT, sky::IAction>* keyMap = new TMap<EACTIONEVENT, sky::IAction>();
                 keyMap->addElement(EACTIONEVENT_CHANGE_SKY, new sky::ChangeSky());
-                return new SkyView(device, skyEntity, keyMap);
+                return new SkyView(service, skyEntity, keyMap);
             }
     };
 } // graphique

@@ -1,6 +1,8 @@
 #ifndef VIEW_ISCENE_NODE_SERVICE_H
 #define VIEW_ISCENE_NODE_SERVICE_H
 
+#include "ISceneNode.h"
+
 namespace graphique
 {
     class ISceneNodeService

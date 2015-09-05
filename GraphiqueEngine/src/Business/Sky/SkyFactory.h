@@ -11,6 +11,28 @@ namespace business
             static ISkyEntity* createEntity() {
                 return new SkyEntity();
             }
+
+            static ISkyEntity* createEntity(
+                int id,
+                ETEXTURE textureDome,
+                ETEXTURE textureBoxUp,
+                ETEXTURE textureBoxDn,
+                ETEXTURE textureBoxLf,
+                ETEXTURE textureBoxRt,
+                ETEXTURE textureBoxFt,
+                ETEXTURE textureBoxBk
+            ) {
+                return new SkyEntity(
+                    id,
+                    textureDome,
+                    textureBoxUp,
+                    textureBoxDn,
+                    textureBoxLf,
+                    textureBoxRt,
+                    textureBoxFt,
+                    textureBoxBk
+                );
+            }
     };
 } // business
 

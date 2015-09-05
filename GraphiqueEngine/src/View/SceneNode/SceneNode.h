@@ -51,6 +51,14 @@ namespace graphique
                 this->device = device;
             }
 
+            void setVisible(bool visible) {
+                this->node->setVisible(visible);
+            }
+
+            bool isVisible() {
+                this->node->isVisible();
+            }
+
             bool build() {
                 return true;
             }

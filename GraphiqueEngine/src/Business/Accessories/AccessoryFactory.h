@@ -7,10 +7,10 @@ namespace business
 {
     class AccessoryFactory
     {
-    public:
-        static IAccessoryEntity* createEntity() {
-            return new AccessoryEntity();
-        }
+        public:
+            static IAccessoryEntity* createEntity() {
+                return new AccessoryEntity();
+            }
     };
 } // business
 

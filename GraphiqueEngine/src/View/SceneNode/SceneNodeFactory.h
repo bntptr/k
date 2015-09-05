@@ -6,6 +6,8 @@
 #include "SphereSceneNode.h"
 #include "OctTreeSceneNode.h"
 #include "CharacterSceneNode.h"
+#include "SkyBoxSceneNode.h"
+#include "SkyDomeSceneNode.h"
 #include "SkySceneNode.h"
 #include "TerrainSceneNode.h"
 
@@ -74,8 +76,56 @@ namespace graphique
                 return node;
             }
 
-            static ISceneNode* createSkySceneNode(irr::IrrlichtDevice *device) {
-                return new SkySceneNode(device);
+            static ISceneNode* createSkySceneNode(
+                irr::IrrlichtDevice *device,
+                ETEXTURE textureSkyDome,
+                ETEXTURE textureSkyBoxUp,
+                ETEXTURE textureSkyBoxDn,
+                ETEXTURE textureSkyBoxLf,
+                ETEXTURE textureSkyBoxRt,
+                ETEXTURE textureSkyBoxFt,
+                ETEXTURE textureSkyBoxBk
+            ) {
+                return new SkySceneNode(
+                    device,
+                    textureSkyDome,
+                    textureSkyBoxUp,
+                    textureSkyBoxDn,
+                    textureSkyBoxLf,
+                    textureSkyBoxRt,
+                    textureSkyBoxFt,
+                    textureSkyBoxBk
+                );
+            }
+
+            static ISceneNode* createSkyDomeSceneNode(
+                irr::IrrlichtDevice *device,
+                ETEXTURE textureSkyDome
+            ) {
+                return new SkyDomeSceneNode(
+                    device,
+                    textureSkyDome
+                );
+            }
+
+            static ISceneNode* createSkyBoxSceneNode(
+                irr::IrrlichtDevice *device,
+                ETEXTURE textureSkyBoxUp,
+                ETEXTURE textureSkyBoxDn,
+                ETEXTURE textureSkyBoxLf,
+                ETEXTURE textureSkyBoxRt,
+                ETEXTURE textureSkyBoxFt,
+                ETEXTURE textureSkyBoxBk
+            ) {
+                return new SkyBoxSceneNode(
+                    device,
+                    textureSkyBoxUp,
+                    textureSkyBoxDn,
+                    textureSkyBoxLf,
+                    textureSkyBoxRt,
+                    textureSkyBoxFt,
+                    textureSkyBoxBk
+                );
             }
 
             static ISceneNode* createTerrainSceneNode(

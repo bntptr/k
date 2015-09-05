@@ -255,7 +255,6 @@
 		<Unit filename="src/View/Sky/ISkyView.h" />
 		<Unit filename="src/View/Sky/SkyService.h" />
 		<Unit filename="src/View/Sky/SkyServiceFactory.h" />
-		<Unit filename="src/View/Sky/SkyServicefactory.h" />
 		<Unit filename="src/View/Sky/SkyView.h" />
 		<Unit filename="src/View/Sky/SkyViewFactory.h" />
 		<Unit filename="src/View/Sound/Action/Actions.h" />

@@ -92,12 +92,7 @@ namespace graphique
                     return 1; // could not create selected driver.
 
                 video::IVideoDriver* driver = device->getVideoDriver();
-                scene::ISceneManager* smgr = device->getSceneManager();
-                gui::IGUIEnvironment* env = device->getGUIEnvironment();
-
                 driver->setTextureCreationFlag(video::ETCF_ALWAYS_32_BIT, true);
-
-                this->sceneNodeService = SceneNodeServiceFactory::createService(this->device);
                 return 0;
             }
 
@@ -117,11 +112,17 @@ namespace graphique
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
                 business::IGroundEntity *ground = entity->getGround();
-                this->terrain = TerrainServiceFactory::createService(this->device, ground);
+                this->terrain = TerrainServiceFactory::createService(
+                    this->sceneNodeService,
+                    ground
+                );
                 this->terrain->build(this->camera);
 
                 business::ISkyEntity *skyEntity = entity->getSky();
-                this->sky = SkyServiceFactory::createService(this->device, skyEntity);
+                this->sky = SkyServiceFactory::createService(
+                    this->sceneNodeService,
+                    skyEntity
+                );
                 this->sky->build();
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
@@ -153,6 +154,8 @@ namespace graphique
             int build(business::BusinessInterface *business) {
                 std::cout <<"build view !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
+
+                this->sceneNodeService = SceneNodeServiceFactory::createService(this->device);
 
                 this->cursor = CursorServiceFactory::createService(this->device, this);
                 this->cursor->build();

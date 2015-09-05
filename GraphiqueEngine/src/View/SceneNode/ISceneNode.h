@@ -17,6 +17,9 @@ namespace graphique
             virtual bool draw()=0;
             virtual bool onEvent(const irr::SEvent& event)=0;
 
+            virtual void setVisible(bool visible)=0;
+            virtual bool isVisible()=0;
+
             virtual int getId()=0;
             virtual EMESH getMesh()=0;
             virtual ISceneNode* setMesh(EMESH mesh)=0;

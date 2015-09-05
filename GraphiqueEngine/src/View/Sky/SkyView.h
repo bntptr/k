@@ -10,33 +10,32 @@ namespace graphique
     class SkyView : public ISkyView
     {
         protected:
-            irr::IrrlichtDevice *device;
+            ISceneNodeService *sceneNodeService;
             business::ISkyEntity *skyEntity;
-            scene::ISceneNode* skybox;
-            scene::ISceneNode* skydome;
+            ISceneNode *skybox;
+            ISceneNode *skydome;
             bool showBox;
 
             TMap<EACTIONEVENT, sky::IAction>* keyMap;
 
         public:
             SkyView(
-                irr::IrrlichtDevice *device,
+                ISceneNodeService *service,
                 business::ISkyEntity *skyEntity,
                 TMap<EACTIONEVENT, sky::IAction>* keyMap
             ){
-                this->device = device;
+                this->sceneNodeService = service;
                 this->skyEntity = skyEntity;
                 this->showBox = true;
                 this->keyMap = keyMap;
             };
             ~SkyView(){};
 
-
-            scene::ISceneNode* getSkyBox(){
+            ISceneNode* getSkyBox(){
                 return this->skybox;
             }
 
-            scene::ISceneNode* getSkyDome(){
+            ISceneNode* getSkyDome(){
                 return this->skydome;
             }
 
@@ -49,32 +48,26 @@ namespace graphique
             }
 
             bool build() {
-                ViewConfig *config = ViewConfig::getInstance();
-                using namespace irr;
-
-                config->load();
-                const io::path MEDIA = config->getMediaPath();
-
-                video::IVideoDriver* driver = device->getVideoDriver();
-                scene::ISceneManager* smgr = device->getSceneManager();
-                gui::IGUIEnvironment* env = device->getGUIEnvironment();
-
-                // create skybox and skydome
-                driver->setTextureCreationFlag(video::ETCF_CREATE_MIP_MAPS, false);
-
-                this->skybox=smgr->addSkyBoxSceneNode(
-                    driver->getTexture(MEDIA + "irrlicht2_up.jpg"),
-                    driver->getTexture(MEDIA + "irrlicht2_dn.jpg"),
-                    driver->getTexture(MEDIA + "irrlicht2_lf.jpg"),
-                    driver->getTexture(MEDIA + "irrlicht2_rt.jpg"),
-                    driver->getTexture(MEDIA + "irrlicht2_ft.jpg"),
-                    driver->getTexture(MEDIA + "irrlicht2_bk.jpg"));
-                this->skydome=smgr->addSkyDomeSceneNode(driver->getTexture(MEDIA + "skydome.jpg"),16,8,0.95f,2.0f);
-
-                driver->setTextureCreationFlag(video::ETCF_CREATE_MIP_MAPS, true);
-
+                this->skybox = this->sceneNodeService->addSkySceneNode(
+                    this->entity->getTextureSkyDome(),
+                    this->entity->getTextureSkyBoxUp(),
+                    this->entity->getTextureSkyBoxDn(),
+                    this->entity->getTextureSkyBoxLf(),
+                    this->entity->getTextureSkyBoxRt(),
+                    this->entity->getTextureSkyBoxFt(),
+                    this->entity->getTextureSkyBoxBk(),
+                );
+                this->skydome = this->sceneNodeService->addSkySceneNode(
+                    this->getId(),
+                    this->entity->getPosition(),
+                    this->entity->getRotation(),
+                    this->entity->getScale(),
+                    this->entity->getTexture(),
+                    this->entity->getMesh()
+                );
                 this->skybox->setVisible(true);
                 this->skydome->setVisible(false);
+                return true;
             }
 
             bool draw() {
