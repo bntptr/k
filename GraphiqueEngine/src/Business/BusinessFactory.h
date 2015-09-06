@@ -21,7 +21,15 @@ namespace business
                     ETEXTURE_TERRAIN_DEFAULT,
                     EMESH_TERRAIN_DEFAULT
                 );
-                ISkyEntity *sky = SkyFactory::createEntity();
+                ISkyEntity *sky = SkyFactory::createEntity(
+                    ETEXTURE_SKY_DOME_DEFAULT,
+                    ETEXTURE_SKY_BOX_DEFAULT_UP,
+                    ETEXTURE_SKY_BOX_DEFAULT_DN,
+                    ETEXTURE_SKY_BOX_DEFAULT_LF,
+                    ETEXTURE_SKY_BOX_DEFAULT_RT,
+                    ETEXTURE_SKY_BOX_DEFAULT_FT,
+                    ETEXTURE_SKY_BOX_DEFAULT_BK
+                );
                 IPopulationEntity *population = PopulationFactory::createEntity();
                 IPlayerEntity *player = PlayerFactory::createEntity();
                 IBusinessEntity* entity = new BusinessEntity();

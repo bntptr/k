@@ -32,6 +32,10 @@ namespace graphique
                 return this->camera->getCameraSceneNode();
             }
 
+            ICamera* getCamera() {
+                return this->camera;
+            }
+
             bool build() {
                 return this->camera->build();
             }

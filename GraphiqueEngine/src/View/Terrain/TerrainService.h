@@ -22,10 +22,6 @@ namespace graphique
             };
             ~TerrainService(){};
 
-            scene::ITerrainSceneNode* getTerrainSceneNode(){
-                return this->terrain->getTerrain();
-            }
-
             bool build(ICameraService* camera) {
                 return this->terrain->build(camera);
             }

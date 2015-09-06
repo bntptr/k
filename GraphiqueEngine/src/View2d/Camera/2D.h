@@ -7,10 +7,6 @@ namespace graphique
 {
     class Camera2D : public Camera
     {
-        protected:
-            business::Vector3d position;
-            business::Vector3d scale;
-
         public:
             Camera2D(irr::IrrlichtDevice *device, ICursorService *cursor) : Camera(device, cursor){
                 this->setPosition(business::Vector3d(0,0,0));
@@ -108,18 +104,18 @@ namespace graphique
                 return this->position;
             }
 
-            Camera2D* setPosition(business::Vector3d position) {
+            ICamera* setPosition(business::Vector3d position) {
                 this->position = position;
-                return this;
+                return this->thisInstance;
             }
 
             business::Vector3d getScale(){
                 return this->scale;
             }
 
-            Camera2D* setScale(business::Vector3d scale){
+            ICamera* setScale(business::Vector3d scale){
                 this->scale = scale;
-                return this;
+                return this->thisInstance;
             }
     };
 } // graphique

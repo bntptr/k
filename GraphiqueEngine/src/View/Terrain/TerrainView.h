@@ -16,7 +16,8 @@ namespace graphique
         protected:
             ISceneNodeService *sceneNodeService;
             business::IGroundEntity *ground;
-            scene::ITerrainSceneNode* terrain;
+            ISceneNode *node;
+            //scene::ITerrainSceneNode* terrain;
 
             TMap<EACTIONEVENT, terrain::IAction>* keyMap;
 
@@ -32,18 +33,14 @@ namespace graphique
             };
             ~TerrainView(){};
 
-            scene::ITerrainSceneNode* getTerrain(){
-                return this->terrain;
-            }
-
             bool build(ICameraService* camera) {
                 this->node = this->sceneNodeService->addTerrainSceneNode(
                     -1,
-                    this->entity->getPosition(),
-                    this->entity->getRotation(),
-                    this->entity->getScale(),
-                    this->entity->getTexture(),
-                    this->entity->getMesh()
+                    this->ground->getPosition(),
+                    this->ground->getRotation(),
+                    this->ground->getScale(),
+                    this->ground->getTexture(),
+                    this->ground->getMesh()
                 );
                 return true;
             }
@@ -67,6 +64,10 @@ namespace graphique
 
             business::IGroundEntity* getGroundEntity() {
                 return this->ground;
+            }
+
+            ISceneNode* getSceneNode() {
+                return this->node;
             }
     };
 } // graphique

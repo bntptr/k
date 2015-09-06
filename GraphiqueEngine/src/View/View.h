@@ -145,6 +145,7 @@ namespace graphique
                 //business::IPlayerEntity *player = entity->getPlayer();
 
                 this->sceneNodeService->build();
+                this->sky->getSkyView()->updateShowBox();
                 return 0;
             }
 
@@ -167,6 +168,7 @@ namespace graphique
 
                 this->camera = CameraServiceFactory::createService(this->device, this->cursor);
                 this->camera->build();
+                this->sceneNodeService->setCameraService(this->camera);
 
                 this->cursor->setCameraService(this->camera);
 

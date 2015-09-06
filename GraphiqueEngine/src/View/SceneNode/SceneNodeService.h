@@ -11,6 +11,7 @@ namespace graphique
         protected:
             ISceneNodeService* thisInstance;
             TList<ISceneNode>* sceneNodeList;
+            ICameraService* camera;
 
             irr::IrrlichtDevice *device;
 
@@ -28,7 +29,7 @@ namespace graphique
             bool build() {
                 TList<ISceneNode>* L = this->sceneNodeList;
                 for(int i = 0; i < L->size(); i++) {
-                    L->getElement(i)->build();
+                    L->getElement(i)->build(this->camera);
                 }
                 return true;
             }
@@ -36,7 +37,10 @@ namespace graphique
             bool draw() {
                 TList<ISceneNode>* L = this->sceneNodeList;
                 for(int i = 0; i < L->size(); i++) {
-                    L->getElement(i)->draw();
+                    L->getElement(i)->draw(
+                        this->camera->getCamera()->getPosition(),
+                        this->camera->getCamera()->getScale()
+                    );
                 }
                 return true;
             }
@@ -47,6 +51,11 @@ namespace graphique
                     L->getElement(i)->onEvent(event);
                 }
                 return true;
+            }
+
+            ISceneNodeService* setCameraService(ICameraService* camera) {
+                this->camera = camera;
+                return this->thisInstance;
             }
 
             ISceneNode* addCubeSceneNode(
@@ -120,6 +129,7 @@ namespace graphique
             }
 
             ISceneNode* addTerrainSceneNode(
+                int id,
                 business::Vector3d position,
                 business::Vector3d rotation,
                 business::Vector3d scale,
@@ -138,8 +148,7 @@ namespace graphique
                 return node;
             }
 
-            ISceneNode* addSkySceneNode(
-                ETEXTURE textureSkyDome,
+            ISceneNode* addSkyBoxSceneNode(
                 ETEXTURE textureSkyBoxUp,
                 ETEXTURE textureSkyBoxDn,
                 ETEXTURE textureSkyBoxLf,
@@ -147,7 +156,7 @@ namespace graphique
                 ETEXTURE textureSkyBoxFt,
                 ETEXTURE textureSkyBoxBk
             ) {
-                ISceneNode *node = SceneNodeFactory::createSkySceneNode(
+                ISceneNode *node = SceneNodeFactory::createSkyBoxSceneNode(
                     this->device,
                     textureSkyBoxUp,
                     textureSkyBoxDn,
@@ -155,6 +164,17 @@ namespace graphique
                     textureSkyBoxRt,
                     textureSkyBoxFt,
                     textureSkyBoxBk
+                );
+                this->sceneNodeList->addElement(node);
+                return node;
+            }
+
+            ISceneNode* addSkyDomeSceneNode(
+                ETEXTURE textureSkyDome
+            ) {
+                ISceneNode *node = SceneNodeFactory::createSkyDomeSceneNode(
+                    this->device,
+                    textureSkyDome
                 );
                 this->sceneNodeList->addElement(node);
                 return node;

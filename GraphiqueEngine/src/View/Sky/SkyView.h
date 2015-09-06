@@ -43,30 +43,28 @@ namespace graphique
                 return this->showBox;
             }
 
+            void updateShowBox(){
+                this->showBox =! this->showBox;
+                this->skybox->setVisible(this->showBox);
+                this->skydome->setVisible(!this->showBox);
+            }
+
             bool setShowBox(bool showBox){
                 return this->showBox = showBox;
             }
 
             bool build() {
-                this->skybox = this->sceneNodeService->addSkySceneNode(
-                    this->entity->getTextureSkyDome(),
-                    this->entity->getTextureSkyBoxUp(),
-                    this->entity->getTextureSkyBoxDn(),
-                    this->entity->getTextureSkyBoxLf(),
-                    this->entity->getTextureSkyBoxRt(),
-                    this->entity->getTextureSkyBoxFt(),
-                    this->entity->getTextureSkyBoxBk(),
+                this->skybox = this->sceneNodeService->addSkyBoxSceneNode(
+                    this->skyEntity->getTextureSkyBoxUp(),
+                    this->skyEntity->getTextureSkyBoxDn(),
+                    this->skyEntity->getTextureSkyBoxLf(),
+                    this->skyEntity->getTextureSkyBoxRt(),
+                    this->skyEntity->getTextureSkyBoxFt(),
+                    this->skyEntity->getTextureSkyBoxBk()
                 );
-                this->skydome = this->sceneNodeService->addSkySceneNode(
-                    this->getId(),
-                    this->entity->getPosition(),
-                    this->entity->getRotation(),
-                    this->entity->getScale(),
-                    this->entity->getTexture(),
-                    this->entity->getMesh()
+                this->skydome = this->sceneNodeService->addSkyDomeSceneNode(
+                    this->skyEntity->getTextureSkyDome()
                 );
-                this->skybox->setVisible(true);
-                this->skydome->setVisible(false);
                 return true;
             }
 

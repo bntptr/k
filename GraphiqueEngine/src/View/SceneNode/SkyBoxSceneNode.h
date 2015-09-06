@@ -35,7 +35,7 @@ namespace graphique
             };
             ~SkyBoxSceneNode(){};
 
-            bool build() {
+            bool build(ICameraService* camera) {
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
 
@@ -62,13 +62,11 @@ namespace graphique
                 return true;
             }
 
-            bool draw() {
-
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
                 return true;
             }
 
             bool onEvent(const irr::SEvent& event) {
-
                 return true;
             }
     };

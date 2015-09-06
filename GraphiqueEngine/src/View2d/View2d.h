@@ -23,12 +23,12 @@ namespace graphique
                 this->mode = EVIEW_MODE_2D;
 
                 this->terrain = TerrainServiceFactory::createService(
-                    this->device,
+                    this->sceneNodeService,
                     view->getTerrainService()->getTerrainView()->getGroundEntity()
                 );
 
                 this->sky = SkyServiceFactory::createService(
-                    this->device,
+                    this->sceneNodeService,
                     view->getSkyService()->getSkyView()->getSkyEntity()
                 );
 
@@ -76,10 +76,16 @@ namespace graphique
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
                 business::IGroundEntity *ground = entity->getGround();
-                this->terrain = TerrainServiceFactory::createService(this->device, ground);
+                this->terrain = TerrainServiceFactory::createService(
+                    this->sceneNodeService,
+                    ground
+                );
 
                 business::ISkyEntity *skyEntity = entity->getSky();
-                this->sky = SkyServiceFactory::createService(this->device, skyEntity);
+                this->sky = SkyServiceFactory::createService(
+                    this->sceneNodeService,
+                    skyEntity
+                );
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
                 this->population = PopulationServiceFactory::createService(

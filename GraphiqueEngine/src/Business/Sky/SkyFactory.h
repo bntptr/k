@@ -8,12 +8,11 @@ namespace business
     class SkyFactory
     {
         public:
-            static ISkyEntity* createEntity() {
+            /*static ISkyEntity* createEntity() {
                 return new SkyEntity();
-            }
+            }*/
 
             static ISkyEntity* createEntity(
-                int id,
                 ETEXTURE textureDome,
                 ETEXTURE textureBoxUp,
                 ETEXTURE textureBoxDn,
@@ -23,7 +22,7 @@ namespace business
                 ETEXTURE textureBoxBk
             ) {
                 return new SkyEntity(
-                    id,
+                    -1,
                     textureDome,
                     textureBoxUp,
                     textureBoxDn,

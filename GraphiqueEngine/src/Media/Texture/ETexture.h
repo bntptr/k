@@ -23,6 +23,7 @@ enum ETEXTURE
 
 	//! Texture Sky
 	ETEXTURE_SKY_DOME_DEFAULT,
+	ETEXTURE_SKY_DOME_CREPUSCULE,
 	ETEXTURE_SKY_BOX_DEFAULT_UP,
 	ETEXTURE_SKY_BOX_DEFAULT_DN,
 	ETEXTURE_SKY_BOX_DEFAULT_LF,
@@ -48,6 +49,7 @@ const char* const TEXTUREInfoNames[] =
     "Texture/penguin.jpg",
     "terrain-texture-plat-riviere.jpg",
     "Sky/Dome/skydome.jpg",
+    "Sky/Dome/skydome2.jpg",
     "Sky/Box/irrlicht2_up.jpg",
     "Sky/Box/irrlicht2_dn.jpg",
     "Sky/Box/irrlicht2_lf.jpg",
@@ -72,6 +74,7 @@ const char* const TEXTURE2DInfoNames[] =
     "gun.jpg",
     "Texture/Texture2d/2ddemo.png",
     "Terrain/Texture2d/prairie.png",
+    "",
     "",
     "",
     "",

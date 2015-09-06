@@ -47,6 +47,10 @@ namespace graphique
                 return this->id;
             }
 
+            irr::scene::ISceneNode* getIrrlichtSceneNode() {
+                return this->node;
+            }
+
             void setDevice(irr::IrrlichtDevice *device) {
                 this->device = device;
             }
@@ -59,11 +63,11 @@ namespace graphique
                 this->node->isVisible();
             }
 
-            bool build() {
+            bool build(ICameraService* camera) {
                 return true;
             }
 
-            bool draw() {
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
                 return true;
             }
 

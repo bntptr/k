@@ -71,6 +71,7 @@
 		<Unit filename="src/Business/Building/BuildingEntity.h" />
 		<Unit filename="src/Business/Building/BuildingFactory.h" />
 		<Unit filename="src/Business/Building/BuildingService.h" />
+		<Unit filename="src/Business/Building/BuildingServiceFactory.h" />
 		<Unit filename="src/Business/Building/IBuildingEntity.h" />
 		<Unit filename="src/Business/Building/IBuildingService.h" />
 		<Unit filename="src/Business/Building/Unite/Action/Build.h" />
@@ -87,6 +88,7 @@
 		<Unit filename="src/Business/Ground/GroundEntity.h" />
 		<Unit filename="src/Business/Ground/GroundFactory.h" />
 		<Unit filename="src/Business/Ground/GroundService.h" />
+		<Unit filename="src/Business/Ground/GroundServiceFactory.h" />
 		<Unit filename="src/Business/Ground/IGroundEntity.h" />
 		<Unit filename="src/Business/Ground/IGroundService.h" />
 		<Unit filename="src/Business/IBusinessEntity.h" />
@@ -109,12 +111,14 @@
 		<Unit filename="src/Business/Population/PopulationEntity.h" />
 		<Unit filename="src/Business/Population/PopulationFactory.h" />
 		<Unit filename="src/Business/Population/PopulationService.h" />
+		<Unit filename="src/Business/Population/PopulationServiceFactory.h" />
 		<Unit filename="src/Business/Sky/ISkyEntity.h" />
 		<Unit filename="src/Business/Sky/ISkyService.h" />
 		<Unit filename="src/Business/Sky/SkyEntity.cpp" />
 		<Unit filename="src/Business/Sky/SkyEntity.h" />
 		<Unit filename="src/Business/Sky/SkyFactory.h" />
 		<Unit filename="src/Business/Sky/SkyService.h" />
+		<Unit filename="src/Business/Sky/SkyServiceFactory.h" />
 		<Unit filename="src/GraphiqueEngine.h" />
 		<Unit filename="src/GraphiqueEngineFactory.h" />
 		<Unit filename="src/IGraphiqueEngine.h" />
@@ -240,6 +244,8 @@
 		<Unit filename="src/View/SceneNode/SceneNodeFactory.h" />
 		<Unit filename="src/View/SceneNode/SceneNodeService.h" />
 		<Unit filename="src/View/SceneNode/SceneNodeServiceFactory.h" />
+		<Unit filename="src/View/SceneNode/SkyBoxSceneNode.h" />
+		<Unit filename="src/View/SceneNode/SkyDomeSceneNode.h" />
 		<Unit filename="src/View/SceneNode/SkySceneNode.h" />
 		<Unit filename="src/View/SceneNode/SphereSceneNode.h" />
 		<Unit filename="src/View/SceneNode/TerrainSceneNode.h" />

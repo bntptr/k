@@ -8,8 +8,6 @@ namespace business
         public:
             ISkyEntity(){};
             virtual ~ISkyEntity(){};
-            virtual char* getMeshName()=0;
-            virtual ISkyEntity* setMesh(char* meshName)=0;
 
             virtual ETEXTURE getTextureSkyDome()=0;
             virtual ETEXTURE getTextureSkyBoxUp()=0;

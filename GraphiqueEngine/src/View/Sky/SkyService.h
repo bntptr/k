@@ -22,11 +22,11 @@ namespace graphique
             };
             ~SkyService(){};
 
-            scene::ISceneNode* getSkyBox(){
+            ISceneNode* getSkyBox(){
                 return this->sky->getSkyBox();
             }
 
-            scene::ISceneNode* getSkyDome(){
+            ISceneNode* getSkyDome(){
                 return this->sky->getSkyDome();
             }
 

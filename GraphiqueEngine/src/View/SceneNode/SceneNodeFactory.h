@@ -136,7 +136,14 @@ namespace graphique
                 ETEXTURE texture,
                 EMESH mesh
             ) {
-                return new TerrainSceneNode(device);
+                return new TerrainSceneNode(
+                    device,
+                    position,
+                    rotation,
+                    scale,
+                    texture,
+                    mesh
+                );
             }
     };
 } // graphique

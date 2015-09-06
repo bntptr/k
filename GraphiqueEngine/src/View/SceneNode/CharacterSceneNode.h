@@ -30,7 +30,7 @@ namespace graphique
             ) {};
             ~CharacterSceneNode(){};
 
-            bool build() {
+            bool build(ICameraService* camera) {
                 using namespace irr;
                 std::cout <<"hello ninja !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
@@ -104,7 +104,7 @@ namespace graphique
             /**
              * A déplacer dans View2d
              */
-            bool draw() {
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
                 using namespace irr;
                 //std::cout <<"hello ninja !" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();

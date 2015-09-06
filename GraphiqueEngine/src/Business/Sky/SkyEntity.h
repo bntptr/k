@@ -27,7 +27,7 @@ namespace business
                 ETEXTURE textureBoxLf,
                 ETEXTURE textureBoxRt,
                 ETEXTURE textureBoxFt,
-                ETEXTURE textureBoxBk,
+                ETEXTURE textureBoxBk
             ){
                 this->thisInstance = this;
                 this->id = id;
@@ -41,13 +41,33 @@ namespace business
             };
             ~SkyEntity(){};
 
-            ETEXTURE getTextureSkyDome()=0;
-            ETEXTURE getTextureSkyBoxUp()=0;
-            ETEXTURE getTextureSkyBoxDn()=0;
-            ETEXTURE getTextureSkyBoxLf()=0;
-            ETEXTURE getTextureSkyBoxRt()=0;
-            ETEXTURE getTextureSkyBoxFt()=0;
-            ETEXTURE getTextureSkyBoxBk()=0;
+            ETEXTURE getTextureSkyDome() {
+                return this->textureDome;
+            }
+
+            ETEXTURE getTextureSkyBoxUp() {
+                return this->textureBoxUp;
+            }
+
+            ETEXTURE getTextureSkyBoxDn() {
+                return this->textureBoxDn;
+            }
+
+            ETEXTURE getTextureSkyBoxLf() {
+                return this->textureBoxLf;
+            }
+
+            ETEXTURE getTextureSkyBoxRt() {
+                return this->textureBoxRt;
+            }
+
+            ETEXTURE getTextureSkyBoxFt() {
+                return this->textureBoxFt;
+            }
+
+            ETEXTURE getTextureSkyBoxBk() {
+                return this->textureBoxBk;
+            }
     };
 } // business
 

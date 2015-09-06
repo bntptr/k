@@ -8,14 +8,19 @@ namespace graphique
     class Camera : public ICamera
     {
         protected:
+            ICamera *thisInstance;
             irr::IrrlichtDevice *device;
             irr::scene::ICameraSceneNode* camera;
             ICursorService* cursor;
             bool splitScreen;
             irr::scene::ICameraSceneNode *cameras[4];
 
+            business::Vector3d position;
+            business::Vector3d scale;
+
         public:
             Camera(irr::IrrlichtDevice *device, ICursorService *cursor){
+                this->thisInstance = this;
                 this->device = device;
                 this->cursor = cursor;
                 this->splitScreen = true;
@@ -141,6 +146,24 @@ namespace graphique
                 smgr->setActiveCamera(this->cameras[3]);
                 return true;
             }*/
+
+            business::Vector3d getPosition(){
+                return this->position;
+            }
+
+            ICamera* setPosition(business::Vector3d position) {
+                this->position = position;
+                return this->thisInstance;
+            }
+
+            business::Vector3d getScale(){
+                return this->scale;
+            }
+
+            ICamera* setScale(business::Vector3d scale){
+                this->scale = scale;
+                return this->thisInstance;
+            }
     };
 } // graphique
 

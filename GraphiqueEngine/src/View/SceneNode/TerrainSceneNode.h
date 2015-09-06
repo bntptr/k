@@ -8,14 +8,24 @@ namespace graphique
     class TerrainSceneNode : public SceneNode
     {
         public:
-            TerrainSceneNode(irr::IrrlichtDevice *device) : SceneNode() {
+            TerrainSceneNode(
+                irr::IrrlichtDevice *device,
+                business::Vector3d position,
+                business::Vector3d rotation,
+                business::Vector3d scale,
+                ETEXTURE texture,
+                EMESH mesh
+            ) : SceneNode() {
                 this->device = device;
-                this->build();
+                this->position = position;
+                this->rotation = rotation;
+                this->scale = scale;
+                this->texture = texture;
+                this->mesh = mesh;
             };
             ~TerrainSceneNode(){};
 
-            bool build() {
-
+            bool build(ICameraService* camera) {
                 std::cout <<"Build Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
@@ -28,11 +38,11 @@ namespace graphique
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
                 // add terrain scene node
-                business::Vector3d position = this->ground->getPosition();
-                business::Vector3d rotation = this->ground->getRotation();
-                business::Vector3d scale = this->ground->getScale();
+                business::Vector3d position = this->getPosition();
+                business::Vector3d rotation = this->getRotation();
+                business::Vector3d scale = this->getScale();
 
-                EMESH code_mesh = this->ground->getMesh();
+                EMESH code_mesh = this->mesh;
                 scene::ITerrainSceneNode* terrain = smgr->addTerrainSceneNode(
                     MEDIA + MESHInfoNames[code_mesh],
                     0,					// parent node
@@ -58,10 +68,9 @@ namespace graphique
                     4					// smoothFactor
                 );
 
-                this->terrain = terrain;
                 terrain->setMaterialFlag(video::EMF_LIGHTING, false);
 
-                ETEXTURE code_texture = this->ground->getTexture();
+                ETEXTURE code_texture = this->texture;
                 terrain->setMaterialTexture(0,
                         driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture]));
                 terrain->setMaterialTexture(1,
@@ -82,7 +91,7 @@ namespace graphique
                     selector,
                     camera->getCameraSceneNode(),
                     core::vector3df(60,100,60),
-                    core::vector3df(0,0,0),
+                    core::vector3df(0,-10.0f,0),
                     core::vector3df(0,0,0) // ici y valait 50
                 );
                 selector->drop();
@@ -99,10 +108,11 @@ namespace graphique
 
                 // Work on data or get the IndexBuffer with a similar call.
                 buffer->drop(); // When done drop the buffer again.
+                this->node = terrain;
                 return true;
             }
 
-            bool draw() {
+            bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
                 //std::cout <<"draw Terrain!" << std::endl;
                 ViewConfig *config = ViewConfig::getInstance();
                 using namespace irr;
@@ -115,11 +125,11 @@ namespace graphique
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
                 // add terrain scene node
-                business::Vector3d position = this->ground->getPosition();
-                business::Vector3d rotation = this->ground->getRotation();
-                business::Vector3d scale = this->ground->getScale();
+                business::Vector3d position = this->getPosition();
+                business::Vector3d rotation = this->getRotation();
+                business::Vector3d scale = this->getScale();
 
-                ETEXTURE code_texture = this->ground->getTexture();
+                ETEXTURE code_texture = this->texture;
                 std::cout << TEXTURE2DInfoNames[code_texture] << std::endl;
                 //terrain->setMaterialTexture(0,
                 //    driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture])

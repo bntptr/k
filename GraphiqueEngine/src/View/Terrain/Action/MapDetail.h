@@ -14,7 +14,9 @@ namespace graphique
                 virtual ~MapDetail(){};
 
                 int execute(ITerrainView *terrain) {
-                    irr::scene::ISceneNode* Terrain = terrain->getTerrain();
+                    irr::scene::ISceneNode* Terrain = terrain
+                        ->getSceneNode()
+                        ->getIrrlichtSceneNode();
                     // toggle detail map
                     Terrain->setMaterialType(
                         Terrain->getMaterial(0).MaterialType == irr::video::EMT_SOLID ?
