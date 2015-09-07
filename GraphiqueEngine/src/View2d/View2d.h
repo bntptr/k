@@ -62,6 +62,7 @@ namespace graphique
 
                 this->camera = Camera2dServiceFactory::createService(this->device, this->cursor);
                 this->camera->build();
+                this->sceneNodeService->setCameraService(this->camera);
 
                 this->cursor->setCameraService(this->camera);
 

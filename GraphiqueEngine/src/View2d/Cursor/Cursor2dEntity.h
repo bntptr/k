@@ -24,6 +24,7 @@ namespace graphique
             video::SColor colorCursorAction;
             video::SColor colorLeft;
             video::SColor colorRight;
+
         public:
             Cursor2dEntity(
                 irr::IrrlichtDevice *device,

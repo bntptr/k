@@ -9,6 +9,7 @@ namespace graphique
     {
         protected:
             bool vdown;
+
         public:
             MouseButton(){
                 this->vdown = false;

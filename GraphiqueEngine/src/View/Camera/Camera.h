@@ -73,9 +73,9 @@ namespace graphique
                 return true;
             }
 
-            bool draw(ITerrainService *terrain, IPopulationService *population) {
+            /*bool draw(ITerrainService *terrain, IPopulationService *population) {
                 return true;
-            }
+            }*/
 
             /*bool buildA() {
                 this->build();

@@ -54,7 +54,7 @@ namespace graphique
                 return true;
             }
 
-            bool draw(ITerrainService *terrain, IPopulationService *population) {
+            /*bool draw(ITerrainService *terrain, IPopulationService *population) {
                 using namespace irr;
                 using namespace core;
                 ViewConfig *config = ViewConfig::getInstance();
@@ -94,11 +94,11 @@ namespace graphique
                     driver->setViewPort(rect<s32>(ResX/2,ResY/2,ResX,ResY));
                 }
                 // Active la caméra 4.
-                smgr->setActiveCamera(this->cameras[3]);*/
+                smgr->setActiveCamera(this->cameras[3]);*//*
 
                 terrain->draw(this->getPosition(), this->getScale());
                 population->draw(this->getPosition(), this->getScale());
-            }
+            }*/
 
             business::Vector3d getPosition(){
                 return this->position;

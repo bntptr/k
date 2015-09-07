@@ -24,9 +24,9 @@ namespace graphique
                 return this->camera->build();
             }
 
-            bool draw(ITerrainService *terrain, IPopulationService *population) {
+            /*bool draw(ITerrainService *terrain, IPopulationService *population) {
                 return this->camera->draw(terrain, population);
-            }
+            }*/
     };
 } // business
 

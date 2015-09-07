@@ -16,7 +16,7 @@ namespace graphique
             virtual irr::scene::ICameraSceneNode* getCameraSceneNode()=0;
             virtual ICamera* getCamera()=0;
             virtual bool build()=0;
-            virtual bool draw(ITerrainService *terrain, IPopulationService *population)=0;
+            //virtual bool draw(ITerrainService *terrain, IPopulationService *population)=0;
 
             /*virtual bool active2d()=0;
             virtual bool activeFPS()=0;

@@ -206,7 +206,8 @@ namespace graphique
                 {
                     driver->beginScene(true, true, 0 );
 
-                    this->camera->draw(this->getTerrainService(), this->getPopulationService());
+                    //this->camera->draw(this->getTerrainService(), this->getPopulationService());
+                    this->sceneNodeService->draw();
                     smgr->drawAll();
                     env->drawAll();
                     this->cursor->draw();
