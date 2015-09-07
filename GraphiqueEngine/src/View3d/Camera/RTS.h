@@ -1,5 +1,5 @@
-#ifndef RTS_CAMERA_H
-#define RTS_CAMERA_H
+#ifndef VIEW3D_RTS_CAMERA_H
+#define VIEW3D_RTS_CAMERA_H
 
 #include "../Camera.h"
 

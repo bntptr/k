@@ -1,5 +1,5 @@
-#ifndef FPS_CAMERA_FACTORY_H
-#define FPS_CAMERA_FACTORY_H
+#ifndef VIEW3D_FPS_CAMERA_FACTORY_H
+#define VIEW3D_FPS_CAMERA_FACTORY_H
 
 #include "FPS.h"
 #include "../../Cursor/ICursorService.h"

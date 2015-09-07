@@ -1,5 +1,5 @@
-#ifndef RTS_CAMERA_FACTORY_H
-#define RTS_CAMERA_FACTORY_H
+#ifndef VIEW3D_RTS_CAMERA_FACTORY_H
+#define VIEW3D_RTS_CAMERA_FACTORY_H
 
 #include "RTS.h"
 #include "../../Cursor/ICursorService.h"

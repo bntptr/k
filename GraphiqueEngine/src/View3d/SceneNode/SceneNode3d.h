@@ -1,19 +1,17 @@
-#ifndef VIEW_SCENE_NODE_H
-#define VIEW_SCENE_NODE_H
+#ifndef VIEW_SCENE_NODE_3D_H
+#define VIEW_SCENE_NODE_3D_H
 
-#include "ISceneNode.h"
+#include "ISceneNode3d.h"
 
 namespace graphique
 {
-    class SceneNode : public ISceneNode
+    class SceneNode3d : public SceneNode
     {
-        protected:
-            irr::IrrlichtDevice *device;
         public:
-            SceneNode(irr::IrrlichtDevice *device){
+            SceneNode3d(irr::IrrlichtDevice *device){
                 this->device = device;
             };
-            ~SceneNode(){};
+            ~SceneNode3d(){};
 
             bool build() {
 

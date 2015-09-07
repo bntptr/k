@@ -1,5 +1,5 @@
-#ifndef EDITOR_CAMERA_FACTORY_H
-#define EDITOR_CAMERA_FACTORY_H
+#ifndef VIEW3D_EDITOR_CAMERA_FACTORY_H
+#define VIEW3D_EDITOR_CAMERA_FACTORY_H
 
 #include "Editor.h"
 #include "../../Cursor/ICursorService.h"

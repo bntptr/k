@@ -1,5 +1,5 @@
-#ifndef RPG_CAMERA_H
-#define RPG_CAMERA_H
+#ifndef VIEW3D_RPG_CAMERA_H
+#define VIEW3D_RPG_CAMERA_H
 
 #include "../Camera.h"
 

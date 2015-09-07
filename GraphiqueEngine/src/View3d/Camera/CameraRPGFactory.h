@@ -1,5 +1,5 @@
-#ifndef RPG_CAMERA_FACTORY_H
-#define RPG_CAMERA_FACTORY_H
+#ifndef VIEW3D_RPG_CAMERA_FACTORY_H
+#define VIEW3D_RPG_CAMERA_FACTORY_H
 
 #include "RPG.h"
 #include "../../Cursor/ICursorService.h"

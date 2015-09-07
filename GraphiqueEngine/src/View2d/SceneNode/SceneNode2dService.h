@@ -1,26 +1,22 @@
-#ifndef VIEW_SCENE_NODE_SERVICE_H
-#define VIEW_SCENE_NODE_SERVICE_H
+#ifndef VIEW_SCENE_NODE_2D_SERVICE_H
+#define VIEW_SCENE_NODE_2D_SERVICE_H
 
-#include "ISceneNodeService.h"
-#include "SceneNodeFactory.h"
+#include "SceneNodeService.h"
+#include "SceneNode2dFactory.h"
 
 namespace graphique
 {
-    class SceneNodeService : public ISceneNodeService
+    class SceneNode2dService : public SceneNodeService
     {
-        protected:
-            ISceneNodeService* thisInstance;
-            ISceneNode *sceneNode;
-
         public:
-            SceneNodeService(){
+            SceneNode2dService(){
                 this->thisInstance = this;
             };
-            SceneNodeService(irr::IrrlichtDevice *device){
+            SceneNode2dService(irr::IrrlichtDevice *device){
                 this->thisInstance = this;
-                this->sceneNode = SceneNodeFactory::createEntity(device);
+                this->sceneNode = SceneNode2dFactory::createEntity(device);
             };
-            ~SceneNodeService(){};
+            ~SceneNode2dService(){};
 
             bool build() {
                 return this->sceneNode->build();

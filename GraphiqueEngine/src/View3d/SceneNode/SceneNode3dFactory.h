@@ -1,15 +1,15 @@
-#ifndef VIEW_SCENE_NODE_FACTORY_H
-#define VIEW_SCENE_NODE_FACTORY_H
+#ifndef VIEW_SCENE_NODE_3D_FACTORY_H
+#define VIEW_SCENE_NODE_3D_FACTORY_H
 
-#include "SceneNode.h"
+#include "SceneNode3d.h"
 
 namespace graphique
 {
-    class SceneNodeFactory
+    class SceneNode3dFactory
     {
         public:
             static ISceneNode* createEntity(irr::IrrlichtDevice *device) {
-                return new SceneNode(device);
+                return new SceneNode3d(device);
             }
     };
 } // graphique

@@ -1,5 +1,5 @@
-#ifndef EDITOR_CAMERA_H
-#define EDITOR_CAMERA_H
+#ifndef VIEW3D_EDITOR_CAMERA_H
+#define VIEW3D_EDITOR_CAMERA_H
 
 #include "../Camera.h"
 

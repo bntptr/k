@@ -1,5 +1,5 @@
-#ifndef FPS_CAMERA_H
-#define FPS_CAMERA_H
+#ifndef VIEW3D_FPS_CAMERA_H
+#define VIEW3D_FPS_CAMERA_H
 
 #include "../Camera.h"
 
