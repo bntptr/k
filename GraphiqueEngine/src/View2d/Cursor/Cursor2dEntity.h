@@ -96,7 +96,6 @@ namespace graphique
                             );
                         }
                     }
-                    //driver->draw2DRectangle(video::SColor(100,200,100,255),core::rect<s32>(cursor->x, cursor->y, cursor->X, cursor->Y));
                 }
                 if (this->clicd) {
                     if (this->x > this->X) {
@@ -183,10 +182,6 @@ namespace graphique
                 scene::ISceneManager* smgr = device->getSceneManager();
                 gui::IGUIEnvironment* env = device->getGUIEnvironment();
 
-                driver->draw2DRectangle(
-                    video::SColor(100,200,100,255),
-                    core::rect<s32>(this->x, this->y, this->X, this->Y)
-                );
                 this->affiche();
 
                 return true;

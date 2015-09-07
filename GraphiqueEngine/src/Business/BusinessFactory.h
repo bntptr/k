@@ -17,7 +17,7 @@ namespace business
                 IGroundEntity *ground = GroundFactory::createEntity(
                     Vector3d(0, 0, 0),
                     Vector3d(0, 0, 0),
-                    Vector3d(40, 4.4, 40),
+                    Vector3d(400, 0, 400),
                     ETEXTURE_TERRAIN_DEFAULT,
                     EMESH_TERRAIN_DEFAULT
                 );

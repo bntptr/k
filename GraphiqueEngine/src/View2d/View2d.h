@@ -51,6 +51,8 @@ namespace graphique
                 std::cout <<"build view2d !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
+                this->sceneNodeService = SceneNodeServiceFactory::createService(this->device);
+
                 this->cursor = Cursor2dServiceFactory::createService(this->device, this);
 
                 this->keyboard = Keyboard2dServiceFactory::createService(this);

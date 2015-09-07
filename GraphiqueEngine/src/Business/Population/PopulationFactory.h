@@ -33,14 +33,14 @@ namespace business
              */
             static IPopulationEntity* mockEntity(IPopulationEntity* entity) {
                 entity->addCharacter(
-                    Vector3d(800, 0, 100),
+                    Vector3d(800, 40, 100),
                     Vector3d(0, 90, 0),
                     Vector3d(2, 2, 2),
                     ETEXTURE_FAERIE,
                     EMESH_FAERIE
                 );
                 entity->addCharacter(
-                    Vector3d(815, 0, 100),
+                    Vector3d(815, 40, 100),
                     Vector3d(0, 0, 0),
                     Vector3d(2, 2, 2),
                     ETEXTURE_SYDNEY,
