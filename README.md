@@ -6,7 +6,7 @@ Code::Block
 C++ Programming Tutorial - How to Install Code::Blocks in Ubuntu Linux ?
 https://www.youtube.com/watch?v=f48D90y3BWI
 
-install
+Install
 =======
 sudo apt-get install libglu-dev 
 sudo apt-get install libgl1-mesa-dev
