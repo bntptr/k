@@ -14,6 +14,7 @@ Aides:
 #include "src/View/ViewFactory.h"
 #include "src/View2d/View2dFactory.h"
 #include "src/View3d/View3dFactory.h"
+#include "src/ViewMenu/ViewMenuFactory.h"
 
 using namespace std;
 using namespace graphique;
@@ -56,7 +57,7 @@ int main()
 
     loadLibrary();
 
-    std::cout << "Please select the driver you want for this example:\n"\
+    std::cout << "Please select the view you want for this example:\n"\
         " (a) View\n (b) View2d\n (c) View3d\n"\
         " (d) ViewMenu\n (e) Exemple1\n"\
         " (f) Exemple2\n (otherKey) exit\n\n" << std::endl;
@@ -71,7 +72,7 @@ int main()
         case 'a': view = ViewFactory::createEntity();   break;
         case 'b': view = View2dFactory::createEntity(); break;
         case 'c': view = View3dFactory::createEntity(); break;
-        case 'd': view = ViewFactory::createEntity();   break;
+        case 'd': view = ViewMenuFactory::createEntity();   break;
         case 'e': view = ViewFactory::createEntity();   break;
         case 'f': view = ViewFactory::createEntity();   break;
         default:

@@ -320,8 +320,6 @@
 		<Unit filename="src/View2d/Keyboard/Keyboard2dServiceFactory.h" />
 		<Unit filename="src/View2d/Keyboard/KeyboardEditor.h" />
 		<Unit filename="src/View2d/Keyboard/KeyboardEditorFactory.h" />
-		<Unit filename="src/View2d/SceneNode/ISceneNode2d.h" />
-		<Unit filename="src/View2d/SceneNode/ISceneNode2dService.h" />
 		<Unit filename="src/View2d/SceneNode/SceneNode2d.h" />
 		<Unit filename="src/View2d/SceneNode/SceneNode2dFactory.h" />
 		<Unit filename="src/View2d/SceneNode/SceneNode2dService.h" />
@@ -342,18 +340,22 @@
 		<Unit filename="src/View3d/Camera/FPS.h" />
 		<Unit filename="src/View3d/Camera/RPG.h" />
 		<Unit filename="src/View3d/Camera/RTS.h" />
+		<Unit filename="src/View3d/Cursor/Cursor3dConfig.h" />
+		<Unit filename="src/View3d/Cursor/Cursor3dEntity.h" />
+		<Unit filename="src/View3d/Cursor/Cursor3dFactory.h" />
+		<Unit filename="src/View3d/Cursor/Cursor3dService.h" />
+		<Unit filename="src/View3d/Cursor/Cursor3dServiceFactory.h" />
 		<Unit filename="src/View3d/Population/PopulationFPSService.h" />
 		<Unit filename="src/View3d/Population/PopulationFPSServiceFactory.h" />
 		<Unit filename="src/View3d/Population/PopulationFPSView.h" />
 		<Unit filename="src/View3d/Population/PopulationFPSViewFactory.h" />
-		<Unit filename="src/View3d/SceneNode/ISceneNode3d.h" />
-		<Unit filename="src/View3d/SceneNode/ISceneNode3dService.h" />
 		<Unit filename="src/View3d/SceneNode/SceneNode3d.h" />
 		<Unit filename="src/View3d/SceneNode/SceneNode3dFactory.h" />
 		<Unit filename="src/View3d/SceneNode/SceneNode3dService.h" />
 		<Unit filename="src/View3d/SceneNode/SceneNode3dServiceFactory.h" />
 		<Unit filename="src/View3d/View3d.h" />
 		<Unit filename="src/View3d/View3dFactory.h" />
+		<Unit filename="src/ViewMenu/Action/Actions.h" />
 		<Unit filename="src/ViewMenu/ViewMenu.h" />
 		<Unit filename="src/ViewMenu/ViewMenuFactory.h" />
 		<Extensions>
