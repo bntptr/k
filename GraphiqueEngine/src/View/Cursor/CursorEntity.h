@@ -27,7 +27,6 @@ namespace graphique
             TMap<irr::EMOUSE_INPUT_EVENT, IEmie>* keyMap;
             IView *view;
 
-
         public:
             CursorEntity(irr::IrrlichtDevice *device, IView *view, TMap<irr::EMOUSE_INPUT_EVENT, IEmie>* keyMap){
                 this->thisInstance = this;
@@ -159,6 +158,15 @@ namespace graphique
                         std::cout << "No selected : " << this->selectedSceneNode->getID() << std::endl;
                     }
                 }
+                driver->draw2DRectangle(
+                    video::SColor(100,200,100,255),
+                    core::rect<s32>(
+                        50,
+                        50,
+                        120,
+                        100
+                    )
+                );
 
                 return true;
             }
@@ -173,6 +181,11 @@ namespace graphique
             }
 
             bool onEvent(const irr::SEvent& event) {
+                if (irr::EMIE_MOUSE_MOVED == event.MouseInput.Event) {
+                    //this->X = event.MouseInput.X;
+                    //this->Y = event.MouseInput.Y;
+                    std::cout << "intersection : " << event.MouseInput.X << ", "<< event.MouseInput.Y << std::endl;
+                }
                 this->execute(event.MouseInput.Event);
                 return true;
             }

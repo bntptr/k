@@ -53,7 +53,12 @@ namespace graphique
 
             virtual irr::scene::ICameraSceneNode* getCameraSceneNode()=0;
             virtual bool build()=0;
-            virtual bool draw(ITerrainService *terrain, IPopulationService *population)=0;
+            //virtual bool draw(ITerrainService *terrain, IPopulationService *population)=0;
+
+            virtual business::Vector3d getPosition()=0;
+            virtual ICamera* setPosition(business::Vector3d position)=0;
+            virtual business::Vector3d getScale()=0;
+            virtual ICamera* setScale(business::Vector3d scale)=0;
     };
 } // graphique
 

@@ -11,8 +11,8 @@ namespace graphique
             ISkyService(){};
             virtual ~ISkyService(){};
 
-            virtual irr::scene::ISceneNode* getSkyBox()=0;
-            virtual irr::scene::ISceneNode* getSkyDome()=0;
+            virtual ISceneNode* getSkyBox()=0;
+            virtual ISceneNode* getSkyDome()=0;
             virtual bool getShowBox()=0;
             virtual bool setShowBox(bool showBox)=0;
             virtual bool build()=0;

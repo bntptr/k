@@ -13,15 +13,14 @@ namespace graphique
             ITerrainView *terrain;
 
         public:
-            TerrainService(irr::IrrlichtDevice *device, business::IGroundEntity *ground){
+            TerrainService(
+                ISceneNodeService *service,
+                business::IGroundEntity *ground
+            ){
                 this->thisInstance = this;
-                this->terrain = TerrainViewFactory::createEntity(device, ground);
+                this->terrain = TerrainViewFactory::createEntity(service, ground);
             };
             ~TerrainService(){};
-
-            scene::ITerrainSceneNode* getTerrainSceneNode(){
-                return this->terrain->getTerrain();
-            }
 
             bool build(ICameraService* camera) {
                 return this->terrain->build(camera);

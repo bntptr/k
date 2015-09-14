@@ -7,11 +7,14 @@
 #include "Action/Actions.h"
 #include "EventReceiver/ViewEventReceiver.h"
 #include "ViewConfig.h"
+#include "SceneNode/SceneNodeServiceFactory.h"
+
 #include "Cursor/CursorServiceFactory.h"
 #include "Keyboard/KeyboardServiceFactory.h"
 #include "Camera/CameraServiceFactory.h"
-#include "Selector/SelectorService.h"
+#include "Selector/SelectorServiceFactory.h"
 #include "Environnement/EnvironnementServiceFactory.h"
+
 #include "Terrain/TerrainServiceFactory.h"
 #include "Sky/SkyServiceFactory.h"
 #include "Building/BuildingServiceFactory.h"
@@ -29,6 +32,8 @@ namespace graphique
             irr::IrrlichtDevice *device;
             ViewEventReceiver *receiver;
             TMap<EVIEW, IAction>* keyMap;
+
+            ISceneNodeService *sceneNodeService;
 
             ICursorService *cursor;
             IKeyboardService *keyboard;
@@ -48,7 +53,7 @@ namespace graphique
             View(TMap<EVIEW, IAction>* keyMap) {
                 this->thisInstance = this;
                 this->keyMap = keyMap;
-                this->selector = new SelectorService();
+                this->selector = SelectorServiceFactory::createService();
                 this->mode = EVIEW_MODE_EDITOR;
                 this->eventGraphique = EGRAPHIQUE_CLOSE;
             }
@@ -87,9 +92,6 @@ namespace graphique
                     return 1; // could not create selected driver.
 
                 video::IVideoDriver* driver = device->getVideoDriver();
-                scene::ISceneManager* smgr = device->getSceneManager();
-                gui::IGUIEnvironment* env = device->getGUIEnvironment();
-
                 driver->setTextureCreationFlag(video::ETCF_ALWAYS_32_BIT, true);
                 return 0;
             }
@@ -110,25 +112,40 @@ namespace graphique
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
 
                 business::IGroundEntity *ground = entity->getGround();
-                this->terrain = TerrainServiceFactory::createService(this->device, ground);
+                this->terrain = TerrainServiceFactory::createService(
+                    this->sceneNodeService,
+                    ground
+                );
                 this->terrain->build(this->camera);
 
                 business::ISkyEntity *skyEntity = entity->getSky();
-                this->sky = SkyServiceFactory::createService(this->device, skyEntity);
+                this->sky = SkyServiceFactory::createService(
+                    this->sceneNodeService,
+                    skyEntity
+                );
                 this->sky->build();
 
                 business::IPopulationEntity *populationEntity = entity->getPopulation();
-                this->population = PopulationServiceFactory::createService(this->device, populationEntity);
+                this->population = PopulationServiceFactory::createService(
+                    this->sceneNodeService,
+                    populationEntity
+                );
                 this->population->build();
 
                 business::IBuildingEntity *buildingEntity = entity->getBuilding();
-                this->building = BuildingServiceFactory::createService(this->device, buildingEntity);
+                this->building = BuildingServiceFactory::createService(
+                    this->sceneNodeService,
+                    buildingEntity
+                );
                 this->building->build();
 
                 // selection par default pour les tests
                 IObjectView *obj = this->population->getCharacterFromPlayer();
                 this->selector->addToCursorLeft(obj);
                 //business::IPlayerEntity *player = entity->getPlayer();
+
+                this->sceneNodeService->build();
+                this->sky->getSkyView()->updateShowBox();
                 return 0;
             }
 
@@ -138,6 +155,8 @@ namespace graphique
             int build(business::BusinessInterface *business) {
                 std::cout <<"build view !" << std::endl;
                 business::IBusinessEntity *entity = business->loadBusinessEntity();
+
+                this->sceneNodeService = SceneNodeServiceFactory::createService(this->device);
 
                 this->cursor = CursorServiceFactory::createService(this->device, this);
                 this->cursor->build();
@@ -149,6 +168,7 @@ namespace graphique
 
                 this->camera = CameraServiceFactory::createService(this->device, this->cursor);
                 this->camera->build();
+                this->sceneNodeService->setCameraService(this->camera);
 
                 this->cursor->setCameraService(this->camera);
 
@@ -186,7 +206,8 @@ namespace graphique
                 {
                     driver->beginScene(true, true, 0 );
 
-                    this->camera->draw(this->getTerrainService(), this->getPopulationService());
+                    //this->camera->draw(this->getTerrainService(), this->getPopulationService());
+                    this->sceneNodeService->draw();
                     smgr->drawAll();
                     env->drawAll();
                     this->cursor->draw();

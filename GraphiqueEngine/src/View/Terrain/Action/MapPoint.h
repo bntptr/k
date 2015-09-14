@@ -14,7 +14,9 @@ namespace graphique
                 virtual ~MapPoint(){};
 
                 int execute(ITerrainView *terrain) {
-                    irr::scene::ISceneNode* Terrain = terrain->getTerrain();
+                    irr::scene::ISceneNode* Terrain = terrain
+                        ->getSceneNode()
+                        ->getIrrlichtSceneNode();
                      // switch wire frame mode
                     Terrain->setMaterialFlag(irr::video::EMF_POINTCLOUD,
                             !Terrain->getMaterial(0).PointCloud);

@@ -7,10 +7,10 @@ namespace graphique
 {
     class BuildingFactory
     {
-    public:
-        static IBuildingEntity* createEntity(irr::IrrlichtDevice *device, business::IBuildingEntity *entity) {
-            return new BuildingEntity(device, entity);
-        }
+        public:
+            static IBuildingEntity* createEntity(ISceneNodeService *service, business::IBuildingEntity *entity) {
+                return new BuildingEntity(service, entity);
+            }
     };
 } // graphique
 

@@ -7,14 +7,66 @@ namespace business
 {
     class SkyEntity : public ISkyEntity
     {
+        protected:
+            ISkyEntity *thisInstance;
+            int id;
+            ETEXTURE textureDome;
+            ETEXTURE textureBoxUp;
+            ETEXTURE textureBoxDn;
+            ETEXTURE textureBoxLf;
+            ETEXTURE textureBoxRt;
+            ETEXTURE textureBoxFt;
+            ETEXTURE textureBoxBk;
+
         public:
-            SkyEntity(){};
+            SkyEntity(
+                int id,
+                ETEXTURE textureDome,
+                ETEXTURE textureBoxUp,
+                ETEXTURE textureBoxDn,
+                ETEXTURE textureBoxLf,
+                ETEXTURE textureBoxRt,
+                ETEXTURE textureBoxFt,
+                ETEXTURE textureBoxBk
+            ){
+                this->thisInstance = this;
+                this->id = id;
+                this->textureDome = textureDome;
+                this->textureBoxUp = textureBoxUp;
+                this->textureBoxDn = textureBoxDn;
+                this->textureBoxLf = textureBoxLf;
+                this->textureBoxRt = textureBoxRt;
+                this->textureBoxFt = textureBoxFt;
+                this->textureBoxBk = textureBoxBk;
+            };
             ~SkyEntity(){};
-            char* getMeshName() {
-                return NULL;
+
+            ETEXTURE getTextureSkyDome() {
+                return this->textureDome;
             }
-            ISkyEntity* setMesh(char* meshName){
-                return NULL;
+
+            ETEXTURE getTextureSkyBoxUp() {
+                return this->textureBoxUp;
+            }
+
+            ETEXTURE getTextureSkyBoxDn() {
+                return this->textureBoxDn;
+            }
+
+            ETEXTURE getTextureSkyBoxLf() {
+                return this->textureBoxLf;
+            }
+
+            ETEXTURE getTextureSkyBoxRt() {
+                return this->textureBoxRt;
+            }
+
+            ETEXTURE getTextureSkyBoxFt() {
+                return this->textureBoxFt;
+            }
+
+            ETEXTURE getTextureSkyBoxBk() {
+                return this->textureBoxBk;
             }
     };
 } // business

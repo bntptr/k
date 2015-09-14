@@ -29,9 +29,10 @@ http://irrlicht.sourceforge.net/docu/_i_animated_mesh_m_d2_8h_source.html
 00042     };
 */
 
-#ifndef CHARACTERVIEW_H
-#define CHARACTERVIEW_H
+#ifndef VIEW_CHARACTER_VIEW_H
+#define VIEW_CHARACTER_VIEW_H
 
+#include "../../SceneNode/ISceneNodeService.h"
 #include "ICharacter.h"
 #include "Action/Actions.h"
 #include "../../ViewConfig.h"
@@ -41,121 +42,39 @@ namespace graphique
     class Character : public ICharacter
     {
         protected:
+            ISceneNodeService *sceneNodeService;
+            ISceneNode *node;
             irr::IrrlichtDevice *device;
             business::ICharacterEntity *entity;
-            irr::scene::IAnimatedMeshSceneNode* node;
 
             TMap<EACTIONEVENT, character::IAction>* keyMap;
 
         public:
             Character(
-                irr::IrrlichtDevice *device,
+                ISceneNodeService *service,
                 business::ICharacterEntity *entity,
                 TMap<EACTIONEVENT, character::IAction>* keyMap
             ){
-                this->device = device;
+                this->sceneNodeService = service;
                 this->entity = entity;
                 this->keyMap = keyMap;
             };
             ~Character(){};
 
             bool build() {
-                using namespace irr;
-                std::cout <<"hello ninja !" << std::endl;
-                ViewConfig *config = ViewConfig::getInstance();
-                config->load();
-                const io::path MEDIA = config->getMediaPath();
-
-                video::IVideoDriver* driver = this->device->getVideoDriver();
-                scene::ISceneManager* smgr = this->device->getSceneManager();
-                gui::IGUIEnvironment* env = this->device->getGUIEnvironment();
-
-                // NINJA
-                EMESH code_mesh = this->entity->getMesh();
-                scene::IAnimatedMesh *mesh= smgr->getMesh(
-                    MEDIA + MESHInfoNames[code_mesh]
+                this->node = this->sceneNodeService->addCharacterSceneNode(
+                    this->getId(),
+                    this->entity->getPosition(),
+                    this->entity->getRotation(),
+                    this->entity->getScale(),
+                    this->entity->getTexture(),
+                    this->entity->getMesh()
                 );
-                scene::IAnimatedMeshSceneNode* anms =
-                    smgr->addAnimatedMeshSceneNode(
-                        mesh,
-                        0,
-                        this->getId()//this->entity->getId() //IDFlag_IsPickable | IDFlag_IsHighlightable
-                );
-
-// Pour la selection avec le curseur
-                scene::ITriangleSelector* selector = 0;
-                selector = smgr->createTriangleSelector(anms);
-                anms->setTriangleSelector(selector);
-                selector->drop();
-// fin selection curseur
-                ETEXTURE code_texture = this->entity->getTexture();
-
-                if ("" != TEXTUREInfoNames[code_texture]) {
-                    anms->setMaterialTexture(
-                        0,
-                        driver->getTexture(MEDIA + TEXTUREInfoNames[code_texture])
-                    );
-                }
-
-                if (anms)
-                {
-                    anms->setMaterialFlag(video::EMF_LIGHTING, false);
-
-                    anms->setFrameLoop(0, 13);
-                    anms->setAnimationSpeed(15);
-            		//anms->setMD2Animation(scene::EMAT_RUN);
-
-                    business::Vector3d scale = this->entity->getScale();
-                    anms->setScale(core::vector3df(
-                        scale.getX(),
-                        scale.getY(),
-                        scale.getZ()
-                    ));
-
-                    business::Vector3d rotation = this->entity->getRotation();
-                    anms->setRotation(core::vector3df(
-                        rotation.getX(),
-                        rotation.getY(),
-                        rotation.getZ()
-                    ));
-
-                    business::Vector3d position = this->entity->getPosition();
-                    anms->setPosition(core::vector3df(
-                        position.getX(),
-                        position.getY(),
-                        position.getZ()
-                    ));
-                    this->node = anms;
-                }
+                return true;
             }
 
             bool draw(business::Vector3d cameraPosition, business::Vector3d cameraScale) {
-                using namespace irr;
-                //std::cout <<"hello ninja !" << std::endl;
-                ViewConfig *config = ViewConfig::getInstance();
-                config->load();
-                const io::path MEDIA = config->getMediaPath();
 
-                video::IVideoDriver* driver = this->device->getVideoDriver();
-
-                u32 time = this->device->getTimer()->getTime();
-                core::rect<s32> imp1(349,15,385,78);
-                core::rect<s32> imp2(387,15,423,78);
-                ETEXTURE code_texture = this->entity->getTexture();
-                business::Vector3d position = this->entity->getPosition();
-
-                /// Couleur transparente
-                video::ITexture *image = driver->getTexture(MEDIA + TEXTURE2DInfoNames[code_texture]);
-                driver->makeColorKeyTexture(image, core::position2d<s32>(0,0));
-                // draw flying imp
-                driver->draw2DImage(
-                    image,
-                    core::position2d<s32>(position.getX()-18,position.getZ()-31),
-                    (time/500 % 2) ? imp1 : imp2,
-                    0,
-                    video::SColor(255,255,255,255),
-                    true
-                );
                 return true;
             }
 
@@ -163,7 +82,7 @@ namespace graphique
                 return this->entity;
             }
 
-            irr::scene::IAnimatedMeshSceneNode* getNode() {
+            ISceneNode* getNode() {
                 return this->node;
             }
 

@@ -33,14 +33,14 @@ namespace business
              */
             static IPopulationEntity* mockEntity(IPopulationEntity* entity) {
                 entity->addCharacter(
-                    Vector3d(800, 0, 100),
+                    Vector3d(800, 40, 100),
                     Vector3d(0, 90, 0),
                     Vector3d(2, 2, 2),
                     ETEXTURE_FAERIE,
                     EMESH_FAERIE
                 );
                 entity->addCharacter(
-                    Vector3d(815, 0, 100),
+                    Vector3d(815, 40, 100),
                     Vector3d(0, 0, 0),
                     Vector3d(2, 2, 2),
                     ETEXTURE_SYDNEY,
@@ -56,35 +56,35 @@ namespace business
                 entity->addCharacter(
                     Vector3d(800, 0, 110),
                     Vector3d(0, 90, 0),
-                    Vector3d(2, 2, 2),
+                    Vector3d(5, 5, 5),
                     ETEXTURE_NINJA_BLUE,
                     EMESH_NINJA
                 );
                 entity->addCharacter(
                     Vector3d(815, 0, 110),
                     Vector3d(0, 0, 0),
-                    Vector3d(2, 2, 2),
+                    Vector3d(5, 5, 5),
                     ETEXTURE_NINJA_BLUE,
                     EMESH_NINJA
                 );
                 entity->addCharacter(
                     Vector3d(830, 0, 110),
                     Vector3d(0, 90, 0),
-                    Vector3d(2, 2, 2),
+                    Vector3d(5, 5, 5),
                     ETEXTURE_NINJA_BLUE,
                     EMESH_NINJA
                 );
                 entity->addCharacter(
                     Vector3d(800, 0, 120),
                     Vector3d(0, 90, 0),
-                    Vector3d(2, 2, 2),
+                    Vector3d(5, 5, 5),
                     ETEXTURE_NINJA_RED,
                     EMESH_NINJA
                 );
                 entity->addCharacter(
                     Vector3d(815, 0, 120),
                     Vector3d(0, 0, 0),
-                    Vector3d(2, 2, 2),
+                    Vector3d(5, 5, 5),
                     ETEXTURE_NINJA,
                     EMESH_NINJA
                 );

@@ -8,8 +8,29 @@ namespace business
     class SkyFactory
     {
         public:
-            static ISkyEntity* createEntity() {
+            /*static ISkyEntity* createEntity() {
                 return new SkyEntity();
+            }*/
+
+            static ISkyEntity* createEntity(
+                ETEXTURE textureDome,
+                ETEXTURE textureBoxUp,
+                ETEXTURE textureBoxDn,
+                ETEXTURE textureBoxLf,
+                ETEXTURE textureBoxRt,
+                ETEXTURE textureBoxFt,
+                ETEXTURE textureBoxBk
+            ) {
+                return new SkyEntity(
+                    -1,
+                    textureDome,
+                    textureBoxUp,
+                    textureBoxDn,
+                    textureBoxLf,
+                    textureBoxRt,
+                    textureBoxFt,
+                    textureBoxBk
+                );
             }
     };
 } // business

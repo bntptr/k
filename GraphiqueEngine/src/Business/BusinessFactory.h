@@ -17,11 +17,19 @@ namespace business
                 IGroundEntity *ground = GroundFactory::createEntity(
                     Vector3d(0, 0, 0),
                     Vector3d(0, 0, 0),
-                    Vector3d(40, 4.4, 40),
+                    Vector3d(400, 0, 400),
                     ETEXTURE_TERRAIN_DEFAULT,
                     EMESH_TERRAIN_DEFAULT
                 );
-                ISkyEntity *sky = SkyFactory::createEntity();
+                ISkyEntity *sky = SkyFactory::createEntity(
+                    ETEXTURE_SKY_DOME_DEFAULT,
+                    ETEXTURE_SKY_BOX_DEFAULT_UP,
+                    ETEXTURE_SKY_BOX_DEFAULT_DN,
+                    ETEXTURE_SKY_BOX_DEFAULT_LF,
+                    ETEXTURE_SKY_BOX_DEFAULT_RT,
+                    ETEXTURE_SKY_BOX_DEFAULT_FT,
+                    ETEXTURE_SKY_BOX_DEFAULT_BK
+                );
                 IPopulationEntity *population = PopulationFactory::createEntity();
                 IPlayerEntity *player = PlayerFactory::createEntity();
                 IBusinessEntity* entity = new BusinessEntity();

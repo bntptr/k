@@ -8,8 +8,11 @@ namespace graphique
     class TerrainServiceFactory
     {
         public:
-            static ITerrainService* createService(irr::IrrlichtDevice *device, business::IGroundEntity *ground) {
-                return new TerrainService(device, ground);
+            static ITerrainService* createService(
+                ISceneNodeService *service,
+                business::IGroundEntity *ground
+            ) {
+                return new TerrainService(service, ground);
             }
     };
 } // graphique

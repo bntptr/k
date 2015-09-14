@@ -8,8 +8,11 @@ namespace graphique
     class SkyServiceFactory
     {
         public:
-            static ISkyService* createService(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity) {
-                return new SkyService(device, skyEntity);
+            static ISkyService* createService(
+                ISceneNodeService *service,
+                business::ISkyEntity *skyEntity
+            ) {
+                return new SkyService(service, skyEntity);
             }
     };
 } // graphique

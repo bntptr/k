@@ -13,17 +13,20 @@ namespace graphique
             ISkyView *sky;
 
         public:
-            SkyService(irr::IrrlichtDevice *device, business::ISkyEntity *skyEntity){
+            SkyService(
+                ISceneNodeService *service,
+                business::ISkyEntity *skyEntity
+            ){
                 this->thisInstance = this;
-                this->sky = SkyViewFactory::createEntity(device, skyEntity);
+                this->sky = SkyViewFactory::createEntity(service, skyEntity);
             };
             ~SkyService(){};
 
-            scene::ISceneNode* getSkyBox(){
+            ISceneNode* getSkyBox(){
                 return this->sky->getSkyBox();
             }
 
-            scene::ISceneNode* getSkyDome(){
+            ISceneNode* getSkyDome(){
                 return this->sky->getSkyDome();
             }
 

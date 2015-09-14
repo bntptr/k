@@ -2,7 +2,7 @@
 #define GRAPHIQUE_LOAD_VIEW_2D_H
 
 #include "IGraphiqueAction.h"
-#include "../View/View/View2dFactory.h"
+#include "../View2d/View2dFactory.h"
 
 namespace graphique
 {
@@ -20,7 +20,7 @@ namespace graphique
                 );
                 engine->getView()->init();
                 engine->getView()->build(engine->getBusiness());
-                return -1;
+                return 0;
             }
     };
 } // graphique
